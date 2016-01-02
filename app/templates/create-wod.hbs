@@ -1,0 +1,29 @@
+Title:{{input type="text" value=newTitle}}<br>
+WOD Date:{{input type="date" value=newDate}}<br>
+Strength:{{input type="text" value=newStrength}}<br>
+Conditioning:{{input type="text" value=newConditioning}}<br>
+{{image-preview}}
+<!-- <canvas>
+<img src="" alt="" width="500px">
+</canvas> -->
+{{#each model as |tag|}}
+  <h3>{{tag.value}}</h3>
+{{/each}}
+
+
+<!-- {{create-tag allTags=model}} -->
+Tags:{{ember-selectize
+  content=model
+  optionValuePath="content.id"
+  optionLabelPath="content.value"
+  multiple=true
+  selection=selectedTags
+  placeholder="Select an item" }}
+
+
+<button {{action "createWod"}}>Create WOD</button>
+
+
+<canvas id="canvas">
+
+</canvas>
