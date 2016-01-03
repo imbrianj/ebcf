@@ -1,0 +1,13 @@
+Title:<h2>{{model.title}}</h2>
+Date:<h3>{{model.date}}</h3>
+Strength:<pre>{{model.strength}}</pre>
+Conditioning:<h3>{{model.conditioning}}</h3>
+
+Tags:
+{{#each model.tags as |tag|}}
+  <h3>{{tag.value}}</h3>
+{{/each}}
+
+<div>
+  <img  width=300px src={{model.image}}>
+</div>

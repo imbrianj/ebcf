@@ -1,14 +1,16 @@
 Title:{{input type="text" value=newTitle}}<br>
 WOD Date:{{input type="date" value=newDate}}<br>
-Strength:{{input type="text" value=newStrength}}<br>
-Conditioning:{{input type="text" value=newConditioning}}<br>
-{{image-preview}}
-<!-- <canvas>
-<img src="" alt="" width="500px">
-</canvas> -->
-{{#each model as |tag|}}
+Strength:{{textarea value=newStrength}}<br>
+Conditioning:{{textarea value=newConditioning}}<br>
+{{s3-upload id="new-image" onComplete="imageUploadComplete"}}
+<div id="wodImage">
+  <img  src={{imageUrl}}>
+</div>
+
+
+<!-- {{#each model as |tag|}}
   <h3>{{tag.value}}</h3>
-{{/each}}
+{{/each}} -->
 
 
 <!-- {{create-tag allTags=model}} -->
@@ -21,6 +23,8 @@ Tags:{{ember-selectize
   placeholder="Select an item" }}
 
 
+
+<br>
 <button {{action "createWod"}}>Create WOD</button>
 
 

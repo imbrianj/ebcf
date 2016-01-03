@@ -1,13 +1,15 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  selectedTags: [],
+  imageUrl: "",
   actions: {
     createWod() {
      var title = this.get('newTitle');
-     var date = this.get('newDate');
+     var date = moment().toDate(this.get('newDate'));
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
-     var imageSource = document.getElementById('img').src;
+     var imageSource = this.get('imageUrl');
 
      var wod = this.store.createRecord('wod', {
         title: title,
@@ -16,15 +18,28 @@ export default Ember.Controller.extend({
         conditioning: conditioning,
         image: imageSource,
       });
-      debugger;
-      // var tags = this.store.findAll('tag');
 
+      var tags = this.get('selectedTags');
+      tags.forEach(function(tag){
+        wod.get("tags").pushObject(tag);
+      });
+      debugger;
+
+      wod.save();
+    },
+    imageUploadComplete(url) {
+      this.set('imageUrl', url);
+    },
+    createTag(text) {
       // var tag = this.store.createRecord('tag', {
-      //     value: "push ups"
+      //   value: text
       // });
       // tag.save();
+      // // this.get('selectedTags').pushObject(tag);
+      // this.set('selectedTags', [tag]);
+      // debugger;
 
-      // wod.save();
+      // .val(text);
     }
   }
 });

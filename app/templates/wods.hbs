@@ -1,0 +1,16 @@
+{{#each model as |wod|}}
+  Title:<h2>{{wod.title}}</h2>
+  Date:<h3>{{wod.date}}</h3>
+  Strength:<pre>{{wod.strength}}</pre>
+  Conditioning:<h3>{{wod.conditioning}}</h3>
+
+  Tags:
+  {{#each model.tags as |tag|}}
+    <h3>{{tag.value}}</h3>
+  {{/each}}
+
+  <div>
+    <img  width=300px src={{wod.image}}>
+  </div>
+
+{{/each}}
