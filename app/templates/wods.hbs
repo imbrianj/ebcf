@@ -2,15 +2,22 @@
   Title:<h2>{{wod.title}}</h2>
   Date:<h3>{{wod.date}}</h3>
   Strength:<pre>{{wod.strength}}</pre>
-  Conditioning:<h3>{{wod.conditioning}}</h3>
+  Conditioning:<pre>{{wod.conditioning}}</pre>
 
-  Tags:
-  {{#each model.tags as |tag|}}
-    <h3>{{tag.value}}</h3>
-  {{/each}}
-
+  {{#if wod.tags}}
+    Tags:
+    {{#each wod.tags as |tag|}}
+      <h3>{{tag.value}}</h3>
+    {{/each}}
+  {{else}}
+    No Tags
+  {{/if}}
   <div>
     <img  width=300px src={{wod.image}}>
   </div>
 
+  {{#link-to 'wod' wod}}
+    Read More
+  {{/link-to}}
+  <br>
 {{/each}}

@@ -23,9 +23,14 @@ export default Ember.Controller.extend({
       tags.forEach(function(tag){
         wod.get("tags").pushObject(tag);
       });
-      debugger;
+  
+      wod.save().then(function(){
+        tags.forEach(function(tag){
+          tag.get("wods").pushObject(wod);
+          tag.save();
+        });
+      });
 
-      wod.save();
     },
     imageUploadComplete(url) {
       this.set('imageUrl', url);

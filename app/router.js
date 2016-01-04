@@ -12,6 +12,10 @@ Router.map(function() {
   this.route('create-wod');
   this.route('wods');
   this.route('wod', { path: '/wod/:wod_id' });
+  this.route('tag', { path: '/tag/:tag_id'});
+  this.route('getting-started');
+  this.route('schedule');
+  this.route('pricing');
 });
 
 export default Router;
