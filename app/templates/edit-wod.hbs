@@ -1,0 +1,25 @@
+<h2> Edit Wod</h2>
+
+
+Title:{{input type="text" value=model.title}}<br>
+WOD Date:{{input type="date" value=model.date}}<br>
+Strength:{{textarea value=model.strength}}<br>
+Conditioning:{{textarea value=model.conditioning}}<br>
+{{s3-upload id="new-image" onComplete="imageUploadComplete"}}
+<div id="wodImage">
+  <!-- <img  src={{imageUrl}}> -->
+  <img  src={{model.image}}>
+
+</div>
+
+
+{{#each model.tags as |tag|}}
+  <h3>{{tag.value}}</h3>
+{{/each}}
+
+
+<!-- {{create-tag allTags=model}} -->
+{{tag-select2 tags=allTags selectedTags=newTags}}
+
+<br>
+<button {{action "updateWod"}}>Update WOD</button>

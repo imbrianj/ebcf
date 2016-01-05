@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  selectedTags: [],
+  // selectedTags: [],
   imageUrl: "",
   actions: {
     createWod() {
@@ -19,11 +19,11 @@ export default Ember.Controller.extend({
         image: imageSource,
       });
 
-      var tags = this.get('selectedTags');
+      var tags = this.get('tagsForWod');
       tags.forEach(function(tag){
         wod.get("tags").pushObject(tag);
       });
-  
+
       wod.save().then(function(){
         tags.forEach(function(tag){
           tag.get("wods").pushObject(wod);

@@ -14,18 +14,27 @@ Conditioning:{{textarea value=newConditioning}}<br>
 
 
 <!-- {{create-tag allTags=model}} -->
-Tags:{{ember-selectize
+<!-- Tags:{{ember-selectize
   content=model
   optionValuePath="content.id"
   optionLabelPath="content.value"
   multiple=true
   selection=selectedTags
-  placeholder="Select an item" }}
+  placeholder="Select an item" }} -->
+<!-- <select {{action 'change' on='change'}}>
+  {{#each model key="@index" as |tag|}}
+    <option value="{{tag}}" >
+      {{tag.value}}
+    </option>
+  {{/each}}
+</select> -->
+{{tag-select2 tags=model selectedTags=tagsForWod}}
+<!-- {{select-2
+    content=model
+    value=selectedTags
+    multiple=true
+    placeholder="Select Tags"
+}} -->
 
 <br>
 <button {{action "createWod"}}>Create WOD</button>
-
-
-<canvas id="canvas">
-
-</canvas>
