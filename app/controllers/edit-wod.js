@@ -6,7 +6,20 @@ export default Ember.Controller.extend({
   }.property('model'),
   actions: {
     updateWod(){
-      this.get('model').save();
+      var wod = this.get('model');
+      var tags = this.get('newTags');
+      if (tags) {
+        tags.forEach(function(tag){
+          wod.get("tags").pushObject(tag);
+          tag.get("wods").pushObject(wod);
+          tag.save();
+        });
+      }
+      
+      var self = this;
+      wod.save().then(function() {
+        self.transitionToRoute('wod', wod);
+      });
     }
   },
   // allTags: this.store.get('tags'),
