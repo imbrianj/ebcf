@@ -1,0 +1,29 @@
+.ui.button.primary {
+  background-color: #FC4513;
+}
+
+.ui.button.primary:hover {
+  background-color: #e33303;
+}
+
+#image-upload-wrapper label {
+  /*display: block;
+  background:  #FC4513;
+  padding: 10px;*/
+}
+
+#image-upload-wrapper input {
+  display: none;
+}
+
+#selectTags input {
+  border: none;
+}
+
+.select2-container {
+  min-width: 250px;
+}
+.select2-results .select2-highlighted {
+    background: #E0E1E2;
+    color: #000;
+}

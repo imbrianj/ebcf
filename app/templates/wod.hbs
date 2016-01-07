@@ -5,10 +5,16 @@ Conditioning:<pre>{{model.conditioning}}</pre>
 
 Tags:
 {{#each model.tags as |tag|}}
-  {{tag.value}}
+  <div class="ui animated button">
+    <div class="visible content">
+      {{tag.value}}
+    </div>
+    <div class="hidden content">
+      <i class="right arrow icon"></i>
+    </div>
+  </div>
 {{/each}}
 
 <div>
   <img  width=300px src={{model.image}}>
 </div>
-<button {{action "getWod"}}>Create WOD</button>

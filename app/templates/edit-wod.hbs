@@ -14,7 +14,14 @@ Conditioning:{{textarea value=model.conditioning}}<br>
 
 
 {{#each model.tags as |tag|}}
-  <h3>{{tag.value}}</h3>
+  <div class="ui animated button" {{action "removeTag" tag}}>
+    <div class="visible content">
+      {{tag.value}}
+    </div>
+    <div class="hidden content">
+      <i class="remove icon"></i>
+    </div>
+  </div>
 {{/each}}
 
 
@@ -22,4 +29,4 @@ Conditioning:{{textarea value=model.conditioning}}<br>
 {{tag-select2 tags=allTags selectedTags=newTags}}
 
 <br>
-<button {{action "updateWod"}}>Update WOD</button>
+<button class="ui primary button"{{action "updateWod"}}>Update WOD</button>

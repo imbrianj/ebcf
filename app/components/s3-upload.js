@@ -14,9 +14,14 @@ export default EmberUploader.FileField.extend({
 
     uploader.on('didUpload', function(response){
       var res = $(response);
-
       var url = decodeURIComponent(res.find('Location')[0].textContent);
       self.sendAction('onComplete', url);
+    });
+
+    uploader.on('didError', function(jqXHR, testStatus, errorThrown){
+      var errorText = $(jqXHR.responseText).find('Message')[0].textContent;
+
+      self.sendAction('onError', errorThrown, errorText);
     });
 
     if (!Ember.isEmpty(files)) {

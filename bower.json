@@ -16,7 +16,8 @@
     "selectize": "~0.12.1",
     "select2": "3.5.2",
     "moment": ">= 2.8.0",
-    "moment-timezone": ">= 0.1.0"
+    "moment-timezone": ">= 0.1.0",
+    "semantic-ui": "~2.1.7"
   },
   "resolutions": {
     "ember": "^2.0.0"

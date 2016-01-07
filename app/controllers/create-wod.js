@@ -1,8 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  // selectedTags: [],
+  uploadError: false,
+  error: "",
+  errorText: "",
   imageUrl: "",
+  setImagePreview: function(){
+    this.set('imageUrl', "/assets/place-holder-image.png");
+  }.on('init'),
   actions: {
     createWod() {
      var title = this.get('newTitle');
@@ -33,7 +38,13 @@ export default Ember.Controller.extend({
 
     },
     imageUploadComplete(url) {
+      this.set('uploadError', false);
       this.set('imageUrl', url);
+    },
+    imageUploadFailed(error, errorText){
+      this.set('uploadError', true);
+      this.set('error', error);
+      this.set('errorText', errorText);
     },
     createTag(text) {
       // var tag = this.store.createRecord('tag', {

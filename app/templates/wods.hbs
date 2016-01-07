@@ -1,4 +1,38 @@
-{{#each model as |wod|}}
+<!-- {{#ui-search url="api/v1/tags"}}
+  <div class="ui icon input">
+    <input class="prompt" type="text" placeholder="Common passwords...">
+    <i class="search icon"></i>
+  </div>
+  <div class="results"></div>
+{{/ui-search}} -->
+
+<!-- <div class="ui icon input">
+  <input type="text" placeholder="Search By Tag...">
+  <i class="search icon"></i>
+</div> -->
+<!-- {{tag-select2 class="ui dropdown" tags=allTags selectedTags=tagsForWod}} -->
+<!-- {{#ui-dropdown class="selection"}}
+  <input type="hidden" name="gender">
+    <i class="search icon"></i>
+    <div class="default text">Search By Tag...</div>
+    <div class="menu">
+      {{#each tags as |tag|}}
+        <div class="item" data-value=tag>{{tag.value}}</div>
+      {{/each}}
+
+    </div>
+{{/ui-dropdown}} -->
+
+{{select-2
+    content=tags
+    value=searchedTags
+    multiple=true
+    placeholder="Search Tags"
+}}
+
+
+
+{{#each wods as |wod|}}
   Title:<h2>{{wod.title}}</h2>
   Date:<h3>{{wod.date}}</h3>
   Strength:<pre>{{wod.strength}}</pre>
