@@ -2,13 +2,13 @@
   <div class="column">
       <div class="row">
         <div class="ui medium header">Title</div>
-        <div class="ui input focus">
-          <input type="text" value={{newTitle}}>
+        <div class="ui input">
+          {{input type="text" value=newTitle}}
         </div>
 
         <div class="ui medium header">WOD Date</div>
-        <div class="ui input focus">
-          <input type="date" value={{newDate}}>
+        <div class="ui input">
+          {{input type="date" value=newDate}}
         </div>
     </div>
     <div class="row">
@@ -17,7 +17,7 @@
 
       <div class="ui medium header">Conditioning</div>
       {{textarea rows="10" value=newConditioning}}
-    </div>  
+    </div>
   </div>
 
   <div class="column">
@@ -42,43 +42,28 @@
       <label class="ui button" for="new-image"> Upload Image</label>
         {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
     </div>
+
+    <div id="selectTags">
+      <label>Select Tags</label>
+      {{tag-select2 class="ui dropdown" tags=tags selectedTags=tagsForWod}}
+    </div>
+
+    or
+
+    <button class="ui button" {{action "openModal"}}> Create New Tag</button>
+
   </div>
 
-
-  <!-- {{#each model as |tag|}}
-    <h3>{{tag.value}}</h3>
-  {{/each}} -->
-
-
-  <!-- {{create-tag allTags=model}} -->
-  <!-- Tags:{{ember-selectize
-    content=model
-    optionValuePath="content.id"
-    optionLabelPath="content.value"
-    multiple=true
-    selection=selectedTags
-    placeholder="Select an item" }} -->
-  <!-- <select {{action 'change' on='change'}}>
-    {{#each model key="@index" as |tag|}}
-      <option value="{{tag}}" >
-        {{tag.value}}
-      </option>
-    {{/each}}
-  </select> -->
-  <div id="selectTags">
-    <label>Select Tags</label>
-    {{tag-select2 class="ui dropdown" tags=model selectedTags=tagsForWod}}
-  </div>
-  <!-- {{select-2
-      content=model
-      value=selectedTags
-      multiple=true
-      placeholder="Select Tags"
-  }} -->
-
-  <br>
-  <!-- <button {{action "createWod"}}>Create WOD</button> -->
   <button class="ui primary button"{{action "createWod"}}>Create WOD</button>
-
-
 </div>
+
+<!-- {{#if notLoggedIn}}
+  {{password-modal loginSuccess="logIn"}}
+{{/if}} -->
+
+<!-- {{#if showModal}}
+  {{create-tag closeModal="close"}}
+{{/if}} -->
+{{password-modal loginSuccess="logIn"}}
+
+{{create-tag closeModal="close"}}

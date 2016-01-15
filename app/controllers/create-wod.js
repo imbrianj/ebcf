@@ -5,13 +5,16 @@ export default Ember.Controller.extend({
   error: "",
   errorText: "",
   imageUrl: "",
+  showModal: false,
+  notLoggedIn: true,
   setImagePreview: function(){
     this.set('imageUrl', "/assets/place-holder-image.png");
   }.on('init'),
   actions: {
     createWod() {
      var title = this.get('newTitle');
-     var date = moment().toDate(this.get('newDate'));
+     var date = moment(this.get('newDate')).toDate();
+     debugger;
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
      var imageSource = this.get('imageUrl');
@@ -36,6 +39,8 @@ export default Ember.Controller.extend({
         });
       });
 
+      this.transitionToRoute('wod', wod);
+
     },
     imageUploadComplete(url) {
       this.set('uploadError', false);
@@ -46,16 +51,23 @@ export default Ember.Controller.extend({
       this.set('error', error);
       this.set('errorText', errorText);
     },
-    createTag(text) {
-      // var tag = this.store.createRecord('tag', {
-      //   value: text
-      // });
-      // tag.save();
-      // // this.get('selectedTags').pushObject(tag);
-      // this.set('selectedTags', [tag]);
-      // debugger;
-
-      // .val(text);
+    openModal() {
+      $('#tag-modal').modal('show');
+    },
+    close(tagValue) {
+      // this.set('showModal', false);
+      if (tagValue) {
+        this.send('createATag', tagValue);
+      }
+    },
+    logIn() {
+      this.set('notLoggedIn', false);
+    },
+    createATag(tagValue) {
+      var tag = this.store.createRecord('tag', {
+         value: tagValue
+       });
+       tag.save();
     }
   }
 });

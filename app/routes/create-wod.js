@@ -2,6 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('tag');
+    return Ember.RSVP.hash({
+      tags: this.store.findAll('tag')
+    });
+  },
+
+  setupController(controller, model) {
+    controller.set('tags', model.tags);
   }
 });

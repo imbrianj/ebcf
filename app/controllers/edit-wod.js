@@ -16,18 +16,19 @@ export default Ember.Controller.extend({
   }.property('model'),
   tagsIdsToRemove: [],
   imageUrl: "",
+  notLoggedIn: true,
   actions: {
     updateWod() {
       var wod = this.get('model');
       var tags = this.get('newTags');
       var tags_to_remove = this.get('tagsIdsToRemove');
 
-      var date = moment().toDate(wod.get('date'));
+      var date = moment(wod.get('date')).toDate();
       wod.set('date', date);
 
       var image = this.get('imageUrl');
       wod.set('image', image);
-      
+
       if (tags_to_remove) {
         tags_to_remove.forEach(function(tag){
           tag.get('wods').removeObject(wod);
@@ -57,6 +58,9 @@ export default Ember.Controller.extend({
     },
     imageUploadComplete(url) {
       this.set('imageUrl', url);
+    },
+    logIn() {
+      this.set('notLoggedIn', false);
     }
   }
 });

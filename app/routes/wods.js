@@ -6,8 +6,6 @@ export default Ember.Route.extend({
       wods: this.store.findAll('wod'),
       tags: this.store.findAll('tag')
     });
-
-    // return this.store.findAll('wod');
   },
 
   setupController(controller, model) {

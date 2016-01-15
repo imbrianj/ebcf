@@ -24,9 +24,11 @@ Conditioning:{{textarea value=model.conditioning}}<br>
   </div>
 {{/each}}
 
-
-<!-- {{create-tag allTags=model}} -->
 {{tag-select2 tags=allTags selectedTags=newTags}}
 
 <br>
 <button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
+
+{{#if notLoggedIn}}
+  {{password-modal loginSuccess="logIn"}}
+{{/if}}

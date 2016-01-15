@@ -12,7 +12,15 @@
 </div>
 
 <div class="ui container">
+	<!-- {{#create-tag enabled=true title="--Simple Modal--"}}
+		<div class="ui input">
+			<input type="text" value={{newTag}}>
+		</div>
+ {{/create-tag}} -->
 	{{outlet}}
+	<!-- {{outlet 'modal'}} -->
+	{{modal}}
+
 </div>
 
 <!-- {{#link-to "getting-started"}}Getting Started{{/link-to}}
