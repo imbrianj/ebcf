@@ -14,7 +14,6 @@ export default Ember.Controller.extend({
     createWod() {
      var title = this.get('newTitle');
      var date = moment(this.get('newDate')).toDate();
-     debugger;
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
      var imageSource = this.get('imageUrl');
@@ -27,16 +26,21 @@ export default Ember.Controller.extend({
         image: imageSource,
       });
 
+
       var tags = this.get('tagsForWod');
-      tags.forEach(function(tag){
-        wod.get("tags").pushObject(tag);
-      });
+      if (tags) {
+        tags.forEach(function(tag){
+          wod.get("tags").pushObject(tag);
+        });
+      }
 
       wod.save().then(function(){
-        tags.forEach(function(tag){
-          tag.get("wods").pushObject(wod);
-          tag.save();
-        });
+        if (tags) {
+          tags.forEach(function(tag){
+            tag.get("wods").pushObject(wod);
+            tag.save();
+          });
+        }
       });
 
       this.transitionToRoute('wod', wod);
