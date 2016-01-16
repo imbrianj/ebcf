@@ -3,10 +3,9 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   notLoggedIn: true,
   loginError: false,
-  // showPasswordModa: function(){
-  //   debugger;
-  //   $('#password-modal').modal('show');
-  // }.on('load'),
+  showPasswordModa: function(){
+    $('#password-modal').modal('setting', 'closable', false).modal('show');
+  }.on('didInsertElement'),
   actions: {
     enterPassword(){
       var password = this.get('password');
@@ -27,13 +26,7 @@ export default Ember.Component.extend({
           self.set('loginError', true);
         }
       });
-    },
-    onApprove(){
-      debugger;
-    },
-    onDeny(){
-      debugger;
+      return false;
     }
-
   }
 });

@@ -34,6 +34,8 @@ export default Ember.Controller.extend({
         });
       }
 
+      var self = this;
+
       wod.save().then(function(){
         if (tags) {
           tags.forEach(function(tag){
@@ -41,9 +43,8 @@ export default Ember.Controller.extend({
             tag.save();
           });
         }
+        self.transitionToRoute('wod', wod);
       });
-
-      this.transitionToRoute('wod', wod);
 
     },
     imageUploadComplete(url) {
