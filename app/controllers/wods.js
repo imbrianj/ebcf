@@ -23,7 +23,6 @@ export default Ember.Controller.extend({
       }
     },
     dateInputChanged(date) {
-      debugger;
       if (date) {
         // var filteredWods = [];
         // this.get('wods').forEach( function(wod){
@@ -35,10 +34,14 @@ export default Ember.Controller.extend({
         // this.set('wods', filteredWods);
         // var filteredWods = this.store.findAll('wod', {date: date});
         var self = this;
-        this.store.query('wod', { filter: { date: date } }).then(function(wods){
-          debugger;
-          self.set('wods', wods);
+        var filtered_wods = this.get('wods').filter(function (wod) {
+          return date.valueOf() == wod.get('date').valueOf();
         });
+        this.set('wods', filtered_wods);
+        // this.store.query('wod', { filter: { date: date } }).then(function(wods){
+        //   debugger;
+        //   self.set('wods', wods);
+        // });
       } else {
         this.set('wods', this.store.findAll('wod'));
       }
