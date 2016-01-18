@@ -1,20 +1,31 @@
-Title:<h2>{{model.title}}</h2>
-Date:<h3>{{model.date}}</h3>
-Strength:<pre>{{model.strength}}</pre>
-Conditioning:<pre>{{model.conditioning}}</pre>
-
-Tags:
-{{#each model.tags as |tag|}}
-  <div class="ui animated button">
-    <div class="visible content">
-      {{tag.value}}
+<div class="ui two column grid">
+  <div class="column">
+    <div class="row">
+      {{#if model.image}}
+        <img  width=300px src={{model.image}}>
+      {{else}}
+        <img  width=300px src="/assets/place-holder-image.png">
+      {{/if}}
     </div>
-    <div class="hidden content">
-      <i class="right arrow icon"></i>
+    <div class="row">
+      {{#each model.tags as |tag|}}
+        <div class="ui animated button">
+          <div class="visible content">
+            {{tag.value}}
+          </div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        </div>
+      {{/each}}
     </div>
   </div>
-{{/each}}
 
-<div>
-  <img  width=300px src={{model.image}}>
+  <div class="column">
+    <h3>{{model.prettyDate}}</h3>
+    <div class="ui header">Strength</div>
+    <pre>{{model.strength}}</pre>
+    <div class="ui header">Conditioning</div>
+    <pre>{{model.conditioning}}</pre>
+  </div>
 </div>

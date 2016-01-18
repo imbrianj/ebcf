@@ -24,24 +24,10 @@ export default Ember.Controller.extend({
     },
     dateInputChanged(date) {
       if (date) {
-        // var filteredWods = [];
-        // this.get('wods').forEach( function(wod){
-        //   var wodDate = moment(wod.get('date')).format('LL')
-        //   if (wodDate === moment(date).format('LL')){
-        //     filteredWods.pushObject(wod);
-        //   }
-        // });
-        // this.set('wods', filteredWods);
-        // var filteredWods = this.store.findAll('wod', {date: date});
-        var self = this;
         var filtered_wods = this.get('wods').filter(function (wod) {
           return date.valueOf() == wod.get('date').valueOf();
         });
         this.set('wods', filtered_wods);
-        // this.store.query('wod', { filter: { date: date } }).then(function(wods){
-        //   debugger;
-        //   self.set('wods', wods);
-        // });
       } else {
         this.set('wods', this.store.findAll('wod'));
       }

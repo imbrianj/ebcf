@@ -8,6 +8,7 @@
 
 {{#link-to "about"}}About{{/link-to}}
 {{#link-to "contact"}}Click here to contact us.{{/link-to}} -->
-{{#each model as |tag|}}
-  <h2>{{tag.value}}</h2>
+{{model.title}}
+{{#each model as |wod|}}
+  <h2>{{wod.title}}</h2>
 {{/each}}

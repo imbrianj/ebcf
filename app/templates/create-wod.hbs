@@ -1,3 +1,5 @@
+<div class="ui large header">Create WOD</div>
+
 <div class="ui two column grid">
   <div class="column">
       <div class="row">
@@ -11,6 +13,7 @@
           {{input type="date" value=newDate}}
         </div>
     </div>
+
     <div class="row">
       <div class="ui medium header">Strength</div>
       {{textarea rows="10" value=newStrength}}
@@ -57,13 +60,6 @@
   <button class="ui primary button"{{action "createWod"}}>Create WOD</button>
 </div>
 
-<!-- {{#if notLoggedIn}}
-  {{password-modal loginSuccess="logIn"}}
-{{/if}} -->
-
-<!-- {{#if showModal}}
-  {{create-tag closeModal="close"}}
-{{/if}} -->
 {{password-modal loginSuccess="logIn"}}
 
 {{create-tag closeModal="close"}}

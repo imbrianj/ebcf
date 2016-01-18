@@ -28,6 +28,25 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.store.findAll('tag');
+    // return this.store.findAll('tag');
+    // return this.store.query('wod', { title: "WOD 1" } );
+    // var ajaxOptions = {
+    //   url: '/api/v1/wods?filter[simple][title]=WOD+1',
+    //   data: {},
+    //   type: 'GET',
+    //   dataType: 'json'
+    // };
+    // return Ember.$.ajax(ajaxOptions);
+    // return Ember.$.getJSON('/api/v1/wods?filter[simple][title]=WOD+1');
+    // var today = moment().startOf("day").toDate()
+    var date = moment().startOf("day").toDate();
+
+    return this.store.queryRecord('wod', {
+      filter: {
+        simple: {
+          date: date
+        }
+      }
+    });
   }
 });

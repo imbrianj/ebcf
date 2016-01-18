@@ -7,5 +7,10 @@ export default DS.Model.extend({
   strength: DS.attr('string'),
   conditioning: DS.attr('string'),
   description: DS.attr('string'),
-  tags: DS.hasMany('tag', {async: true})
+  tags: DS.hasMany('tag', {async: true}),
+
+  prettyDate: Ember.computed('date', function() {
+    // return `${this.get('firstName')} ${this.get('lastName')}`;
+    return moment(this.get('date')).format('LL')
+  })
 });
