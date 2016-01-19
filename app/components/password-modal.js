@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import CryptoJS from 'npm:crypto-js';
 
 export default Ember.Component.extend({
   notLoggedIn: true,
@@ -10,10 +11,11 @@ export default Ember.Component.extend({
     enterPassword(){
       var password = this.get('password');
       var self = this;
+      var sha1 = CryptoJS.SHA1(password).toString();
       var ajaxOptions = {
         url: '/api/v1/verify-password',
         data: {
-          password: password
+          password: sha1
         },
         type: 'POST',
         dataType: 'json'
