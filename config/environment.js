@@ -9,7 +9,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       // 'style-src': "'self' 'unsafe-inline'",
       'img-src': "'self' http://ebcftest.s3.amazonaws.com/",
-      'connect-src' : "'self' http://localhost:4500 http://ebcftest.s3.amazonaws.com/ https://ebcftest.s3-us-west-2.amazonaws.com https://ebcf-server.herokuapp.com/",
+      'connect-src' : "'self' http://localhost:4500 http://ebcftest.s3.amazonaws.com/ https://ebcftest.s3-us-west-2.amazonaws.com https://ebcf-server.herokuapp.com/ http://jsawebsitepublic.s3.amazonaws.com/",
       'font-src': "'self' data:"
     },
     EmberENV: {

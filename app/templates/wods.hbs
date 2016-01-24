@@ -1,24 +1,33 @@
-<div class="ui two column grid">
-  <div class="ui column">
+<h1 class="ui header">WOD Archive</h1>
+  <div class="ui sticky right floated segment search-wods">
+    {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
+    {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
+  </div>
+
+<!-- <div class="ui stackable two column grid"> -->
+  <div class="ui column ten wide">
 
     <div class="ui two column grid">
       {{#each wods as |wod|}}
-        <div class="ui column">
+        <div class="ui column underlined">
           {{#if wod.image}}
             <img  class="small-img" src={{wod.image}}>
           {{else}}
             <img  class="small-img" src="/assets/place-holder-image.png">
           {{/if}}
         </div>
-        <div class="ui column">
+        <div class="ui column underlined">
           <!-- <div class="ui header">{{wod.title}}</div> -->
-          <div class="ui header">{{wod.prettyDate}}</div>
+          <div class="trunckated">
+            <div class="ui header">{{wod.prettyDate}}</div>
 
-          <div class="ui header">Strength</div>
-          <pre>{{wod.strength}}</pre>
+              <div class="ui header">Strength</div>
+              <div class="pre">{{wod.strength}}</div>
 
-          <div class="ui header">Conditioning</div>
-          <pre>{{wod.conditioning}}</pre>
+              <div class="ui header">Conditioning</div>
+              <div class="pre">{{wod.conditioning}}</div>
+          </div>
+
 
         <!-- {{#if wod.tags}}
           Tags:
@@ -30,7 +39,7 @@
         {{/if}} -->
 
 
-        {{#link-to 'wod' wod}}
+        {{#link-to 'wod' wod class="read-more"}}
           Read More
         {{/link-to}}
       </div>
@@ -38,15 +47,18 @@
     </div>
   </div>
 
-  <div class="ui column">
+  <div class="computer only column six wide">
     <!-- {{select-2
         content=tags
         value=searchedTags
         multiple=true
         placeholder="Search Tags"
     }} -->
-    {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
-    {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
+    <!-- <div class="ui sticky right floated segment search-wods">
+      {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
+      {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
+    </div> -->
   </div>
 
-</div>
+
+<!-- </div> -->
