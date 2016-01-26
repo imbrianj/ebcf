@@ -1,33 +1,55 @@
-<h2> Edit Wod</h2>
-
-
-Title:{{input type="text" value=model.title}}<br>
-WOD Date:{{input type="date" value=model.date}}<br>
-Strength:{{textarea value=model.strength}}<br>
-Conditioning:{{textarea value=model.conditioning}}<br>
-{{s3-upload id="new-image" onComplete="imageUploadComplete"}}
-<div id="wodImage">
-  <!-- <img  src={{imageUrl}}> -->
-  <img  src={{model.image}}>
-
+<div class="banner">
+  <h1 class="ui header">Edit WOD</h1>
 </div>
 
+<div class="ui centered two column grid">
+  <div class="six wide column">
+    <div class="row">
+      {{#if wod.image}}
+        <img  width=300px src={{wod.image}}>
+      {{else}}
+        <img  width=300px src="/assets/place-holder-image.png">
+      {{/if}}
 
-{{#each model.tags as |tag|}}
-  <div class="ui animated button" {{action "removeTag" tag}}>
-    <div class="visible content">
-      {{tag.value}}
+      {{#if uploadError}}
+        <div>
+          {{error}}
+          {{errorText}}
+        </div>
+      {{/if}}
+
+      <div class="image-upload-wrapper">
+        <label class="ui button" for="new-image"> Upload Image</label>
+          {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
+      </div>
     </div>
-    <div class="hidden content">
-      <i class="remove icon"></i>
+    <div class="row">
+      {{#each wod.tags as |tag|}}
+        <div class="ui animated button" {{action "removeTag" tag}}>
+          <div class="visible content">
+            {{tag.value}}
+          </div>
+          <div class="hidden content">
+            <i class="remove icon"></i>
+          </div>
+        </div>
+      {{/each}}
+          {{tag-select2 tags=tags selectedTags=newTags}}
     </div>
   </div>
-{{/each}}
 
-{{tag-select2 tags=tags selectedTags=newTags}}
+  <div class="two wide column">
+    {{input type="date" value=wod.prettyDate}}
+    <div class="ui header">Strength</div>
+    {{textarea value=wod.strength placeholder=wod.strength}}
+    <div class="ui header">Conditioning</div>
+    {{textarea value=wod.conditioning placeholder=wod.conditioning}}
 
-<br>
-<button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
+    <button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
+
+  </div>
+
+</div>
 
 {{#if notLoggedIn}}
   {{password-modal loginSuccess="logIn"}}

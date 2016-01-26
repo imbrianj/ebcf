@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  uploadError: false,
   allTags: function() {
     // var tags = this.store.findAll('tag').then(function(){
     //   var wod_tags = this.get('model').get('tags');
@@ -19,15 +20,15 @@ export default Ember.Controller.extend({
   notLoggedIn: true,
   actions: {
     updateWod() {
-      var wod = this.get('model');
+      var wod = this.get('wod');
       var tags = this.get('newTags');
       var tags_to_remove = this.get('tagsIdsToRemove');
 
-      var date = moment(wod.get('date')).toDate();
+      var date = moment(wod.get('prettyDate')).toDate();
       wod.set('date', date);
 
-      var image = this.get('imageUrl');
-      wod.set('image', image);
+      var image = wod.get('image');
+      // wod.set('image', image);
 
       if (tags_to_remove) {
         tags_to_remove.forEach(function(tag){
@@ -42,7 +43,7 @@ export default Ember.Controller.extend({
           tag.save();
         });
       }
-
+      debugger;
       var self = this;
       wod.save().then(function() {
         self.transitionToRoute('wod', wod);
@@ -57,7 +58,14 @@ export default Ember.Controller.extend({
       // var new_tags = wod_tags.filter(function(i) {return [tag].indexOf(i) < 0;});
     },
     imageUploadComplete(url) {
-      this.set('imageUrl', url);
+      // this.set('imageUrl', url);
+      this.set('uploadError', false);
+      this.get('wod').set('image', url);
+    },
+    imageUploadFailed(error, errorText){
+      this.set('uploadError', true);
+      this.set('error', error);
+      this.set('errorText', errorText);
     },
     logIn() {
       this.set('notLoggedIn', false);

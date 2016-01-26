@@ -1,64 +1,62 @@
-<h1 class="ui header">WOD Archive</h1>
-  <div class="ui sticky right floated segment search-wods">
-    {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
-    {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
-  </div>
+<div class="banner">
+  <h1 class="ui header">WOD Archive</h1>
+</div>
+
+<!-- <div class="ui sticky right floated segment search-wods">
+  {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
+  {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
+</div> -->
+<!-- <div class="ui container"> -->
+
 
 <!-- <div class="ui stackable two column grid"> -->
-  <div class="ui column ten wide">
 
-    <div class="ui two column grid">
-      {{#each wods as |wod|}}
-        <div class="ui column underlined">
-          {{#if wod.image}}
-            <img  class="small-img" src={{wod.image}}>
-          {{else}}
-            <img  class="small-img" src="/assets/place-holder-image.png">
-          {{/if}}
-        </div>
-        <div class="ui column underlined">
-          <!-- <div class="ui header">{{wod.title}}</div> -->
-          <div class="trunckated">
-            <div class="ui header">{{wod.prettyDate}}</div>
+  <!-- <div class="ui column ten wide"> -->
 
-              <div class="ui header">Strength</div>
-              <div class="pre">{{wod.strength}}</div>
+    <div class="ui stackable centered two column grid">
 
-              <div class="ui header">Conditioning</div>
-              <div class="pre">{{wod.conditioning}}</div>
-          </div>
+      <div class="column">
+        {{#each wods as |wod|}}
 
+          <div class="ui two column grid">
+              <!-- <div class="two column row"> -->
 
-        <!-- {{#if wod.tags}}
-          Tags:
-          {{#each wod.tags as |tag|}}
-            <h3>{{tag.value}}</h3>
-          {{/each}}
-        {{else}}
-          No Tags
-        {{/if}} -->
+                <div class="five wide column underlined">
+                  {{#if wod.image}}
+                    <img  class="small-img" src={{wod.image}}>
+                  {{else}}
+                    <img  class="small-img" src="/assets/place-holder-image.png">
+                  {{/if}}
+                </div>
 
+                <div class="nine wide column underlined">
+                  <!-- <div class="ui header">{{wod.title}}</div> -->
+                  <div class="trunckated">
+                    <div class="ui header">{{wod.prettyDate}}</div>
 
-        {{#link-to 'wod' wod class="read-more"}}
-          Read More
-        {{/link-to}}
+                      <div class="ui header">Strength</div>
+                      <div class="pre">{{wod.strength}}</div>
+
+                      <div class="ui header">Conditioning</div>
+                      <div class="pre">{{wod.conditioning}}</div>
+                  </div>
+                  {{#link-to 'wod' wod class="read-more"}}
+                    Read More
+                  {{/link-to}}
+              </div>
+            </div>
+
+      {{/each}}
+    </div>
+    <div class="three wide computer only column">
+      <div class="ui sticky right floated segment search-wods">
+        {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
+        {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
       </div>
-    {{/each}}
     </div>
   </div>
+  <!-- </div> -->
 
-  <div class="computer only column six wide">
-    <!-- {{select-2
-        content=tags
-        value=searchedTags
-        multiple=true
-        placeholder="Search Tags"
-    }} -->
-    <!-- <div class="ui sticky right floated segment search-wods">
-      {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
-      {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
-    </div> -->
-  </div>
-
+<!-- </div> -->
 
 <!-- </div> -->

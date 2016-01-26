@@ -1,5 +1,9 @@
-<div class="ui large header">Create WOD</div>
+<div class="banner">
+  <h1 class="ui header">Create WOD</h1>
+</div>
 
+
+<div class="ui container">
 <div class="ui two column grid">
   <div class="column">
       <div class="row">
@@ -41,7 +45,7 @@
       </div>
     {{/if}}
 
-    <div id="image-upload-wrapper">
+    <div class="image-upload-wrapper">
       <label class="ui button" for="new-image"> Upload Image</label>
         {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
     </div>
@@ -63,3 +67,4 @@
 {{password-modal loginSuccess="logIn"}}
 
 {{create-tag closeModal="close"}}
+</div>

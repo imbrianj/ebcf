@@ -1,5 +1,8 @@
-<div class="ui two column grid">
-  <div class="column">
+<div class="banner">
+  <h1 class="ui header">WOD Archive</h1>
+</div>
+<div class="ui centered two column grid">
+  <div class="six wide column">
     <div class="row">
       {{#if model.image}}
         <img  width=300px src={{model.image}}>
@@ -21,11 +24,11 @@
     </div>
   </div>
 
-  <div class="column">
+  <div class="two wide column">
     <h3>{{model.prettyDate}}</h3>
     <div class="ui header">Strength</div>
-    <pre>{{model.strength}}</pre>
+    <div class="pre">{{model.strength}}</div>
     <div class="ui header">Conditioning</div>
-    <pre>{{model.conditioning}}</pre>
+    <div class="pre">{{model.conditioning}}</div>
   </div>
 </div>

@@ -27,11 +27,7 @@ h1
     background: #E0E1E2
     color: #000
 
-.thing
-  position: relative
-.sticky
-  position: relative
-
+// should change this!
 .small-img
   width: 100%
 
@@ -45,7 +41,21 @@ h1
   border: none
   box-shadow: none
 
+/* Banner */
+.banner
+  width: 100%
+  background-size: cover
+  background-position-y: 99%
+  height: 260px
+  position: relative
+  z-index: -1
+  display: block
+  background-repeat: no-repeat
+  padding-top: 1px
+  background-image: url("/assets/kettlebell.jpg")
 
+  .ui.header
+    color: white
 
 /* WODs */
 .pre
@@ -69,7 +79,13 @@ h1
 
 
 .read-more
-  position: absolute
-  z-index: 2
-  bottom: 0
-  right: 0
+  position: relative
+  display: inline
+  float: right
+  z-index: 1
+
+
+
+.image-upload-wrapper
+  input
+    display: none
