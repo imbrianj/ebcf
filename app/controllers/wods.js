@@ -25,7 +25,8 @@ export default Ember.Controller.extend({
     dateInputChanged(date) {
       if (date) {
         var filtered_wods = this.get('wods').filter(function (wod) {
-          return date.valueOf() == wod.get('date').valueOf();
+          // return date.valueOf() == wod.get('date').valueOf();
+          return wod.get("date").toDateString() == date.toDateString();
         });
         this.set('wods', filtered_wods);
       } else {
