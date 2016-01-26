@@ -22,11 +22,15 @@
               <!-- <div class="two column row"> -->
 
                 <div class="five wide column underlined">
-                  {{#if wod.image}}
-                    <img  class="small-img" src={{wod.image}}>
-                  {{else}}
-                    <img  class="small-img" src="/assets/place-holder-image.png">
-                  {{/if}}
+                  <!-- <div class="image-container"> -->
+                    {{#if wod.image}}
+                      <a href={{wod.image}}>
+                        <img  class="small-img" src={{wod.image}}>
+                      </a>
+                    {{else}}
+                      <img  class="small-img" src="/assets/place-holder-image.png">
+                    {{/if}}
+                  <!-- </div> -->
                 </div>
 
                 <div class="nine wide column underlined">

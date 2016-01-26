@@ -4,11 +4,17 @@
 <div class="ui centered two column grid">
   <div class="six wide column">
     <div class="row">
-      {{#if model.image}}
-        <img  width=300px src={{model.image}}>
-      {{else}}
-        <img  width=300px src="/assets/place-holder-image.png">
-      {{/if}}
+
+      <div class="image-container">
+        {{#if model.image}}
+          <a href={{model.image}}>
+            <img  class=wod-image width=300px src={{model.image}}>
+          </a>
+        {{else}}
+          <img  width=300px src="/assets/place-holder-image.png">
+        {{/if}}
+      </div>
+
     </div>
     <div class="row">
       {{#each model.tags as |tag|}}

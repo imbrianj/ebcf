@@ -5,18 +5,24 @@
 <div class="ui centered two column grid">
   <div class="six wide column">
     <div class="row">
-      {{#if wod.image}}
-        <img  width=300px src={{wod.image}}>
-      {{else}}
-        <img  width=300px src="/assets/place-holder-image.png">
-      {{/if}}
 
-      {{#if uploadError}}
-        <div>
-          {{error}}
-          {{errorText}}
-        </div>
-      {{/if}}
+      <div class="image-container">
+        {{#if wod.image}}
+          <!-- <div class="wod-image" background:"url({{wod.image}})"><div> -->
+          <a href={{wod.image}}>
+            <img  class=wod-image width=300px src={{wod.image}}>
+          </a>
+        {{else}}
+          <img  width=300px src="/assets/place-holder-image.png">
+        {{/if}}
+
+        {{#if uploadError}}
+          <div>
+            {{error}}
+            {{errorText}}
+          </div>
+        {{/if}}
+      </div>
 
       <div class="image-upload-wrapper">
         <label class="ui button" for="new-image"> Upload Image</label>
@@ -39,11 +45,27 @@
   </div>
 
   <div class="two wide column">
-    {{input type="date" value=wod.prettyDate}}
+    <div class="ui medium header">Title</div>
+    <div class="ui input">
+      {{input type="text" value=wod.title placeholder=wod.title}}
+    </div>
+
+    <div class="ui medium header">WOD Date</div>
+    <div class="ui input">
+      {{input type="date" value=wod.datePickerDate}}
+    </div>
+
+    <div class="ui medium header">Strength</div>
+    {{textarea rows="10" value=wod.strength placeholder=wod.strength}}
+
+    <div class="ui medium header">Conditioning</div>
+    {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
+
+    <!-- {{input type="date" value=wod.prettyDate}}
     <div class="ui header">Strength</div>
     {{textarea value=wod.strength placeholder=wod.strength}}
     <div class="ui header">Conditioning</div>
-    {{textarea value=wod.conditioning placeholder=wod.conditioning}}
+    {{textarea value=wod.conditioning placeholder=wod.conditioning}} -->
 
     <button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
 

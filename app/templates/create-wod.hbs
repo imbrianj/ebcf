@@ -3,9 +3,41 @@
 </div>
 
 
-<div class="ui container">
-<div class="ui two column grid">
-  <div class="column">
+<!-- <div class="ui container"> -->
+<div class="ui centered two column grid">
+
+  <div class="six wide column">
+    <div class="image-container">
+      {{#if imageUrl}}
+          <img  class=wod-image src={{imageUrl}} width="300px">
+      {{else}}
+          <img  src="/assets/place-holder-image.png" width="300px">
+      {{/if}}
+
+      {{#if uploadError}}
+        <div>
+          {{error}}
+          {{errorText}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="image-upload-wrapper">
+      <label class="ui button" for="new-image"> Upload Image</label>
+        {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
+    </div>
+
+    <div id="selectTags">
+      <label>Select Tags</label>
+      {{tag-select2 class="ui dropdown" tags=tags selectedTags=tagsForWod}}
+    </div>
+
+    or
+
+    <button class="ui button" {{action "openModal"}}> Create New Tag</button>
+  </div>
+
+  <div class="two wide column">
       <div class="row">
         <div class="ui medium header">Title</div>
         <div class="ui input">
@@ -25,46 +57,14 @@
       <div class="ui medium header">Conditioning</div>
       {{textarea rows="10" value=newConditioning}}
     </div>
+
+    <button class="ui primary button"{{action "createWod"}}>Create WOD</button>
   </div>
 
-  <div class="column">
-    {{#if imageUrl}}
-      <div id="wodImage">
-        <img  src={{imageUrl}} width="300px">
-      </div>
-    {{else}}
-      <div id="wodImage">
-        <img  src="/assets/place-holder-image.png" width="300px">
-      </div>
-    {{/if}}
 
-    {{#if uploadError}}
-      <div>
-        {{error}}
-        {{errorText}}
-      </div>
-    {{/if}}
-
-    <div class="image-upload-wrapper">
-      <label class="ui button" for="new-image"> Upload Image</label>
-        {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
-    </div>
-
-    <div id="selectTags">
-      <label>Select Tags</label>
-      {{tag-select2 class="ui dropdown" tags=tags selectedTags=tagsForWod}}
-    </div>
-
-    or
-
-    <button class="ui button" {{action "openModal"}}> Create New Tag</button>
-
-  </div>
-
-  <button class="ui primary button"{{action "createWod"}}>Create WOD</button>
 </div>
 
 {{password-modal loginSuccess="logIn"}}
 
 {{create-tag closeModal="close"}}
-</div>
+<!-- </div> -->

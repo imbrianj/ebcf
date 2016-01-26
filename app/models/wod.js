@@ -10,6 +10,10 @@ export default DS.Model.extend({
   tags: DS.hasMany('tag', {async: true}),
 
   prettyDate: Ember.computed('date', function() {
-    return moment(this.get('date')).format('LL');
+    return moment(this.get('date')).format('dddd YY.MM.DD');
+  }),
+  datePickerDate: Ember.computed('date', function() {
+    return moment(this.get('date')).format('YYYY-MM-DD');
+    // return "2013-09-02";
   })
 });

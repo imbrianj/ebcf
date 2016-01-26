@@ -24,7 +24,8 @@ export default Ember.Controller.extend({
       var tags = this.get('newTags');
       var tags_to_remove = this.get('tagsIdsToRemove');
 
-      var date = moment(wod.get('prettyDate')).toDate();
+      var date = moment(wod.get('datePickerDate')).toDate();
+      debugger;
       wod.set('date', date);
 
       var image = wod.get('image');
@@ -43,14 +44,13 @@ export default Ember.Controller.extend({
           tag.save();
         });
       }
-      debugger;
       var self = this;
       wod.save().then(function() {
         self.transitionToRoute('wod', wod);
       });
     },
     removeTag(tag) {
-      var wod = this.get('model');
+      var wod = this.get('wod');
       var tags = wod.get('tags');
       tags.removeObject(tag);
       var new_tags_to_remove = this.get('tagsIdsToRemove').pushObject(tag);
