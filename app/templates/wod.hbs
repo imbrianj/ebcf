@@ -1,14 +1,14 @@
 <div class="banner">
   <h1 class="ui header">WOD Archive</h1>
 </div>
-<div class="ui centered two column grid">
-  <div class="six wide column">
+<div class="ui centered two column mobile reversed stackable grid">
+  <div class="five wide column">
     <div class="row">
 
       <div class="image-container">
         {{#if model.image}}
           <a href={{model.image}}>
-            <img  class=wod-image width=300px src={{model.image}}>
+            <img  class=wod-image src={{model.image}}>
           </a>
         {{else}}
           <img  width=300px src="/assets/place-holder-image.png">
@@ -18,7 +18,7 @@
     </div>
     <div class="row">
       {{#each model.tags as |tag|}}
-        <div class="ui animated button">
+        <div class="ui animated button tag">
           <div class="visible content">
             {{tag.value}}
           </div>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="two wide column">
+  <div class="four wide column">
     <h3>{{model.prettyDate}}</h3>
     <div class="ui header">Strength</div>
     <div class="pre">{{model.strength}}</div>
