@@ -40,7 +40,8 @@
           </div>
         </div>
       {{/each}}
-          {{tag-select2 tags=tags selectedTags=newTags}}
+          <br>
+          {{select-tags tags=tags selectedTags=selectedTags}}
     </div>
   </div>
 
@@ -60,12 +61,6 @@
 
     <div class="ui medium header">Conditioning</div>
     {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
-
-    <!-- {{input type="date" value=wod.prettyDate}}
-    <div class="ui header">Strength</div>
-    {{textarea value=wod.strength placeholder=wod.strength}}
-    <div class="ui header">Conditioning</div>
-    {{textarea value=wod.conditioning placeholder=wod.conditioning}} -->
 
     <button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
 

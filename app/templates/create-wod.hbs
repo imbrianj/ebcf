@@ -3,7 +3,6 @@
 </div>
 
 
-<!-- <div class="ui container"> -->
 <div class="ui centered two column grid">
 
   <div class="six wide column">
@@ -27,14 +26,8 @@
         {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
     </div>
 
-    <div id="selectTags">
-      <label>Select Tags</label>
-      {{tag-select2 class="ui dropdown" tags=tags selectedTags=tagsForWod}}
-    </div>
+    {{select-tags tags=tags selectedTags=selectedTags}}
 
-    or
-
-    <button class="ui button" {{action "openModal"}}> Create New Tag</button>
   </div>
 
   <div class="two wide column">
@@ -67,4 +60,3 @@
 {{password-modal loginSuccess="logIn"}}
 
 {{create-tag closeModal="close"}}
-<!-- </div> -->

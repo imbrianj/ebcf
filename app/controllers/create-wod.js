@@ -26,26 +26,43 @@ export default Ember.Controller.extend({
         image: imageSource,
       });
 
+      var _this = this;
+      wod.save().then( function(){
+        var dropdownValues = $('.ui.dropdown').dropdown('get value');
+        var tagValues = [];
 
-      var tags = this.get('tagsForWod');
-      if (tags) {
-        tags.forEach(function(tag){
-          wod.get("tags").pushObject(tag);
-        });
-      }
-
-      var self = this;
-
-      wod.save().then(function(){
-        if (tags) {
-          tags.forEach(function(tag){
-            tag.get("wods").pushObject(wod);
-            tag.save();
-          });
+        if (typeof dropdownValues === 'string') {
+          tagValues = dropdownValues.split(",");
         }
-        self.transitionToRoute('wod', wod);
-      });
 
+        tagValues.forEach(tagValue => {
+          _this.get('store').queryRecord('tag', {
+            filter: {
+              simple: {
+                value: tagValue
+              }
+            }
+          }).then(tag => {
+              if (tag.length > 0) {
+                wod.get("tags").pushObject(tag[0]);
+                wod.save();
+                tag[0].get("wods").pushObject(wod);
+                tag[0].save();
+              } else {
+                var newTag = _this.store.createRecord('tag', {
+                   value: tagValue
+                 });
+                 newTag.save().then( function() {
+                   wod.get('tags').pushObject(newTag);
+                   wod.save();
+                   newTag.get('wods').pushObject(wod);
+                   newTag.save();
+                 });
+              }
+          });
+        });
+        _this.transitionToRoute('wod', wod);
+      });
     },
     imageUploadComplete(url) {
       this.set('uploadError', false);

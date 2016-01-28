@@ -2,48 +2,64 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   uploadError: false,
-  allTags: function() {
-    // var tags = this.store.findAll('tag').then(function(){
-    //   var wod_tags = this.get('model').get('tags');
-    //   var selectable_tags = tags.filter(function(i) {
-    //     return wod_tags.indexOf(i) < 0;
-    //   });
-    //   debugger;
-    //   return selectable_tags;
-    //
-    // });
-    return this.store.findAll('tag');
-
-  }.property('model'),
-  tagsIdsToRemove: [],
+  tagsToRemove: [],
   imageUrl: "",
   notLoggedIn: true,
   actions: {
     updateWod() {
       var wod = this.get('wod');
-      var tags = this.get('newTags');
-      var tags_to_remove = this.get('tagsIdsToRemove');
 
-      var date = moment(wod.get('datePickerDate')).toDate();
-      debugger;
-      wod.set('date', date);
+      // Add new tags
+      var dropdownValues = $('.ui.dropdown').dropdown('get value');
+      var tagValues = [];
 
-      var image = wod.get('image');
-      // wod.set('image', image);
+      if (typeof dropdownValues === 'string') {
+        tagValues = dropdownValues.split(",");
+      }
 
-      if (tags_to_remove) {
-        tags_to_remove.forEach(function(tag){
+      tagValues.forEach(tagValue => {
+        this.get('store').queryRecord('tag', {
+          filter: {
+            simple: {
+              value: tagValue
+            }
+          }
+        }).then(tag => {
+            if (tag.length > 0) {
+              tag[0].get("wods").pushObject(wod);
+              wod.get("tags").pushObject(tag[0]);
+
+              tag[0].save();
+              wod.save();
+            } else {
+              var newTag = this.store.createRecord('tag', {
+                 value: tagValue
+               });
+               newTag.save().then( function() {
+                 newTag.get('wods').pushObject(wod);
+                 wod.get('tags').pushObject(newTag);
+                 wod.save();
+                 newTag.save();
+               });
+            }
+        });
+      });
+
+      // Remove tags
+      var tagsToRemove = this.get('tagsToRemove');
+
+      if (tagsToRemove.length > 0) {
+        tagsToRemove.forEach(function(tag){
           tag.get('wods').removeObject(wod);
           tag.save();
         });
       }
-      if (tags) {
-        tags.forEach(function(tag){
-          wod.get("tags").pushObject(tag);
-          tag.get("wods").pushObject(wod);
-          tag.save();
-        });
-      }
+
+      // Set wod Date
+      var date = moment(wod.get('datePickerDate')).toDate();
+      wod.set('date', date);
+
+      // Save and redirect
       var self = this;
       wod.save().then(function() {
         self.transitionToRoute('wod', wod);
@@ -51,11 +67,10 @@ export default Ember.Controller.extend({
     },
     removeTag(tag) {
       var wod = this.get('wod');
-      var tags = wod.get('tags');
-      tags.removeObject(tag);
-      var new_tags_to_remove = this.get('tagsIdsToRemove').pushObject(tag);
-      this.set('tagsToRemove', new_tags_to_remove);
-      // var new_tags = wod_tags.filter(function(i) {return [tag].indexOf(i) < 0;});
+      var wodTags = wod.get('tags');
+      wodTags.removeObject(tag);
+      var tagsToRemove = this.get('tagsToRemove').pushObject(tag);
+      this.set('tagsToRemove', tagsToRemove);
     },
     imageUploadComplete(url) {
       // this.set('imageUrl', url);
@@ -69,6 +84,9 @@ export default Ember.Controller.extend({
     },
     logIn() {
       this.set('notLoggedIn', false);
-    }
+    },
+    update_selected: function(component, id, value) {
+       this.set('selectedAction', id);
+     }
   }
 });
