@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   sortProps: ['date:desc'],
   wods2: Ember.computed.sort('wods', 'sortProps'),
+  dateDepth: 1,
   didChange: Ember.observer('searchedTags', function(){
     this.send('searchInputChanged');
   }),
@@ -26,13 +27,29 @@ export default Ember.Controller.extend({
     },
     dateInputChanged(date) {
       if (date) {
-        var filtered_wods = this.get('wods').filter(function (wod) {
-          // return date.valueOf() == wod.get('date').valueOf();
-          return wod.get("date").toDateString() === date.toDateString();
+        var day = moment(date).utc().startOf('day').toISOString()
+        var filteredWods = this.store.query('wod', {
+          filter: {
+            simple: {
+              date: day
+            }
+          }
         });
-        this.set('wods', filtered_wods);
+
+        this.set('wods', filteredWods);
       } else {
-        this.set('wods', this.store.findAll('wod'));
+        var dateDepth = this.get('dateDepth') + 1;
+        var weeksAgo = moment().day(-7 * dateDepth).toDate();
+        var wods = this.store.query('wod', {
+          filter: {
+            simple: {
+              date: {
+                $gt: weeksAgo
+              }
+            }
+          }
+        });
+        this.set('wods', wods);
       }
     },
     bulkUpdateTags(){
@@ -55,6 +72,22 @@ export default Ember.Controller.extend({
           }
         });
       });
+    },
+    getOlder() {
+      var dateDepth = this.get('dateDepth') + 1;
+      var weeksAgo = moment().day(-7 * dateDepth).toDate();
+      var wods = this.store.query('wod', {
+        filter: {
+          simple: {
+            date: {
+              $gt: weeksAgo
+            }
+          }
+        }
+      });
+
+      this.set('wods', wods);
+      this.set('dateDepth', dateDepth);
     }
   }
 });
