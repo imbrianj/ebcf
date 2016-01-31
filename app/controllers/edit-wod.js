@@ -65,6 +65,19 @@ export default Ember.Controller.extend({
         self.transitionToRoute('wod', wod);
       });
     },
+    deleteWod() {
+      var wod = this.get('wod');
+      var self = this;
+      var tags = wod.get('tags');
+      tags.forEach( function(tag) {
+        tag.get('wods').removeObject(wod);
+        tag.save();
+      });
+
+      wod.destroyRecord().then(function(){
+        self.transitionTo('wods');
+      });
+    },
     removeTag(tag) {
       var wod = this.get('wod');
       var wodTags = wod.get('tags');

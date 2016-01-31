@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
+    // return this.store.findAll('wod');
     return Ember.RSVP.hash({
       wods: this.store.findAll('wod'),
       tags: this.store.findAll('tag')

@@ -31,10 +31,15 @@
   </div>
 
   <div class="four wide column">
-    <h3>{{model.prettyDate}}</h3>
-    <div class="ui header">Strength</div>
-    <div class="pre">{{model.strength}}</div>
-    <div class="ui header">Conditioning</div>
-    <div class="pre">{{model.conditioning}}</div>
+    <div class="ui huge header">{{model.prettyDate}}</div>
+
+    {{#if model.strength}}
+      <div class="ui large header orange">STRENGTH</div>
+      <div class="pre">{{model.strength}}</div>
+    {{/if}}
+    {{#if model.conditioning}}
+      <div class="ui large header orange">CONDITIONING</div>
+      <div class="pre">{{model.conditioning}}</div>
+    {{/if}}
   </div>
 </div>

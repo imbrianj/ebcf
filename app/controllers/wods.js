@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  sortProps: ['date:desc'],
+  wods2: Ember.computed.sort('wods', 'sortProps'),
   didChange: Ember.observer('searchedTags', function(){
     this.send('searchInputChanged');
   }),
@@ -26,7 +28,7 @@ export default Ember.Controller.extend({
       if (date) {
         var filtered_wods = this.get('wods').filter(function (wod) {
           // return date.valueOf() == wod.get('date').valueOf();
-          return wod.get("date").toDateString() == date.toDateString();
+          return wod.get("date").toDateString() === date.toDateString();
         });
         this.set('wods', filtered_wods);
       } else {

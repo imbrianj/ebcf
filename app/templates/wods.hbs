@@ -1,30 +1,15 @@
 <div class="banner">
-  <h1 class="ui header">WOD Archive</h1>
+  <h1 class="ui huge header">WOD Archive</h1>
 </div>
-
-<!-- <button class="ui primary button"{{action "bulkUpdateTags"}}>Bulk Tag WODs</button> -->
-
-<!-- <div class="ui sticky right floated segment search-wods">
-  {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
-  {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
-</div> -->
-<!-- <div class="ui container"> -->
-
-
-<!-- <div class="ui stackable two column grid"> -->
-
-  <!-- <div class="ui column ten wide"> -->
 
     <div class="ui stackable centered two column grid">
 
       <div class="column">
-        {{#each wods as |wod|}}
+        {{#each wods2 as |wod|}}
 
           <div class="ui two column stackable mobile reversed grid">
-              <!-- <div class="two column row"> -->
 
                 <div class="five wide column underlined">
-                  <!-- <div class="image-container"> -->
                     {{#if wod.image}}
                       <a href={{wod.image}}>
                         <img  class="small-img" src={{wod.image}}>
@@ -32,24 +17,26 @@
                     {{else}}
                       <img  class="small-img" src="/assets/place-holder-image.png">
                     {{/if}}
-                  <!-- </div> -->
                 </div>
 
                 <div class="nine wide column underlined">
-                  <!-- <div class="ui header">{{wod.title}}</div> -->
                   <div class="trunckated">
-                    <div class="ui header">{{wod.prettyDate}}</div>
+                    <div class="ui header large">{{wod.prettyDate}}</div>
 
-                      <div class="ui header">Strength</div>
+                    {{#if wod.strength}}
+                      <div class="ui header orange">STRENGTH</div>
                       <div class="pre">{{wod.strength}}</div>
-
-                      <div class="ui header">Conditioning</div>
+                    {{/if}}
+                    {{#if wod.conditioning}}
+                      <div class="ui header orange">CONDITIONING</div>
                       <div class="pre">{{wod.conditioning}}</div>
+                    {{/if}}
                   </div>
                   {{#link-to 'wod' wod class="read-more"}}
                     Read More
                   {{/link-to}}
               </div>
+              <hr>
             </div>
 
       {{/each}}

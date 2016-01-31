@@ -1,5 +1,7 @@
 $primary-color: #FC4513
 $primary-color-hover: #e33303
+$light-gray: #E0E1E2
+$dark-gray: #333333
 
 /* headers */
 h1
@@ -7,6 +9,10 @@ h1
 
 .ui.header
   font-family: 'Montserrat', sans-serif
+  color: $dark-gray
+
+.ui.orange.header
+  color: $primary-color !important
 
 /* Buttons */
 .ui.button.primary
@@ -24,7 +30,7 @@ h1
   min-width: 250px
 
 .select2-results .select2-highlighted
-    background: #E0E1E2
+    background: $light-gray
     color: #000
 
 // should change this!
@@ -41,6 +47,54 @@ h1
   border: none
   box-shadow: none
 
+.menu
+  // position: absolute
+  z-index: 1
+  float: right
+  position: fixed
+  width: 100%
+  background-color: rgba(155, 155, 155, 0.4)
+
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+
+
+    li
+      float: right
+      a
+        font-family: 'Montserrat', sans-serif
+        display: block
+        text-align: center
+        padding: 20px
+        color: black
+        font-size: 105%
+
+.home
+  background-image: url("/assets/home.jpg")
+  background-size: cover
+  background-repeat: no-repeat
+  // width: 100%
+  height: 450px
+  // position: absolute
+  // left: 0
+  // top: 0
+  // z-index: -1
+  background-position-y: 30%
+
+.home-wod
+  font-size: 400%
+
+.home-pre
+  white-space: pre-wrap
+  font-family: 'Open+Sans:300', sans-serif
+  color: $dark-gray
+  font-size: 100%
+
+
+
+
 /* Banner */
 .banner
   width: 100%
@@ -54,8 +108,10 @@ h1
   padding-top: 1px
   background-image: url("/assets/kettlebell.jpg")
   margin-bottom: 1%
+
   .ui.header
     color: white
+
 
 /*Tag Styles*/
 .button.tag
@@ -65,10 +121,10 @@ h1
 .pre
   white-space: pre-wrap
   font-family: 'Open+Sans:300', sans-serif
-
-
-.underlined
- border-bottom: solid #e6e6e6 .1em
+  color: $dark-gray
+hr
+  width: 100%
+  border-top: 1px solid $light-gray
 
 .trunckated:after
   overflow: hidden
@@ -106,4 +162,4 @@ h1
 
 input:-webkit-autofill
   -webkit-box-shadow: 0 0 0px 1000px white inset !important
-  border: #E0E1E2 .1em solid !important
+  border: $light-gray .1em solid !important
