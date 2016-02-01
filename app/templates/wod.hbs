@@ -1,7 +1,10 @@
 <div class="banner">
-  <h1 class="ui header">WOD Archive</h1>
+  <h1 class="banner-header">WOD Archive</h1>
 </div>
+
+
 <div class="ui centered two column mobile reversed stackable grid">
+
   <div class="five wide column">
     <div class="row">
 
@@ -30,7 +33,11 @@
     </div>
   </div>
 
-  <div class="four wide column">
+  <div class="seven wide column">
+    {{#link-to 'wods' class="read-more"}}
+      <i class="chevron left icon"></i>
+      Back
+    {{/link-to}}
     <div class="ui huge header">{{model.prettyDate}}</div>
 
     {{#if model.strength}}

@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('schedule');
   this.route('pricing');
 
+  this.route('bulk-tag-wods');
 });
 
 export default Router;

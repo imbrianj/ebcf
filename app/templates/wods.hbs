@@ -2,50 +2,80 @@
   <h1 class="ui huge header">WOD Archive</h1>
 </div>
 
-    <div class="ui stackable centered two column grid">
+<div class="ui stackable centered two column grid">
 
-      <div class="column">
-        {{#each wods2 as |wod|}}
+  <div class="eight wide column">
+    {{#if noResultsFound}}
+      <div class="trunckated">
+        No Results
+      </div>
+      <hr>
+    {{else}}
 
-          <div class="ui two column stackable mobile reversed grid">
+      {{#each wods2 as |wod|}}
 
-                <div class="five wide column underlined">
-                    {{#if wod.image}}
-                      <a href={{wod.image}}>
-                        <img  class="small-img" src={{wod.image}}>
-                      </a>
-                    {{else}}
-                      <img  class="small-img" src="/assets/place-holder-image.png">
-                    {{/if}}
-                </div>
+        <div class="ui two column stackable mobile reversed grid">
 
-                <div class="nine wide column underlined">
-                  <div class="trunckated">
-                    <div class="ui header large">{{wod.prettyDate}}</div>
-                    {{#if wod.strength}}
-                      <div class="ui header orange">STRENGTH</div>
-                      <div class="pre">{{wod.strength}}</div>
-                    {{/if}}
-                    {{#if wod.conditioning}}
-                      <div class="ui header orange">CONDITIONING</div>
-                      <div class="pre">{{wod.conditioning}}</div>
-                    {{/if}}
-                  </div>
-                  {{#link-to 'wod' wod class="read-more"}}
-                    Read More
-                  {{/link-to}}
-              </div>
-              <hr>
+          <div class="five wide column">
+              {{#if wod.image}}
+                <a href={{wod.image}}>
+                  <img  class="small-img" src={{wod.image}}>
+                </a>
+              {{else}}
+                <img  class="small-img" src="/assets/place-holder-image.png">
+              {{/if}}
+          </div>
+
+          <div class="nine wide column">
+            <div class="trunckated">
+              <div class="ui header large">{{wod.prettyDate}}</div>
+              {{#if wod.strength}}
+                <div class="ui header orange">STRENGTH</div>
+                <div class="pre">{{wod.strength}}</div>
+              {{/if}}
+              {{#if wod.conditioning}}
+                <div class="ui header orange">CONDITIONING</div>
+                <div class="pre">{{wod.conditioning}}</div>
+              {{/if}}
             </div>
+            {{#link-to 'wod' wod class="read-more"}}
+              Read More
+              <i class="chevron right icon"></i>
+            {{/link-to}}
+          </div>
+
+          <hr>
+
+        </div>
 
       {{/each}}
-    </div>
-    <div class="three wide computer only column">
-      <div class="ui sticky right floated segment search-wods">
-        {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}}
-        {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
-      </div>
-    </div>
+    {{/if}}
+
+    <br>
+    <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
+
   </div>
 
-  <button class="ui primary button"{{action "getOlder"}}>Older</button>
+  <div class="four wide computer only column">
+    <!-- <div class="ui sticky right floated segment search-wods"> -->
+        <!-- {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}} -->
+
+      {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
+
+      {{#ui-dropdown class="fluid search selection" onChange=(action 'tagsEntered')}}
+
+        <div class="default text">Seach by tags</div>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+        {{#each tags as |tag|}}
+          <div class="item" data-value={{tag.id}}>
+            {{tag.value}}
+          </div>
+        {{/each}}
+        </div>
+      {{/ui-dropdown}}
+
+    <!-- </div> -->
+  </div>
+
+</div>

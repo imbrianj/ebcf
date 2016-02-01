@@ -22,6 +22,9 @@ h1
 .ui.button.primary:hover
   background-color: $primary-color-hover
 
+.ui.button.primary:focus
+  background-color: $primary-color-hover
+
 /* Select */
 #selectTags input
   border: none
@@ -49,7 +52,7 @@ h1
 
 .menu
   // position: absolute
-  z-index: 1
+  z-index: 100
   float: right
   position: fixed
   width: 100%
@@ -112,6 +115,11 @@ h1
   .ui.header
     color: white
 
+  .banner-header
+    margin-top: 100px
+    margin-left: 10%
+    color: white
+    font-size: 3em
 
 /*Tag Styles*/
 .button.tag
@@ -125,6 +133,17 @@ h1
 hr
   width: 100%
   border-top: 1px solid $light-gray
+
+.datepicker
+  margin: auto
+
+.older
+  float: right
+
+.trunckated
+  overflow: hidden
+  max-height: 300px
+  min-height: 200px
 
 .trunckated:after
   overflow: hidden
@@ -143,6 +162,11 @@ hr
   display: inline
   float: right
   z-index: 1
+  color: $dark-gray
+  font-family: 'Montserrat', sans-serif
+
+.read-more:hover
+    color: $primary-color-hover
 
 .image-container
   // width: 25%
@@ -163,3 +187,6 @@ hr
 input:-webkit-autofill
   -webkit-box-shadow: 0 0 0px 1000px white inset !important
   border: $light-gray .1em solid !important
+
+
+/*Pricing*/
