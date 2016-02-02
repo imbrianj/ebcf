@@ -4,11 +4,18 @@
 <script>
      function initMap() {
        var mapDiv = document.getElementById('map');
+       var myLatLng = {lat: 47.614265, lng: -122.345141};
        var map = new google.maps.Map(mapDiv, {
-         center: {lat: 47.614265, lng: -122.345141},
+         center: myLatLng,
          zoom: 15,
          scrollwheel: false
        });
+
+       var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'
+      });
      }
    </script>
    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
