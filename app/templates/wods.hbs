@@ -2,15 +2,18 @@
   <h1 class="ui huge header">WOD Archive</h1>
 </div>
 
-<div class="ui stackable centered two column grid">
+<div class="ui container">
+  {{#if searching}}
+    <h4 class="ui header">
+      {{wodsFound}} Wods Found
+    </h4>
+  {{/if}}
+</div>
 
+<br>
+
+<div class="ui stackable centered two column grid">
   <div class="eight wide column">
-    {{#if noResultsFound}}
-      <div class="trunckated">
-        No Results
-      </div>
-      <hr>
-    {{else}}
 
       {{#each wods2 as |wod|}}
 
@@ -49,33 +52,51 @@
         </div>
 
       {{/each}}
-    {{/if}}
+
 
     <br>
-    <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
-
+    {{#unless searching}}
+      <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
+    {{/unless}}
   </div>
 
-  <div class="four wide computer only column">
+  <div class="three wide computer only column">
     <!-- <div class="ui sticky right floated segment search-wods"> -->
         <!-- {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}} -->
+          <div class="ui one center aligned column grid">
+            <div class="row">
+              <!-- {{bootstrap-datepicker class="form-control" orientation="right" placeholder="Search By Date" value=wodDate}} -->
+              <!-- {{date-picker date=wodDate placeholder="Search By Date" valueFormat='YYYY-MM-DD'}} -->
+              <div class="ui input datepicker">
+                {{pikaday-input value=wodDate placeholder="Search By Date"}}
+              </div>
+            </div>
 
-      {{bootstrap-datepicker-inline clearBtn=true value=wodDate}}
 
-      {{#ui-dropdown class="fluid search selection" onChange=(action 'tagsEntered')}}
+            <button class="ui button older hidden clearDate"{{action "clearDate"}}>Clear Date</button>
 
-        <div class="default text">Seach by tags</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-        {{#each tags as |tag|}}
-          <div class="item" data-value={{tag.id}}>
-            {{tag.value}}
-          </div>
-        {{/each}}
+
+            <div class="ui horizontal divider">
+              Or
+            </div>
+
+            {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
+
+              <div class="default text">Seach by Tags</div>
+              <i class="dropdown icon"></i>
+              <div class="menu">
+              {{#each tags as |tag|}}
+                <div class="item" data-value={{tag.id}}>
+                  {{tag.value}}
+                </div>
+              {{/each}}
+              </div>
+            {{/ui-dropdown}}
+
+            <div class="row">
+              <button class="ui button older hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
+            </div>
         </div>
-      {{/ui-dropdown}}
-
-    <!-- </div> -->
   </div>
 
 </div>

@@ -4,6 +4,10 @@ export default Ember.Controller.extend({
   sortProps: ['date:desc'],
   wods2: Ember.computed.sort('wods', 'sortProps'),
   dateDepth: 1,
+  searching: false,
+  wodsFound: Ember.computed('wods.length', function() {
+    return this.get('wods').get('length');
+  }),
   noResultsFound: Ember.computed('wods.length', function() {
     return (this.get('wods').get('length') < 1);
   }),
@@ -15,6 +19,9 @@ export default Ember.Controller.extend({
   }),
   actions: {
     searchInputChanged(tagId) {
+      $('.datepicker').addClass('disabled');
+      $('.clearDate').addClass('disabled');
+      this.set('searching', true);
       // var tags = this.get('searchedTags');
       var _this = this;
       if (tagId) {
@@ -49,9 +56,19 @@ export default Ember.Controller.extend({
         this.set('wods', wods);
       }
     },
+    clearTags() {
+      $('.dropdown').dropdown('clear');
+      $('.datepicker').removeClass('disabled');
+      $('.clearDate').removeClass('disabled');
+      this.set('searching', false);
+    },
     dateInputChanged(date) {
       if (date) {
-        var day = moment(date).utc().startOf('day').toISOString()
+        $('.dropdown').addClass('disabled');
+        $('.clearTags').addClass('disabled');
+        this.set('searching', true);
+
+        var day = moment(date).utc().startOf('day').toISOString();
         var filteredWods = this.store.query('wod', {
           filter: {
             simple: {
@@ -75,6 +92,13 @@ export default Ember.Controller.extend({
         });
         this.set('wods', wods);
       }
+    },
+    clearDate() {
+      this.set('searching', false);
+      this.set('wodDate', '');
+      $('.dropdown').removeClass('disabled');
+      $('.clearTags').removeClass('disabled');
+
     },
     getOlder() {
       var dateDepth = this.get('dateDepth') + 1;
