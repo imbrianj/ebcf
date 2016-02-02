@@ -47,7 +47,7 @@
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
     "ember-moment": "5.0.1",
-    "ember-pikaday": "0.14.0",
+    "ember-pikaday": "^0.14.0",
     "ember-select-2": "1.3.0",
     "emberx-select-blockless": "1.0.0",
     "moment": "2.11.1",
