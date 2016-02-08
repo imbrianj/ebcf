@@ -1,26 +1,122 @@
 <div class="home">
-  <!-- <h1>Elliott Bay CrossFit</h1> -->
+  <div class="ui bottom aligned centered relaxed grid logo">
+    <div class="three wide column">
+      <img class="ui medium image" src="/assets/EBCF_Full_Logo.png">
+      <!-- <img class="ui medium image" src="/assets/EBCF_AnchorText.png"> -->
+    </div>
+  </div>
 </div>
 <!-- <div>
   <img class="ui fluid image" src="/assets/home.jpg">
 </div> -->
+<div class="ui one column grid">
 
-<div class="ui two column centered grid">
-  <div class="four wide column">
-    <h1 class="home-wod">Workout of the Day</h1>
-  </div>
-  <div class="four wide column">
-    {{#each model as |wod|}}
-      <div class="ui header huge">{{wod.prettyDate}}</div>
-      {{#if wod.strength}}
-        <div class="ui large header orange">STRENGTH</div>
-        <div class="home-pre">{{wod.strength}}</div>
-      {{/if}}
-      {{#if wod.conditioning}}
-        <div class="ui large header orange">CONDITIONING</div>
-        <div class="home-pre">{{wod.conditioning}}</div>
-      {{/if}}
+<div class="row">
+  <div class="ui two column centered grid">
+    <div class="four wide column">
+      <h1 class="home-wod">Workout of the Day</h1>
+      {{#link-to 'wods' class="ui large button"}} WOD ARCHIVE{{/link-to}}
+    </div>
+    <div class="four wide column">
+      {{#each model as |wod|}}
+        <div class="ui header huge">{{wod.prettyDate}}</div>
 
-    {{/each}}
+        {{#if wod.strength}}
+          <div class="ui large header orange">STRENGTH</div>
+          <div class="home-pre">{{wod.strength}}</div>
+        {{/if}}
+
+        {{#if wod.conditioning}}
+          <div class="ui large header orange">CONDITIONING</div>
+          <div class="home-pre">{{wod.conditioning}}</div>
+        {{/if}}
+
+      {{/each}}
+    </div>
   </div>
+</div>
+
+<div class="row">
+  <div class="home-3">
+    <div class="ui three column very relaxed centered grid home-3">
+      <div class="four wide center aligned column">
+        <div class="ui large header">COMMUNITY
+          <div class="ui horizontal divider">
+            <i class="anchor icon"></i>
+          </div>
+        </div>
+
+        <p class="large">
+          Elliott Bay CrossFit is a community of fun, dedicated, and compassionate athletes.
+          You will be surrounded by people who push you to get better every day.
+          The comradery and competition our community proides drives results and builds lasting friendships.
+          We are about getting better together.
+        </p>
+      </div>
+      <div class="four wide center aligned column">
+        <div class="ui large header">PROGRAMMING
+          <div class="ui horizontal divider">
+            <i class="anchor icon"></i>
+          </div>
+        </div>
+        <p class="large">
+          Our mission is to help you reach your goals.
+          We have amazing, knowledgeable, and experienced coaches who know how to drive results.
+          With varried and challenging programming tailored your skill level, you will see yourself improve every week.
+        </p>
+      </div>
+      <div class="four wide center aligned column">
+        <div class="ui large header">RESULTS
+          <div class="ui horizontal divider">
+            <i class="anchor icon"></i>
+          </div>
+        </div>
+        <p class="large">
+          CrossFit is strength and conditioning fitness program that has been proven effective around the world and drives exceptional result.
+          We will educate, encourage and enable you to enhance your lifestyle with all of the benefits CrossFit provides.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" id="home-row">
+  <div class="home-2">
+    <div class="ui two column centered grid">
+      <div class="seven wide center aligned column">
+        <p class="large">
+          All ages and fitness levels are welcome at Elliott Bay CrossFit.
+          We have designed an effective fitness program that is enhanced by our awesome community of athletes.
+          Ready to get started?
+        </p>
+        {{#link-to 'getting-started' class="ui huge primary button"}}GET STARTED{{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+    <div class="ui two column centered grid">
+      <div class="four wide column">
+        <h1 class="ui primary header">VISIT US</h1>
+        <h2>
+          Elliott Bay CrossFit
+          <br>
+          209 Bell St
+          <br>
+          Seattle WA, 98121
+        </h2>
+
+        <a class="ui large button" href="https://www.google.com/maps/place/Elliott+Bay+CrossFit">GET DIRECTIONS</a>
+
+        <div class="ui header">
+          info@elliottbaycrossfit.com
+        </div>
+
+      </div>
+      <div class="four wide column">
+        {{google-map}}
+      </div>
+    </div>
+</div>
 </div>
