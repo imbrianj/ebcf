@@ -19,6 +19,7 @@ Router.map(function() {
   this.route('pricing');
 
   this.route('bulk-tag-wods');
+  this.route('coaches');
 });
 
 export default Router;
