@@ -42,6 +42,10 @@ p.large
 .ui.button.primary:focus
   background-color: $primary-color-hover
 
+.ui.grid
+  padding-top: 2em
+  padding-bottom: 2em
+
 /* Select */
 #selectTags input
   border: none
@@ -62,59 +66,25 @@ p.large
 #logo
   width: 4.5em
 
-.poop
+.ui.grid.poop
   // position: fixed
   // z-index: 100
   // background-color: rgba(255, 255, 255, 0.9)
+  padding: 0px
 
-.poopy
-  background-color: rgba(255, 255, 255, 0.9)
-  width: 100%
+
 
 .ui.menu
-  border: none
+  // border: none
   box-shadow: none
-  background-color: rgba(255, 255, 255, 0.9)
+  // z-index: 1000
+  background: white
+  // background-color: rgba(255, 255, 255, 0.9)
 
   .item
     font-family: 'Montserrat', sans-serif
     // padding: .8em
     // padding-left: 2em
-
-// .menu
-  // z-index: 100
-  // position: fixed
-  // width: 100%
-  // background-color: rgba(255, 255, 255, 0.9)
-  //
-  // ul
-  //   list-style-type: none
-  //   margin: 0
-  //   padding: 0
-  //
-  //   li
-  //     float: right
-  //     a
-  //       font-family: 'Montserrat', sans-serif
-  //       display: block
-  //       text-align: center
-  //       padding: 20px
-  //       color: black
-  //       font-size: 105%
-  //
-  //     a:hover
-  //       color: $primary-color
-  //
-  //     .active
-  //       color: $primary-color
-  //
-  //   #menu-logo
-  //     float: left
-  //     padding-left: 20px
-  //     padding-top: 7px
-  //
-  //     a
-  //       padding: 0
 
 .hamburger
   z-index: 100
@@ -206,6 +176,17 @@ p.large
   background-image: url("/assets/kettlebell.jpg")
   margin-bottom: 1%
 
+  .ui.header
+    color: white
+
+  .banner-header
+    margin: auto
+    color: white
+    font-size: 5em
+
+  .grid
+    height: 100%
+
 .banner.coaches
   background-image: url("/assets/coaching.jpg")
   background-position-y: 25%
@@ -214,15 +195,26 @@ p.large
   background-image: url("/assets/coaching.jpg")
   background-position-y: 25%
 
-  .ui.header
-    color: white
+.banner.schedule
+  background-image: url("/assets/hspu.jpg")
+  background-position-y: 82%
 
-  .banner-header
-    margin-top: 100px
-    margin-left: 10%
-    color: white
-    font-size: 3em
 
+.banner.pricing
+  background-image: url("/assets/wod-archive.jpg")
+  background-position-y: 25%
+
+.banner.getting-started
+  background-image: url("/assets/rohan_snatch.jpg")
+  background-position-y: 22%
+
+.banner.wods
+  background-image: url("/assets/kelly.jpg")
+  background-position-y: 44%
+
+.banner.wod
+  background-image: url("/assets/kelly.jpg")
+  background-position-y: 44%
 /*Tag Styles*/
 .button.tag
   margin: 0.3em
