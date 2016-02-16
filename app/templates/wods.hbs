@@ -1,8 +1,4 @@
-<div class="banner wods">
-  <div class="ui grid container">
-    <h1 class="banner-header">WOD ARCHIVE</h1>
-  </div>
-</div>
+{{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
 <div class="ui container">
   {{#if searching}}
@@ -55,50 +51,44 @@
 
       {{/each}}
 
-
     <br>
     {{#unless searching}}
       <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
     {{/unless}}
   </div>
 
-  <div class="three wide computer only column">
-    <!-- <div class="ui sticky right floated segment search-wods"> -->
-        <!-- {{tag-select2 class="ui dropdown" tags=tags selectedTags=searchedTags}} -->
-          <div class="ui one center aligned column grid">
-            <div class="row">
-              <!-- {{bootstrap-datepicker class="form-control" orientation="right" placeholder="Search By Date" value=wodDate}} -->
-              <!-- {{date-picker date=wodDate placeholder="Search By Date" valueFormat='YYYY-MM-DD'}} -->
-              <div class="ui input datepicker">
-                {{pikaday-input value=wodDate placeholder="Search By Date"}}
-              </div>
-            </div>
-
-
-            <button class="ui button older hidden clearDate"{{action "clearDate"}}>Clear Date</button>
-
-
-            <div class="ui horizontal divider">
-              Or
-            </div>
-
-            {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
-
-              <div class="default text">Seach by Tags</div>
-              <i class="dropdown icon"></i>
-              <div class="menu">
-              {{#each tags as |tag|}}
-                <div class="item" data-value={{tag.id}}>
-                  {{tag.value}}
-                </div>
-              {{/each}}
-              </div>
-            {{/ui-dropdown}}
-
-            <div class="row">
-              <button class="ui button older hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
-            </div>
+    <div class="three wide computer only column">
+      <div class="ui one center aligned column grid">
+        <div class="row">
+          <div class="ui input datepicker">
+            {{pikaday-input value=wodDate placeholder="Search By Date"}}
+          </div>
         </div>
-  </div>
 
+
+        <button class="ui button older hidden clearDate"{{action "clearDate"}}>Clear Date</button>
+
+
+        <div class="ui horizontal divider">
+          Or
+        </div>
+
+        {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
+
+          <div class="default text">Seach by Tags</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+          {{#each tags as |tag|}}
+            <div class="item" data-value={{tag.id}}>
+              {{tag.value}}
+            </div>
+          {{/each}}
+          </div>
+        {{/ui-dropdown}}
+
+        <div class="row">
+          <button class="ui button older hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
+        </div>
+    </div>
+  </div>
 </div>
