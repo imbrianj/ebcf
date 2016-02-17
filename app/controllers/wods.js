@@ -17,30 +17,34 @@ export default Ember.Controller.extend({
   dateChanged: Ember.observer('wodDate', function(){
     this.send('dateInputChanged', this.get('wodDate'));
   }),
+  _disableDatePicker: function() {
+    $('.datepicker').addClass('disabled');
+    $('.clearDate').addClass('disabled');
+  },
+  _disableTagPicker: function() {
+    $('.dropdown').addClass('disabled');
+    $('.clearTags').addClass('disabled');
+  },
+  _enableDataPicker: function() {
+    $('.datepicker').removeClass('disabled');
+    $('.clearDate').removeClass('disabled');
+  },
+  _enableTagPicker: function() {
+    $('.dropdown').removeClass('disabled');
+    $('.clearTags').removeClass('disabled');
+  },
   actions: {
     searchInputChanged(tagId) {
-      $('.datepicker').addClass('disabled');
-      $('.clearDate').addClass('disabled');
+      this._disableDatePicker();
+
       this.set('searching', true);
-      // var tags = this.get('searchedTags');
       var _this = this;
+
       if (tagId) {
         this.store.findRecord('tag', tagId).then(function(tag){
           var wods = tag.get('wods');
           _this.set('wods', wods);
         });
-
-
-        // var wods = tag.get('wods');
-        // this.set('wods', wods);
-      // if (tags.length > 0) {
-      //   var wods = [];
-      //   tags.forEach(function(tag){
-      //     tag.get('wods').forEach(function(wod){
-      //       wods.pushObject(wod);
-      //     });
-      //   });
-      //   this.set('wods', wods);
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = moment().day(-7 * dateDepth).toDate();
@@ -58,14 +62,12 @@ export default Ember.Controller.extend({
     },
     clearTags() {
       $('.dropdown').dropdown('clear');
-      $('.datepicker').removeClass('disabled');
-      $('.clearDate').removeClass('disabled');
+      this._enableDataPicker();
       this.set('searching', false);
     },
     dateInputChanged(date) {
       if (date) {
-        $('.dropdown').addClass('disabled');
-        $('.clearTags').addClass('disabled');
+        this._disableTagPicker();
         this.set('searching', true);
 
         var day = moment(date).utc().startOf('day').toISOString();
@@ -96,25 +98,28 @@ export default Ember.Controller.extend({
     clearDate() {
       this.set('searching', false);
       this.set('wodDate', '');
-      $('.dropdown').removeClass('disabled');
-      $('.clearTags').removeClass('disabled');
-
+      this._enableTagPicker();
     },
     getOlder() {
+      var _this = this;
       var dateDepth = this.get('dateDepth') + 1;
       var weeksAgo = moment().day(-7 * dateDepth).toDate();
-      var wods = this.store.query('wod', {
-        filter: {
-          simple: {
-            date: {
-              $gt: weeksAgo
+      setTimeout(function(){
+        _this.store.query('wod', {
+          filter: {
+            simple: {
+              date: {
+                $gt: weeksAgo
+              }
             }
           }
-        }
-      });
-
-      this.set('wods', wods);
-      this.set('dateDepth', dateDepth);
+        }).then(function(wods){
+          _this.set('wods', wods);
+          _this.set('dateDepth', dateDepth);
+        });
+      }, 4000);
+      // this.set('wods', wods);
+      // this.set('dateDepth', dateDepth);
     },
     tagsEntered: function(component, id, value) {
       this.send('searchInputChanged', id);
