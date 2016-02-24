@@ -5,7 +5,6 @@ export default Ember.Controller.extend({
     bulkUpdateTags(){
       var wods = this.get('wods');
       var tags = this.get('tags');
-      debugger;
       wods.forEach( function(wod) {
         var strength = wod.get('strength').toLowerCase();
         var conditioning = wod.get('conditioning').toLowerCase();

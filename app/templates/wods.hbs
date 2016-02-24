@@ -11,8 +11,10 @@
 <br>
 
 <div class="ui stackable centered two column grid">
-  <div class="eight wide column">
-
+  <div class="eight wide column wod-list">
+    <div class="ui inverted dimmer">
+      <div class="ui large text loader">WODs LOADING</div>
+    </div>
       {{#each wods2 as |wod|}}
 
         <div class="ui two column stackable mobile reversed grid">
@@ -67,14 +69,14 @@
       </div>
 
 
-      <button class="ui button older hidden clearDate"{{action "clearDate"}}>Clear Date</button>
+      <button class="ui button hidden clearDate"{{action "clearDate"}}>Clear Date</button>
 
 
       <div class="ui horizontal divider">
         Or
       </div>
 
-      {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
+      <!-- {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
         <div class="default text">Seach by Tag</div>
         <i class="dropdown icon"></i>
         <div class="menu">
@@ -84,10 +86,11 @@
             </div>
           {{/each}}
         </div>
-      {{/ui-dropdown}}
+      {{/ui-dropdown}} -->
+      {{search-tags tags=tags searchInputChanged="searchInputChanged"}}
 
       <div class="row">
-        <button class="ui button older hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
+        <button class="ui button hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
       </div>
     </div>
   </div>

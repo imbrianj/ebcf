@@ -11,9 +11,6 @@ export default Ember.Controller.extend({
   noResultsFound: Ember.computed('wods.length', function() {
     return (this.get('wods').get('length') < 1);
   }),
-  didChange: Ember.observer('searchedTags', function(){
-    this.send('searchInputChanged');
-  }),
   dateChanged: Ember.observer('wodDate', function(){
     this.send('dateInputChanged', this.get('wodDate'));
   }),
@@ -40,15 +37,19 @@ export default Ember.Controller.extend({
       this.set('searching', true);
       var _this = this;
 
+      // $('.wod-list').dimmer('show');
+
       if (tagId) {
-        this.store.findRecord('tag', tagId).then(function(tag){
-          var wods = tag.get('wods');
-          _this.set('wods', wods);
+        this.store.findRecord('tag', tagId).then(function(tag) {
+          tag.get('wods').then(function(wods){
+            // $('.wod-list').dimmer('hide');
+            _this.set('wods', wods);
+          });
         });
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = moment().day(-7 * dateDepth).toDate();
-        var wods = this.store.query('wod', {
+        this.store.query('wod', {
           filter: {
             simple: {
               date: {
@@ -56,8 +57,10 @@ export default Ember.Controller.extend({
               }
             }
           }
+        }).then(function(wods){
+          // $('.wod-list').dimmer('hide');
+          this.set('wods', wods);
         });
-        this.set('wods', wods);
       }
     },
     clearTags() {
@@ -104,6 +107,9 @@ export default Ember.Controller.extend({
       var _this = this;
       var dateDepth = this.get('dateDepth') + 1;
       var weeksAgo = moment().day(-7 * dateDepth).toDate();
+
+      $('.older').addClass('loading');
+
       setTimeout(function(){
         _this.store.query('wod', {
           filter: {
@@ -114,15 +120,15 @@ export default Ember.Controller.extend({
             }
           }
         }).then(function(wods){
+          $('.older').removeClass('loading');
+
           _this.set('wods', wods);
           _this.set('dateDepth', dateDepth);
         });
-      }, 4000);
-      // this.set('wods', wods);
-      // this.set('dateDepth', dateDepth);
+      }, 400);
     },
-    tagsEntered: function(component, id, value) {
-      this.send('searchInputChanged', id);
-    }
+    // tagsEntered: function(component, id, value) {
+    //   this.send('searchInputChanged', id);
+    // }
   }
 });
