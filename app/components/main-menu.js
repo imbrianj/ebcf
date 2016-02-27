@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   initializeComponent: Ember.on('didInsertElement', function() {
 
     var lastScrollTop = $(window).scrollTop();
-
+    
     Ember.$(window).scroll( function(event) {
 
        var st = Ember.$(this).scrollTop();

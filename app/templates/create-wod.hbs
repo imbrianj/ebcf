@@ -1,6 +1,6 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
-<div class="ui centered two column grid">
+<div class="ui centered two column stackable grid">
 
   <div class="six wide column">
     <div class="image-container">
@@ -19,15 +19,15 @@
     </div>
 
     <div class="image-upload-wrapper">
-      <label class="ui button" for="new-image"> Upload Image</label>
-        {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
+      <label class="ui button upload" for="new-image">Upload Image</label>
+      {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
     </div>
 
     {{select-tags tags=tags selectedTags=selectedTags}}
 
   </div>
 
-  <div class="two wide column">
+  <div class="four wide column">
       <div class="row">
         <div class="ui medium header">Title</div>
         <div class="ui input">
@@ -39,7 +39,7 @@
           {{input type="date" value=newDate}}
         </div>
     </div>
-
+    <br>
     <div class="row">
       <div class="ui medium header">Strength</div>
       {{textarea rows="10" value=newStrength}}
@@ -48,12 +48,12 @@
       {{textarea rows="10" value=newConditioning}}
     </div>
 
-    <button class="ui primary button"{{action "createWod"}}>Create WOD</button>
+    <button class="ui primary large button create-wod-btn"{{action "createWod"}}>Create WOD</button>
   </div>
 
 
 </div>
 
-{{password-modal loginSuccess="logIn"}}
+<!-- {{password-modal loginSuccess="logIn"}} -->
 
 {{create-tag closeModal="close"}}

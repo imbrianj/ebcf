@@ -26,6 +26,11 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['g-map'] = {
+    key: 'AIzaSyA5rpm0k1V1fHLU4izXgOs9H7wa2ZS7E7U',
+    protocol: 'https'
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
