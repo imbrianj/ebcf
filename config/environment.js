@@ -9,9 +9,10 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline' https://*.googleapis.com",
       'script-src': "'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
-      'img-src': "'self' http://ebcftest.s3.amazonaws.com/ http://jsawebsitepublic.s3.amazonaws.com/wp-content/uploads/ https://*.googleapis.com https://*.gstatic.com",
+      'img-src': "'self' http://ebcftest.s3.amazonaws.com/* https://s3-us-west-2.amazonaws.com/ebcf/assets/* http://jsawebsitepublic.s3.amazonaws.com/wp-content/uploads/ https://*.googleapis.com https://*.gstatic.com",
       'connect-src' : "'self' http://localhost:4500 http://ebcftest.s3.amazonaws.com/ https://ebcftest.s3-us-west-2.amazonaws.com https://ebcf-server.herokuapp.com/",
-      'font-src': "'self' data: https://fonts.gstatic.com/s/ https://*.gstatic.com"
+      'font-src': "'self' data: https://fonts.gstatic.com/s/ https://*.gstatic.com",
+      'media-src': "'self' https://s3-us-west-2.amazonaws.com/ebcftest/assets/ https://s3-us-west-2.amazonaws.com/ebcf/assets/"
     },
     EmberENV: {
       FEATURES: {

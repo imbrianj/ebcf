@@ -1,6 +1,5 @@
-$primary-color: #FC4513
+$primary-color: #F94725
 $primary-color-hover: #e33303
-// $light-gray: #E0E1E2
 $light-gray: #f2f2f2
 $dark-gray: #333333
 
@@ -50,7 +49,7 @@ p.large
   background-color: $primary-color
 
 .ui.grid
-  padding-top: 2em
+  padding-top: 1em
   // padding-bottom: 2em
 
 /* Select */
@@ -94,13 +93,17 @@ p.large
     // padding: .8em
     // padding-left: 2em
 
+.ui.menu-grid
+  height: 63px
+
 .hamburger
   z-index: 100
   cursor: pointer
 
-.footer-menu
+#footer-menu
   background: $dark-gray
   color: white
+  padding-bottom: 2.5em
 
   i
     color: white
@@ -119,23 +122,73 @@ p.large
       font-size: 17px
     a
       color: white
-
-
+  a
+    color: white
+    font-family: 'Open Sans', sans-serif
 /* Home */
 .home
-  background-image: url("/assets/home.jpg")
+  // background-image: url("/assets/home.jpg")
   background-size: cover
   background-repeat: no-repeat
-  padding-top: 1px
+  padding-top: 47px
   height: 450px
   // position: absolute
   // left: 0
   // top: 0
   // z-index: -1
-  background-position-y: 30%
+  // background-position-y: 30%
+
+.ui.grid.video-grid
+  padding-top: 11px
+  margin: 0
+
+  .column.video-column
+    // padding-top: 33px
+    height: 500px
+    padding: 0
+
+    video
+      // width: 105%
+      position: absolute
+      top: -325px
+      // top: -198px
+      // left: 0
+    .ui.image
+      position: relative
+      top: 25px
+
+.mobile-video-column
+  // height: 450px
+
+  video
+    width: 150%
+    position: absolute
+    top: 0
+    left: 0
+
+  .ui.image
+    position: relative
+    // top: 25px
+
+
+
+
+// img
+//   position: relative
+  // top: 50%
+  // transform: translateY(-50%)
 
 .grid.logo
-  height: 95%
+  // height: 95%
+
+  // img
+  //   position: absolute
+  //   top: 0
+  //   left: 50%
+
+.ui.grid.home-grid
+  margin-top: 0px
+  padding-top: 0px
 
 .home-wod
   font-size: 400%
@@ -148,13 +201,13 @@ p.large
   font-size: 15px
 
 .home-2
-  background-image: url("/assets/barbell.jpg")
+  background-image: url("/assets/barbell_2-min.jpg")
   background-size: cover
   color: white
   background-repeat: no-repeat
   // height: 220px
   width: 100%
-  background-position-y: 47%
+  background-position-y: 30%
   background-attachment: fixed
 
   .grid
@@ -173,6 +226,7 @@ p.large
 #row-1
   padding-bottom: 3.5em
   padding-top: 3.5em
+  background: white
 
 #row-2
   .column
@@ -190,13 +244,13 @@ p.large
   width: 100%
   background-size: cover
   background-position-y: 99%
-  height: 340px
+  height: 360px
   position: relative
   z-index: -1
   display: block
   background-repeat: no-repeat
-  padding-top: 1px
-  background-image: url("/assets/kettlebell.jpg")
+  // padding-top: 19px
+  background-image: url("/assets/kettlebell-min.jpg")
   margin-bottom: 1%
 
   .ui.header
@@ -211,32 +265,32 @@ p.large
     height: 100%
 
 .banner.coaches
-  background-image: url("/assets/coaching.jpg")
+  background-image: url("/assets/rings-min.jpg")
   background-position-y: 25%
 
 .banner.about
-  background-image: url("/assets/coaching.jpg")
-  background-position-y: 25%
+  background-image: url("/assets/rings-min.jpg")
+  background-position-y: 54%
 
 .banner.schedule
-  background-image: url("/assets/hspu.jpg")
-  background-position-y: 82%
+  background-image: url("/assets/cam-min.jpg")
+  background-position-y: 54%
 
 
 .banner.pricing
-  background-image: url("/assets/wod-archive.jpg")
-  background-position-y: 25%
+  background-image: url("/assets/plates-min.jpg")
+  background-position-y: 21%
 
 .banner.getting-started
-  background-image: url("/assets/rohan_snatch.jpg")
-  background-position-y: 22%
+  background-image: url("/assets/burpee-min.jpg")
+  background-position-y: 49%
 
 .banner.wods
-  background-image: url("/assets/kelly.jpg")
+  background-image: url("/assets/white_board-min.jpg")
   background-position-y: 44%
 
 .banner.wod
-  background-image: url("/assets/kelly.jpg")
+  background-image: url("/assets/white_board-min.jpg")
   background-position-y: 44%
 /*Tag Styles*/
 .button.tag
