@@ -40,7 +40,7 @@ export default Ember.Route.extend({
     // return Ember.$.getJSON('/api/v1/wods?filter[simple][title]=WOD+1');
     var today = moment().startOf("day").toDate();
     // var date = moment("2014-03-16").startOf("day").toDate();
-
+    
     return this.store.queryRecord('wod', {
       filter: {
         simple: {
