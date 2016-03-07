@@ -1,6 +1,6 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
-<div class="ui centered two column grid">
+<div class="ui centered two column stackable grid">
   <div class="six wide column">
     <div class="row">
 
@@ -28,8 +28,9 @@
       </div>
     </div>
     <div class="row">
+      {{select-tags tags=tags selectedTags=selectedTags}}
       {{#each wod.tags as |tag|}}
-        <div class="ui animated button" {{action "removeTag" tag}}>
+        <div class="ui animated button tag-button" {{action "removeTag" tag}}>
           <div class="visible content">
             {{tag.value}}
           </div>
@@ -38,12 +39,11 @@
           </div>
         </div>
       {{/each}}
-          <br>
-          {{select-tags tags=tags selectedTags=selectedTags}}
+
     </div>
   </div>
 
-  <div class="two wide column">
+  <div class="four wide column">
     <div class="ui medium header">Title</div>
     <div class="ui input">
       {{input type="text" value=wod.title placeholder=wod.title}}

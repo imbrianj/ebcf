@@ -18,14 +18,17 @@
     </div>
     <div class="row">
       {{#each model.tags as |tag|}}
-        <div class="ui animated button tag">
+        <!-- <div class="ui animated button tag" {{action "tagButtonSelected" tag}}> -->
+        {{#link-to 'wods' (query-params tag=tag.value) class="ui animated button tag-button"}}
+
           <div class="visible content">
             {{tag.value}}
           </div>
           <div class="hidden content">
             <i class="right arrow icon"></i>
           </div>
-        </div>
+        <!-- </div> -->
+        {{/link-to}}
       {{/each}}
     </div>
   </div>

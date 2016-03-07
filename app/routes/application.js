@@ -13,4 +13,9 @@ export default Ember.Route.extend({
   //     });
   //   }
   // }
+  actions: {
+    tagButtonSelected: function(tag) {
+      this.transitionTo('wods', {queryParams: {tagValue: tag}});
+    }
+  }
 });

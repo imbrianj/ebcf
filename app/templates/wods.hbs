@@ -1,16 +1,25 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
-<div class="ui container">
+<!-- <div class="ui container">
   {{#if searching}}
     <h4 class="ui header">
-      {{wodsFound}} Wods Found
+      {{wodsFound}}
     </h4>
   {{/if}}
-</div>
+</div> -->
 
 <br>
 
 <div class="ui stackable centered two column grid">
+  <div class="eleven wide left aligned column">
+    <div class="row">
+    {{#if searching}}
+      <h4 class="ui header">
+        {{wodsFound}}
+      </h4>
+    {{/if}}
+  </div>
+  </div>
   <div class="eight wide column wod-list">
     <div class="ui inverted dimmer">
       <div class="ui large text loader">WODs LOADING</div>
@@ -76,17 +85,6 @@
         Or
       </div>
 
-      <!-- {{#ui-dropdown class="search selection" onChange=(action 'tagsEntered')}}
-        <div class="default text">Seach by Tag</div>
-        <i class="dropdown icon"></i>
-        <div class="menu">
-          {{#each tags as |tag|}}
-            <div class="item" data-value={{tag.id}}>
-              {{tag.value}}
-            </div>
-          {{/each}}
-        </div>
-      {{/ui-dropdown}} -->
       {{search-tags tags=tags searchInputChanged="searchInputChanged"}}
 
       <div class="row">

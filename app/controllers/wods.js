@@ -1,12 +1,48 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  queryParams: ['tag'],
+  tag: null,
+  date: null,
+  filterTags: Ember.observer('tag', function() {
+    var tagValue = this.get('tag');
+    var _this = this;
+    this.store.query('tag', {
+      filter: {
+        simple: {
+          value: tagValue
+        }
+      }
+    }).then(function(tags){
+      if(tags){
+        var tag = tags.get('firstObject');
+        $('.dropdown').dropdown('set selected', tag.get('value'));
+        _this.send('searchInputChanged', tag.get('id'), tag.get('value'));
+      }
+    });
+
+  }),
   sortProps: ['date:desc'],
   wods2: Ember.computed.sort('wods', 'sortProps'),
   dateDepth: 1,
   searching: false,
   wodsFound: Ember.computed('wods.length', function() {
-    return this.get('wods').get('length');
+    var numberOfWods = this.get('wods').get('length');
+    var searching = this.get('searching');
+
+    var res = "";
+    if (numberOfWods === 1) {
+      res =  numberOfWods + " Wod Found for ";
+    } else {
+      res = numberOfWods + " Wods Found for ";
+    }
+
+    if (moment(searching).isValid()) {
+      res = res + moment(searching).format('ddd MM.DD.YYYY').toUpperCase();
+    } else {
+      res = res + searching.toUpperCase();
+    }
+    return res;
   }),
   noResultsFound: Ember.computed('wods.length', function() {
     return (this.get('wods').get('length') < 1);
@@ -31,10 +67,10 @@ export default Ember.Controller.extend({
     $('.clearTags').removeClass('disabled');
   },
   actions: {
-    searchInputChanged(tagId) {
+    searchInputChanged(tagId, value) {
       this._disableDatePicker();
-
-      this.set('searching', true);
+      this.set('searching', value);
+      // this.set('tag', value);
       var _this = this;
 
       // $('.wod-list').dimmer('show');
@@ -46,6 +82,7 @@ export default Ember.Controller.extend({
             _this.set('wods', wods);
           });
         });
+      // }
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = moment().day(-7 * dateDepth).toDate();
@@ -59,7 +96,7 @@ export default Ember.Controller.extend({
           }
         }).then(function(wods){
           // $('.wod-list').dimmer('hide');
-          this.set('wods', wods);
+          _this.set('wods', wods);
         });
       }
     },
@@ -67,12 +104,12 @@ export default Ember.Controller.extend({
       $('.dropdown').dropdown('clear');
       this._enableDataPicker();
       this.set('searching', false);
+      this.set('tag', null);
     },
     dateInputChanged(date) {
       if (date) {
         this._disableTagPicker();
-        this.set('searching', true);
-
+        this.set('searching', date);
         var day = moment(date).utc().startOf('day').toISOString();
         var filteredWods = this.store.query('wod', {
           filter: {
