@@ -13,10 +13,14 @@ export default Ember.Controller.extend({
   actions: {
     createWod() {
      var title = this.get('newTitle');
-     var date = moment(this.get('newDate')).toDate();
+     var date = moment(this.get('newDate')).utc().startOf('day').toDate();
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
      var imageSource = this.get('imageUrl');
+
+     if (this.get('image-url')) {
+       imageSource = this.get('image-url');
+     }
 
      var wod = this.store.createRecord('wod', {
         title: title,
@@ -29,38 +33,31 @@ export default Ember.Controller.extend({
       var _this = this;
       wod.save().then( function(){
         var dropdownValues = $('.ui.dropdown').dropdown('get value');
-        var tagValues = [];
+        var tagIds = [];
 
         if (typeof dropdownValues === 'string') {
-          tagValues = dropdownValues.split(",");
+          tagIds = dropdownValues.split(",");
         }
 
-        tagValues.forEach(tagValue => {
-          _this.get('store').queryRecord('tag', {
-            filter: {
-              simple: {
-                value: tagValue
-              }
-            }
-          }).then(tag => {
-              if (tag.length > 0) {
-                wod.get("tags").pushObject(tag[0]);
-                wod.save();
-                tag[0].get("wods").pushObject(wod);
-                tag[0].save();
-              } else {
-                var newTag = _this.store.createRecord('tag', {
-                   value: tagValue
-                 });
-                 newTag.save().then( function() {
-                   wod.get('tags').pushObject(newTag);
-                   wod.save();
-                   newTag.get('wods').pushObject(wod);
-                   newTag.save();
-                 });
-              }
-          });
+        tagIds.forEach(function(tagId){
+          var tag = _this.store.peekRecord('tag', tagId);
+
+          if(tag) {
+            tag.get("wods").pushObject(wod);
+            tag.save();
+            wod.save();
+          } else {
+            tag = _this.store.createRecord('tag', {
+              value: tagId
+            });
+            tag.save().then(function() {
+              tag.get("wods").pushObject(wod);
+              tag.save();
+              wod.save();
+            });
+          }
         });
+
         _this.transitionToRoute('wod', wod);
       });
     },

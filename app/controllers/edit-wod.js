@@ -8,61 +8,48 @@ export default Ember.Controller.extend({
   actions: {
     updateWod() {
       var wod = this.get('wod');
+      var _this = this;
 
       // Add new tags
       var dropdownValues = $('.ui.dropdown').dropdown('get value');
-      var tagValues = [];
+      var tagIds = [];
 
       if (typeof dropdownValues === 'string') {
-        tagValues = dropdownValues.split(",");
+        tagIds = dropdownValues.split(",");
       }
 
-      tagValues.forEach(tagValue => {
-        this.get('store').queryRecord('tag', {
-          filter: {
-            simple: {
-              value: tagValue
-            }
-          }
-        }).then(tag => {
-            if (tag.length > 0) {
-              tag[0].get("wods").pushObject(wod);
-              wod.get("tags").pushObject(tag[0]);
+      tagIds.forEach(function(tagId){
+        var tag = _this.store.peekRecord('tag', tagId);
 
-              tag[0].save();
-              wod.save();
-            } else {
-              var newTag = this.store.createRecord('tag', {
-                 value: tagValue
-               });
-               newTag.save().then( function() {
-                 newTag.get('wods').pushObject(wod);
-                 wod.get('tags').pushObject(newTag);
-                 wod.save();
-                 newTag.save();
-               });
-            }
-        });
+        if(tag) {
+          tag.get("wods").pushObject(wod);
+          tag.save();
+        } else {
+          tag = _this.store.createRecord('tag', {
+            value: tagId
+          });
+          tag.save().then(function() {
+            tag.get("wods").pushObject(wod);
+            tag.save();
+            wod.save();
+          });
+        }
       });
 
-      // Remove tags
-      var tagsToRemove = this.get('tagsToRemove');
-
-      if (tagsToRemove.length > 0) {
-        tagsToRemove.forEach(function(tag){
-          tag.get('wods').removeObject(wod);
-          tag.save();
-        });
-      }
-
       // Set wod Date
-      var date = moment(wod.get('datePickerDate')).toDate();
+      var date = moment(wod.get('datePickerDate')).utc().startOf('day').toDate();
+
       wod.set('date', date);
 
+      // Set image url if one was entered
+      if (this.get('image-url')) {
+        wod.set('image', this.get('image-url'));
+      }
+
+
       // Save and redirect
-      var self = this;
       wod.save().then(function() {
-        self.transitionToRoute('wod', wod);
+        _this.transitionToRoute('wod', wod);
       });
     },
     deleteWod() {
@@ -80,13 +67,11 @@ export default Ember.Controller.extend({
     },
     removeTag(tag) {
       var wod = this.get('wod');
-      var wodTags = wod.get('tags');
-      wodTags.removeObject(tag);
-      var tagsToRemove = this.get('tagsToRemove').pushObject(tag);
-      this.set('tagsToRemove', tagsToRemove);
+      wod.get('tags').removeObject(tag);
+      tag.save();
+      wod.save();
     },
     imageUploadComplete(url) {
-      // this.set('imageUrl', url);
       this.set('uploadError', false);
       this.get('wod').set('image', url);
     },

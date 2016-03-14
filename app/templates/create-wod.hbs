@@ -21,6 +21,14 @@
     <div class="image-upload-wrapper">
       <label class="ui button upload" for="new-image">Upload Image</label>
       {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
+
+
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="ui input" id="image-url">
+        {{input type="text" value=image-url placeholder="Enter Image URL"}}
+      </div>
     </div>
 
     {{select-tags tags=tags selectedTags=selectedTags}}

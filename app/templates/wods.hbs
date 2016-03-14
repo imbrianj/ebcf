@@ -43,11 +43,11 @@
               <div class="ui header large">{{wod.prettyDate}}</div>
               {{#if wod.strength}}
                 <div class="ui header orange">STRENGTH</div>
-                <div class="pre">{{wod.strength}}</div>
+                <div class="pre">{{{wod.strength}}}</div>
               {{/if}}
               {{#if wod.conditioning}}
                 <div class="ui header orange">CONDITIONING</div>
-                <div class="pre">{{wod.conditioning}}</div>
+                <div class="pre">{{{wod.conditioning}}}</div>
               {{/if}}
             </div>
             {{#link-to 'wod' wod class="read-more"}}

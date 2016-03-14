@@ -14,10 +14,12 @@ export default Ember.Controller.extend({
         }
       }
     }).then(function(tags){
-      if(tags){
+      if(tags.get('length') > 0){
         var tag = tags.get('firstObject');
         $('.dropdown').dropdown('set selected', tag.get('value'));
         _this.send('searchInputChanged', tag.get('id'), tag.get('value'));
+      } else {
+        _this.set('searching', false);
       }
     });
 

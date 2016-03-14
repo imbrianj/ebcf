@@ -34,7 +34,7 @@
   </div>
 
   <div class="seven wide column">
-    {{#link-to 'wods' class="read-more"}}
+    {{#link-to 'wods' (query-params tag="") class="read-more"}}
       <i class="chevron left icon"></i>
       Back
     {{/link-to}}
@@ -42,11 +42,11 @@
 
     {{#if model.strength}}
       <div class="ui large header orange">STRENGTH</div>
-      <div class="pre">{{model.strength}}</div>
+      <div class="pre">{{{model.strength}}}</div>
     {{/if}}
     {{#if model.conditioning}}
       <div class="ui large header orange">CONDITIONING</div>
-      <div class="pre">{{model.conditioning}}</div>
+      <div class="pre">{{{model.conditioning}}}</div>
     {{/if}}
   </div>
 </div>

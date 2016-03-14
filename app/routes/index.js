@@ -38,13 +38,14 @@ export default Ember.Route.extend({
     // };
     // return Ember.$.ajax(ajaxOptions);
     // return Ember.$.getJSON('/api/v1/wods?filter[simple][title]=WOD+1');
-    var today = moment().startOf("day").toDate();
-    // var date = moment("2014-03-16").startOf("day").toDate();
-    
+    var today = moment().utc().startOf("day").toDate();
+    // var date = moment("2016-03-13").startOf("day").toDate();
+
     return this.store.queryRecord('wod', {
       filter: {
         simple: {
-          date: "2014-06-19T00:00:00.000Z"
+          // date: "2014-06-19T00:00:00.000Z"
+          date: today
         }
       }
     });
