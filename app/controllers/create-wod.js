@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   showModal: false,
   notLoggedIn: true,
   setImagePreview: function(){
-    this.set('imageUrl', "/assets/place-holder-image.png");
+    this.set('imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
   }.on('init'),
   actions: {
     createWod() {
