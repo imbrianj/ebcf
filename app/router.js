@@ -17,8 +17,6 @@ Router.map(function() {
   this.route('getting-started');
   this.route('schedule');
   this.route('pricing');
-
-  this.route('bulk-tag-wods');
   this.route('coaches');
 });
 
