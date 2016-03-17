@@ -44,8 +44,8 @@ export default Ember.Route.extend({
     return this.store.queryRecord('wod', {
       filter: {
         simple: {
-          date: "2014-06-19T00:00:00.000Z"
-          // date: today
+          // date: "2014-06-19T00:00:00.000Z"
+          date: today
         }
       }
     });
