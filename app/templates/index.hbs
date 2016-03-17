@@ -7,9 +7,6 @@
     </div>
 
     <div class="sixteen wide mobile only column mobile-video-column">
-      <!-- <video autoplay loop muted poster="/assets/home.jpg">
-        <source src="https://s3-us-west-2.amazonaws.com/ebcf/assets/EBCF.mov" type="video/mp4">
-      </video> -->
       <img class="ui centered medium image" alt="Elliott Bay CrossFit Logo" src="/assets/EBCF_Full_Logo.png">
     </div>
 </div>
@@ -17,68 +14,95 @@
 <div class="ui centered stackable grid home-grid">
 
   <div class="centered row" id="row-1">
-    <!-- <div class="ui two column stackable centered grid container"> -->
-      <div class="five wide column">
-        <h1 class="home-wod">Workout of the Day</h1>
-        {{#link-to 'wods' class="ui large button"}} WOD ARCHIVE{{/link-to}}
+    <div class="five wide computer only tablet only column">
+      <div class= "row">
+        <h1 class="home-wod">WORKOUT OF THE DAY</h1>
       </div>
-      <div class="four wide column">
-        {{#each model as |wod|}}
-          <div class="ui header huge">{{wod.prettyDate}}</div>
-
-          {{#if wod.strength}}
-            <div class="ui large header orange">STRENGTH</div>
-            <div class="home-pre">{{wod.strength}}</div>
-          {{/if}}
-
-          {{#if wod.conditioning}}
-            <div class="ui large header orange">CONDITIONING</div>
-            <div class="home-pre">{{wod.conditioning}}</div>
-          {{/if}}
-
-        {{/each}}
+      <div class= "computer only row button-row">
+        {{#link-to 'wods' class="ui huge button"}} WOD ARCHIVE{{/link-to}}
       </div>
-    <!-- </div> -->
+    </div>
+    <div class="four mobile only column">
+      <div class= "row">
+        <h1 class="home-wod">WORKOUT OF THE DAY</h1>
+      </div>
+    </div>
+    <div class="five wide column">
+      {{#each model as |wod|}}
+        <div class="ui header huge">{{wod.prettyDate}}</div>
+
+        {{#if wod.strength}}
+          <div class="ui large header orange">STRENGTH</div>
+          <div class="home-pre">{{wod.strength}}</div>
+        {{/if}}
+
+        {{#if wod.conditioning}}
+          <div class="ui large header orange">CONDITIONING</div>
+          <div class="home-pre">{{wod.conditioning}}</div>
+        {{/if}}
+
+      {{/each}}
+
+
+    </div>
+
+    <div class="mobile only center aligned column">
+      {{#link-to 'wods' class="ui huge button"}} WOD ARCHIVE{{/link-to}}
+    </div>
+
   </div>
 
   <div class="centered row" id="row-2" style="background-color: #f2f2f2">
-        <div class="four wide center aligned column">
-          <div class="ui large header">COMMUNITY
-            <div class="ui horizontal divider">
-              <i class="anchor icon"></i>
-            </div>
-          </div>
-          <p class="">
-            Elliott Bay CrossFit is a community of fun, dedicated, and compassionate athletes.
-            You will be surrounded by people who push you to get better every day.
-            The comradery and competition our community proides drives results and builds lasting friendships.
-          </p>
-        </div>
+    <div class="four wide center aligned column">
+      <div class="ui large header">COMMUNITY</div>
 
-        <div class="four wide center aligned column">
-          <div class="ui large header">PROGRAMMING
-            <div class="ui horizontal divider">
-              <i class="anchor icon"></i>
-            </div>
-          </div>
-          <p class="">
-            Our mission is to help you reach your goals.
-            We have amazing coaches who are knowledgeable, experienced, and know how to drive results.
-            With varried and challenging programming tailored your skill level, you will see yourself improve every week.
-          </p>
-        </div>
+      <p class="">
+        Elliott Bay CrossFit is a community of fun, dedicated, and compassionate athletes.
+        You will be surrounded by people who push you to get better every day.
+        The camaraderie and competition our community provides drives progress and builds lasting friendships.
+      </p>
+    </div>
 
-        <div class="four wide center aligned column">
-          <div class="ui large header">RESULTS
-            <div class="ui horizontal divider">
-              <i class="anchor icon"></i>
-            </div>
-          </div>
-          <p class="">
-            CrossFit is strength and conditioning fitness program that has been proven effective around the world and drives exceptional result.
-            We will provide you with the tools and the knowledge to enhance your lifestyle with all of the benefits CrossFit provides.
-          </p>
-        </div>
+    <div class="mobile only column">
+      <div class="ui horizontal divider">
+        <i class="anchor icon"></i>
+      </div>
+    </div>
+    <div class="computer only tablet only column">
+      <div class="ui vertical divider">
+        <i class="anchor icon"></i>
+      </div>
+    </div>
+
+    <div class="four wide center aligned column">
+      <div class="ui large header">PROGRAMMING</div>
+
+      <p class="">
+        Our mission is to help you reach your goals.
+        We have exceptional coaches who are knowledgeable, experienced, and know how to get results.
+        With varied and challenging programming tailored your skill level, you will see yourself improve every week.
+      </p>
+    </div>
+
+    <div class="mobile only column">
+      <div class="ui horizontal divider">
+        <i class="anchor icon"></i>
+      </div>
+    </div>
+    <div class="computer only tablet only column">
+      <div class="ui vertical divider">
+        <i class="anchor icon"></i>
+      </div>
+    </div>
+
+    <div class="four wide center aligned column">
+      <div class="ui large header">RESULTS</div>
+
+      <p class="">
+        CrossFit is strength and conditioning fitness program that has been proven effective around the world.
+        We will provide you with the tools and the knowledge to enhance your lifestyle with all of the benefits CrossFit provides.
+      </p>
+    </div>
   </div>
 
   <div class="centered computer only tablet only row" id="row-3">
