@@ -2,7 +2,6 @@ import Ember from 'ember';
 import CryptoJS from 'npm:crypto-js';
 
 export default Ember.Component.extend({
-  notLoggedIn: true,
   loginError: false,
   showPasswordModa: function(){
     $('#password-modal').modal('setting', 'closable', false).modal('show');
