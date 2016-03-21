@@ -30,9 +30,9 @@ module.exports = function(environment) {
   ENV['g-map'] = {
     key: 'AIzaSyA5rpm0k1V1fHLU4izXgOs9H7wa2ZS7E7U',
     protocol: 'https',
-    scrollwheel: false,
-    draggable: false
-  }
+    draggable: false,
+    // scrollwheel: false
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
