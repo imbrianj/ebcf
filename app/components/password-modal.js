@@ -21,7 +21,7 @@ export default Ember.Component.extend({
       };
       Ember.$.ajax(ajaxOptions).then(function(response){
         if (response.success) {
-          self.sendAction('loginSuccess');
+          // self.sendAction('loginSuccess');
           $("#password-modal").modal("hide");
         }	else {
           self.set('loginError', true);
