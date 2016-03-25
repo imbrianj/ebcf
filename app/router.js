@@ -21,6 +21,7 @@ Router.map(function() {
   this.route('schedule');
   this.route('pricing');
   this.route('coaches');
+  this.route('edit-callout');
 });
 
 export default Router;

@@ -13,6 +13,13 @@
 
 <div class="ui centered stackable grid home-grid">
 
+  {{#if callout.enabled}}
+    <div class="centered row" id="callout-row" style="background-color: #F94725">
+      <h3>{{callout.value}}</h3>
+    </div>
+  {{/if}}
+  <!-- <div class="ui secondary segment"></div> -->
+
   <div class="centered row" id="row-1">
     <div class="five wide computer only tablet only column">
 
@@ -32,15 +39,15 @@
     </div>
 
     <div class="five wide column">
-        <div class="ui header huge">{{model.prettyDate}}</div>
-        {{#if model.strength}}
+        <div class="ui header huge">{{wod.prettyDate}}</div>
+        {{#if wod.strength}}
           <div class="ui large header orange">STRENGTH</div>
-          <div class="home-pre">{{model.strength}}</div>
+          <div class="home-pre">{{wod.strength}}</div>
         {{/if}}
 
-        {{#if model.conditioning}}
+        {{#if wod.conditioning}}
           <div class="ui large header orange">CONDITIONING</div>
-          <div class="home-pre">{{model.conditioning}}</div>
+          <div class="home-pre">{{wod.conditioning}}</div>
         {{/if}}
     </div>
 
@@ -66,11 +73,11 @@
         <i class="anchor icon"></i>
       </div>
     </div>
-    <div class="computer only tablet only column">
+    <!-- <div class="computer only tablet only column">
       <div class="ui vertical divider">
         <i class="anchor icon"></i>
       </div>
-    </div>
+    </div> -->
 
     <div class="four wide center aligned column">
       <div class="ui large header">PROGRAMMING</div>
@@ -87,11 +94,11 @@
         <i class="anchor icon"></i>
       </div>
     </div>
-    <div class="computer only tablet only column">
+    <!-- <div class="computer only tablet only column">
       <div class="ui vertical divider">
         <i class="anchor icon"></i>
       </div>
-    </div>
+    </div> -->
 
     <div class="four wide center aligned column">
       <div class="ui large header">RESULTS</div>
