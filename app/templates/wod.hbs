@@ -3,19 +3,19 @@
 <div class="ui centered two column mobile reversed stackable grid">
 
   <div class="five wide column">
-    <div class="row">
 
+    <div class="row">
       <div class="image-container">
         {{#if model.image}}
           <a href={{model.image}}>
-            <img  class=wod-image src={{model.image}}>
+            <img class="wod-image" src={{model.image}}>
           </a>
         {{else}}
           <img  width=300px class="place-holder-image">
         {{/if}}
       </div>
-
     </div>
+
     <div class="row">
       {{#each model.tags as |tag|}}
         <!-- <div class="ui animated button tag" {{action "tagButtonSelected" tag}}> -->
@@ -31,6 +31,7 @@
         {{/link-to}}
       {{/each}}
     </div>
+
   </div>
 
   <div class="seven wide column">
@@ -48,5 +49,26 @@
       <div class="ui large header orange">CONDITIONING</div>
       <div class="pre">{{{model.conditioning}}}</div>
     {{/if}}
+  </div>
+
+
+
+  <div class="twelve wide column">
+    <div class="ui horizontal divider">
+      <i class="anchor icon"></i>
+    </div>
+    {{#if model.description}}
+      <div class="ui large header orange">ABOUT THIS WORKOUT</div>
+      <div class="pre">{{{model.description}}}</div>
+    {{/if}}
+
+
+  </div>
+  <div class="eight wide column">
+    <!-- <div class="six wide column"> -->
+    {{#if model.video_id}}
+      {{ui-embed data-source="youtube" data-id=model.video_id}}
+    {{/if}}
+    <!-- </div> -->
   </div>
 </div>

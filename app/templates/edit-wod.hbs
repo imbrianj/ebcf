@@ -68,8 +68,21 @@
     <div class="ui medium header">Conditioning</div>
     {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
 
-    <button class="ui primary button"{{action "updateWod"}}>Update WOD</button>
     <!-- <button class="ui primary button"{{action "deleteWod"}}>Delete WOD</button> -->
+  </div>
+
+  <div class="ten wide column">
+    <div class="ui medium header">About This WOD</div>
+    {{textarea rows="7" value=wod.description placeholder=wod.description}}
+
+    <div class="row">
+      <div class="ui medium header">Video ID</div>
+      <div class="ui input">
+        {{input type="text" value=wod.video_id placeholder=wod.video_id}}
+      </div>
+    </div>
+
+    <button class="ui primary large button update-button"{{action "updateWod"}}>Update WOD</button>
   </div>
 
 </div>
