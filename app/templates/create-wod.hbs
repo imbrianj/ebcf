@@ -37,11 +37,6 @@
 
   <div class="four wide column">
       <div class="row">
-        <div class="ui medium header">Title</div>
-        <div class="ui input">
-          {{input type="text" value=newTitle}}
-        </div>
-
         <div class="ui medium header">WOD Date</div>
         <div class="ui input">
           {{input type="date" value=newDate}}
@@ -55,6 +50,18 @@
       <div class="ui medium header">Conditioning</div>
       {{textarea rows="10" value=newConditioning}}
     </div>
+  </div>
+
+  <div class="ten wide column">
+    <div class="ui medium header">About This WOD</div>
+    {{textarea rows="7" value=newDescription}}
+
+    <div class="row">
+      <div class="ui medium header">Video ID</div>
+      <div class="ui input">
+        {{input type="text" value=newVideoId}}
+      </div>
+    </div>
 
     <button class="ui primary large button update-button"{{action "createWod"}}>Create WOD</button>
   </div>
@@ -62,4 +69,4 @@
 
 </div>
 
-{{password-modal}}
+<!-- {{password-modal}} -->

@@ -25,12 +25,12 @@ export default Ember.Controller.extend({
           tag.get("wods").pushObject(wod);
           tag.save();
         } else {
-          tag = _this.store.createRecord('tag', {
+          var newTag = _this.store.createRecord('tag', {
             value: tagId
           });
-          tag.save().then(function() {
-            tag.get("wods").pushObject(wod);
-            tag.save();
+          newTag.save().then(function() {
+            newTag.get("wods").pushObject(wod);
+            newTag.save();
             wod.save();
           });
         }

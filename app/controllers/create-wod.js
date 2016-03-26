@@ -12,22 +12,24 @@ export default Ember.Controller.extend({
   }.on('init'),
   actions: {
     createWod() {
-     var title = this.get('newTitle');
      var date = moment(this.get('newDate')).utc().startOf('day').toDate();
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
      var imageSource = this.get('imageUrl');
+     var videoId = this.get('newVideoId');
+     var description = this.get('newDescription');
 
      if (this.get('image-url')) {
        imageSource = this.get('image-url');
      }
 
      var wod = this.store.createRecord('wod', {
-        title: title,
         date: date,
         strength: strength,
         conditioning: conditioning,
         image: imageSource,
+        video_id: videoId,
+        description: description
       });
 
       var _this = this;
@@ -47,12 +49,12 @@ export default Ember.Controller.extend({
             tag.save();
             wod.save();
           } else {
-            tag = _this.store.createRecord('tag', {
+            var newTag = _this.store.createRecord('tag', {
               value: tagId
             });
-            tag.save().then(function() {
-              tag.get("wods").pushObject(wod);
-              tag.save();
+            newTag.save().then(function() {
+              newTag.get("wods").pushObject(wod);
+              newTag.save();
               wod.save();
             });
           }

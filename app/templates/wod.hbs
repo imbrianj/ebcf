@@ -52,23 +52,21 @@
   </div>
 
 
-
-  <div class="twelve wide column">
-    <div class="ui horizontal divider">
-      <i class="anchor icon"></i>
-    </div>
-    {{#if model.description}}
+  {{#if model.description}}
+    <div class="twelve wide column">
+      <div class="ui horizontal divider">
+        <i class="anchor icon"></i>
+      </div>
+      
       <div class="ui large header orange">ABOUT THIS WORKOUT</div>
       <div class="pre">{{{model.description}}}</div>
-    {{/if}}
 
+    </div>
 
-  </div>
-  <div class="eight wide column">
-    <!-- <div class="six wide column"> -->
-    {{#if model.video_id}}
-      {{ui-embed data-source="youtube" data-id=model.video_id}}
-    {{/if}}
-    <!-- </div> -->
-  </div>
+    <div class="eight wide column">
+      {{#if model.video_id}}
+        {{ui-embed data-source="youtube" data-id=model.video_id}}
+      {{/if}}
+    </div>
+  {{/if}}
 </div>
