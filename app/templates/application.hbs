@@ -1,58 +1,25 @@
-<div class="ui grid menu-grid">
-	<div class="ui mobile only column">
-		{{sidebar-menu}}
-	</div>
-	<div class="tablet only computer only column">
-		{{main-menu}}
-	</div>
-</div>
+{{sidebar-menu}}
+
+<div class="pusher">
+  <div class="ui grid menu-grid">
+
+    <div class="ui mobile only column">
+      <div class="ui borderless vertically fitted top fixed menu">
+        <a class="left item" href="/"><img class="ui mini image" src="/assets/EBCF_AnchorText.png"></a>
+
+        <a class="item hamburger" {{action "toggle"}}>
+          <i class="big sidebar black icon"></i>
+        </a>
+      </div>
+  	</div>
+
+  	<div class="tablet only computer only column">
+  		{{main-menu}}
+  	</div>
+
+  </div>
 
 	{{outlet}}
 
-	{{modal}}
-
-<div class="ui three column centered stackable grid" id="footer-menu">
-
-	<div class="three wide column">
-		<ul>
-			<li class="footer-title">SITE MAP</li>
-			<li>{{#link-to "index"}}Home{{/link-to}}</li>
-			<li>{{#link-to "getting-started"}}Getting Started{{/link-to}}</li>
-			<li>{{#link-to "about"}}About EBCF{{/link-to}}</li>
-			<li>{{#link-to "schedule"}}Schedule{{/link-to}}</li>
-			<li>{{#link-to "pricing"}}Pricing{{/link-to}}</li>
-			<li>{{#link-to "wods"}}WODs{{/link-to}}</li>
-			<li>{{#link-to "contact"}}Contact Us{{/link-to}}</li>
-		</ul>
-	</div>
-
-	<div class="three wide column">
-		<ul>
-			<li class="footer-title">CONTACT US</li>
-			<li>info@elliottbaycrossfit.com</li>
-			<li>209 Bell St Seattle * WA 98121</li>
-		</ul>
-	</div>
-
-	<div class="three wide left aligned column">
-		<ul>
-			<li class="footer-title">FOLLOW US</li>
-		</ul>
-		<a href="https://www.facebook.com/elliottbaycf">
-			<i class="huge facebook square link icon" ></i>
-		</a>
-		<a href="https://www.instagram.com/elliottbaycrossfit/">
-			<i class="huge instagram link icon"></i>
-		</a>
-	</div>
-
-	<div class="fifteen wide right aligned column">
-		Site Designed & Developed By Samantha Brender
-		<a href="https://github.com/samb0303">
-			<i class="github link large icon"></i>
-		</a>
-		<a href="https://www.linkedin.com/in/samantha-brender-6b143782">
-			<i class="linkedin square link large icon"></i>
-		</a>
-	</div>
+  {{footer-menu}}
 </div>
