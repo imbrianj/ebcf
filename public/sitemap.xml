@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/getting-started</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/getting-started</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/about</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/about</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/coaches</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/coaches</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/schedule</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/schedule</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/pricing</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/pricing</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/wods</loc>
+    <loc>https://http://ebcf-server.herokuapp.com/wods</loc>
   </url>
   <url>
-    <loc>https://elliottbaycrossfit.herokuapp.com/contact</loc> 
+    <loc>https://http://ebcf-server.herokuapp.com/contact</loc>
   </url>
 </urlset>
