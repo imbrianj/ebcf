@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/</loc>
+    <loc>http://ebcf-server.herokuapp.com/</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/getting-started</loc>
+    <loc>http://ebcf-server.herokuapp.com/getting-started</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/about</loc>
+    <loc>http://ebcf-server.herokuapp.com/about</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/coaches</loc>
+    <loc>http://ebcf-server.herokuapp.com/coaches</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/schedule</loc>
+    <loc>http://ebcf-server.herokuapp.com/schedule</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/pricing</loc>
+    <loc>http://ebcf-server.herokuapp.com/pricing</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/wods</loc>
+    <loc>http://ebcf-server.herokuapp.com/wods</loc>
   </url>
   <url>
-    <loc>https://http://ebcf-server.herokuapp.com/contact</loc>
+    <loc>http://ebcf-server.herokuapp.com/contact</loc>
   </url>
 </urlset>
