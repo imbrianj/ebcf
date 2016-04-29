@@ -1,29 +1,29 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
-<!-- <div class="ui container">
-  {{#if searching}}
-    <h4 class="ui header">
-      {{wodsFound}}
-    </h4>
-  {{/if}}
-</div> -->
-
 <br>
 
 <div class="ui stackable centered two column grid page-grid">
-  <div class="eleven wide left aligned column">
-    <div class="row">
+
+  <div class="three wide right aligned mobile only column">
+    {{#ui-accordion}}
+      <div class="title">
+        <i class="big search icon"></i>
+      </div>
+      <div class="content">
+        {{wod-search tags=tags isSearching="isSearching" dateInputChanged="dateInputChanged"}}
+      </div>
+    {{/ui-accordion}}
+  </div>
+
+  <div class="ui grid container">
     {{#if searching}}
-      <h4 class="ui header">
+      <h4 class="ui header wods-found">
         {{wodsFound}}
       </h4>
     {{/if}}
   </div>
-  </div>
+
   <div class="eight wide column wod-list">
-    <div class="ui inverted dimmer">
-      <div class="ui large text loader">WODs LOADING</div>
-    </div>
       {{#each wods2 as |wod|}}
 
         <div class="ui two column stackable mobile reversed grid">
@@ -70,26 +70,6 @@
   </div>
 
   <div class="three wide computer only column">
-    <div class="ui one center aligned column grid">
-      <div class="row">
-        <div class="ui input datepicker">
-          {{pikaday-input value=wodDate placeholder="Search By Date"}}
-        </div>
-      </div>
-
-
-      <button class="ui button hidden clearDate"{{action "clearDate"}}>Clear Date</button>
-
-
-      <div class="ui horizontal divider">
-        Or
-      </div>
-
-      {{search-tags tags=tags searchInputChanged="searchInputChanged"}}
-
-      <div class="row">
-        <button class="ui button hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
-      </div>
-    </div>
+    {{wod-search tags=tags isSearching="isSearching" dateInputChanged="dateInputChanged"}}
   </div>
 </div>

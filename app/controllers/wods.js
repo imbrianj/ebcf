@@ -4,7 +4,11 @@ export default Ember.Controller.extend({
   queryParams: ['tag'],
   tag: null,
   date: null,
-  filterTags: Ember.observer('tag', function() {
+  sortProps: ['date:desc'],
+  wods2: Ember.computed.sort('wods', 'sortProps'),
+  dateDepth: 1,
+  searching: false,
+  filterByTag: Ember.observer('tag', function() {
     var tagValue = this.get('tag');
     var _this = this;
     this.store.query('tag', {
@@ -14,9 +18,9 @@ export default Ember.Controller.extend({
         }
       }
     }).then(function(tags){
-      if(tags.get('length') > 0){
+      if(tags.get('length') > 0) {
         var tag = tags.get('firstObject');
-        $('.dropdown').dropdown('set selected', tag.get('value'));
+        Ember.$('.dropdown').dropdown('set selected', tag.get('value'));
         _this.send('searchInputChanged', tag.get('id'), tag.get('value'));
       } else {
         _this.set('searching', false);
@@ -24,10 +28,6 @@ export default Ember.Controller.extend({
     });
 
   }),
-  sortProps: ['date:desc'],
-  wods2: Ember.computed.sort('wods', 'sortProps'),
-  dateDepth: 1,
-  searching: false,
   wodsFound: Ember.computed('wods.length', function() {
     var numberOfWods = this.get('wods').get('length');
     var searching = this.get('searching');
@@ -39,8 +39,8 @@ export default Ember.Controller.extend({
       res = numberOfWods + " Wods Found for ";
     }
 
-    if (moment(searching).isValid()) {
-      res = res + moment(searching).format('ddd MM.DD.YYYY').toUpperCase();
+    if (window.moment(searching).isValid()) {
+      res = res + window.moment(searching).format('ddd MM.DD.YYYY').toUpperCase();
     } else {
       res = res + searching.toUpperCase();
     }
@@ -49,45 +49,19 @@ export default Ember.Controller.extend({
   noResultsFound: Ember.computed('wods.length', function() {
     return (this.get('wods').get('length') < 1);
   }),
-  dateChanged: Ember.observer('wodDate', function(){
-    this.send('dateInputChanged', this.get('wodDate'));
-  }),
-  _disableDatePicker: function() {
-    $('.datepicker').addClass('disabled');
-    $('.clearDate').addClass('disabled');
-  },
-  _disableTagPicker: function() {
-    $('.dropdown').addClass('disabled');
-    $('.clearTags').addClass('disabled');
-  },
-  _enableDataPicker: function() {
-    $('.datepicker').removeClass('disabled');
-    $('.clearDate').removeClass('disabled');
-  },
-  _enableTagPicker: function() {
-    $('.dropdown').removeClass('disabled');
-    $('.clearTags').removeClass('disabled');
-  },
   actions: {
-    searchInputChanged(tagId, value) {
-      this._disableDatePicker();
-      this.set('searching', value);
-      // this.set('tag', value);
+    isSearching(tagId, value) {
       var _this = this;
-
-      // $('.wod-list').dimmer('show');
-
       if (tagId) {
         this.store.findRecord('tag', tagId).then(function(tag) {
           tag.get('wods').then(function(wods){
-            // $('.wod-list').dimmer('hide');
             _this.set('wods', wods);
+            _this.set('searching', value);
           });
         });
-      // }
       } else {
         var dateDepth = this.get('dateDepth');
-        var weeksAgo = moment().day(-7 * dateDepth).toDate();
+        var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
         this.store.query('wod', {
           filter: {
             simple: {
@@ -97,22 +71,15 @@ export default Ember.Controller.extend({
             }
           }
         }).then(function(wods){
-          // $('.wod-list').dimmer('hide');
           _this.set('wods', wods);
+          _this.set('searching', value);
         });
       }
     },
-    clearTags() {
-      $('.dropdown').dropdown('clear');
-      this._enableDataPicker();
-      this.set('searching', false);
-      this.set('tag', null);
-    },
     dateInputChanged(date) {
       if (date) {
-        this._disableTagPicker();
         this.set('searching', date);
-        var day = moment(date).utc().startOf('day').toISOString();
+        var day = window.moment(date).utc().startOf('day').toISOString();
         var filteredWods = this.store.query('wod', {
           filter: {
             simple: {
@@ -120,11 +87,10 @@ export default Ember.Controller.extend({
             }
           }
         });
-
         this.set('wods', filteredWods);
       } else {
         var dateDepth = this.get('dateDepth');
-        var weeksAgo = moment().day(-7 * dateDepth).toDate();
+        var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
         var wods = this.store.query('wod', {
           filter: {
             simple: {
@@ -137,37 +103,27 @@ export default Ember.Controller.extend({
         this.set('wods', wods);
       }
     },
-    clearDate() {
-      this.set('searching', false);
-      this.set('wodDate', '');
-      this._enableTagPicker();
-    },
     getOlder() {
       var _this = this;
       var dateDepth = this.get('dateDepth') + 1;
-      var weeksAgo = moment().day(-7 * dateDepth).toDate();
+      var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
 
-      $('.older').addClass('loading');
+      Ember.$('.older').addClass('loading');
 
-      setTimeout(function(){
-        _this.store.query('wod', {
-          filter: {
-            simple: {
-              date: {
-                $gt: weeksAgo
-              }
+      _this.store.query('wod', {
+        filter: {
+          simple: {
+            date: {
+              $gt: weeksAgo
             }
           }
-        }).then(function(wods){
-          $('.older').removeClass('loading');
+        }
+      }).then(function(wods){
+        Ember.$('.older').removeClass('loading');
 
-          _this.set('wods', wods);
-          _this.set('dateDepth', dateDepth);
-        });
-      }, 400);
+        _this.set('wods', wods);
+        _this.set('dateDepth', dateDepth);
+      });
     },
-    // tagsEntered: function(component, id, value) {
-    //   this.send('searchInputChanged', id);
-    // }
   }
 });
