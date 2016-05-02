@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['tag'],
+  queryParams: ['tag', 'date'],
   tag: null,
   date: null,
   sortProps: ['date:desc'],
@@ -10,23 +10,14 @@ export default Ember.Controller.extend({
   searching: false,
   filterByTag: Ember.observer('tag', function() {
     var tagValue = this.get('tag');
-    var _this = this;
-    this.store.query('tag', {
-      filter: {
-        simple: {
-          value: tagValue
-        }
-      }
-    }).then(function(tags){
-      if(tags.get('length') > 0) {
-        var tag = tags.get('firstObject');
-        Ember.$('.dropdown').dropdown('set selected', tag.get('value'));
-        _this.send('searchInputChanged', tag.get('id'), tag.get('value'));
-      } else {
-        _this.set('searching', false);
-      }
-    });
-
+    this.set('searching', tagValue);
+    this.send('tagParamChanged', tagValue);
+    Ember.$('.dropdown').dropdown('set selected', tagValue);
+  }),
+  filterByDate: Ember.observer('date', function(){
+    var date = this.get('date');
+    this.set('searching', date);
+    this.send('dateParamChanged', date)
   }),
   wodsFound: Ember.computed('wods.length', function() {
     var numberOfWods = this.get('wods').get('length');
@@ -46,39 +37,62 @@ export default Ember.Controller.extend({
     }
     return res;
   }),
-  noResultsFound: Ember.computed('wods.length', function() {
-    return (this.get('wods').get('length') < 1);
-  }),
+  _getTag(tagValue) {
+    return this.store.query('tag', {
+      filter: {
+        simple: {
+          value: tagValue
+        }
+      }
+    });
+  },
+  _getWodsOlderThan(weeksAgo) {
+    return this.store.query('wod', {
+      filter: {
+        simple: {
+          date: {
+            $gt: weeksAgo
+          }
+        }
+      }
+    });
+  },
   actions: {
-    isSearching(tagId, value) {
+    searchInputChanged(value) {
+      if (value) {
+        this.set('tag', value);
+      } else {
+        this.set('tag', null);
+      }
+    },
+    tagParamChanged(tagValue) {
       var _this = this;
-      if (tagId) {
-        this.store.findRecord('tag', tagId).then(function(tag) {
+
+      if (tagValue){
+        this._getTag(tagValue).then(function(tags){
+          var tag = tags.get('firstObject');
+          var value = tag.get('value');
           tag.get('wods').then(function(wods){
             _this.set('wods', wods);
-            _this.set('searching', value);
+            // Ember.$('.dropdown').dropdown('set selected', value);
           });
         });
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
-        this.store.query('wod', {
-          filter: {
-            simple: {
-              date: {
-                $gt: weeksAgo
-              }
-            }
-          }
-        }).then(function(wods){
-          _this.set('wods', wods);
-          _this.set('searching', value);
-        });
+        var wods = this._getWodsOlderThan(weeksAgo);
+        this.set('wods', wods);
       }
     },
     dateInputChanged(date) {
       if (date) {
-        this.set('searching', date);
+        this.set('date', date);
+      } else {
+        this.set('date', null);
+      }
+    },
+    dateParamChanged(date) {
+      if (date) {
         var day = window.moment(date).utc().startOf('day').toISOString();
         var filteredWods = this.store.query('wod', {
           filter: {
@@ -91,15 +105,7 @@ export default Ember.Controller.extend({
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
-        var wods = this.store.query('wod', {
-          filter: {
-            simple: {
-              date: {
-                $gt: weeksAgo
-              }
-            }
-          }
-        });
+        var wods = this._getWodsOlderThan(weeksAgo);
         this.set('wods', wods);
       }
     },
@@ -110,20 +116,12 @@ export default Ember.Controller.extend({
 
       Ember.$('.older').addClass('loading');
 
-      _this.store.query('wod', {
-        filter: {
-          simple: {
-            date: {
-              $gt: weeksAgo
-            }
-          }
-        }
-      }).then(function(wods){
+      this._getWodsOlderThan(weeksAgo).then(function(wods){
         Ember.$('.older').removeClass('loading');
 
         _this.set('wods', wods);
         _this.set('dateDepth', dateDepth);
       });
-    },
+    }
   }
 });

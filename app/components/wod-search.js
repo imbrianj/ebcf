@@ -22,20 +22,17 @@ export default Ember.Component.extend({
     $('.clearTags').removeClass('disabled');
   },
   actions: {
-    searchInputChanged(tagId, value) {
+    searchInputChanged(value) {
       this._disableDatePicker();
-      this.sendAction('isSearching', tagId, value);
+      this.sendAction('searchInputChanged', value);
     },
     clearTags() {
       $('.dropdown').dropdown('clear');
       this._enableDataPicker();
-      // this.set('searching', false);
-      this.sendAction('isSearching', false, false);
-      this.set('tag', null);
+      this.sendAction('searchInputChanged', null);
     },
     clearDate() {
-      // this.set('searching', false);
-      this.sendAction('isSearching', false, false);
+      this.sendAction('searchInputChanged', null);
       this.set('wodDate', '');
       this._enableTagPicker();
     }

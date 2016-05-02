@@ -1,11 +1,32 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    var weekAgo = moment().subtract(7, 'days').startOf('day').toDate();
-    return Ember.RSVP.hash({
-      tags: this.store.findAll('tag'),
-      wods: this.store.query('wod', {
+  model(params) {
+    var wods;
+
+    if (params.tag) { // if the tag parameter is set, filter by tag
+      wods = this.store.query('tag', {
+        filter: {
+          simple: {
+            value: params.tag
+          }
+        }
+      }).then(function(tags){
+        var tag = tags.get('firstObject');
+        return tag.get('wods');
+      });
+    } else if (params.date) { // if the date parameter is set, filter by date
+      var day = window.moment(params.date).utc().startOf('day').toISOString();
+      wods = this.store.query('wod', {
+        filter: {
+          simple: {
+            date: day
+          }
+        }
+      });
+    } else { // else grab the last week of workouts
+      var weekAgo = moment().subtract(7, 'days').startOf('day').toDate();
+      wods = this.store.query('wod', {
         filter: {
           simple: {
             date: {
@@ -14,6 +35,11 @@ export default Ember.Route.extend({
           }
         }
       })
+    }
+
+    return Ember.RSVP.hash({
+      tags: this.store.findAll('tag'),
+      wods: wods
     });
   },
 
