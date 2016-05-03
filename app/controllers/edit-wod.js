@@ -82,9 +82,6 @@ export default Ember.Controller.extend({
     },
     logIn() {
       this.set('notLoggedIn', false);
-    },
-    update_selected: function(component, id, value) {
-       this.set('selectedAction', id);
-     }
+    }
   }
 });
