@@ -5,10 +5,11 @@ export default Ember.Route.extend({
     var wods;
 
     if (params.tag) { // if the tag parameter is set, filter by tag
+      var tag = params.tag.replace("&amp;", "&");
       wods = this.store.query('tag', {
         filter: {
           simple: {
-            value: params.tag
+            value: tag
           }
         }
       }).then(function(tags){
@@ -34,7 +35,7 @@ export default Ember.Route.extend({
             }
           }
         }
-      })
+      });
     }
 
     return Ember.RSVP.hash({

@@ -10,7 +10,7 @@
         <i class="big search icon"></i>
       </div>
       <div class="content">
-        {{wod-search tags=tags isSearching="isSearching" dateInputChanged="dateInputChanged"}}
+        {{wod-search tags=tags tag=tag date=date}}
       </div>
     {{/ui-accordion}}
   </div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="eight wide column wod-list">
-      {{#each wods2 as |wod|}}
+      {{#each sortedWods as |wod|}}
 
         <div class="ui two column stackable mobile reversed grid">
 
@@ -70,6 +70,6 @@
   </div>
 
   <div class="three wide computer only column">
-    {{wod-search tags=tags wodDate=wodDate searchInputChanged="searchInputChanged" dateInputChanged="dateInputChanged"}}
+    {{wod-search tags=tags tag=tag date=date}}
   </div>
 </div>

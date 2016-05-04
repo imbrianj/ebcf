@@ -1,21 +1,19 @@
 <div class="ui one center aligned column grid">
   <div class="row">
     <div class="ui input datepicker">
-      {{pikaday-input value=wodDate placeholder="Search By Date"}}
+      {{pikaday-input value=date placeholder="Search By Date" disabled=disableDatePicker}}
     </div>
   </div>
 
-
-  <button class="ui button hidden clearDate"{{action "clearDate"}}>Clear Date</button>
-
+  <button class="ui button hidden clearDate"{{action "clearDate"}} disabled={{disableDatePicker}}>Clear Date</button>
 
   <div class="ui horizontal divider">
     Or
   </div>
 
-  {{search-tags tags=tags searchInputChanged="searchInputChanged"}}
+  {{search-tags tags=tags tag=tag disabled=disableTagPicker}}
 
   <div class="row">
-    <button class="ui button hidden clearTags"{{action "clearTags"}}>Clear Tags</button>
+    <button class="ui button hidden clearTags" {{action "clearTags"}} disabled={{disableTagPicker}}>Clear Tags</button>
   </div>
 </div>

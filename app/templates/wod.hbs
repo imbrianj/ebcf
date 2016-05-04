@@ -18,7 +18,7 @@
 
     <div class="row">
       {{#each model.tags as |tag|}}
-        {{#link-to 'wods' (query-params tag=tag.value) class="ui animated button tag-button"}}
+        {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
           <div class="visible content">
             {{tag.value}}
           </div>
