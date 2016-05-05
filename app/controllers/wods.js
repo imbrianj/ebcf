@@ -51,9 +51,11 @@ export default Ember.Controller.extend({
     return this.store.query('wod', {
       filter: {
         simple: {
-          date: {
-            $gt: weeksAgo
-          }
+          publishDate: {
+            $gt: weeksAgo,
+            $lt: window.moment().toDate()
+          },
+          enabled: true
         }
       }
     });
@@ -64,10 +66,10 @@ export default Ember.Controller.extend({
       if (tagValue) {
         this._getTag(tagValue).then(function(tags){
           var tag = tags.get('firstObject');
-          tag.get('wods').then(function(wods){
-            _this.set('wods', wods);
-            _this.set('searching', tagValue);
-          });
+          var wods = tag.get('enabledWods');
+          _this.set('wods', wods);
+          _this.set('searching', tagValue);
+
         });
       } else {
         var dateDepth = this.get('dateDepth');
@@ -85,7 +87,8 @@ export default Ember.Controller.extend({
         this.store.query('wod', {
           filter: {
             simple: {
-              date: day
+              date: day,
+              enabled: true
             }
           }
         }).then(function(wods){

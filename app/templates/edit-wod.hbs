@@ -51,11 +51,33 @@
     </div>
   </div>
 
-  <div class="four wide column">
+  <div class="five wide column">
+    <div class="row">
+      <div class="ui medium header">Enabled?</div>
+      {{ui-checkbox checked=wod.enabled}}
+    </div>
 
-    <div class="ui medium header">WOD Date</div>
-    <div class="ui input">
-      {{input type="date" value=wod.datePickerDate}}
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">WOD Date</div>
+      <div class="ui input">
+        {{input type="date" value=wod.datePickerDate}}
+      </div>
+    </div>
+
+    <br>
+    
+    <div class="bottom aligned row">
+      <div class="ui medium header">Publish Date</div>
+      <div class="ui input">
+        {{input type="date" value=wod.publishDay}}
+      </div>
+      <i class="large at icon"></i>
+      <div class="ui input">
+        {{input type="time" value=wod.publishTime}}
+      </div>
+      UTC
     </div>
 
     <div class="ui medium header">Strength</div>

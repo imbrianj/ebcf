@@ -14,25 +14,28 @@ export default Ember.Route.extend({
         }
       }).then(function(tags){
         var tag = tags.get('firstObject');
-        return tag.get('wods');
+        return tag.get('enabledWods');
       });
     } else if (params.date) { // if the date parameter is set, filter by date
       var day = window.moment(params.date).utc().startOf('day').toISOString();
       wods = this.store.query('wod', {
         filter: {
           simple: {
-            date: day
-          }
+            date: day,
+            enabled: true
+          },
         }
       });
     } else { // else grab the last week of workouts
-      var weekAgo = moment().subtract(7, 'days').startOf('day').toDate();
+      var weekAgo = window.moment().subtract(7, 'days').startOf('day').toDate();
       wods = this.store.query('wod', {
         filter: {
           simple: {
-            date: {
-              $gt: weekAgo
-            }
+            publishDate: {
+              $gt: weekAgo,
+              $lt: window.moment().toDate()
+            },
+            enabled: true
           }
         }
       });

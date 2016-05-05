@@ -35,12 +35,23 @@
 
   </div>
 
-  <div class="four wide column">
-      <div class="row">
-        <div class="ui medium header">WOD Date</div>
-        <div class="ui input">
-          {{input type="date" value=newDate}}
-        </div>
+  <div class="five wide column">
+    <div class="row">
+      <div class="ui medium header">WOD Date</div>
+      <div class="ui input">
+        {{input type="date" value=newDate}}
+      </div>
+    </div>
+    <br>
+    <div class="bottom aligned row">
+      <div class="ui medium header">Publish Date</div>
+      <div class="ui input">
+        {{input type="date" value=newPublishDay}}
+      </div>
+      <i class="large at icon"></i>
+      <div class="ui input">
+        {{input type="time" value=newPublishTime}}
+      </div>
     </div>
     <br>
     <div class="row">
@@ -52,7 +63,7 @@
     </div>
   </div>
 
-  <div class="ten wide column">
+  <div class="eleven wide column">
     <div class="ui medium header">About This WOD</div>
     {{textarea rows="7" value=newDescription}}
 

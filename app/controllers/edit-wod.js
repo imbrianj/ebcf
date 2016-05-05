@@ -37,15 +37,19 @@ export default Ember.Controller.extend({
       });
 
       // Set wod Date
-      var date = moment(wod.get('datePickerDate')).utc().startOf('day').toDate();
+      var date = window.moment(wod.get('datePickerDate')).utc().startOf('day').toDate();
+
+      var publishDay = wod.get('publishDay');
+      var publishTime = wod.get('publishTime');
+      var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
       wod.set('date', date);
+      wod.set('publishDate', publishDate);
 
       // Set image url if one was entered
       if (this.get('image-url')) {
         wod.set('image', this.get('image-url'));
       }
-
 
       // Save and redirect
       wod.save().then(function() {

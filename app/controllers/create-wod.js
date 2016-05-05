@@ -12,7 +12,10 @@ export default Ember.Controller.extend({
   }.on('init'),
   actions: {
     createWod() {
-     var date = moment(this.get('newDate')).utc().startOf('day').toDate();
+     var date = window.moment(this.get('newDate')).utc().startOf('day').toDate();
+     var publishDay = this.get('newPublishDay');
+     var publishTime = this.get('newPublishTime');
+     var publishDate = window.moment(publishDay + " " + publishTime).toDate();
      var strength = this.get('newStrength');
      var conditioning = this.get('newConditioning');
      var imageSource = this.get('imageUrl');
@@ -24,7 +27,9 @@ export default Ember.Controller.extend({
      }
 
      var wod = this.store.createRecord('wod', {
+        enabled: true,
         date: date,
+        publishDate: publishDate,
         strength: strength,
         conditioning: conditioning,
         image: imageSource,
@@ -34,7 +39,7 @@ export default Ember.Controller.extend({
 
       var _this = this;
       wod.save().then( function(){
-        var dropdownValues = $('.ui.dropdown').dropdown('get value');
+        var dropdownValues = Ember.$('.ui.dropdown').dropdown('get value');
         var tagIds = [];
 
         if (typeof dropdownValues === 'string') {
@@ -73,10 +78,9 @@ export default Ember.Controller.extend({
       this.set('errorText', errorText);
     },
     openModal() {
-      $('#tag-modal').modal('show');
+      Ember.$('#tag-modal').modal('show');
     },
     close(tagValue) {
-      // this.set('showModal', false);
       if (tagValue) {
         this.send('createATag', tagValue);
       }

@@ -1,8 +1,10 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
+  enabled: DS.attr('boolean'),
   title: DS.attr('string'),
   date: DS.attr('date'),
+  publishDate: DS.attr('date'),
   image: DS.attr('string'),
   strength: DS.attr('string'),
   conditioning: DS.attr('string'),
@@ -10,9 +12,15 @@ export default DS.Model.extend({
   video_id: DS.attr('string'),
   tags: DS.hasMany('tag', {async: true}),
   prettyDate: Ember.computed('date', function() {
-    return moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
+    return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
   }),
   datePickerDate: Ember.computed('date', function() {
-    return moment(this.get('date')).utc().format('YYYY-MM-DD');
+    return window.moment(this.get('date')).utc().format('YYYY-MM-DD');
+  }),
+  publishDay: Ember.computed('publishDate', function() {
+    return window.moment(this.get('publishDate')).startOf('day').format('YYYY-MM-DD');
+  }),
+  publishTime: Ember.computed('publishDate', function() {
+    return window.moment(this.get('publishDate')).format('HH:mm');
   })
 });

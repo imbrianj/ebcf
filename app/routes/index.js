@@ -6,9 +6,11 @@ export default Ember.Route.extend({
       wods: this.store.query('wod', {
         filter: {
           simple: {
-            date: {
-              $gt: moment().subtract(3, 'days').startOf('day').toDate()
-            }
+            publishDate: {
+              $gt: window.moment().subtract(3, 'days').startOf('day').toDate(),
+              $lt: window.moment().toDate()
+            },
+            enabled: true
           }
         }
       }),
@@ -20,5 +22,4 @@ export default Ember.Route.extend({
     controller.set('wod', model.wods.get('lastObject'));
     controller.set('callout', model.callout.get('firstObject'));
   }
-
 });
