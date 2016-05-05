@@ -67,3 +67,7 @@
     </div>
   {{/if}}
 </div>
+
+{{#unless model.enabled}}
+  {{password-modal}}
+{{/unless}}

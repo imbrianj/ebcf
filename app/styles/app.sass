@@ -2,6 +2,7 @@ $primary-color: #F94725
 $primary-color-hover: #e33303
 $light-gray: #f2f2f2
 $dark-gray: #333333
+$medium-gray: #e0e1e2
 
 .contact-map .g-map-canvas
   width: 100%
@@ -56,6 +57,9 @@ p.large
 .ui.button.primary:focus
   background-color: $primary-color
 
+.ui.button:focus
+  background-color: $medium-gray
+
 .ui.grid
   padding-top: 1em
   // padding-bottom: 2em
@@ -81,6 +85,12 @@ p.large
   margin-top: 1em
 
 /* Menu Styles*/
+.main-menu a, .admin-menu a
+  color: $dark-gray
+
+.admin-menu
+  color: $dark-gray
+
 #logo
   width: 4.5em
 

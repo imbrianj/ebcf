@@ -53,7 +53,7 @@ export default Ember.Controller.extend({
 
       // Save and redirect
       wod.save().then(function() {
-        _this.transitionToRoute('wod', wod);
+        _this.transitionToRoute('admin');
       });
     },
     deleteWod() {

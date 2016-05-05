@@ -1,6 +1,9 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
 <div class="ui centered two column stackable grid page-grid">
+  <div class="twelve wide column">
+    {{admin-menu}}
+  </div>
   <div class="six wide column">
     <div class="row">
 
@@ -67,7 +70,7 @@
     </div>
 
     <br>
-    
+
     <div class="bottom aligned row">
       <div class="ui medium header">Publish Date</div>
       <div class="ui input">
@@ -77,7 +80,6 @@
       <div class="ui input">
         {{input type="time" value=wod.publishTime}}
       </div>
-      UTC
     </div>
 
     <div class="ui medium header">Strength</div>

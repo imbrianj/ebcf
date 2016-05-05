@@ -1,0 +1,75 @@
+{{title-banner img-src="wods" page-title="ADMIN"}}
+
+<br>
+
+<div class="ui stackable centered grid page-grid">
+  <div class="ui twelve wide column">
+
+    <div class="twelve wide column">
+      {{admin-menu}}
+    </div>
+
+    <br>
+    
+    <table class="ui very basic collapsing celled table">
+      <thead>
+        <tr>
+          <th class="ui header">Image</th>
+          <th class="ui header">Link</th>
+          <th class="ui header">Enabled</th>
+          <th class="ui header">Date</th>
+          <th class="ui header">Publish Date</th>
+          <th class="ui header">Strength</th>
+          <th class="ui header">Conditioning</th>
+          <th class="ui header"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sortedWods as |wod|}}
+          <tr>
+            <td>
+               <img src={{wod.image}} class="ui small image">
+            </td>
+
+            <td>
+              {{#link-to 'wod' wod class="read-more"}}
+                {{wod.id}}
+              {{/link-to}}
+            </td>
+
+            <td>
+              {{wod.enabled}}
+            </td>
+
+            <td>
+              {{wod.date}}
+            </td>
+
+            <td>
+              {{wod.publishDate}}
+            </td>
+
+            <td>
+              {{wod.strength}}
+            </td>
+
+            <td>
+              {{wod.conditioning}}
+            </td>
+
+            <td>
+              <a href="wod/{{wod.id}}/edit">Edit</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  <div class="right floated row">
+    <div class="ui large primary icon button" {{action "getOlder"}}>
+      Load Older
+    </div>
+  </div>
+</div>
+
+{{password-modal}}
