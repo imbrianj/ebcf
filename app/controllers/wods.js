@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
   sortedWods: Ember.computed.sort('wods', 'sortProps'),
   dateDepth: 1,
   searching: false,
-  loading: true,
+  loading: false,
   filterByTag: Ember.observer('tag', function() {
     this.set('loading', true);
     var tagValue = this.get('tag');
@@ -70,10 +70,12 @@ export default Ember.Controller.extend({
       if (tagValue) {
         this._getTag(tagValue).then(function(tags){
           var tag = tags.get('firstObject');
-          var wods = tag.get('enabledWods');
-          _this.set('wods', wods);
-          _this.set('searching', tagValue);
-          _this.set('loading', false);
+          tag.get('wods').then(function(wods){
+            var enabledWods = wods.filterBy('enabled', true);
+            _this.set('wods', enabledWods);
+            _this.set('searching', tagValue);
+            _this.set('loading', false);
+          });
         });
       } else {
         var dateDepth = this.get('dateDepth');
