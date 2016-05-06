@@ -8,14 +8,17 @@ export default Ember.Controller.extend({
   sortedWods: Ember.computed.sort('wods', 'sortProps'),
   dateDepth: 1,
   searching: false,
+  loading: true,
   filterByTag: Ember.observer('tag', function() {
+    this.set('loading', true);
     var tagValue = this.get('tag');
     if (tagValue){
       tagValue = tagValue.replace("&amp;", "&");
     }
     this.send('tagParamChanged', tagValue);
   }),
-  filterByDate: Ember.observer('date', function(){
+  filterByDate: Ember.observer('date', function() {
+    this.set('loading', true);
     var date = this.get('date');
     this.send('dateParamChanged', date);
   }),
@@ -63,13 +66,14 @@ export default Ember.Controller.extend({
   actions: {
     tagParamChanged(tagValue) {
       var _this = this;
+
       if (tagValue) {
         this._getTag(tagValue).then(function(tags){
           var tag = tags.get('firstObject');
           var wods = tag.get('enabledWods');
           _this.set('wods', wods);
           _this.set('searching', tagValue);
-
+          _this.set('loading', false);
         });
       } else {
         var dateDepth = this.get('dateDepth');
@@ -77,6 +81,7 @@ export default Ember.Controller.extend({
         this._getWodsOlderThan(weeksAgo).then(function(wods){
           _this.set('wods', wods);
           _this.set('searching', tagValue);
+          _this.set('loading', false);
         });
       }
     },
@@ -94,6 +99,7 @@ export default Ember.Controller.extend({
         }).then(function(wods){
           _this.set('wods', wods);
           _this.set('searching', date);
+          _this.set('loading', false);
         });
 
       } else {
@@ -102,6 +108,7 @@ export default Ember.Controller.extend({
         this._getWodsOlderThan(weeksAgo).then(function(wods){
           _this.set('wods', wods);
           _this.set('searching', date);
+          _this.set('loading', false);
         });
 
       }

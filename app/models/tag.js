@@ -4,7 +4,5 @@ export default DS.Model.extend({
   value: DS.attr('string'),
   wods: DS.hasMany('wod', {async: true}),
   text: Ember.computed.alias('value'),
-  enabledWods: Ember.computed('wods', function() {
-    return this.get('wods').filterBy('enabled', true);
-  })
+  enabledWods: Ember.computed.filterBy('wods', 'enabled', true)
 });

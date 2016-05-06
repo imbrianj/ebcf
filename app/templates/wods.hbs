@@ -15,6 +15,7 @@
     {{/ui-accordion}}
   </div>
 
+
   <div class="ui grid container">
     {{#if searching}}
       <h4 class="ui header wods-found">
@@ -23,7 +24,13 @@
     {{/if}}
   </div>
 
+
   <div class="eight wide column wod-list">
+    {{#if loading}}
+        <div class="ui active inverted dimmer">
+          <div class="ui large text loader wod-loader">Loading</div>
+        </div>
+    {{/if}}
       {{#each sortedWods as |wod|}}
 
         <div class="ui two column stackable mobile reversed grid">
