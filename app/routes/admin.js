@@ -7,9 +7,8 @@ export default Ember.Route.extend({
       wods: this.store.query('wod', {
         filter: {
           simple: {
-            publishDate: {
-              $gt: weekAgo,
-              $lt: window.moment().toDate()
+            date: {
+              $gt: weekAgo
             }
           }
         }
