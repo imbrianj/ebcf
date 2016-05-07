@@ -3,14 +3,30 @@
 <br>
 
 <div class="ui stackable centered grid page-grid">
-  <div class="ui twelve wide column">
+  <div class="ui twelve wide center aligned column">
 
     <div class="twelve wide column">
       {{admin-menu}}
     </div>
 
     <br>
-    
+
+    <div class="row">
+      <div class="ui input">
+        {{input type="date" value=fromDate}}
+      </div>
+      to
+      <div class="ui input">
+        {{input type="date" value=toDate}}
+      </div>
+
+      <div class="ui large primary icon button filter" {{action "filterDate"}}>
+        Filter
+      </div>
+    </div>
+
+    <br>
+
     <table class="ui very basic collapsing celled table">
       <thead>
         <tr>
@@ -65,11 +81,7 @@
       </tbody>
     </table>
   </div>
-  <div class="right floated row">
-    <div class="ui large primary icon button" {{action "getOlder"}}>
-      Load Older
-    </div>
-  </div>
+
 </div>
 
 {{password-modal}}
