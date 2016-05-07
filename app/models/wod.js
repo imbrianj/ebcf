@@ -14,6 +14,9 @@ export default DS.Model.extend({
   prettyDate: Ember.computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
   }),
+  prettyPublishDate: Ember.computed('date', function() {
+    return window.moment(this.get('publishDate')).utc().format('ddd MM.DD.YYYY HH:mm a').toUpperCase();
+  }),
   datePickerDate: Ember.computed('date', function() {
     return window.moment(this.get('date')).utc().format('YYYY-MM-DD');
   }),
