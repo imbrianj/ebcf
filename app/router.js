@@ -2,11 +2,7 @@ import Ember from 'ember';
 import config from './config/environment';
 
 const Router = Ember.Router.extend({
-  location: config.locationType,
-  enter: function(router) {
-    window.scrollTo(0, 0);
-  }.on('didTransition')
-});
+  location: config.locationType
 
 Router.map(function() {
   this.route('about');

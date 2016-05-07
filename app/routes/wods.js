@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  queryParams: {
+    tag: {
+      replace: true
+    }
+  },
   model(params) {
     var wods;
 
