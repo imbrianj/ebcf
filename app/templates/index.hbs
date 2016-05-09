@@ -1,12 +1,12 @@
 <div class="ui grid video-grid">
-    <div class="sixteen wide computer only tablet only column video-column">
+    <div class="sixteen wide computer only column video-column">
       <video autoplay loop muted poster="/assets/EBCF-IMG.jpg">
         <source src="https://s3-us-west-2.amazonaws.com/ebcf/assets/EBCF.mp4" type="video/mp4">
       </video>
       <img class="ui centered large image" alt="Elliott Bay CrossFit Logo" src="/assets/EBCF_Full_Logo.png">
     </div>
 
-    <div class="sixteen wide mobile only column mobile-video-column">
+    <div class="sixteen wide mobile only tablet only column mobile-video-column">
       <img class="ui centered medium image" alt="Elliott Bay CrossFit Logo" src="/assets/EBCF_Full_Logo.png">
     </div>
 </div>
@@ -20,42 +20,42 @@
   {{/if}}
 
   <div class="centered row" id="row-1">
-    <div class="five wide computer only tablet only column">
+    <div class="five wide computer seven wide tablet computer only tablet only column">
 
-      <div class= "row">
+      <div class="row">
         <h1 class="home-wod">WORKOUT OF THE DAY</h1>
       </div>
 
-      <div class= "computer only tablet only row button-row">
+      <div class= "computer only row button-row">
         {{#link-to 'wods' class="ui huge button"}} WOD ARCHIVE{{/link-to}}
       </div>
     </div>
 
-    <div class="four mobile only column">
+    <div class="six wide mobile only column">
       <div class= "row">
         <h1 class="home-wod">WORKOUT OF THE DAY</h1>
       </div>
     </div>
 
-    <div class="five wide column">
-        <div class="ui header huge">{{wod.prettyDate}}</div>
-        {{#if wod.strength}}
-          <div class="ui large header orange">STRENGTH/SKILL</div>
-          <div class="home-pre">{{wod.strength}}</div>
-        {{/if}}
+    <div class="five wide computer seven wide tablet column">
+      <div class="ui header huge">{{wod.prettyDate}}</div>
+      {{#if wod.strength}}
+        <div class="ui large header orange">STRENGTH/SKILL</div>
+        <div class="home-pre">{{wod.strength}}</div>
+      {{/if}}
 
-        {{#if wod.conditioning}}
-          <div class="ui large header orange">CONDITIONING</div>
-          <div class="home-pre">{{wod.conditioning}}</div>
-        {{/if}}
+      {{#if wod.conditioning}}
+        <div class="ui large header orange">CONDITIONING</div>
+        <div class="home-pre">{{wod.conditioning}}</div>
+      {{/if}}
 
-        {{#link-to 'wod' wod class="read-more"}}
-          Read More
-          <i class="chevron right icon"></i>
-        {{/link-to}}
+      {{#link-to 'wod' wod class="read-more"}}
+        Read More
+        <i class="chevron right icon"></i>
+      {{/link-to}}
     </div>
 
-    <div class="mobile only center aligned column">
+    <div class="seven wide mobile only center aligned column">
       {{#link-to 'wods' class="ui huge button"}} WOD ARCHIVE{{/link-to}}
     </div>
 
@@ -64,7 +64,7 @@
   <div class="centered row" id="row-2" style="background-color: #f2f2f2">
     <!-- <div class="centered row" id="row-2"> -->
 
-    <div class="four wide center aligned column">
+    <div class="four wide computer thirteen wide tablet center aligned column">
       <div class="comminity-image"></div>
       <div class="ui large header">COMMUNITY</div>
 
@@ -80,13 +80,8 @@
         <i class="anchor icon"></i>
       </div>
     </div>
-    <!-- <div class="computer only tablet only column">
-      <div class="ui vertical divider">
-        <i class="anchor icon"></i>
-      </div>
-    </div> -->
 
-    <div class="four wide center aligned column">
+    <div class="four wide computer thirteen wide tablet center aligned column">
       <div class="programming-image"></div>
 
       <div class="ui large header">PROGRAMMING</div>
@@ -103,13 +98,8 @@
         <i class="anchor icon"></i>
       </div>
     </div>
-    <!-- <div class="computer only tablet only column">
-      <div class="ui vertical divider">
-        <i class="anchor icon"></i>
-      </div>
-    </div> -->
 
-    <div class="four wide center aligned column">
+    <div class="four wide computer thirteen wide tablet center aligned column">
       <div class="results-image"></div>
 
       <div class="ui large header">RESULTS</div>
@@ -149,6 +139,7 @@
             We have designed an effective fitness program that is enhanced by our awesome community of athletes.
             Ready to get started?
           </p>
+
           {{#link-to 'getting-started' class="ui huge primary button"}}GET STARTED{{/link-to}}
 
         </div>
@@ -158,7 +149,7 @@
   </div>
 
   <div class="centered row" id="row-4">
-      <div class="five wide center aligned computer only tablet only column">
+      <div class="five wide computer seven wide tablet center aligned computer only tablet only column">
         {{google-map}}
       </div>
       <div class="five wide computer only tablet only column">
