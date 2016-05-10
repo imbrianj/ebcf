@@ -13,13 +13,19 @@ export default EmberUploader.FileField.extend({
     });
 
     uploader.on('didUpload', function(response){
+      Ember.$('.image-upload-wrapper .button').removeClass('loading');
       var res = Ember.$(response);
       var url = decodeURIComponent(res.find('Location')[0].textContent);
       self.sendAction('onComplete', url);
     });
 
+    uploader.on('progress', function(response){
+      Ember.$('.image-upload-wrapper .button').addClass('loading');
+    });
+
     uploader.on('didError', function(jqXHR, testStatus, errorThrown){
-      var errorText = $(jqXHR.responseText).find('Message')[0].textContent;
+      Ember.$('.image-upload-wrapper .button').removeClass('loading');
+      var errorText = errorThrown.message;
 
       self.sendAction('onError', errorThrown, errorText);
     });

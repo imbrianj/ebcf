@@ -20,9 +20,8 @@
         {{/if}}
 
         {{#if uploadError}}
-          <div>
-            {{error}}
-            {{errorText}}
+          <div class="ui negative small message">
+            Error Trying to Upload: {{error}}
           </div>
         {{/if}}
       </div>
