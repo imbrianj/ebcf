@@ -2,7 +2,7 @@ import Ember from 'ember';
 import EmberUploader from 'ember-uploader';
 
 export default EmberUploader.FileField.extend({
-  url: '/api/v1/sign',
+  url: '/sign',
   actions: {
   },
   filesDidChange: function(files) {
@@ -13,7 +13,7 @@ export default EmberUploader.FileField.extend({
     });
 
     uploader.on('didUpload', function(response){
-      var res = $(response);
+      var res = Ember.$(response);
       var url = decodeURIComponent(res.find('Location')[0].textContent);
       self.sendAction('onComplete', url);
     });
