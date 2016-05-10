@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  activate: function() {
+    document.title = "Elliott Bay CrossFit";
+  },
   model() {
     return Ember.RSVP.hash({
       wods: this.store.query('wod', {

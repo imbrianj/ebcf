@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  activate: function() {
+    document.title = "Workout of the Day";
+  },
   queryParams: {
     tag: {
       replace: true
