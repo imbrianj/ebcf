@@ -19,7 +19,7 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, model) {
-    controller.set('wod', model.wods.get('lastObject'));
+    controller.set('wod', model.wods.sortBy('publishDate').get('lastObject'));
     controller.set('callout', model.callout.get('firstObject'));
   }
 });
