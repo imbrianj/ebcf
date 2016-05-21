@@ -20,6 +20,7 @@ Router.map(function() {
   this.route('coaches');
   this.route('edit-callout');
   this.route('admin');
+  this.route('error', { path: '*path' });
 });
 
 export default Router;
