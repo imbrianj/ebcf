@@ -2,14 +2,14 @@ import Ember from 'ember';
 import EmberUploader from 'ember-uploader';
 
 export default EmberUploader.FileField.extend({
-  url: '/sign',
+  url: '/api/v1/sign',
   actions: {
   },
   filesDidChange: function(files) {
     var uploadURL = this.get('url');
     var self = this;
     var uploader = EmberUploader.S3Uploader.create({
-      url: uploadURL
+      signingUrl: uploadURL
     });
 
     uploader.on('didUpload', function(response){
