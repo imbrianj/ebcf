@@ -1,4 +1,4 @@
 # http://www.robotstxt.org
-Sitemap: http://ebcf-server.herokuapp.com/sitemap.xml
+Sitemap: http://www.elliottbaycrossfit.com/sitemap.xml
 User-agent: *
 Disallow:
