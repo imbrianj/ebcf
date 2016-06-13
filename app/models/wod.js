@@ -15,7 +15,7 @@ export default DS.Model.extend({
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
   }),
   prettyPublishDate: Ember.computed('date', function() {
-    return window.moment(this.get('publishDate')).utc().format('ddd MM.DD.YYYY HH:mm a').toUpperCase();
+    return window.moment(this.get('publishDate')).tz("America/Los_Angeles").format('ddd MM.DD.YYYY h:mm a').toUpperCase();
   }),
   datePickerDate: Ember.computed('date', function() {
     return window.moment(this.get('date')).utc().format('YYYY-MM-DD');
@@ -25,5 +25,8 @@ export default DS.Model.extend({
   }),
   publishTime: Ember.computed('publishDate', function() {
     return window.moment(this.get('publishDate')).format('HH:mm');
+  }),
+  active: Ember.computed('publishDate', 'enabled', function() {
+    return (window.moment(this.get('publishDate')) < window.moment()) && this.get('enabled');
   })
 });

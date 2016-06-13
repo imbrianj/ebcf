@@ -27,56 +27,109 @@
 
     <br>
 
-    <table class="ui very basic collapsing celled tablet stackable table">
+    <table class="ui basic collapsing celled tablet stackable table">
       <thead>
         <tr>
-          <th class="ui header">Image</th>
-          <th class="ui header">Link</th>
-          <th class="ui header">Enabled</th>
-          <th class="ui header">Date</th>
-          <th class="ui header">Publish Date (UTC)</th>
-          <th class="ui header">Strength/Skill</th>
-          <th class="ui header">Conditioning</th>
-          <th class="ui header"></th>
+          <th class="ui center aligned header">Active</th>
+          <th class="ui center aligned header">Image</th>
+          <th class="ui center aligned header">Link</th>
+          <th class="ui center aligned header">Enabled</th>
+          <th class="ui center aligned header">Date</th>
+          <th class="ui center aligned header">Publish Date (PACIFIC)</th>
+          <th class="ui center aligned header">Strength/Skill</th>
+          <th class="ui center aligned header">Conditioning</th>
+          <th class="ui center aligned header">Edit</th>
         </tr>
       </thead>
       <tbody>
         {{#each sortedWods as |wod|}}
-          <tr>
-            <td>
-               <img src={{wod.image}} class="ui small image">
-            </td>
+          {{#if wod.active}}
+            <tr class="positive">
+              <td class="center aligned">
+                  <i class="icon checkmark"></i>
 
-            <td>
-              {{#link-to 'wod' wod class="read-more"}}
-                {{wod.id}}
-              {{/link-to}}
-            </td>
+              </td>
 
-            <td>
-              {{wod.enabled}}
-            </td>
+              <td>
+                 <img src={{wod.image}} class="ui small image">
+              </td>
 
-            <td>
-              {{wod.prettyDate}}
-            </td>
+              <td>
+                {{#link-to 'wod' wod class="read-more"}}
+                  {{wod.id}}
+                {{/link-to}}
+              </td>
 
-            <td>
-              {{wod.prettyPublishDate}}
-            </td>
+              <td class="center aligned">
+                {{wod.enabled}}
+              </td>
 
-            <td>
-              {{wod.strength}}
-            </td>
+              <td class="center aligned">
+                {{wod.prettyDate}}
+              </td>
 
-            <td>
-              {{wod.conditioning}}
-            </td>
+              <td class="center aligned">
+                {{wod.prettyPublishDate}}
+              </td>
 
-            <td>
-              <a href="wod/{{wod.id}}/edit">Edit</a>
-            </td>
-          </tr>
+              <td>
+                {{wod.strength}}
+              </td>
+
+              <td>
+                {{wod.conditioning}}
+              </td>
+
+              <td>
+                <a href="wod/{{wod.id}}/edit">Edit</a>
+              </td>
+            </tr>
+          {{else}}
+            <tr>
+              <td class="center aligned">
+                {{#if wod.active}}
+                  <i class="icon checkmark"></i>
+                {{else}}
+                  <i class="icon close"></i>
+                {{/if}}
+              </td>
+
+              <td>
+                 <img src={{wod.image}} class="ui small image">
+              </td>
+
+              <td>
+                {{#link-to 'wod' wod class="read-more"}}
+                  {{wod.id}}
+                {{/link-to}}
+              </td>
+
+              <td class="center aligned">
+                {{wod.enabled}}
+              </td>
+
+              <td class="center aligned">
+                {{wod.prettyDate}}
+              </td>
+
+              <td class="center aligned">
+                {{wod.prettyPublishDate}}
+              </td>
+
+              <td>
+                {{wod.strength}}
+              </td>
+
+              <td>
+                {{wod.conditioning}}
+              </td>
+
+              <td>
+                <a href="wod/{{wod.id}}/edit">Edit</a>
+              </td>
+            </tr>
+          {{/if}}
+
         {{/each}}
       </tbody>
     </table>

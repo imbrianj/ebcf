@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model: function(params) {
+  model() {
     return Ember.RSVP.hash({
-      callout: this.store.find('callout', params.callout_id)
+      callouts: this.store.findAll('callout')
     });
   },
   setupController(controller, model) {
-    controller.set('callout', model.callout);
+    controller.set('callouts', model.callouts);
   }
 });

@@ -19,12 +19,28 @@ export default Ember.Route.extend({
           }
         }
       }),
-      callout: this.store.findAll('callout')
+      callouts: this.store.query('callout', {
+        fiter: {
+          simple: {
+            startDate: {
+              $lt: window.moment().toDate()
+            },
+            endDate: {
+              $gt: window.moment().toDate()
+            },
+            enabled: true
+          }
+        }
+      })
     });
   },
 
   setupController(controller, model) {
     controller.set('wod', model.wods.sortBy('publishDate').get('lastObject'));
-    controller.set('callout', model.callout.get('firstObject'));
+    var callouts = model.callouts.filter(function(callout){
+      return callout.get('active') === true;
+    });
+
+    controller.set('callout', callouts.get('lastObject'));
   }
 });

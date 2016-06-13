@@ -50,6 +50,7 @@
     "semantic-ui-ember": "0.9.3"
   },
   "dependencies": {
-    "moment": "^2.11.1"
+    "moment": "^2.11.1",
+    "moment-timezone": "^0.5.4"
   }
 }

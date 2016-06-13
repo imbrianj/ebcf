@@ -10,13 +10,8 @@
     <div class="left aligned five wide column">
       <div class="ui medium header">Callout Content</div>
       <div class="ui input callout-input">
-        {{input type="text" value=callout.value placeholder=callout.value}}
+        {{input type="text" value=newValue placeholder=newValue}}
       </div>
-    </div>
-
-    <div class="center aligned two wide column">
-      <div class="ui medium header">Enabled?</div>
-      {{ui-checkbox checked=callout.enabled}}
     </div>
   </div>
 
@@ -24,28 +19,28 @@
     <div class="left aligned four wide column">
       <div class="ui medium header">Start Date</div>
       <div class="ui input">
-        {{input type="date" value=callout.startDay}}
+        {{input type="date" value=newStartDay}}
       </div>
       <i class="large at icon"></i>
       <div class="ui input">
-        {{input type="time" value=callout.startTime}}
+        {{input type="time" value=newStartTime}}
       </div>
     </div>
 
     <div class="left aligned four wide column">
       <div class="ui medium header">End Date</div>
       <div class="ui input">
-        {{input type="date" value=callout.endDay}}
+        {{input type="date" value=newEndDay}}
       </div>
       <i class="large at icon"></i>
       <div class="ui input">
-        {{input type="time" value=callout.endTime}}
+        {{input type="time" value=newEndTime}}
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="ui primary large button"{{action "updateCallout"}}>Update Callout</div>
+    <div class="ui primary large button"{{action "createCallout"}}>Create Callout</div>
   </div>
 
 </div>

@@ -17,9 +17,11 @@ Router.map(function() {
   this.route('schedule');
   this.route('pricing');
   this.route('coaches');
-  this.route('edit-callout');
+  this.route('edit-callout', { path: 'callout/:callout_id/edit' });
   this.route('admin');
   this.route('error', { path: '*path' });
+  this.route('callouts');
+  this.route('create-callout');
 });
 
 export default Router;
