@@ -1,0 +1,3062 @@
+[
+  {
+    "date": "March 17, 2014",
+    "value": "wod-2"
+  },
+  {
+    "date": "March 18, 2014",
+    "value": "wod-3"
+  },
+  {
+    "date": "March 19, 2014",
+    "value": "wod-4"
+  },
+  {
+    "date": "March 15, 2014",
+    "value": "wod-1"
+  },
+  {
+    "date": "March 20, 2014",
+    "value": "wod-5"
+  },
+  {
+    "date": "March 21, 2014",
+    "value": "wod-6"
+  },
+  {
+    "date": "March 22, 2014",
+    "value": "wod-7"
+  },
+  {
+    "date": "March 24, 2014",
+    "value": "wod-8"
+  },
+  {
+    "date": "March 25, 2014",
+    "value": "wod-9"
+  },
+  {
+    "date": "March 26, 2014",
+    "value": "wod-10"
+  },
+  {
+    "date": "March 27, 2014",
+    "value": "wod-11"
+  },
+  {
+    "date": "March 28, 2014",
+    "value": "wod-12"
+  },
+  {
+    "date": "March 29, 2014",
+    "value": "wod-13"
+  },
+  {
+    "date": "March 31, 2014",
+    "value": "wod-14"
+  },
+  {
+    "date": "April 1, 2014",
+    "value": "wod-15"
+  },
+  {
+    "date": "April 2, 2014",
+    "value": "wod-16"
+  },
+  {
+    "date": "April 3, 2014",
+    "value": "wod-17"
+  },
+  {
+    "date": "April 4, 2014",
+    "value": "wod-18"
+  },
+  {
+    "date": "April 5, 2014",
+    "value": "wod-19"
+  },
+  {
+    "date": "April 7, 2014",
+    "value": "wod-20"
+  },
+  {
+    "date": "April 8, 2104",
+    "value": "wod-21"
+  },
+  {
+    "date": "April 9, 2014",
+    "value": "wod-22"
+  },
+  {
+    "date": "April 10, 2014",
+    "value": "wod-23"
+  },
+  {
+    "date": "April 11, 2014",
+    "value": "wod-24"
+  },
+  {
+    "date": "April 12, 2014",
+    "value": "wod-25"
+  },
+  {
+    "date": "April 14, 2014",
+    "value": "wod-26"
+  },
+  {
+    "date": "April 15, 2014",
+    "value": "wod-27"
+  },
+  {
+    "date": "April 16, 2014",
+    "value": "wod-28"
+  },
+  {
+    "date": "April 17, 2014",
+    "value": "wod-29"
+  },
+  {
+    "date": "April 18, 2014",
+    "value": "wod-30"
+  },
+  {
+    "date": "April 19, 2014",
+    "value": "wod-31"
+  },
+  {
+    "date": "April 21, 2014",
+    "value": "wod-32"
+  },
+  {
+    "date": "April 22, 2014",
+    "value": "wod-33"
+  },
+  {
+    "date": "April 23, 2014",
+    "value": "wod-34"
+  },
+  {
+    "date": "April 24, 2014",
+    "value": "wod-35"
+  },
+  {
+    "date": "April 25, 2014",
+    "value": "wod-36"
+  },
+  {
+    "date": "April 26, 0214",
+    "value": "wod-37"
+  },
+  {
+    "date": "April 28, 2014",
+    "value": "wod-38"
+  },
+  {
+    "date": "April 29, 2014",
+    "value": "wod-39"
+  },
+  {
+    "date": "April 30, 2014",
+    "value": "wod-40"
+  },
+  {
+    "date": "May 1, 2014",
+    "value": "wod-41"
+  },
+  {
+    "date": "May 2, 2014",
+    "value": "wod-42"
+  },
+  {
+    "date": "May 3, 2014",
+    "value": "wod-43"
+  },
+  {
+    "date": "May 5, 2014",
+    "value": "wod-44"
+  },
+  {
+    "date": "May 6, 2014",
+    "value": "wod-45"
+  },
+  {
+    "date": "May 7, 2014",
+    "value": "wod-46"
+  },
+  {
+    "date": "May 8, 2014",
+    "value": "wod-47"
+  },
+  {
+    "date": "May 9, 2014",
+    "value": "wod-48"
+  },
+  {
+    "date": "May 10, 2014",
+    "value": "wod-49"
+  },
+  {
+    "date": "May 12, 2014",
+    "value": "wod-50"
+  },
+  {
+    "date": "May 13, 2014",
+    "value": "wod-51"
+  },
+  {
+    "date": "May 14, 2014",
+    "value": "wod-52"
+  },
+  {
+    "date": "May 15, 2014",
+    "value": "wod-53"
+  },
+  {
+    "date": "May 16, 2014",
+    "value": "wod-54"
+  },
+  {
+    "date": "May 17, 2014",
+    "value": "wod-56"
+  },
+  {
+    "date": "May 19, 2014",
+    "value": "wod-57"
+  },
+  {
+    "date": "May 20, 2014",
+    "value": "wod-58"
+  },
+  {
+    "date": "May 21, 2014",
+    "value": "wod-59"
+  },
+  {
+    "date": "May 22, 2014",
+    "value": "wod-60"
+  },
+  {
+    "date": "May 23, 2014",
+    "value": "wod-61"
+  },
+  {
+    "date": "May 24, 2014",
+    "value": "wod-62"
+  },
+  {
+    "date": "May 26, 2014",
+    "value": "wod-63"
+  },
+  {
+    "date": "May 27, 2014",
+    "value": "wod-64"
+  },
+  {
+    "date": "May 28, 2014",
+    "value": "wod-65"
+  },
+  {
+    "date": "May 29, 2014",
+    "value": "wod-66"
+  },
+  {
+    "date": "May 30, 2014",
+    "value": "wod-67"
+  },
+  {
+    "date": "May 31, 2014",
+    "value": "wod-68"
+  },
+  {
+    "date": "June 2, 2014",
+    "value": "wod-69"
+  },
+  {
+    "date": "June 3, 2014",
+    "value": "wod-70"
+  },
+  {
+    "date": "June 4, 2014",
+    "value": "wod-71"
+  },
+  {
+    "date": "June 5, 2013",
+    "value": "wod-72"
+  },
+  {
+    "date": "June 6, 2013",
+    "value": "wod-73"
+  },
+  {
+    "date": "June 7, 2014",
+    "value": "wod-74"
+  },
+  {
+    "date": "June 9, 2014",
+    "value": "wod-75"
+  },
+  {
+    "date": "June 10, 2014",
+    "value": "wod-76"
+  },
+  {
+    "date": "June 11, 2014",
+    "value": "wod-77"
+  },
+  {
+    "date": "June 12, 2014",
+    "value": "wod-78"
+  },
+  {
+    "date": "June 13, 2014",
+    "value": "wod-79"
+  },
+  {
+    "date": "June 14, 2014",
+    "value": "wod-80"
+  },
+  {
+    "date": "June 16, 2014",
+    "value": "wod-81"
+  },
+  {
+    "date": "June 17, 2014",
+    "value": "wod-82"
+  },
+  {
+    "date": "June 18, 2014",
+    "value": "wod-83"
+  },
+  {
+    "date": "June 19, 2014",
+    "value": "wod-84"
+  },
+  {
+    "date": "June 20, 2014",
+    "value": "wod-85"
+  },
+  {
+    "date": "June 21, 2014",
+    "value": "wod-86"
+  },
+  {
+    "date": "June 23, 2014",
+    "value": "wod-87"
+  },
+  {
+    "date": "June 24, 2014",
+    "value": "wod-88"
+  },
+  {
+    "date": "June 25, 2014",
+    "value": "wod-89"
+  },
+  {
+    "date": "June 26, 2014",
+    "value": "wod-90"
+  },
+  {
+    "date": "June 27, 2014",
+    "value": "wod-91"
+  },
+  {
+    "date": "June 28, 2014",
+    "value": "wod-92"
+  },
+  {
+    "date": "June 30, 2014",
+    "value": "wod-93"
+  },
+  {
+    "date": "July 1, 2014",
+    "value": "wod-94"
+  },
+  {
+    "date": "July 2, 2014",
+    "value": "wod-95"
+  },
+  {
+    "date": "July 3, 2014",
+    "value": "wod-96"
+  },
+  {
+    "date": "July 7, 2014",
+    "value": "wod-97"
+  },
+  {
+    "date": "July 8, 2014",
+    "value": "wod-98"
+  },
+  {
+    "date": "July 9, 2014",
+    "value": "wod-99"
+  },
+  {
+    "date": "July 10, 2014",
+    "value": "wod-100"
+  },
+  {
+    "date": "July 11, 2014",
+    "value": "wod-101"
+  },
+  {
+    "date": "July 12, 2014",
+    "value": "wod-102"
+  },
+  {
+    "date": "July 14, 2014",
+    "value": "wod-103"
+  },
+  {
+    "date": "July 15, 2014",
+    "value": "wod-104"
+  },
+  {
+    "date": "July 16, 2014",
+    "value": "wod-105"
+  },
+  {
+    "date": "July 17, 2014",
+    "value": "wod-106"
+  },
+  {
+    "date": "July 18, 2014",
+    "value": "wod-107"
+  },
+  {
+    "date": "July 19, 2014",
+    "value": "wod-108"
+  },
+  {
+    "date": "July 21, 2014",
+    "value": "wod-109"
+  },
+  {
+    "date": "July 22, 2014",
+    "value": "wod-110"
+  },
+  {
+    "date": "July 23, 2014",
+    "value": "wod-111"
+  },
+  {
+    "date": "July 24, 2014",
+    "value": "wod-112"
+  },
+  {
+    "date": "July 25, 2014",
+    "value": "wod-113"
+  },
+  {
+    "date": "July 26, 2014",
+    "value": "wod-114"
+  },
+  {
+    "date": "July 28, 2014",
+    "value": "wod-115"
+  },
+  {
+    "date": "July 29, 2014",
+    "value": "wod-116"
+  },
+  {
+    "date": "July 30, 2014",
+    "value": "wod-117"
+  },
+  {
+    "date": "July 31, 2014",
+    "value": "wod-118"
+  },
+  {
+    "date": "August 1, 2014",
+    "value": "wod-119"
+  },
+  {
+    "date": "August 2, 2014",
+    "value": "wod-120"
+  },
+  {
+    "date": "August 4, 2014",
+    "value": "wod-121"
+  },
+  {
+    "date": "August 5, 2014",
+    "value": "wod-122"
+  },
+  {
+    "date": "August 6, 2014",
+    "value": "wod-123"
+  },
+  {
+    "date": "August 7, 2014",
+    "value": "wod-124"
+  },
+  {
+    "date": "August 8, 2014",
+    "value": "wod-125"
+  },
+  {
+    "date": "August 9, 2014",
+    "value": "wod-126"
+  },
+  {
+    "date": "August 11, 2014",
+    "value": "wod-127"
+  },
+  {
+    "date": "August 12, 2014",
+    "value": "wod-128"
+  },
+  {
+    "date": "August 13, 2014",
+    "value": "wod-129"
+  },
+  {
+    "date": "August 14, 2014",
+    "value": "wod-130"
+  },
+  {
+    "date": "August 15, 2014",
+    "value": "wod-131"
+  },
+  {
+    "date": "August 16, 2014",
+    "value": "wod-132"
+  },
+  {
+    "date": "August 18, 2014",
+    "value": "wod-133"
+  },
+  {
+    "date": "August 19, 2014",
+    "value": "wod-134"
+  },
+  {
+    "date": "August 20, 2014",
+    "value": "wod-135"
+  },
+  {
+    "date": "August 21, 2014",
+    "value": "wod-136"
+  },
+  {
+    "date": "August 22, 2014",
+    "value": "wod-137"
+  },
+  {
+    "date": "August 23, 2014",
+    "value": "wod-138"
+  },
+  {
+    "date": "August 25, 2014",
+    "value": "wod-139"
+  },
+  {
+    "date": "August 26, 2014",
+    "value": "wod-140"
+  },
+  {
+    "date": "August 27, 2014",
+    "value": "wod-141"
+  },
+  {
+    "date": "August 28, 2014",
+    "value": "wod-142"
+  },
+  {
+    "date": "August 29, 2014",
+    "value": "wod-143"
+  },
+  {
+    "date": "August 30, 2014",
+    "value": "wod-144"
+  },
+  {
+    "date": "Sept 1, 2014",
+    "value": "wod-145"
+  },
+  {
+    "date": "Sept 2, 2014",
+    "value": "wod-146"
+  },
+  {
+    "date": "Sept 3, 2014",
+    "value": "wod-147"
+  },
+  {
+    "date": "Sept 4, 2014",
+    "value": "wod-148"
+  },
+  {
+    "date": "Sept 5, 2014",
+    "value": "wod-149"
+  },
+  {
+    "date": "Sept 6, 2014",
+    "value": "wod-150"
+  },
+  {
+    "date": "Sept 8, 2014",
+    "value": "wod-151"
+  },
+  {
+    "date": "Sept 9, 2014",
+    "value": "wod-152"
+  },
+  {
+    "date": "Sept 10, 2014",
+    "value": "wod-153"
+  },
+  {
+    "date": "Sept 11, 2014",
+    "value": "wod-154"
+  },
+  {
+    "date": "Sept 12, 2014",
+    "value": "wod-155"
+  },
+  {
+    "date": "Sept 13, 2014",
+    "value": "wod-156"
+  },
+  {
+    "date": "September 15, 2014",
+    "value": "wod-157"
+  },
+  {
+    "date": "September 16, 2014",
+    "value": "wod-158"
+  },
+  {
+    "date": "September 17, 2014",
+    "value": "wod-159"
+  },
+  {
+    "date": "September 18, 2014",
+    "value": "wod-160"
+  },
+  {
+    "date": "September 19, 2014",
+    "value": "wod-161"
+  },
+  {
+    "date": "September 20, 2014",
+    "value": "wod-162"
+  },
+  {
+    "date": "September 22, 2014",
+    "value": "wod-163"
+  },
+  {
+    "date": "September 23, 2014",
+    "value": "wod-164"
+  },
+  {
+    "date": "September 24, 2014",
+    "value": "wod-165"
+  },
+  {
+    "date": "September 25, 2014",
+    "value": "wod-166"
+  },
+  {
+    "date": "September 26, 2014",
+    "value": "wod-167"
+  },
+  {
+    "date": "September 27, 2014",
+    "value": "wod-168"
+  },
+  {
+    "date": "September 29, 2014",
+    "value": "wod-169"
+  },
+  {
+    "date": "September 30, 2014",
+    "value": "wod-170"
+  },
+  {
+    "date": "October 1, 2014",
+    "value": "wod-171"
+  },
+  {
+    "date": "October 2, 2014",
+    "value": "wod-172"
+  },
+  {
+    "date": "October 3, 2014",
+    "value": "wod-173"
+  },
+  {
+    "date": "October 4, 2014",
+    "value": "wod-174"
+  },
+  {
+    "date": "October 6, 2014",
+    "value": "wod-175"
+  },
+  {
+    "date": "October 7, 2014",
+    "value": "wod-176"
+  },
+  {
+    "date": "October 8, 2014",
+    "value": "wod-177"
+  },
+  {
+    "date": "October 9, 2014",
+    "value": "wod-178"
+  },
+  {
+    "date": "October 10, 2014",
+    "value": "wod-179"
+  },
+  {
+    "date": "October 11, 2014",
+    "value": "wod-180"
+  },
+  {
+    "date": "October 13, 2014",
+    "value": "wod-181"
+  },
+  {
+    "date": "October 14, 2014",
+    "value": "wod-182"
+  },
+  {
+    "date": "October 15, 2014",
+    "value": "wod-183"
+  },
+  {
+    "date": "October 16, 2014",
+    "value": "wod-184"
+  },
+  {
+    "date": "October 17, 2014",
+    "value": "wod-185"
+  },
+  {
+    "date": "October 18, 2014",
+    "value": "wod-186"
+  },
+  {
+    "date": "October 20, 2014",
+    "value": "wod-187"
+  },
+  {
+    "date": "October 21, 2014",
+    "value": "wod-188"
+  },
+  {
+    "date": "October 22, 2014",
+    "value": "wod-189"
+  },
+  {
+    "date": "October 23, 2014",
+    "value": "wod-190"
+  },
+  {
+    "date": "October 24, 2014",
+    "value": "wod-191"
+  },
+  {
+    "date": "October 25, 2014",
+    "value": "wod-192"
+  },
+  {
+    "date": "October 27, 2014",
+    "value": "wod-193"
+  },
+  {
+    "date": "October 28, 2014",
+    "value": "wod-194"
+  },
+  {
+    "date": "October 29, 2014",
+    "value": "wod-195"
+  },
+  {
+    "date": "October 30, 2014",
+    "value": "wod-196"
+  },
+  {
+    "date": "October 31, 2014",
+    "value": "wod-197"
+  },
+  {
+    "date": "November 1, 2014",
+    "value": "wod-198"
+  },
+  {
+    "date": "November 3, 2014",
+    "value": "wod-199"
+  },
+  {
+    "date": "November 4, 2014",
+    "value": "wod-200"
+  },
+  {
+    "date": "November 5, 2014",
+    "value": "wod-201"
+  },
+  {
+    "date": "November 6, 2014",
+    "value": "wod-202"
+  },
+  {
+    "date": "November 7, 2014",
+    "value": "wod-203"
+  },
+  {
+    "date": "November 8, 2014",
+    "value": "wod-204"
+  },
+  {
+    "date": "November 10, 2014",
+    "value": "wod-205"
+  },
+  {
+    "date": "November 11, 2014",
+    "value": "wod-206"
+  },
+  {
+    "date": "November 12, 2014",
+    "value": "wod-207"
+  },
+  {
+    "date": "November 13, 2014",
+    "value": "wod-208"
+  },
+  {
+    "date": "November 14, 2014",
+    "value": "wod-209"
+  },
+  {
+    "date": "November 15, 2014",
+    "value": "wod-210"
+  },
+  {
+    "date": "November 17, 2014",
+    "value": "wod-211"
+  },
+  {
+    "date": "November 18, 2014",
+    "value": "wod-212"
+  },
+  {
+    "date": "November 19, 2014",
+    "value": "wod-213"
+  },
+  {
+    "date": "November 20, 2014",
+    "value": "wod-214"
+  },
+  {
+    "date": "November 21, 2014",
+    "value": "wod-215"
+  },
+  {
+    "date": "November 22, 2014",
+    "value": "wod-216"
+  },
+  {
+    "date": "November 24, 2014",
+    "value": "wod-217"
+  },
+  {
+    "date": "November 25, 2014",
+    "value": "wod-218"
+  },
+  {
+    "date": "November 26, 2014",
+    "value": "wod-219"
+  },
+  {
+    "date": "November 28, 2014",
+    "value": "wod-220"
+  },
+  {
+    "date": "November 29, 2014",
+    "value": "wod-221"
+  },
+  {
+    "date": "December 1, 2014",
+    "value": "wod-222"
+  },
+  {
+    "date": "December 2, 2014",
+    "value": "wod-223"
+  },
+  {
+    "date": "December 3, 2014",
+    "value": "wod-224"
+  },
+  {
+    "date": "December 4, 2014",
+    "value": "wod-225"
+  },
+  {
+    "date": "December 5, 2014",
+    "value": "wod-226"
+  },
+  {
+    "date": "December 6, 2014",
+    "value": "wod-227"
+  },
+  {
+    "date": "December 8, 2014",
+    "value": "wod-228"
+  },
+  {
+    "date": "December 9, 2014",
+    "value": "wod-229"
+  },
+  {
+    "date": "December 10, 2014",
+    "value": "wod-230"
+  },
+  {
+    "date": "December 11, 2014",
+    "value": "wod-231"
+  },
+  {
+    "date": "December 12, 2014",
+    "value": "wod-232"
+  },
+  {
+    "date": "December 13, 2014",
+    "value": "wod-233"
+  },
+  {
+    "date": "December 15, 2014",
+    "value": "wod-234"
+  },
+  {
+    "date": "December 16, 2014",
+    "value": "wod-235"
+  },
+  {
+    "date": "December 17, 2014",
+    "value": "wod-236"
+  },
+  {
+    "date": "December 18, 2014",
+    "value": "wod-237"
+  },
+  {
+    "date": "December 19, 2014",
+    "value": "wod-238"
+  },
+  {
+    "date": "December 20, 2014",
+    "value": "wod-239"
+  },
+  {
+    "date": "December 22, 2014",
+    "value": "wod-240"
+  },
+  {
+    "date": "December 23, 2014",
+    "value": "wod-241"
+  },
+  {
+    "date": "December 24, 2014",
+    "value": "wod-242"
+  },
+  {
+    "date": "December 26, 2014",
+    "value": "wod-243"
+  },
+  {
+    "date": "December 27, 2014",
+    "value": "wod-244"
+  },
+  {
+    "date": "December 29, 2014",
+    "value": "wod-245"
+  },
+  {
+    "date": "December 30, 2014",
+    "value": "wod-246"
+  },
+  {
+    "date": "December 31, 2014",
+    "value": "wod-247"
+  },
+  {
+    "date": "January 2, 2015",
+    "value": "wod-248"
+  },
+  {
+    "date": "January 3, 2015",
+    "value": "wod-249"
+  },
+  {
+    "date": "January 5, 2015",
+    "value": "wod-250"
+  },
+  {
+    "date": "January 6, 2015",
+    "value": "wod-251"
+  },
+  {
+    "date": "January 7, 2015",
+    "value": "wod-252"
+  },
+  {
+    "date": "January 8, 2015",
+    "value": "wod-253"
+  },
+  {
+    "date": "January 9, 2015",
+    "value": "wod-254"
+  },
+  {
+    "date": "January 10, 2015",
+    "value": "wod-255"
+  },
+  {
+    "date": "January 12, 2015",
+    "value": "wod-256"
+  },
+  {
+    "date": "January 13, 2015",
+    "value": "wod-257"
+  },
+  {
+    "date": "January 14, 2015",
+    "value": "wod-258"
+  },
+  {
+    "date": "January 15, 2015",
+    "value": "wod-259"
+  },
+  {
+    "date": "January 16, 2015",
+    "value": "wod-260"
+  },
+  {
+    "date": "January 17, 2015",
+    "value": "wod-261"
+  },
+  {
+    "date": "January 19, 2015",
+    "value": "wod-262"
+  },
+  {
+    "date": "January 20, 2015",
+    "value": "wod-263"
+  },
+  {
+    "date": "January 21, 2015",
+    "value": "wod-264"
+  },
+  {
+    "date": "January 22, 2015",
+    "value": "wod-265"
+  },
+  {
+    "date": "January 23, 2015",
+    "value": "wod-266"
+  },
+  {
+    "date": "January 24, 2015",
+    "value": "wod-267"
+  },
+  {
+    "date": "January 26, 2015",
+    "value": "wod-268"
+  },
+  {
+    "date": "January 27, 2015",
+    "value": "wod-269"
+  },
+  {
+    "date": "January 28, 2015",
+    "value": "wod-270"
+  },
+  {
+    "date": "January 29, 2015",
+    "value": "wod-271"
+  },
+  {
+    "date": "January 30, 2015",
+    "value": "wod-272"
+  },
+  {
+    "date": "January 31, 2015",
+    "value": "wod-273"
+  },
+  {
+    "date": "February 2, 2015",
+    "value": "wod-274"
+  },
+  {
+    "date": "February 3, 2015",
+    "value": "wod-275"
+  },
+  {
+    "date": "February 4, 2015",
+    "value": "wod-276"
+  },
+  {
+    "date": "February 5, 2015",
+    "value": "wod-277"
+  },
+  {
+    "date": "February 6, 2015",
+    "value": "wod-278"
+  },
+  {
+    "date": "February 7, 2015",
+    "value": "wod-279"
+  },
+  {
+    "date": "February 9, 2015",
+    "value": "wod-280"
+  },
+  {
+    "date": "February 10, 2015",
+    "value": "wod-281"
+  },
+  {
+    "date": "February 11, 2015",
+    "value": "wod-282"
+  },
+  {
+    "date": "February 12, 2015",
+    "value": "wod-283"
+  },
+  {
+    "date": "February 13, 2015",
+    "value": "wod-284"
+  },
+  {
+    "date": "February 14, 2015",
+    "value": "wod-285"
+  },
+  {
+    "date": "February 16, 2015",
+    "value": "wod-286"
+  },
+  {
+    "date": "February 17, 2015",
+    "value": "wod-287"
+  },
+  {
+    "date": "February 18, 2015",
+    "value": "wod-288"
+  },
+  {
+    "date": "February 19, 2015",
+    "value": "wod-289"
+  },
+  {
+    "date": "February 20, 2015",
+    "value": "wod-290"
+  },
+  {
+    "date": "February 21, 2015",
+    "value": "wod-291"
+  },
+  {
+    "date": "February 23, 2015",
+    "value": "wod-292"
+  },
+  {
+    "date": "February 24, 2015",
+    "value": "wod-293"
+  },
+  {
+    "date": "February 25, 2015",
+    "value": "wod-294"
+  },
+  {
+    "date": "February 26, 2015",
+    "value": "wod-295"
+  },
+  {
+    "date": "February 27, 2015",
+    "value": "wod-296"
+  },
+  {
+    "date": "February 28, 2015",
+    "value": "wod-297"
+  },
+  {
+    "date": "March 2, 2015",
+    "value": "wod-298"
+  },
+  {
+    "date": "March 3, 2015",
+    "value": "wod-299"
+  },
+  {
+    "date": "March 4, 2015",
+    "value": "wod-300"
+  },
+  {
+    "date": "March 5, 2015",
+    "value": "wod-301"
+  },
+  {
+    "date": "March 6, 2015",
+    "value": "wod-302"
+  },
+  {
+    "date": "March 7, 2015",
+    "value": "wod-303"
+  },
+  {
+    "date": "March 9, 2015",
+    "value": "wod-304"
+  },
+  {
+    "date": "March 10, 2015",
+    "value": "wod-305"
+  },
+  {
+    "date": "March 11, 2015",
+    "value": "wod-306"
+  },
+  {
+    "date": "March 12, 2015",
+    "value": "wod-307"
+  },
+  {
+    "date": "March 13, 2015",
+    "value": "wod-308"
+  },
+  {
+    "date": "March 14, 2015",
+    "value": "wod-309"
+  },
+  {
+    "date": "March 16, 2015",
+    "value": "wod-310"
+  },
+  {
+    "date": "March 17, 2015",
+    "value": "wod-311"
+  },
+  {
+    "date": "March 18, 2015",
+    "value": "wod-312"
+  },
+  {
+    "date": "March 19, 2015",
+    "value": "wod-313"
+  },
+  {
+    "date": "March 20, 2015",
+    "value": "wod-314"
+  },
+  {
+    "date": "March 21, 2015",
+    "value": "wod-315"
+  },
+  {
+    "date": "March 23, 2015",
+    "value": "wod-316"
+  },
+  {
+    "date": "March 24, 2015",
+    "value": "wod-317"
+  },
+  {
+    "date": "March 25, 2015",
+    "value": "wod-318"
+  },
+  {
+    "date": "March 26, 2015",
+    "value": "wod-319"
+  },
+  {
+    "date": "March 27, 2015",
+    "value": "wod-320"
+  },
+  {
+    "date": "March 28, 2015",
+    "value": "wod-321"
+  },
+  {
+    "date": "March 30, 2015",
+    "value": "wod-322"
+  },
+  {
+    "date": "March 31, 2015",
+    "value": "wod-323"
+  },
+  {
+    "date": "4/1/15",
+    "value": "wod-324"
+  },
+  {
+    "date": "4/2/15",
+    "value": "wod-325"
+  },
+  {
+    "date": "4/3/15",
+    "value": "wod-326"
+  },
+  {
+    "date": "4/4/15",
+    "value": "wod-327"
+  },
+  {
+    "date": "4/6/15",
+    "value": "wod-328"
+  },
+  {
+    "date": "4/7/15",
+    "value": "wod-329"
+  },
+  {
+    "date": "4/8/15",
+    "value": "wod-330"
+  },
+  {
+    "date": "4/9/15",
+    "value": "wod-331"
+  },
+  {
+    "date": "4/10/15",
+    "value": "wod-332"
+  },
+  {
+    "date": "4/11/15",
+    "value": "wod-333"
+  },
+  {
+    "date": "4/13/15",
+    "value": "wod-334"
+  },
+  {
+    "date": "4/14/15",
+    "value": "wod-335"
+  },
+  {
+    "date": "4/15/15",
+    "value": "wod-336"
+  },
+  {
+    "date": "4/16/15",
+    "value": "wod-337"
+  },
+  {
+    "date": "4/17/15",
+    "value": "wod-338"
+  },
+  {
+    "date": "4/18/15",
+    "value": "wod-339"
+  },
+  {
+    "date": "4/20/15",
+    "value": "wod-340"
+  },
+  {
+    "date": "4/21/15",
+    "value": "wod-341"
+  },
+  {
+    "date": "4/22/15",
+    "value": "wod-342"
+  },
+  {
+    "date": "4/23/15",
+    "value": "wod-343"
+  },
+  {
+    "date": "4/24/15",
+    "value": "wod-344"
+  },
+  {
+    "date": "4/25/15",
+    "value": "wod-345"
+  },
+  {
+    "date": "4/27/15",
+    "value": "wod-346"
+  },
+  {
+    "date": "4/28/15",
+    "value": "wod-347"
+  },
+  {
+    "date": "4/29/15",
+    "value": "wod-348"
+  },
+  {
+    "date": "4/30/15",
+    "value": "wod-349"
+  },
+  {
+    "date": "5/1/15",
+    "value": "wod-350"
+  },
+  {
+    "date": "5/2/15",
+    "value": "wod-351"
+  },
+  {
+    "date": "5/4/15",
+    "value": "wod-352"
+  },
+  {
+    "date": "5/5/15",
+    "value": "wod-353"
+  },
+  {
+    "date": "5/6/15",
+    "value": "wod-354"
+  },
+  {
+    "date": "5/7/15",
+    "value": "wod-355"
+  },
+  {
+    "date": "5/8/15",
+    "value": "wod-356"
+  },
+  {
+    "date": "5/9/15",
+    "value": "wod-357"
+  },
+  {
+    "date": "5/11/15",
+    "value": "wod-358"
+  },
+  {
+    "date": "5/12/15",
+    "value": "wod-359"
+  },
+  {
+    "date": "5/13/15",
+    "value": "wod-360"
+  },
+  {
+    "date": "5/14/15",
+    "value": "wod-361"
+  },
+  {
+    "date": "5/15/15",
+    "value": "wod-362"
+  },
+  {
+    "date": "5/16/15",
+    "value": "wod-363"
+  },
+  {
+    "date": "5/18/15",
+    "value": "wod-364"
+  },
+  {
+    "date": "5/19/15",
+    "value": "wod-365"
+  },
+  {
+    "date": "5/20/15",
+    "value": "wod-366"
+  },
+  {
+    "date": "5/21/15",
+    "value": "wod-367"
+  },
+  {
+    "date": "5/22/15",
+    "value": "wod-368"
+  },
+  {
+    "date": "5/23/15",
+    "value": "wod-369"
+  },
+  {
+    "date": "5/25/15",
+    "value": "wod-370"
+  },
+  {
+    "date": "5/26/15",
+    "value": "wod-371"
+  },
+  {
+    "date": "5/27/15",
+    "value": "wod-372"
+  },
+  {
+    "date": "5/28/15",
+    "value": "wod-373"
+  },
+  {
+    "date": "5/29/15",
+    "value": "wod-374"
+  },
+  {
+    "date": "5/30/15",
+    "value": "wod-375"
+  },
+  {
+    "date": "6/1/15",
+    "value": "wod-376"
+  },
+  {
+    "date": "6/2/15",
+    "value": "wod-377"
+  },
+  {
+    "date": "6/3/0205",
+    "value": "wod-378"
+  },
+  {
+    "date": "6/4/15",
+    "value": "wod-379"
+  },
+  {
+    "date": "6/5/15",
+    "value": "wod-380"
+  },
+  {
+    "date": "6/6/05",
+    "value": "wod-381"
+  },
+  {
+    "date": "6/8/15",
+    "value": "wod-382"
+  },
+  {
+    "date": "6/9/15",
+    "value": "wod-383"
+  },
+  {
+    "date": "6/10/15",
+    "value": "wod-384"
+  },
+  {
+    "date": "6/11/15",
+    "value": "wod-385"
+  },
+  {
+    "date": "6/12/15",
+    "value": "wod-386"
+  },
+  {
+    "date": "6/13/15",
+    "value": "wod-387"
+  },
+  {
+    "date": "6/15/15",
+    "value": "wod-388"
+  },
+  {
+    "date": "6/16/15",
+    "value": "wod-389"
+  },
+  {
+    "date": "6/17/15",
+    "value": "wod-390"
+  },
+  {
+    "date": "6/18/15",
+    "value": "wod-391"
+  },
+  {
+    "date": "6/19/15",
+    "value": "wod-392"
+  },
+  {
+    "date": "6/20/15",
+    "value": "wod-393"
+  },
+  {
+    "date": "6/22/15",
+    "value": "wod-394"
+  },
+  {
+    "date": "6/23/15",
+    "value": "wod-395"
+  },
+  {
+    "date": "6/24/15",
+    "value": "wod-396"
+  },
+  {
+    "date": "6/25/15",
+    "value": "wod-397"
+  },
+  {
+    "date": "6/26/15",
+    "value": "wod-398"
+  },
+  {
+    "date": "6/27/15",
+    "value": "wod-399"
+  },
+  {
+    "date": "6/29/15",
+    "value": "wod-400"
+  },
+  {
+    "date": "6/30/15",
+    "value": "wod-401"
+  },
+  {
+    "date": "7/1/15",
+    "value": "wod-402"
+  },
+  {
+    "date": "7/2/15",
+    "value": "wod-403"
+  },
+  {
+    "date": "7/3/15",
+    "value": "wod-404"
+  },
+  {
+    "date": "7/6/15",
+    "value": "wod-405"
+  },
+  {
+    "date": "7/7/15",
+    "value": "wod-406"
+  },
+  {
+    "date": "7/8/15",
+    "value": "wod-407"
+  },
+  {
+    "date": "7/9/15",
+    "value": "wod-408"
+  },
+  {
+    "date": "7/10/15",
+    "value": "wod-409"
+  },
+  {
+    "date": "7/11/15",
+    "value": "wod-410"
+  },
+  {
+    "date": "7/13/15",
+    "value": "wod-411"
+  },
+  {
+    "date": "7/14/15",
+    "value": "wod-412"
+  },
+  {
+    "date": "7/15/15",
+    "value": "wod-413"
+  },
+  {
+    "date": "7/16/15",
+    "value": "wod-414"
+  },
+  {
+    "date": "7/17/15",
+    "value": "wod-415"
+  },
+  {
+    "date": "7/18/15",
+    "value": "wod-416"
+  },
+  {
+    "date": "7/20/15",
+    "value": "wod-417"
+  },
+  {
+    "date": "7/21/15",
+    "value": "wod-418"
+  },
+  {
+    "date": "7/22/15",
+    "value": "wod-419"
+  },
+  {
+    "date": "7/23/15",
+    "value": "wod-420"
+  },
+  {
+    "date": "7/24/15",
+    "value": "wod-421"
+  },
+  {
+    "date": "7/25/15",
+    "value": "wod-422"
+  },
+  {
+    "date": "7/27/15",
+    "value": "wod-423"
+  },
+  {
+    "date": "7/28/15",
+    "value": "wod-424"
+  },
+  {
+    "date": "7/29/15",
+    "value": "wod-425"
+  },
+  {
+    "date": "7/30/15",
+    "value": "wod-426"
+  },
+  {
+    "date": "7/31/15",
+    "value": "wod-427"
+  },
+  {
+    "date": "8/1/15",
+    "value": "wod-428"
+  },
+  {
+    "date": "8/3/15",
+    "value": "wod-429"
+  },
+  {
+    "date": "8/4/15",
+    "value": "wod-430"
+  },
+  {
+    "date": "8/5/15",
+    "value": "wod-431"
+  },
+  {
+    "date": "8/6/15",
+    "value": "wod-432"
+  },
+  {
+    "date": "8/7/15",
+    "value": "wod-433"
+  },
+  {
+    "date": "8/8/15",
+    "value": "wod-434"
+  },
+  {
+    "date": "8/10/15",
+    "value": "wod-435"
+  },
+  {
+    "date": "8/11/15",
+    "value": "wod-436"
+  },
+  {
+    "date": "8/12/15",
+    "value": "wod-437"
+  },
+  {
+    "date": "8/13/15",
+    "value": "wod-438"
+  },
+  {
+    "date": "8/14/15",
+    "value": "wod-439"
+  },
+  {
+    "date": "8/15/15",
+    "value": "wod-440"
+  },
+  {
+    "date": "8/17/15",
+    "value": "wod-441"
+  },
+  {
+    "date": "8/18/15",
+    "value": "wod-442"
+  },
+  {
+    "date": "8/19/15",
+    "value": "wod-443"
+  },
+  {
+    "date": "8/20/15",
+    "value": "wod-444"
+  },
+  {
+    "date": "8/21/15",
+    "value": "wod-445"
+  },
+  {
+    "date": "8/22/15",
+    "value": "wod-446"
+  },
+  {
+    "date": "8/24/15",
+    "value": "wod-447"
+  },
+  {
+    "date": "8/25/15",
+    "value": "wod-448"
+  },
+  {
+    "date": "8/26/15",
+    "value": "wod-449"
+  },
+  {
+    "date": "8/27/15",
+    "value": "wod-450"
+  },
+  {
+    "date": "8/28/15",
+    "value": "wod-451"
+  },
+  {
+    "date": "8/29/15",
+    "value": "wod-452"
+  },
+  {
+    "date": "8/31/15",
+    "value": "wod-453"
+  },
+  {
+    "date": "9/1/15",
+    "value": "wod-454"
+  },
+  {
+    "date": "9/2/15",
+    "value": "wod-455"
+  },
+  {
+    "date": "9/3/15",
+    "value": "wod-456"
+  },
+  {
+    "date": "9/4/15",
+    "value": "wod-457"
+  },
+  {
+    "date": "9/5/15",
+    "value": "wod-458"
+  },
+  {
+    "date": "9/7/15",
+    "value": "wod-459"
+  },
+  {
+    "date": "9/8/15",
+    "value": "wod-460"
+  },
+  {
+    "date": "9/9/15",
+    "value": "wod-461"
+  },
+  {
+    "date": "9/10/15",
+    "value": "wod-462"
+  },
+  {
+    "date": "9/11/15",
+    "value": "wod-463"
+  },
+  {
+    "date": "9/12/15",
+    "value": "wod-464"
+  },
+  {
+    "date": "9/14/15",
+    "value": "wod-465"
+  },
+  {
+    "date": "9/15/15",
+    "value": "wod-466"
+  },
+  {
+    "date": "9/16/15",
+    "value": "wod-467"
+  },
+  {
+    "date": "9/17/15",
+    "value": "wod-468"
+  },
+  {
+    "date": "9/18/15",
+    "value": "wod-469"
+  },
+  {
+    "date": "9/19/15",
+    "value": "wod-470"
+  },
+  {
+    "date": "9/21/15",
+    "value": "wod-471"
+  },
+  {
+    "date": "9/22/15",
+    "value": "wod-472"
+  },
+  {
+    "date": "9/23/15",
+    "value": "wod-473"
+  },
+  {
+    "date": "9/24/15",
+    "value": "wod-474"
+  },
+  {
+    "date": "9/25/15",
+    "value": "wod-475"
+  },
+  {
+    "date": "9/26/15",
+    "value": "wod-476"
+  },
+  {
+    "date": "9/28/15",
+    "value": "wod-477"
+  },
+  {
+    "date": "9/29/15",
+    "value": "wod-478"
+  },
+  {
+    "date": "9/30/15",
+    "value": "wod-479"
+  },
+  {
+    "date": "10/1/15",
+    "value": "wod-480"
+  },
+  {
+    "date": "10/2/15",
+    "value": "wod-481"
+  },
+  {
+    "date": "10/3/15",
+    "value": "wod-482"
+  },
+  {
+    "date": "10/5/15",
+    "value": "wod-483"
+  },
+  {
+    "date": "10/6/15",
+    "value": "wod-484"
+  },
+  {
+    "date": "10/7/15",
+    "value": "wod-485"
+  },
+  {
+    "date": "10/8/15",
+    "value": "wod-486"
+  },
+  {
+    "date": "10/9/15",
+    "value": "wod-487"
+  },
+  {
+    "date": "10/10/15",
+    "value": "wod-488"
+  },
+  {
+    "date": "10/12/15",
+    "value": "wod-489"
+  },
+  {
+    "date": "10/13/15",
+    "value": "wod-490"
+  },
+  {
+    "date": "10/14/15",
+    "value": "wod-491"
+  },
+  {
+    "date": "10/15/15",
+    "value": "wod-492"
+  },
+  {
+    "date": "10/16/15",
+    "value": "wod-493"
+  },
+  {
+    "date": "10/17/15",
+    "value": "wod-494"
+  },
+  {
+    "date": "10/19/15",
+    "value": "wod-495"
+  },
+  {
+    "date": "10/20/15",
+    "value": "wod-496"
+  },
+  {
+    "date": "10/21/15",
+    "value": "wod-497"
+  },
+  {
+    "date": "10/22/15",
+    "value": "wod-498"
+  },
+  {
+    "date": "10/23/15",
+    "value": "wod-499"
+  },
+  {
+    "date": "10/24/15",
+    "value": "wod-500"
+  },
+  {
+    "date": "10/26/15",
+    "value": "wod-501"
+  },
+  {
+    "date": "10/27/15",
+    "value": "wod-502"
+  },
+  {
+    "date": "10/28/15",
+    "value": "wod-503"
+  },
+  {
+    "date": "10/29/15",
+    "value": "wod-504"
+  },
+  {
+    "date": "10/30/15",
+    "value": "wod-505"
+  },
+  {
+    "date": "10/31/15",
+    "value": "wod-506"
+  },
+  {
+    "date": "11/2/15",
+    "value": "wod-507"
+  },
+  {
+    "date": "11/3/15",
+    "value": "wod-508"
+  },
+  {
+    "date": "11/4/15",
+    "value": "wod-509"
+  },
+  {
+    "date": "11/5/15",
+    "value": "wod-510"
+  },
+  {
+    "date": "11/6/15",
+    "value": "wod-511"
+  },
+  {
+    "date": "11/7/15",
+    "value": "wod-512"
+  },
+  {
+    "date": "11/9/15",
+    "value": "wod-513"
+  },
+  {
+    "date": "11/10/15",
+    "value": "wod-514"
+  },
+  {
+    "date": "11/11/15",
+    "value": "wod-515"
+  },
+  {
+    "date": "11/12/15",
+    "value": "wod-516"
+  },
+  {
+    "date": "11/13/15",
+    "value": "wod-517"
+  },
+  {
+    "date": "11/14/15",
+    "value": "wod-518"
+  },
+  {
+    "date": "11/16/15",
+    "value": "wod-519"
+  },
+  {
+    "date": "11/17/15",
+    "value": "wod-520"
+  },
+  {
+    "date": "11/18/15",
+    "value": "wod-521"
+  },
+  {
+    "date": "11/19/15",
+    "value": "wod-522"
+  },
+  {
+    "date": "11/20/15",
+    "value": "wod-523"
+  },
+  {
+    "date": "11/21/15",
+    "value": "wod-524"
+  },
+  {
+    "date": "11/23/15",
+    "value": "wod-525"
+  },
+  {
+    "date": "11/24/15",
+    "value": "wod-526"
+  },
+  {
+    "date": "11/25/15",
+    "value": "wod-527"
+  },
+  {
+    "date": "11/27/15",
+    "value": "wod-528"
+  },
+  {
+    "date": "11/28/15",
+    "value": "wod-529"
+  },
+  {
+    "date": "11/30/15",
+    "value": "wod-530"
+  },
+  {
+    "date": "12/1/15",
+    "value": "wod-531"
+  },
+  {
+    "date": "12/2/15",
+    "value": "wod-532"
+  },
+  {
+    "date": "12/3/15",
+    "value": "wod-533"
+  },
+  {
+    "date": "12/4/15",
+    "value": "wod-534"
+  },
+  {
+    "date": "12/5/15",
+    "value": "wod-535"
+  },
+  {
+    "date": "12/7/15",
+    "value": "wod-536"
+  },
+  {
+    "date": "12/8/15",
+    "value": "wod-537"
+  },
+  {
+    "date": "12/9/15",
+    "value": "wod-538"
+  },
+  {
+    "date": "12/10/15",
+    "value": "wod-539"
+  },
+  {
+    "date": "12/11/15",
+    "value": "wod-540"
+  },
+  {
+    "date": "12/12/15",
+    "value": "wod-541"
+  },
+  {
+    "date": "12/14/15",
+    "value": "wod-542"
+  },
+  {
+    "date": "12/15/15",
+    "value": "wod-543"
+  },
+  {
+    "date": "12/16/15",
+    "value": "wod-544"
+  },
+  {
+    "date": "12/17/15",
+    "value": "wod-545"
+  },
+  {
+    "date": "12/18/15",
+    "value": "wod-546"
+  },
+  {
+    "date": "12/19/15",
+    "value": "wod-547"
+  },
+  {
+    "date": "12/21/15",
+    "value": "wod-548"
+  },
+  {
+    "date": "12/22/15",
+    "value": "wod-549"
+  },
+  {
+    "date": "12/23/15",
+    "value": "wod-550"
+  },
+  {
+    "date": "12/24/15",
+    "value": "wod-551"
+  },
+  {
+    "date": "12/26/15",
+    "value": "wod-552"
+  },
+  {
+    "date": "12/28/15",
+    "value": "wod-553"
+  },
+  {
+    "date": "12/29/15",
+    "value": "wod-554"
+  },
+  {
+    "date": "12/30/15",
+    "value": "wod-555"
+  },
+  {
+    "date": "12/31/15",
+    "value": "wod-556"
+  },
+  {
+    "date": "1/2/16",
+    "value": "wod-557"
+  },
+  {
+    "date": "1/4/16",
+    "value": "wod-558"
+  },
+  {
+    "date": "1/5/16",
+    "value": "wod-559"
+  },
+  {
+    "date": "1/6/16",
+    "value": "wod-560"
+  },
+  {
+    "date": "1/7/16",
+    "value": "wod-561"
+  },
+  {
+    "date": "1/8/16",
+    "value": "wod-562"
+  },
+  {
+    "date": "1/9/16",
+    "value": "wod-563"
+  },
+  {
+    "date": "1/11/16",
+    "value": "wod-564"
+  },
+  {
+    "date": "1/12/16",
+    "value": "wod-565"
+  },
+  {
+    "date": "1/13/16",
+    "value": "wod-566"
+  },
+  {
+    "date": "1/14/16",
+    "value": "wod-567"
+  },
+  {
+    "date": "1/15/16",
+    "value": "wod-568"
+  },
+  {
+    "date": "1/16/16",
+    "value": "wod-569"
+  },
+  {
+    "date": "1/18/16",
+    "value": "wod-570"
+  },
+  {
+    "date": "1/19/16",
+    "value": "wod-571"
+  },
+  {
+    "date": "1/20/16",
+    "value": "wod-572"
+  },
+  {
+    "date": "1/21/16",
+    "value": "wod-573"
+  },
+  {
+    "date": "1/22/16",
+    "value": "wod-574"
+  },
+  {
+    "date": "1/23/16",
+    "value": "wod-575"
+  },
+  {
+    "date": "1/25/16",
+    "value": "wod-576"
+  },
+  {
+    "date": "1/26/16",
+    "value": "wod-577"
+  },
+  {
+    "date": "1/27/16",
+    "value": "wod-578"
+  },
+  {
+    "date": "1/28/16",
+    "value": "wod-579"
+  },
+  {
+    "date": "1/29/16",
+    "value": "wod-580"
+  },
+  {
+    "date": "1/30/16",
+    "value": "wod-581"
+  },
+  {
+    "date": "2/1/16",
+    "value": "wod-582"
+  },
+  {
+    "date": "2/2/16",
+    "value": "wod-583"
+  },
+  {
+    "date": "2/3/16",
+    "value": "wod-584"
+  },
+  {
+    "date": "2/4/16",
+    "value": "wod-585"
+  },
+  {
+    "date": "2/5/16",
+    "value": "wod-586"
+  },
+  {
+    "date": "2/6/16",
+    "value": "wod-587"
+  },
+  {
+    "date": "2/8/16",
+    "value": "wod-588"
+  },
+  {
+    "date": "2/9/16",
+    "value": "wod-589"
+  },
+  {
+    "date": "2/10/16",
+    "value": "wod-590"
+  },
+  {
+    "date": "2/11/16",
+    "value": "wod-591"
+  },
+  {
+    "date": "2/12/16",
+    "value": "wod-592"
+  },
+  {
+    "date": "2/13/16",
+    "value": "wod-593"
+  },
+  {
+    "date": "2/15/16",
+    "value": "wod-594"
+  },
+  {
+    "date": "2/16/16",
+    "value": "wod-595"
+  },
+  {
+    "date": "2/17/16",
+    "value": "wod-596"
+  },
+  {
+    "date": "2/18/16",
+    "value": "wod-597"
+  },
+  {
+    "date": "2/19/16",
+    "value": "wod-598"
+  },
+  {
+    "date": "2/20/16",
+    "value": "wod-599"
+  },
+  {
+    "date": "2/22/16",
+    "value": "wod-600"
+  },
+  {
+    "date": "2/23/16",
+    "value": "wod-601"
+  },
+  {
+    "date": "2/24/16",
+    "value": "wod-602"
+  },
+  {
+    "date": "2/25/16",
+    "value": "wod-603"
+  },
+  {
+    "date": "2/26/16",
+    "value": "wod-604"
+  },
+  {
+    "date": "2/27/16",
+    "value": "wod-605"
+  },
+  {
+    "date": "2/29/16",
+    "value": "wod-606"
+  },
+  {
+    "date": "3/1/16",
+    "value": "wod-607"
+  },
+  {
+    "date": "3/2/16",
+    "value": "wod-608"
+  },
+  {
+    "date": "3/3/16",
+    "value": "wod-609"
+  },
+  {
+    "date": "3/4/16",
+    "value": "wod-610"
+  },
+  {
+    "date": "3/5/16",
+    "value": "wod-611"
+  },
+  {
+    "date": "3/7/16",
+    "value": "wod-612"
+  },
+  {
+    "date": "3/8/16",
+    "value": "wod-613"
+  },
+  {
+    "date": "3/9/16",
+    "value": "wod-614"
+  },
+  {
+    "date": "3/10/16",
+    "value": "wod-615"
+  },
+  {
+    "date": "3/11/16",
+    "value": "wod-616"
+  },
+  {
+    "date": "3/12/16",
+    "value": "wod-617"
+  },
+  {
+    "date": "3/14/16",
+    "value": "wod-618"
+  },
+  {
+    "date": "3/15/16",
+    "value": "wod-619"
+  },
+  {
+    "date": "3/16/16",
+    "value": "wod-620"
+  },
+  {
+    "date": "3/17/16",
+    "value": "wod-621"
+  },
+  {
+    "date": "3/18/16",
+    "value": "wod-622"
+  },
+  {
+    "date": "3/19/16",
+    "value": "wod-623"
+  },
+  {
+    "date": "3/21/16",
+    "value": "wod-624"
+  },
+  {
+    "date": "3/22/16",
+    "value": "wod-625"
+  },
+  {
+    "date": "3/23/16",
+    "value": "wod-626"
+  },
+  {
+    "date": "3/24/16",
+    "value": "wod-627"
+  },
+  {
+    "date": "3/25/16",
+    "value": "wod-628"
+  },
+  {
+    "date": "3/26/16",
+    "value": "wod-629"
+  },
+  {
+    "date": "3/28/16",
+    "value": "wod-630"
+  },
+  {
+    "date": "3/29/16",
+    "value": "wod-631"
+  },
+  {
+    "date": "3/30/16",
+    "value": "wod-632"
+  },
+  {
+    "date": "3/31/16",
+    "value": "wod-633"
+  },
+  {
+    "date": "4/1/16",
+    "value": "wod-634"
+  },
+  {
+    "date": "4/2/16",
+    "value": "wod-635"
+  },
+  {
+    "date": "4/4/16",
+    "value": "wod-636"
+  },
+  {
+    "date": "4/5/16",
+    "value": "wod-637"
+  },
+  {
+    "date": "4/6/16",
+    "value": "wod-638"
+  },
+  {
+    "date": "4/7/16",
+    "value": "wod-639"
+  },
+  {
+    "date": "4/8/16",
+    "value": "wod-640"
+  },
+  {
+    "date": "4/9/16",
+    "value": "wod-641"
+  },
+  {
+    "date": "4/11/16",
+    "value": "wod-642"
+  },
+  {
+    "date": "4/12/16",
+    "value": "wod-643"
+  },
+  {
+    "date": "4/13/16",
+    "value": "wod-644"
+  },
+  {
+    "date": "4/14/16",
+    "value": "wod-645"
+  },
+  {
+    "date": "4/15/16",
+    "value": "wod-646"
+  },
+  {
+    "date": "4/16/16",
+    "value": "wod-647"
+  },
+  {
+    "date": "4/18/16",
+    "value": "wod-648"
+  },
+  {
+    "date": "4/19/16",
+    "value": "wod-649"
+  },
+  {
+    "date": "4/20/16",
+    "value": "wod-650"
+  },
+  {
+    "date": "4/21/16",
+    "value": "wod-651"
+  },
+  {
+    "date": "4/22/16",
+    "value": "wod-652"
+  },
+  {
+    "date": "4/23/16",
+    "value": "wod-653"
+  },
+  {
+    "date": "4/25/16",
+    "value": "wod-654"
+  },
+  {
+    "date": "4/26/16",
+    "value": "wod-655"
+  },
+  {
+    "date": "4/27/16",
+    "value": "wod-656"
+  },
+  {
+    "date": "4/28/16",
+    "value": "wod-657"
+  },
+  {
+    "date": "4/29/16",
+    "value": "wod-658"
+  },
+  {
+    "date": "4/30/16",
+    "value": "wod-659"
+  },
+  {
+    "date": "5/2/16",
+    "value": "wod-660"
+  },
+  {
+    "date": "5/3/16",
+    "value": "wod-661"
+  },
+  {
+    "date": "5/4/16",
+    "value": "wod-662"
+  },
+  {
+    "date": "5/5/16",
+    "value": "wod-663"
+  },
+  {
+    "date": "5/6/16",
+    "value": "wod-664"
+  },
+  {
+    "date": "5/7/16",
+    "value": "wod-665"
+  },
+  {
+    "date": "5/9/16",
+    "value": "wod-666"
+  },
+  {
+    "date": "5/10/16",
+    "value": "wod-667"
+  },
+  {
+    "date": "5/11/16",
+    "value": "wod-668"
+  },
+  {
+    "date": "5/12/16",
+    "value": "wod-669"
+  },
+  {
+    "date": "5/13/16",
+    "value": "wod-670"
+  },
+  {
+    "date": "5/14/16",
+    "value": "wod-671"
+  },
+  {
+    "date": "5/16/16",
+    "value": "wod-672"
+  },
+  {
+    "date": "5/17/16",
+    "value": "wod-673"
+  },
+  {
+    "date": "5/18/16",
+    "value": "wod-674"
+  },
+  {
+    "date": "5/19/16",
+    "value": "wod-675"
+  },
+  {
+    "date": "5/20/16",
+    "value": "wod-676"
+  },
+  {
+    "date": "5/21/16",
+    "value": "wod-677"
+  },
+  {
+    "date": "5/23/16",
+    "value": "wod-678"
+  },
+  {
+    "date": "5/24/16",
+    "value": "wod-679"
+  },
+  {
+    "date": "5/25/16",
+    "value": "wod-680"
+  },
+  {
+    "date": "5/26/16",
+    "value": "wod-681"
+  },
+  {
+    "date": "5/27/16",
+    "value": "wod-682"
+  },
+  {
+    "date": "5/28/16",
+    "value": "wod-683"
+  },
+  {
+    "date": "5/30/16",
+    "value": "wod-684"
+  },
+  {
+    "date": "5/31/16",
+    "value": "wod-685"
+  },
+  {
+    "date": "6/1/16",
+    "value": "wod-686"
+  },
+  {
+    "date": "6/2/16",
+    "value": "wod-687"
+  },
+  {
+    "date": "6/3/16",
+    "value": "wod-688"
+  },
+  {
+    "date": "6/4/16",
+    "value": "wod-689"
+  },
+  {
+    "date": "6/6/16",
+    "value": "wod-690"
+  },
+  {
+    "date": "6/7/16",
+    "value": "wod-691"
+  },
+  {
+    "date": "6/8/16",
+    "value": "wod-692"
+  },
+  {
+    "date": "6/9/16",
+    "value": "wod-693"
+  },
+  {
+    "date": "6/10/16",
+    "value": "wod-694"
+  },
+  {
+    "date": "6/11/16",
+    "value": "wod-695"
+  },
+  {
+    "date": "6/13/16",
+    "value": "wod-696"
+  },
+  {
+    "date": "6/14/16",
+    "value": "wod-697"
+  },
+  {
+    "date": "6/15/16",
+    "value": "wod-698"
+  },
+  {
+    "date": "6/16/16",
+    "value": "wod-699"
+  },
+  {
+    "date": "6/17/16",
+    "value": "wod-700"
+  },
+  {
+    "date": "6/18/16",
+    "value": "wod-701"
+  },
+  {
+    "date": "6/20/16",
+    "value": "wod-702"
+  },
+  {
+    "date": "6/21/16",
+    "value": "wod-703"
+  },
+  {
+    "date": "6/22/16",
+    "value": "wod-704"
+  },
+  {
+    "date": "6/23/16",
+    "value": "wod-705"
+  },
+  {
+    "date": "6/24/16",
+    "value": "wod-706"
+  },
+  {
+    "date": "6/25/16",
+    "value": "wod-707"
+  },
+  {
+    "date": "6/27/16",
+    "value": "wod-708"
+  },
+  {
+    "date": "6/28/16",
+    "value": "wod-709"
+  },
+  {
+    "date": "6/29/16",
+    "value": "wod-710"
+  },
+  {
+    "date": "6/30/16",
+    "value": "wod-711"
+  },
+  {
+    "date": "7/1/16",
+    "value": "wod-712"
+  },
+  {
+    "date": "7/2/16",
+    "value": "wod-713"
+  },
+  {
+    "date": "7/5/16",
+    "value": "wod-714"
+  },
+  {
+    "date": "7/6/16",
+    "value": "wod-715"
+  },
+  {
+    "date": "7/7/16",
+    "value": "wod-716"
+  },
+  {
+    "date": "7/8/16",
+    "value": "wod-717"
+  },
+  {
+    "date": "7/9/16",
+    "value": "wod-718"
+  },
+  {
+    "date": "7/11/16",
+    "value": "wod-719"
+  },
+  {
+    "date": "7/12/16",
+    "value": "wod-720"
+  },
+  {
+    "date": "7/13/16",
+    "value": "wod-721"
+  },
+  {
+    "date": "7/14/16",
+    "value": "wod-722"
+  },
+  {
+    "date": "7/15/16",
+    "value": "wod-723"
+  },
+  {
+    "date": "7/16/16",
+    "value": "wod-724"
+  },
+  {
+    "date": "7/18/16",
+    "value": "wod-725"
+  },
+  {
+    "date": "7/19/16",
+    "value": "wod-726"
+  },
+  {
+    "date": "7/20/16",
+    "value": "wod-727"
+  },
+  {
+    "date": "7/21/16",
+    "value": "wod-728"
+  },
+  {
+    "date": "7/22/16",
+    "value": "wod-729"
+  },
+  {
+    "date": "7/23/16",
+    "value": "wod-730"
+  },
+  {
+    "date": "7/25/16",
+    "value": "wod-731"
+  },
+  {
+    "date": "7/26/16",
+    "value": "wod-732"
+  },
+  {
+    "date": "7/27/16",
+    "value": "wod-733"
+  },
+  {
+    "date": "7/28/16",
+    "value": "wod-734"
+  },
+  {
+    "date": "7/29/16",
+    "value": "wod-735"
+  },
+  {
+    "date": "7/30/16",
+    "value": "wod-736"
+  },
+  {
+    "date": "8/1/16",
+    "value": "wod-737"
+  },
+  {
+    "date": "8/2/16",
+    "value": "wod-738"
+  },
+  {
+    "date": "8/3/16",
+    "value": "wod-739"
+  },
+  {
+    "date": "8/4/16",
+    "value": "wod-740"
+  },
+  {
+    "date": "8/5/16",
+    "value": "wod-741"
+  },
+  {
+    "date": "8/6/16",
+    "value": "wod-742"
+  },
+  {
+    "date": "8/8/16",
+    "value": "wod-743"
+  },
+  {
+    "date": "8/9/16",
+    "value": "wod-744"
+  },
+  {
+    "date": "8/10/16",
+    "value": "wod-745"
+  },
+  {
+    "date": "8/11/16",
+    "value": "wod-746"
+  },
+  {
+    "date": "8/12/16",
+    "value": "wod-747"
+  },
+  {
+    "date": "8/13/16",
+    "value": "wod-748"
+  },
+  {
+    "date": "8/15/16",
+    "value": "wod-749"
+  },
+  {
+    "date": "8/16/16",
+    "value": "wod-750"
+  },
+  {
+    "date": "8/17/16",
+    "value": "wod-751"
+  },
+  {
+    "date": "8/18/16",
+    "value": "wod-752"
+  },
+  {
+    "date": "8/19/16",
+    "value": "wod-753"
+  },
+  {
+    "date": "8/20/16",
+    "value": "wod-754"
+  },
+  {
+    "date": "8/22/16",
+    "value": "wod-755"
+  },
+  {
+    "date": "8/23/16",
+    "value": "wod-756"
+  },
+  {
+    "date": "8/24/16",
+    "value": "wod-757"
+  },
+  {
+    "date": "8/25/16",
+    "value": "wod-758"
+  },
+  {
+    "date": "8/26/16",
+    "value": "wod-759"
+  },
+  {
+    "date": "8/27/16",
+    "value": "wod-760"
+  },
+  {
+    "date": "8/29/16",
+    "value": "wod-761"
+  },
+  {
+    "date": "8/30/16",
+    "value": "wod-762"
+  },
+  {
+    "date": "8/31/16",
+    "value": "wod-763"
+  },
+  {
+    "date": "9/1/16",
+    "value": "wod-764"
+  },
+  {
+    "date": "9/2/16",
+    "value": "wod-765"
+  },
+  {
+    "date": "9/3/16",
+    "value": "wod-766"
+  }
+]
