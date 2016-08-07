@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
       let count = 0;
       jsonWods.forEach((item) => {
         let date = moment(item.date).utc().startOf('day').toDate();
-        let value = item.value;
+        let value = item.value.toLowerCase();
         let wods = this.get('wods');
         let tags = this.get('tags');
 
@@ -17,7 +17,7 @@ export default Ember.Controller.extend({
         });
 
         let filteredTags = tags.filter((tag) => {
-          return tag.get('value') === value;
+          return tag.get('value').toLowerCase() === value;
         });
 
         if (filteredWods.length > 0) {
