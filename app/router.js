@@ -22,7 +22,7 @@ Router.map(function() {
   this.route('error', { path: '*path' });
   this.route('callouts');
   this.route('create-callout');
-  this.route('bulk-tag-wods');
+  // this.route('bulk-tag-wods');
 });
 
 
