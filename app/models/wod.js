@@ -1,4 +1,9 @@
 import DS from 'ember-data';
+import Ember from 'ember';
+
+const {
+  computed
+} = Ember;
 
 export default DS.Model.extend({
   enabled: DS.attr('boolean'),
@@ -11,22 +16,22 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   video_id: DS.attr('string'),
   tags: DS.hasMany('tag', {async: true}),
-  prettyDate: Ember.computed('date', function() {
+  prettyDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
   }),
-  prettyPublishDate: Ember.computed('date', function() {
+  prettyPublishDate: computed('date', function() {
     return window.moment(this.get('publishDate')).tz("America/Los_Angeles").format('ddd MM.DD.YYYY h:mm a').toUpperCase();
   }),
-  datePickerDate: Ember.computed('date', function() {
+  datePickerDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('YYYY-MM-DD');
   }),
-  publishDay: Ember.computed('publishDate', function() {
+  publishDay: computed('publishDate', function() {
     return window.moment(this.get('publishDate')).startOf('day').format('YYYY-MM-DD');
   }),
-  publishTime: Ember.computed('publishDate', function() {
+  publishTime: computed('publishDate', function() {
     return window.moment(this.get('publishDate')).format('HH:mm');
   }),
-  active: Ember.computed('publishDate', 'enabled', function() {
+  active: computed('publishDate', 'enabled', function() {
     return (window.moment(this.get('publishDate')) < window.moment()) && this.get('enabled');
   })
 });
