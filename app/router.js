@@ -23,6 +23,8 @@ Router.map(function() {
   this.route('callouts');
   this.route('create-callout');
   // this.route('bulk-tag-wods');
+  this.route('create-post');
+  this.route('news');
 });
 
 
