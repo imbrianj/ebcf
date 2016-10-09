@@ -1,0 +1,76 @@
+{{title-banner img-src="wods" page-title="ADMIN"}}
+
+<br>
+
+<div class="ui stackable centered grid page-grid">
+  <div class="ui twelve wide center aligned column">
+
+    <div class="twelve wide column">
+      {{admin-menu}}
+    </div>
+
+    <br>
+
+    <table class="ui basic collapsing celled tablet stackable table">
+      <thead>
+        <tr>
+          <th class="ui center aligned header">Active</th>
+          <th class="ui center aligned header">title</th>
+          <th class="ui center aligned header">Image</th>
+          <th class="ui center aligned header">Link</th>
+          <th class="ui center aligned header">Enabled</th>
+          <th class="ui center aligned header">Date</th>
+          <th class="ui center aligned header">Publish Date (PACIFIC)</th>
+          <th class="ui center aligned header">Content</th>
+          <th class="ui center aligned header">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sortedPosts as |post|}}
+            <tr class="{{if post.active "positive"}}">
+              <td class="center aligned">
+                <i class="icon {{if post.active "checkmark"}} {{unless post.active "close"}}"></i>
+              </td>
+
+              <td class="center aligned">
+                {{post.title}}
+              </td>
+
+              <td>
+                 <img src={{post.image}} class="ui small image">
+              </td>
+
+              <td>
+                {{#link-to 'post' post class="read-more"}}
+                  {{post.id}}
+                {{/link-to}}
+              </td>
+
+              <td class="center aligned">
+                {{post.enabled}}
+              </td>
+
+              <td class="center aligned">
+                {{post.prettyDate}}
+              </td>
+
+              <td class="center aligned">
+                {{post.prettyPublishDate}}
+              </td>
+
+              <td>
+                {{post.content}}
+              </td>
+
+              <td>
+                <a href="post/{{post.id}}/edit">Edit</a>
+              </td>
+            </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<!-- {{password-modal}} -->

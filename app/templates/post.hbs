@@ -1,0 +1,37 @@
+{{title-banner img-src="wods" page-title="NEWS"}}
+
+<br>
+
+<div class="ui stackable centered two column grid page-grid">
+
+  <div class="eight wide column wod-list">
+    {{#if loading}}
+        <div class="ui active inverted dimmer">
+          <div class="ui large text loader wod-loader">Loading</div>
+        </div>
+    {{/if}}
+
+    {{#if model.image}}
+      <div class="row">
+        <div class="post-image-container">
+          <a href={{model.image}} target="_blank">
+            <img  class="post-image" src={{model.image}}>
+          </a>
+        </div>
+      </div>
+    {{/if}}
+
+    <br>
+
+    <div class="row">
+      <div class="ui header medium post-content">
+        <div class="ui header large uppercase">{{{model.title}}}</div>
+        <div class="ui header medium orange">{{model.prettyDate}}</div>
+        <p class="pre large">{{{model.content}}}</p>
+      </div>
+    </div>
+
+    <br>
+
+  </div>
+</div>

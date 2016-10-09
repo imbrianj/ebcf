@@ -1,4 +1,4 @@
-<div class="ui four item menu admin-menu">
+<div class="ui six item menu admin-menu">
   {{#link-to "admin" class="item"}}
     <a href={{view.href}}>All WODs</a>
   {{/link-to}}
@@ -13,5 +13,13 @@
 
   {{#link-to "create-callout" class="item"}}
     <a href={{view.href}}>Create Callout</a>
+  {{/link-to}}
+
+  {{#link-to "all-posts" class="item"}}
+    <a href={{view.href}}>All Posts</a>
+  {{/link-to}}
+
+  {{#link-to "create-post" class="item"}}
+    <a href={{view.href}}>Create Post</a>
   {{/link-to}}
 </div>
