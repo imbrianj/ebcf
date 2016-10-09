@@ -1,1 +1,81 @@
-{{outlet}}
+{{title-banner img-src="wods" page-title="CREATE POST"}}
+
+<div class="ui centered two column stackable grid page-grid">
+
+  <div class="twelve wide column">
+    {{admin-menu}}
+  </div>
+
+  <div class="six wide column">
+    <div class="image-container">
+      {{#if imageUrl}}
+          <img  class=wod-image src={{imageUrl}} width="300px">
+      {{else}}
+          <img class="place-holder-image" width="300px">
+      {{/if}}
+
+      {{#if uploadError}}
+        <div class="ui negative small message">
+          {{error}}
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="image-upload-wrapper">
+      <label class="ui button upload" for="new-image">Upload Image</label>
+      {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
+
+      <div class="ui horizontal divider">
+        Or
+      </div>
+      <div class="ui input" id="image-url">
+        {{input type="text" value=image-url placeholder="Enter Image URL"}}
+      </div>
+    </div>
+
+    <div class="row">
+      <button class="ui primary large button update-button"{{action "createPost"}}>Create Post</button>
+    </div>
+  </div>
+
+  <div class="five wide column">
+    <div class="row">
+      <div class="ui medium header">Title</div>
+      <div class="ui input">
+        {{input value=newTitle}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">Date</div>
+      <div class="ui input">
+        {{input type="date" value=newDate}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="bottom aligned row">
+      <div class="ui medium header">Publish Date</div>
+      <div class="ui input">
+        {{input type="date" value=newPublishDay}}
+      </div>
+      <i class="large at icon"></i>
+      <div class="ui input">
+        {{input type="time" value=newPublishTime}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">Content</div>
+      {{textarea rows="20" value=newContent}}
+    </div>
+  </div>
+
+</div>
+
+{{password-modal}}
