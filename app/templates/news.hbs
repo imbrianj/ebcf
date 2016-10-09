@@ -11,25 +11,8 @@
         </div>
     {{/if}}
     {{#each sortedPosts as |post|}}
-      {{#if post.image}}
-        <div class="row">
-          <div class="post-image-container">
-            <a href={{post.image}} target="_blank">
-              <img  class="post-image" src={{post.image}}>
-            </a>
-          </div>
-        </div>
-      {{/if}}
 
-      <br>
-
-      <div class="row">
-        <div class="ui header medium post-content">
-          <div class="ui header large uppercase">{{{post.title}}}</div>
-          <div class="ui header medium orange">{{post.prettyDate}}</div>
-          <p class="pre large">{{{post.content}}}</p>
-        </div>
-      </div>
+      {{post-item post=post}}
 
       <br>
       <hr>
