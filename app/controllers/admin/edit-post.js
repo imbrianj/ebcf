@@ -32,31 +32,12 @@ export default Controller.extend({
 
       // Save and redirect
       post.save().then(function() {
-        _this.transitionToRoute('admin');
+        _this.transitionToRoute('admin.all-posts');
       });
-    },
-    deleteWod() {
-      var wod = this.get('wod');
-      var self = this;
-      var tags = wod.get('tags');
-      tags.forEach( function(tag) {
-        tag.get('wods').removeObject(wod);
-        tag.save();
-      });
-
-      wod.destroyRecord().then(function(){
-        self.transitionTo('wods');
-      });
-    },
-    removeTag(tag) {
-      var wod = this.get('wod');
-      wod.get('tags').removeObject(tag);
-      tag.save();
-      wod.save();
     },
     imageUploadComplete(url) {
       this.set('uploadError', false);
-      this.get('wod').set('image', url);
+      this.get('post').set('image', url);
     },
     imageUploadFailed(error, errorText){
       this.set('uploadError', true);

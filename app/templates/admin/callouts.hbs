@@ -1,0 +1,45 @@
+<div class="ui centered two column grid">
+
+  <div class="ui stackable centered grid page-grid">
+    <table class="ui basic collapsing celled tablet stackable table">
+      <thead>
+        <tr>
+          <th class="ui center aligned header">Active</th>
+          <th class="ui center aligned header">Value</th>
+          <th class="ui center aligned header">Enabled</th>
+          <th class="ui center aligned header">Start Date (PACIFIC)</th>
+          <th class="ui center aligned header">End Date (PACIFIC)</th>
+          <th class="ui center aligned header">Edit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each sortedCallouts as |callout|}}
+          <tr class="{{if callout.active "positive"}}">
+            <td class="center aligned">
+              <i class="icon {{if callout.active "checkmark"}} {{unless callout.active "close"}}"></i>
+            </td>
+
+            <td>
+              {{callout.value}}
+            </td>
+
+            <td class="center aligned">
+              {{callout.enabled}}
+            </td>
+
+            <td>
+              {{callout.prettyStartDate}}
+            </td>
+
+            <td>
+              {{callout.prettyEndDate}}
+            </td>
+            <td>
+              <a href="admin/callout/{{callout.id}}/edit">Edit</a>
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

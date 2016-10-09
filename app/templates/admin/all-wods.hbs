@@ -1,0 +1,76 @@
+<div class="ui centered two column stackable grid page-grid">
+  <div class="row">
+    <div class="ui input">
+      {{input type="date" value=fromDate}}
+    </div>
+    to
+    <div class="ui input">
+      {{input type="date" value=toDate}}
+    </div>
+
+    <div class="ui large primary icon button filter" {{action "filterDate"}}>
+      Filter
+    </div>
+  </div>
+
+  <br>
+
+  <table class="ui basic collapsing celled tablet stackable table">
+    <thead>
+      <tr>
+        <th class="ui center aligned header">Active</th>
+        <th class="ui center aligned header">Image</th>
+        <th class="ui center aligned header">Link</th>
+        <th class="ui center aligned header">Enabled</th>
+        <th class="ui center aligned header">Date</th>
+        <th class="ui center aligned header">Publish Date (PACIFIC)</th>
+        <th class="ui center aligned header">Strength/Skill</th>
+        <th class="ui center aligned header">Conditioning</th>
+        <th class="ui center aligned header">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each sortedWods as |wod|}}
+        <tr class="{{if wod.active "positive"}}">
+          <td class="center aligned">
+              <i class="icon {{if wod.active "checkmark"}} {{if wod.active "close"}}"></i>
+          </td>
+
+          <td>
+             <img src={{wod.image}} class="ui small image">
+          </td>
+
+          <td>
+            {{#link-to 'wod' wod class="read-more"}}
+              {{wod.id}}
+            {{/link-to}}
+          </td>
+
+          <td class="center aligned">
+            {{wod.enabled}}
+          </td>
+
+          <td class="center aligned">
+            {{wod.prettyDate}}
+          </td>
+
+          <td class="center aligned">
+            {{wod.prettyPublishDate}}
+          </td>
+
+          <td>
+            {{wod.strength}}
+          </td>
+
+          <td>
+            {{wod.conditioning}}
+          </td>
+
+          <td>
+            <a href="wod/{{wod.id}}/edit">Edit</a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

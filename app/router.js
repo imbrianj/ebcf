@@ -7,27 +7,34 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('about');
+  this.route('coaches');
   this.route('contact');
-  this.route('create-rental');
-  this.route('create-wod');
-  this.route('wods');
-  this.route('wod', { path: '/wod/:wod_id' });
-  this.route('edit-wod', { path: 'wod/:wod_id/edit' });
   this.route('getting-started');
   this.route('schedule');
   this.route('pricing');
-  this.route('coaches');
-  this.route('edit-callout', { path: 'callout/:callout_id/edit' });
-  this.route('admin');
-  this.route('error', { path: '*path' });
-  this.route('callouts');
-  this.route('create-callout');
-  // this.route('bulk-tag-wods');
+
+  this.route('wods');
+  this.route('wod', { path: '/wod/:wod_id' });
+
   this.route('news');
-  this.route('all-posts');
-  this.route('create-post');
-  this.route('edit-post', { path: 'post/:post_id/edit' });
   this.route('post', { path: '/post/:post_id'});
+
+  this.route('admin', function () {
+    this.route('all-wods');
+    this.route('create-wod');
+    this.route('edit-wod', { path: '/wod/:wod_id/edit' });
+
+    this.route('callouts');
+    this.route('create-callout');
+    this.route('edit-callout', { path: '/callout/:callout_id/edit' });
+
+    this.route('all-posts');
+    this.route('create-post');
+    this.route('edit-post', { path: '/post/:post_id/edit' });
+    // this.route('bulk-tag-wods');
+  });
+
+  this.route('error', { path: '*path' });
 });
 
 

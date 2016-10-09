@@ -1,17 +1,16 @@
-{{title-banner img-src="wods" page-title="ADMIN"}}
-
 <div class="ui centered two column grid page-grid">
-
-  <div class="twelve wide column">
-    {{admin-menu}}
-  </div>
 
   <div class="row">
     <div class="left aligned five wide column">
       <div class="ui medium header">Callout Content</div>
       <div class="ui input callout-input">
-        {{input type="text" value=newValue placeholder=newValue}}
+        {{input type="text" value=callout.value placeholder=callout.value}}
       </div>
+    </div>
+
+    <div class="center aligned two wide column">
+      <div class="ui medium header">Enabled?</div>
+      {{ui-checkbox checked=callout.enabled}}
     </div>
   </div>
 
@@ -19,32 +18,30 @@
     <div class="left aligned four wide column">
       <div class="ui medium header">Start Date</div>
       <div class="ui input">
-        {{input type="date" value=newStartDay}}
+        {{input type="date" value=callout.startDay}}
       </div>
       <i class="large at icon"></i>
       <div class="ui input">
-        {{input type="time" value=newStartTime}}
+        {{input type="time" value=callout.startTime}}
       </div>
     </div>
 
     <div class="left aligned four wide column">
       <div class="ui medium header">End Date</div>
       <div class="ui input">
-        {{input type="date" value=newEndDay}}
+        {{input type="date" value=callout.endDay}}
       </div>
       <i class="large at icon"></i>
       <div class="ui input">
-        {{input type="time" value=newEndTime}}
+        {{input type="time" value=callout.endTime}}
       </div>
     </div>
   </div>
 
   <div class="row">
-    <div class="ui primary large button"{{action "createCallout"}}>Create Callout</div>
+    <div class="ui primary large button"{{action "updateCallout"}}>Update Callout</div>
   </div>
 
 </div>
 
 <br>
-
-{{password-modal}}

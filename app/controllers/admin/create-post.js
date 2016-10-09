@@ -44,7 +44,7 @@ export default Controller.extend({
 
        var _this = this;
        post.save().then(() => {
-         _this.transitionToRoute('admin');
+         _this.transitionToRoute('admin.all-posts');
        });
     },
     imageUploadComplete(url) {

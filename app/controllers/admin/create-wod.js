@@ -65,7 +65,7 @@ export default Ember.Controller.extend({
           }
         });
 
-        _this.transitionToRoute('admin');
+        _this.transitionToRoute('admin.all-wods');
       });
     },
     imageUploadComplete(url) {

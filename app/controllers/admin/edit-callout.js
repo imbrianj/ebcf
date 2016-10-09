@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
       callout.set('endDate', endDate);
 
       callout.save().then(function() {
-        _this.transitionToRoute('callouts');
+        _this.transitionToRoute('admin.callouts');
       });
     }
   }
