@@ -26,7 +26,7 @@ export default Controller.extend({
       var publishTime = get(this, 'newPublishTime');
       var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
-      var imageSource = get(this, 'imageUrl');
+      var imageSource = null;
       var content = get(this, 'newContent');
 
       if (get(this, 'image-url')) {
