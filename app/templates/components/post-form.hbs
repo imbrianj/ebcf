@@ -1,0 +1,60 @@
+<div class="ui two column stackable grid page-grid">
+  <div class="row">
+    <div class="ui medium header">Banner Image</div>
+    {{image-uploader
+      imageUrl=bannerImage
+      imageType="banner"
+      imageUploadComplete=(action bannerImageUploadComplete)
+      imageUploadFailed=(action bannerImageUploadFailed)}}
+  </div>
+
+  <div class="eight wide column">
+    <div class="row">
+      <div class="ui medium header">Title</div>
+      <div class="ui input">
+        {{input value=title}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">Date</div>
+      <div class="ui input">
+        {{input type="date" value=date}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="bottom aligned row">
+      <div class="ui medium header">Publish Date</div>
+      <div class="ui input">
+        {{input type="date" value=publishDay}}
+      </div>
+      <i class="large at icon"></i>
+      <div class="ui input">
+        {{input type="time" value=publishTime}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">Content</div>
+      {{textarea rows="20" value=content}}
+    </div>
+  </div>
+
+  <div class="eight wide column">
+    <div class="ui medium header">Content Image</div>
+    {{image-uploader
+      imageUrl=contentImage
+      imageUploadComplete=(action contentImageUploadComplete)
+      imageUploadFailed=(action contentImageUploadFailed)}}
+  </div>
+
+  <div class="row">
+    <button class="ui primary large button update-button" {{action submitForm}}>Save Post</button>
+  </div>
+</div>

@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 const {
   get,
+  set,
   Controller
 } = Ember;
 
@@ -13,39 +14,51 @@ export default Controller.extend({
   actions: {
     updatePost() {
       var post = get(this, 'post');
-      var _this = this;
 
-      // Set wod Date
-      var date = window.moment(post.get('datePickerDate')).utc().startOf('day').toDate();
+      var title = get(this, 'title');
+      var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
 
-      var publishDay = get(post, 'publishDay');
-      var publishTime = get(post, 'publishTime');
+      var publishDay = get(this, 'publishDay');
+      var publishTime = get(this, 'publishTime');
       var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
-      post.set('date', date);
-      post.set('publishDate', publishDate);
+      var bannerImage = get(this, 'bannerImage');
+      var contentImage = get(this, 'contentImage');
 
-      // Set image url if one was entered
-      if (get(this, 'image-url')) {
-        post.set('image', this.get('image-url'));
-      }
+      var content = get(this, 'content');
 
-      // Save and redirect
-      post.save().then(function() {
-        _this.transitionToRoute('admin.all-posts');
+      post.setProperties({
+        enabled: true,
+        title: title,
+        date: date,
+        publishDate: publishDate,
+        contentImage: contentImage,
+        bannerImage: bannerImage,
+        content: content
       });
+
+       var _this = this;
+       post.save().then(() => {
+         _this.transitionToRoute('admin.all-posts');
+       });
     },
-    imageUploadComplete(url) {
-      this.set('uploadError', false);
-      this.get('post').set('image', url);
+
+    bannerImageUploadComplete(url) {
+      set(this, 'bannerImage', url);
     },
-    imageUploadFailed(error, errorText){
-      this.set('uploadError', true);
-      this.set('error', error);
-      this.set('errorText', errorText);
+    bannerImageUploadFailed() {
+      set(this, 'bannerImage', null);
     },
+
+    contentImageUploadComplete(url) {
+      set(this, 'contentImage', url);
+    },
+    contentImageUploadFailed() {
+      set(this, 'contentImage', null);
+    },
+
     logIn() {
-      this.set('notLoggedIn', false);
+      set(this, 'notLoggedIn', false);
     }
   }
 });

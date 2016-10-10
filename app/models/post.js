@@ -8,7 +8,8 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   date: DS.attr('date'),
   publishDate: DS.attr('date'),
-  image: DS.attr('string'),
+  contentImage: DS.attr('string'),
+  bannerImage: DS.attr('string'),
   content: DS.attr('string'),
   prettyDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();

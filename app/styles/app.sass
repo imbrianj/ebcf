@@ -1,3 +1,6 @@
+@import "partials/components/_image-uploader"
+@import "partials/components/_post"
+
 $primary-color: #F94725
 $primary-color-hover: #e33303
 $light-gray: #f2f2f2
@@ -482,28 +485,6 @@ hr
 .read-more:hover
     color: $primary-color-hover
 
-.image-container
-  // text-align: center
-
-.wod-image
-  vertical-align: middle
-  width: 100%
-  // -webkit-box-shadow: -15px 18px 85px -6px rgba(179,179,179,1)
-  // -moz-box-shadow: -15px 18px 85px -6px rgba(179,179,179,1)
-  // box-shadow: -15px 18px 85px -6px rgba(179,179,179,1)
-
-.image-upload-wrapper
-
-  input
-    display: none
-
-  #image-url
-    input
-      display: inline
-
-.place-holder-image
-  background-image: url("https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png")
-
 /*Create Wod*/
 
 input:-webkit-autofill
@@ -520,14 +501,6 @@ textarea
 .button.update-button
   margin-top: 20px
   margin-bottom: 20px
-
-/*Posts*/
-.post-image-container
-  width: 100%
-  height: 350px
-  overflow: hidden
-
-.post-content
 
 /*Contact Us*/
 .grid.contact

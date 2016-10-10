@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 const {
   get,
+  set,
   Controller
 } = Ember;
 
@@ -10,35 +11,29 @@ export default Controller.extend({
   error: "",
   errorText: "",
   imageUrl: "",
-  showModal: false,
   notLoggedIn: true,
-
-  init() {
-    this.set('imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
-  },
 
   actions: {
     createPost() {
-      var title = get(this, 'newTitle');
-      var date = window.moment(get(this, 'newDate')).utc().startOf('day').toDate();
+      var title = get(this, 'title');
+      var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
 
-      var publishDay = get(this, 'newPublishDay');
-      var publishTime = get(this, 'newPublishTime');
+      var publishDay = get(this, 'publishDay');
+      var publishTime = get(this, 'publishTime');
       var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
-      var imageSource = null;
-      var content = get(this, 'newContent');
+      var bannerImage = get(this, 'bannerImage');
+      var contentImage = get(this, 'contentImage');
 
-      if (get(this, 'image-url')) {
-        imageSource = get(this, 'image-url');
-      }
+      var content = get(this, 'content');
 
       var post = this.store.createRecord('post', {
          enabled: true,
          title: title,
          date: date,
          publishDate: publishDate,
-         image: imageSource,
+         contentImage: contentImage,
+         bannerImage: bannerImage,
          content: content
        });
 
@@ -47,31 +42,23 @@ export default Controller.extend({
          _this.transitionToRoute('admin.all-posts');
        });
     },
-    imageUploadComplete(url) {
-      this.set('uploadError', false);
-      this.set('imageUrl', url);
+
+    bannerImageUploadComplete(url) {
+      set(this, 'bannerImage', url);
     },
-    imageUploadFailed(error, errorText){
-      this.set('uploadError', true);
-      this.set('error', error);
-      this.set('errorText', errorText);
+    bannerImageUploadFailed() {
+      set(this, 'bannerImage', null);
     },
-    openModal() {
-      Ember.$('#tag-modal').modal('show');
+
+    contentImageUploadComplete(url) {
+      set(this, 'contentImage', url);
     },
-    close(tagValue) {
-      if (tagValue) {
-        this.send('createATag', tagValue);
-      }
+    contentImageUploadFailed() {
+      set(this, 'contentImage', null);
     },
+
     logIn() {
-      this.set('notLoggedIn', false);
-    },
-    createATag(tagValue) {
-      var tag = this.store.createRecord('tag', {
-         value: tagValue
-       });
-       tag.save();
+      set(this, 'notLoggedIn', false);
     }
   }
 });

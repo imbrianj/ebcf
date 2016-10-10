@@ -20,7 +20,7 @@
         {{#each sortedPosts as |post|}}
             <tr class="{{if post.active "positive"}}">
               <td class="center aligned">
-                <i class="icon {{if post.active "checkmark"}} {{unless post.active "close"}}"></i>
+                <i class="icon {{if post.active "checkmark" "close"}}"></i>
               </td>
 
               <td class="center aligned">

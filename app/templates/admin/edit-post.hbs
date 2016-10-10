@@ -1,74 +1,15 @@
-<div class="ui centered two column stackable grid page-grid">
-
-  <div class="six wide column">
-    <div class="image-container">
-      {{#if post.image}}
-        <a href={{post.image}}>
-          <img  class=post-image width=300px src={{post.image}}>
-        </a>
-      {{else}}
-        <img  width=300px class="place-holder-image">
-      {{/if}}
-
-      {{#if uploadError}}
-        <div class="ui negative small message">
-          Error Trying to Upload: {{error}}
-        </div>
-      {{/if}}
-    </div>
-
-    <div class="image-upload-wrapper">
-      <label class="ui button upload" for="new-image">Upload Image</label>
-      {{s3-upload id="new-image" onComplete="imageUploadComplete" onError="imageUploadFailed"}}
-
-      <div class="ui horizontal divider">
-        Or
-      </div>
-      <div class="ui input" id="image-url">
-        {{input type="text" value=image-url placeholder="Enter Image URL"}}
-      </div>
-    </div>
-
-    <div class="row">
-      <button class="ui primary large button update-button"{{action "updatePost"}}>Update Post</button>
-    </div>
-  </div>
-
-  <div class="five wide column">
-    <div class="row">
-      <div class="ui medium header">Title</div>
-      <div class="ui input">
-        {{input value=post.title}}
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="ui medium header">Date</div>
-      <div class="ui input">
-        {{input type="date" value=post.date}}
-      </div>
-    </div>
-
-    <br>
-
-    <div class="bottom aligned row">
-      <div class="ui medium header">Publish Date</div>
-      <div class="ui input">
-        {{input type="date" value=post.publishDay}}
-      </div>
-      <i class="large at icon"></i>
-      <div class="ui input">
-        {{input type="time" value=post.publishTime}}
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row">
-      <div class="ui medium header">Content</div>
-      {{textarea rows="20" value=post.content}}
-    </div>
-  </div>
+<div class="ui container">
+  {{post-form
+    bannerImage=post.bannerImage
+    contentImage=post.contentImage
+    title=post.title
+    content=post.content
+    date=post.date
+    publishDay=post.publishDay
+    publishTime=post.publishTime
+    submitForm=(action "updatePost")
+    contentImageUploadComplete=(action "contentImageUploadComplete")
+    contentImageUploadFailed=(action "contentImageUploadFailed")
+    bannerImageUploadComplete=(action "bannerImageUploadComplete")
+    bannerImageUploadFailed=(action "bannerImageUploadFailed")}}
 </div>

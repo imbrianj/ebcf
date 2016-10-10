@@ -1,0 +1,31 @@
+<div class="image-container {{if imageType "banner"}}">
+  {{#if imageUrl}}
+    <img class="image" src={{imageUrl}}>
+  {{else}}
+    <img class="image">
+  {{/if}}
+
+  {{#if uploadError}}
+    <div class="ui negative small message">
+      {{error}}
+    </div>
+  {{/if}}
+</div>
+
+<div class="controlls">
+  <div class="">
+    <label class="ui button upload" for={{if imageType imageType "image"}}>Upload Image</label>
+    {{s3-upload id=(if imageType imageType "image") onComplete=(action "imageUploadComplete") onError=(action "imageUploadFailed")}}
+  </div>
+
+  <div class="ui header uppercase or-divider">
+    -Or-
+  </div>
+
+
+  <div class="">
+    <div class="ui input image-url">
+      {{input type="text" value=(if isPlaceholderImage null imageUrl) placeholder="Enter Image URL"}}
+    </div>
+  </div>
+</div>

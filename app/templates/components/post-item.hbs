@@ -1,8 +1,8 @@
-{{#if post.image}}
-  <div class="row">
-    <div class="post-image-container">
-      <a href={{post.image}} target="_blank">
-        <img  class="post-image" src={{post.image}}>
+{{#if post.bannerImage}}
+  <div class="">
+    <div class="banner-image">
+      <a href={{post.bannerImage}} target="_blank">
+        <img  class="post-image" src={{post.bannerImage}}>
       </a>
     </div>
   </div>
@@ -10,10 +10,22 @@
 
 <br>
 
-<div class="row">
-  <div class="ui header medium post-content">
-    <div class="ui header large uppercase">{{{post.title}}}</div>
-    <div class="ui header medium orange">{{post.prettyDate}}</div>
+<div class="post-headers">
+  <div class="ui header large uppercase post-title">{{{post.title}}}</div>
+  <div class="ui header medium orange post-date">{{post.prettyDate}}</div>
+</div>
+
+
+<div class="post-content">
+  <div class="content">
     <p class="pre large">{{{post.content}}}</p>
   </div>
+
+  {{#if post.contentImage}}
+    <div class="content-image">
+      <a href={{post.contentImage}} target="_blank">
+        <img class="post-image" src={{post.contentImage}}>
+      </a>
+    </div>
+  {{/if}}
 </div>
