@@ -9,12 +9,12 @@ const {
 export default Controller.extend({
   uploadError: false,
   tagsToRemove: [],
-  imageUrl: "",
   notLoggedIn: true,
   actions: {
     updatePost() {
       var post = get(this, 'post');
 
+      var enabled = get(this, 'enabled');
       var title = get(this, 'title');
       var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
 
@@ -28,7 +28,7 @@ export default Controller.extend({
       var content = get(this, 'content');
 
       post.setProperties({
-        enabled: true,
+        enabled: enabled,
         title: title,
         date: date,
         publishDate: publishDate,
@@ -44,17 +44,21 @@ export default Controller.extend({
     },
 
     bannerImageUploadComplete(url) {
-      set(this, 'bannerImage', url);
+      let post = get(this, 'post');
+      set(post, 'bannerImage', url);
     },
     bannerImageUploadFailed() {
-      set(this, 'bannerImage', null);
+      let post = get(this, 'post');
+      set(post, 'bannerImage', null);
     },
 
     contentImageUploadComplete(url) {
-      set(this, 'contentImage', url);
+      let post = get(this, 'post');
+      set(post, 'contentImage', url);
     },
     contentImageUploadFailed() {
-      set(this, 'contentImage', null);
+      let post = get(this, 'post');
+      set(post, 'contentImage', null);
     },
 
     logIn() {

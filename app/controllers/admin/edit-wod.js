@@ -1,10 +1,16 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const {
+  get,
+  set,
+  $,
+  Controller
+} = Ember;
+
+export default Controller.extend({
   uploadError: false,
   tagsToRemove: [],
-  imageUrl: "",
-  notLoggedIn: true,
+
   actions: {
     updateWod() {
       var wod = this.get('wod');
@@ -36,56 +42,35 @@ export default Ember.Controller.extend({
         }
       });
 
-      // Set wod Date
-      var date = window.moment(wod.get('datePickerDate')).utc().startOf('day').toDate();
+      var date = window.moment(get(wod, 'datePickerDate')).utc().startOf('day').toDate();
 
-      var publishDay = wod.get('publishDay');
-      var publishTime = wod.get('publishTime');
+      var publishDay = get(wod, 'publishDay');
+      var publishTime = get(wod, 'publishTime');
       var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
-      wod.set('date', date);
-      wod.set('publishDate', publishDate);
-
-      // Set image url if one was entered
-      if (this.get('image-url')) {
-        wod.set('image', this.get('image-url'));
-      }
+      wod.setProperties({
+        date: date,
+        publishDate: publishDate,
+      });
 
       // Save and redirect
       wod.save().then(function() {
         _this.transitionToRoute('admin.all-wods');
       });
     },
-    deleteWod() {
-      var wod = this.get('wod');
-      var self = this;
-      var tags = wod.get('tags');
-      tags.forEach( function(tag) {
-        tag.get('wods').removeObject(wod);
-        tag.save();
-      });
-
-      wod.destroyRecord().then(function(){
-        self.transitionTo('wods');
-      });
+    imageUploadComplete(url) {
+      let wod = get(this, 'wod');
+      set(wod, 'image', url);
+    },
+    imageUploadFailed() {
+      let wod = get(this, 'wod');
+      set(wod, 'image', null);
     },
     removeTag(tag) {
       var wod = this.get('wod');
       wod.get('tags').removeObject(tag);
       tag.save();
       wod.save();
-    },
-    imageUploadComplete(url) {
-      this.set('uploadError', false);
-      this.get('wod').set('image', url);
-    },
-    imageUploadFailed(error, errorText){
-      this.set('uploadError', true);
-      this.set('error', error);
-      this.set('errorText', errorText);
-    },
-    logIn() {
-      this.set('notLoggedIn', false);
     }
   }
 });

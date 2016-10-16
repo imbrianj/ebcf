@@ -14,6 +14,9 @@ export default DS.Model.extend({
   prettyDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
   }),
+  datePickerDate: computed('date', function() {
+    return window.moment(this.get('date')).utc().format('YYYY-MM-DD');
+  }),
   publishDay: computed('publishDate', function() {
     return window.moment(this.get('publishDate')).startOf('day').format('YYYY-MM-DD');
   }),

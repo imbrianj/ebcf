@@ -15,6 +15,7 @@ export default Controller.extend({
 
   actions: {
     createPost() {
+      var enabled = get(this, 'enabled');
       var title = get(this, 'title');
       var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
 
@@ -28,7 +29,7 @@ export default Controller.extend({
       var content = get(this, 'content');
 
       var post = this.store.createRecord('post', {
-         enabled: true,
+         enabled: enabled,
          title: title,
          date: date,
          publishDate: publishDate,

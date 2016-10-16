@@ -1,0 +1,81 @@
+<div class="ui centered two column stackable grid">
+
+  <div class="column">
+
+    <div class="row">
+      <div class="image-container">
+        {{image-uploader
+          imageUrl=image
+          imageUploadComplete=(action imageUploadComplete)
+          imageUploadFailed=(action imageUploadFailed)}}
+      </div>
+    </div>
+
+    <div class="row">
+      {{select-tags tags=allTags selectedTags=selectedTags}}
+      {{#if tags}}
+        {{#each tags as |tag|}}
+          <div class="ui animated button tag-button" {{action removeTag tag}}>
+            <div class="visible content">
+              {{tag.value}}
+            </div>
+            <div class="hidden content">
+              <i class="remove icon"></i>
+            </div>
+          </div>
+        {{/each}}
+      {{/if}}
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="row">
+      <div class="ui medium header">Enabled?</div>
+      {{ui-checkbox checked=enabled}}
+    </div>
+
+    <br>
+
+    <div class="row">
+      <div class="ui medium header">WOD Date</div>
+      <div class="ui input">
+        {{input type="date" value=date}}
+      </div>
+    </div>
+
+    <br>
+
+    <div class="bottom aligned row">
+      <div class="ui medium header">Publish Date</div>
+      <div class="ui input">
+        {{input type="date" value=publishDay}}
+      </div>
+      <i class="large at icon"></i>
+      <div class="ui input">
+        {{input type="time" value=publishTime}}
+      </div>
+    </div>
+
+    <div class="ui medium header">Strength/Skill</div>
+    {{textarea rows="10" value=strength placeholder=strength}}
+
+    <div class="ui medium header">Conditioning</div>
+    {{textarea rows="10" value=conditioning placeholder=conditioning}}
+
+  </div>
+
+  <div class="sixteen wide column">
+    <div class="ui medium header">About This WOD</div>
+    {{textarea rows="7" value=description placeholder=description}}
+
+    <div class="row">
+      <div class="ui medium header">Video ID</div>
+      <div class="ui input">
+        {{input type="text" value=videoId placeholder=videoId}}
+      </div>
+    </div>
+
+    <button class="ui primary large button update-button"{{action submitForm}}>Save WOD</button>
+  </div>
+
+</div>

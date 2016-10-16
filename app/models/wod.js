@@ -14,7 +14,7 @@ export default DS.Model.extend({
   strength: DS.attr('string'),
   conditioning: DS.attr('string'),
   description: DS.attr('string'),
-  video_id: DS.attr('string'),
+  videoId: DS.attr('string'),
   tags: DS.hasMany('tag', {async: true}),
   prettyDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();
