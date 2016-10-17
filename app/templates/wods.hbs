@@ -1,84 +1,63 @@
 {{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
 
 <br>
+<div class="ui container">
+  <div class="ui stackable two column grid page-grid">
 
-<div class="ui stackable centered two column grid page-grid">
-
-  <div class="three wide right aligned mobile only column">
-    {{#ui-accordion}}
-      <div class="title">
-        <i class="big search icon"></i>
-      </div>
-      <div class="content">
-        {{wod-search tags=tags tag=tag date=date}}
-      </div>
-    {{/ui-accordion}}
-  </div>
-
-
-  <div class="ui grid container">
-    {{#if searching}}
-      <h4 class="ui header wods-found">
-        {{wodsFound}}
-      </h4>
-    {{/if}}
-  </div>
-
-
-  <div class="eight wide column wod-list">
-    {{#if loading}}
-        <div class="ui active inverted dimmer">
-          <div class="ui large text loader wod-loader">Loading</div>
+    <div class="three wide right aligned mobile only column">
+      {{#ui-accordion}}
+        <div class="title">
+          <i class="big search icon"></i>
         </div>
-    {{/if}}
+        <div class="content">
+          {{wod-search tags=tags tag=tag date=date}}
+        </div>
+      {{/ui-accordion}}
+    </div>
+
+
+    <div class="row">
+      <h4 class="ui header wods-found">
+        {{#if searching}}
+          {{wodsFound}}
+        {{else}}
+          <br>
+        {{/if}}
+      </h4>
+    </div>
+
+    <div class="twelve wide column wod-list">
+      {{#if loading}}
+          <div class="ui active inverted dimmer">
+            <div class="ui large text loader wod-loader">Loading</div>
+          </div>
+      {{/if}}
       {{#each sortedWods as |wod|}}
 
-        <div class="ui two column stackable mobile reversed grid">
+        {{wod-item
+          isWodsRoute=true
+          wod=wod
+          image=wod.image
+          tags=wod.tags
+          prettyDate=wod.prettyDate
+          strength=wod.strength
+          conditioning=wod.conditioning
+          description=wod.description
+          videoId=wod.videoId}}
 
-          <div class="five wide column">
-              {{#if wod.image}}
-                <a href={{wod.image}} target="_blank">
-                  <img  class="wod-image small-img" src={{wod.image}}>
-                </a>
-              {{else}}
-                <img  class="small-img place-holder-image">
-              {{/if}}
-          </div>
-
-          <div class="nine wide column">
-            <div class="trunckated">
-              <div class="ui header large">{{wod.prettyDate}}</div>
-              {{#if wod.strength}}
-                <div class="ui header orange">STRENGTH/SKILL</div>
-                <div class="pre">{{{wod.strength}}}</div>
-              {{/if}}
-              {{#if wod.conditioning}}
-                <div class="ui header orange">CONDITIONING</div>
-                <div class="pre">{{{wod.conditioning}}}</div>
-                <br>
-                <br>
-              {{/if}}
-            </div>
-            {{#link-to 'wod' wod class="read-more"}}
-              Read More
-              <i class="chevron right icon"></i>
-            {{/link-to}}
-          </div>
-
-          <hr>
-
-        </div>
+        <hr>
 
       {{/each}}
 
-    <br>
+      <br>
 
-    {{#unless searching}}
-      <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
-    {{/unless}}
-  </div>
+      {{#unless searching}}
+        <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
+      {{/unless}}
+    </div>
 
-  <div class="five wide tablet three wide computer only tablet only column">
-    {{wod-search tags=tags tag=tag date=date}}
+    <div class="four wide computer only tablet only column">
+      {{wod-search tags=tags tag=tag date=date}}
+    </div>
   </div>
 </div>

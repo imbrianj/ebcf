@@ -1,0 +1,85 @@
+<div class="ui two column mobile reversed stackable grid page-grid">
+
+  <div class="column">
+    <div class="image-container {{if isWodsRoute "small"}}">
+      {{#if image}}
+        <a href={{image}}>
+          <img class="wod-image" src={{wod.image}}>
+        </a>
+      {{else}}
+        <img src="/assets/place-holder-image.png">
+      {{/if}}
+    </div>
+
+    {{#unless isWodsRoute}}
+      {{#each tags as |tag|}}
+        {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
+          <div class="visible content">
+            {{tag.value}}
+          </div>
+          <div class="hidden content">
+            <i class="right arrow icon"></i>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    {{/unless}}
+  </div>
+
+  <div class="sixteen wide mobile only right aligned column">
+    {{#if isWodsRoute}}
+      {{#link-to 'wod' wod class="read-more"}}
+        Read More
+        <i class="chevron right icon"></i>
+      {{/link-to}}
+    {{/if}}
+  </div>
+
+  <div class="column">
+    {{#unless isWodsRoute}}
+      {{#link-to 'wods' class="read-more"}}
+        <i class="chevron left icon"></i>
+        Back
+      {{/link-to}}
+    {{/unless}}
+    <div class="ui huge header">{{prettyDate}}</div>
+
+    {{#if strength}}
+      <div class="ui large header orange">STRENGTH/SKILL</div>
+      <div class="pre">{{{strength}}}</div>
+    {{/if}}
+
+    {{#if conditioning}}
+      <div class="ui large header orange">CONDITIONING</div>
+      <div class="pre">{{{conditioning}}}</div>
+    {{/if}}
+  </div>
+
+  {{#if isWodsRoute}}
+    <div class="sixteen wide computer only tablet only right aligned column">
+      {{#link-to 'wod' wod class="read-more"}}
+        Read More
+        <i class="chevron right icon"></i>
+      {{/link-to}}
+    </div>
+  {{/if}}
+
+  {{#if description}}
+    <div class="row">
+      <div class="twelve wide column">
+        <div class="ui horizontal divider">
+          <i class="anchor icon"></i>
+        </div>
+
+        <div class="ui large header orange">ABOUT THIS WORKOUT</div>
+        <div class="pre">{{{description}}}</div>
+
+      </div>
+
+      <div class="eight wide column">
+        {{#if videoId}}
+          {{ui-embed data-source="youtube" data-id=videoId}}
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+</div>
