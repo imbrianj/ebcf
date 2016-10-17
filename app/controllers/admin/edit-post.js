@@ -14,33 +14,21 @@ export default Controller.extend({
     updatePost() {
       var post = get(this, 'post');
 
-      var enabled = get(this, 'enabled');
-      var title = get(this, 'title');
-      var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
+      var date = window.moment(get(post, 'datePickerDate')).utc().startOf('day').toDate();
 
-      var publishDay = get(this, 'publishDay');
-      var publishTime = get(this, 'publishTime');
+      var publishDay = get(post, 'publishDay');
+      var publishTime = get(post, 'publishTime');
       var publishDate = window.moment(publishDay + " " + publishTime).toDate();
 
-      var bannerImage = get(this, 'bannerImage');
-      var contentImage = get(this, 'contentImage');
-
-      var content = get(this, 'content');
-
       post.setProperties({
-        enabled: enabled,
-        title: title,
         date: date,
-        publishDate: publishDate,
-        contentImage: contentImage,
-        bannerImage: bannerImage,
-        content: content
+        publishDate: publishDate
       });
 
-       var _this = this;
-       post.save().then(() => {
-         _this.transitionToRoute('admin.all-posts');
-       });
+      var _this = this;
+      post.save().then(() => {
+       _this.transitionToRoute('admin.all-posts');
+      });
     },
 
     bannerImageUploadComplete(url) {

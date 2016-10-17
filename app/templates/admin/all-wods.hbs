@@ -1,15 +1,19 @@
-<div class="ui centered two column stackable grid page-grid">
+<div class="ui centered two column stackable grid page-grid all-wods">
   <div class="row">
-    <div class="ui input">
-      {{input type="date" value=fromDate}}
-    </div>
-    to
-    <div class="ui input">
-      {{input type="date" value=toDate}}
-    </div>
+    <div class="date-filter">
+      <div class="ui input">
+        {{input type="date" value=fromDate}}
+      </div>
 
-    <div class="ui large primary icon button filter" {{action "filterDate"}}>
-      Filter
+      <div>to</div>
+      
+      <div class="ui input">
+        {{input type="date" value=toDate}}
+      </div>
+
+      <div class="ui large primary icon button filter" {{action "filterDate"}}>
+        Filter
+      </div>
     </div>
   </div>
 

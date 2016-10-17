@@ -2,24 +2,19 @@
 
 <br>
 
-<div class="ui stackable centered two column grid page-grid">
-
-  <div class="eight wide column wod-list">
+<div class="ui container">
+  <div class="ui stackable grid page-grid">
     {{#if loading}}
         <div class="ui active inverted dimmer">
           <div class="ui large text loader wod-loader">Loading</div>
         </div>
     {{/if}}
     {{#each sortedPosts as |post|}}
-
-      {{post-item post=post}}
-
-      <br>
-      <hr>
-      <br>
+      <div class="row">
+        {{post-item post=post}}
+        <br>
+        <hr>
+      </div>      
     {{/each}}
-
-    <br>
-
   </div>
 </div>

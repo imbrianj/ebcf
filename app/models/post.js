@@ -20,6 +20,9 @@ export default DS.Model.extend({
   publishDay: computed('publishDate', function() {
     return window.moment(this.get('publishDate')).startOf('day').format('YYYY-MM-DD');
   }),
+  prettyPublishDate: computed('date', function() {
+    return window.moment(this.get('publishDate')).tz("America/Los_Angeles").format('ddd MM.DD.YYYY h:mm a').toUpperCase();
+  }),
   publishTime: computed('publishDate', function() {
     return window.moment(this.get('publishDate')).format('HH:mm');
   }),

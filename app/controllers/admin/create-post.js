@@ -7,11 +7,7 @@ const {
 } = Ember;
 
 export default Controller.extend({
-  uploadError: false,
-  error: "",
-  errorText: "",
-  imageUrl: "",
-  notLoggedIn: true,
+  enabled: true,
 
   actions: {
     createPost() {
