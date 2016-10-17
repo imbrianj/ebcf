@@ -1,0 +1,16 @@
+{{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
+
+<div class="ui container">
+  {{wod-item
+    image=model.image
+    tags=model.tags
+    prettyDate=model.prettyDate
+    strength=model.strength
+    conditioning=model.conditioning
+    description=model.description
+    videoId=model.videoId}}
+</div>
+
+{{#unless model.enabled}}
+  {{password-modal}}
+{{/unless}}
