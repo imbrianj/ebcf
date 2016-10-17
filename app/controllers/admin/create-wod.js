@@ -3,6 +3,7 @@ import Ember from 'ember';
 const {
   get,
   inject,
+  set,
   $,
   Controller
 } = Ember;
@@ -12,7 +13,7 @@ export default Controller.extend({
   enabled: true,
 
   setImagePreview: function(){
-    this.set('imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
+    set(this, 'imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
   }.on('init'),
 
   actions: {
@@ -49,13 +50,10 @@ export default Controller.extend({
       });
     },
     imageUploadComplete(url) {
-      this.set('uploadError', false);
-      this.set('imageUrl', url);
+      set(this, 'image', url);
     },
-    imageUploadFailed(error, errorText){
-      this.set('uploadError', true);
-      this.set('error', error);
-      this.set('errorText', errorText);
+    imageUploadFailed(){
+      set(this, 'image', null);
     },
     openModal() {
       Ember.$('#tag-modal').modal('show');
@@ -66,7 +64,7 @@ export default Controller.extend({
       }
     },
     logIn() {
-      this.set('notLoggedIn', false);
+      set(this, 'notLoggedIn', false);
     },
     createATag(tagValue) {
       let tag = this.store.createRecord('tag', {
