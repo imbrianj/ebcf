@@ -12,10 +12,6 @@ export default Controller.extend({
   store: inject.service(),
   enabled: true,
 
-  setImagePreview: function(){
-    set(this, 'imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
-  }.on('init'),
-
   actions: {
     createWod() {
       let enabled = get(this, 'enabled');
