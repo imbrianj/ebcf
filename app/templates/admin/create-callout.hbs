@@ -1,7 +1,7 @@
 <div class="ui centered two column grid page-grid">
 
   <div class="row">
-    <div class="left aligned five wide column">
+    <div class="left aligned column">
       <div class="ui medium header">Callout Content</div>
       <div class="ui input callout-input">
         {{input type="text" value=newValue placeholder=newValue}}
@@ -10,7 +10,7 @@
   </div>
 
   <div class="row">
-    <div class="left aligned four wide column">
+    <div class="left aligned eight wide column">
       <div class="ui medium header">Start Date</div>
       <div class="ui input">
         {{input type="date" value=newStartDay}}
@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <div class="left aligned four wide column">
+    <div class="left aligned eight wide column">
       <div class="ui medium header">End Date</div>
       <div class="ui input">
         {{input type="date" value=newEndDay}}
@@ -33,10 +33,9 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="ui primary large button"{{action "createCallout"}}>Create Callout</div>
+  <div>
+    <div class="ui primary large button" {{action "createCallout"}}>Create Callout</div>
   </div>
-
 </div>
 
 <br>
