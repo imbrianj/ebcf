@@ -9,17 +9,11 @@ const {
 export default Component.extend({
   classNames: ['image-uploader'],
 
-  init() {
-    this._super(...arguments);
-
-    set(this, 'imageUrl', "https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png");
-  },
-
   error: '',
   errorText: '',
 
   uploadError: computed.notEmpty('error'),
-  isPlaceholderImage: computed.equal('imageUrl', 'https://s3-us-west-2.amazonaws.com/ebcf/assets/place-holder-image.png'),
+  isPlaceholderImage: computed.equal('imageUrl', '/assets/place-holder-image.png'),
 
   actions: {
     imageUploadComplete(url) {
