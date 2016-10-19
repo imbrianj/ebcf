@@ -10,35 +10,39 @@
     display: flex
     justify-content: space-between
     padding-top: 20px
+    flex-wrap: wrap
 
     .content-image
-      flex-grow: 2
       display: flex
       justify-content: center
-      
+      margin: 20px
+      flex: 0 0 300px
+
       img
         width: 300px
         height: 300px
 
     .content
-      flex-grow: 3
+      flex: 1 1 600px
 
-  .banner-image
-    width: auto
-    height: 325px
-    overflow: hidden
-    position: relative
+  @media screen and (max-width: 600px)
+    .banner-image
+      height: 200px
+      width: auto
+      overflow: hidden
+      position: relative
 
-    .post-image
-      width: 100%
-      position: absolute
-      top: -50%
+      .post-image
+        width: 100%
 
+  @media screen and (min-width: 600px)
+    .banner-image
+      width: auto
+      height: 325px
+      overflow: hidden
+      position: relative
 
-  // .content-image
-  //   width: 300px
-  //   height: 300px
-  //   overflow: hidden
-  //
-  //   .post-image
-  //     width: 100%
+      .post-image
+        width: 100%
+        position: absolute
+        top: -50%
