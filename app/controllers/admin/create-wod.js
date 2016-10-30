@@ -16,7 +16,7 @@ export default Controller.extend({
     createWod() {
       let enabled = get(this, 'enabled');
 
-      let date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
+      let date = window.moment(get(this, 'datePickerDate')).utc().startOf('day').toDate();
 
       let publishDay = get(this, 'publishDay');
       let publishTime = get(this, 'publishTime');
