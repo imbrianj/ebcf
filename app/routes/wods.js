@@ -37,7 +37,7 @@ export default Ember.Route.extend({
         }
       });
     } else { // else grab the last week of workouts
-      var weekAgo = window.moment().subtract(7, 'days').startOf('day').toDate();
+      var weekAgo = window.moment().subtract(14, 'days').startOf('day').toDate();
       wods = this.store.query('wod', {
         filter: {
           simple: {
@@ -57,8 +57,14 @@ export default Ember.Route.extend({
     });
   },
 
+  beforeModel() {
+    this.controllerFor('application').set('titleImage', 'wods');
+    this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
+  },
+
   setupController(controller, model) {
     controller.set('wods', model.wods);
     controller.set('tags', model.tags);
+
   }
 });

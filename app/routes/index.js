@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  beforeModel() {
+    this.controllerFor('application').set('titleImage', '');
+    this.controllerFor('application').set('titleHeader', '');
+  },
+
   activate: function() {
     document.title = "Elliott Bay CrossFit";
     Ember.$("meta[name=description]").attr("content", "Our mission is to help you reach your fitness and health goals. Stop in for a free class today.");

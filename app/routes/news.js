@@ -13,6 +13,11 @@ export default Ember.Route.extend({
     });
   },
 
+  beforeModel() {
+    this.controllerFor('application').set('titleImage', 'wods');
+    this.controllerFor('application').set('titleHeader', 'NEWS');
+  },
+
   setupController(controller, model) {
     controller.set('posts', model.posts);
   }
