@@ -66,9 +66,10 @@
 
 <div class="ui horizontal divider"></div>
 
-<div class="ui one column mobile reversed stackable centered grid page-grid">
-  {{#unless isWodsRoute}}
-    {{#if description}}
+{{#unless isWodsRoute}}
+  {{#if description}}
+    <div class="ui one column mobile reversed stackable centered grid page-grid">
+
       <div class="column">
         <div class="ui large header orange">ABOUT THIS WORKOUT</div>
         <div class="pre">{{{description}}}</div>
@@ -79,6 +80,6 @@
           {{ui-embed data-source="youtube" data-id=videoId}}
         {{/if}}
       </div>
-    {{/if}}
-  {{/unless}}
-</div>
+    </div>
+  {{/if}}
+{{/unless}}
