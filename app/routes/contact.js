@@ -1,9 +1,27 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  activate: function() {
-    document.title = "Contact Us";
-    Ember.$("meta[name=description]").attr("content", "You can find us in-between 2nd and 3rd on Bell Street");
-    Ember.$("meta[name=prerender-status-code]").attr("content", "200"); 
-  }
+  headTags: [{
+    type: 'meta',
+    tagId: 'contact-description-tag',
+    attrs: {
+      name: 'description',
+      content: 'You can find us in-between 2nd and 3rd on Bell Street.'
+      }
+    }, {
+      type: 'meta',
+      tagId: 'contact-title-tag',
+      attrs: {
+        name: 'title',
+        content: 'Contact Us'
+      }
+    }, {
+      type: 'meta',
+      tagId: 'prerender-status-code',
+      attrs: {
+        name: 'prerender-status-code',
+        content: '200'
+      },
+    }
+  ]
 });
