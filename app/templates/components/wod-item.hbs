@@ -68,18 +68,18 @@
 
 {{#unless isWodsRoute}}
   {{#if description}}
-    <div class="ui one column mobile reversed stackable centered grid page-grid">
+    <div class="ui one column stackable centered grid bottom-padding">
 
       <div class="column">
         <div class="ui large header orange">ABOUT THIS WORKOUT</div>
         <div class="pre">{{{description}}}</div>
       </div>
 
-      <div class="ten wide column">
-        {{#if videoId}}
+      {{#if videoId}}
+        <div class="ten wide column">
           {{ui-embed data-source="youtube" data-id=videoId}}
-        {{/if}}
-      </div>
+        </div>
+      {{/if}}
     </div>
   {{/if}}
 {{/unless}}
