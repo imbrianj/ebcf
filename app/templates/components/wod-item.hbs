@@ -62,25 +62,22 @@
       {{/link-to}}
     </div>
   {{/if}}
+</div>
 
+<div class="ui horizontal divider"></div>
+
+<div class="ui one column mobile reversed stackable centered grid page-grid">
   {{#unless isWodsRoute}}
     {{#if description}}
-      <div class="row">
-        <div class="twelve wide column">
-          <div class="ui horizontal divider">
-            <i class="anchor icon"></i>
-          </div>
+      <div class="column">
+        <div class="ui large header orange">ABOUT THIS WORKOUT</div>
+        <div class="pre">{{{description}}}</div>
+      </div>
 
-          <div class="ui large header orange">ABOUT THIS WORKOUT</div>
-          <div class="pre">{{{description}}}</div>
-
-        </div>
-
-        <div class="eight wide column">
-          {{#if videoId}}
-            {{ui-embed data-source="youtube" data-id=videoId}}
-          {{/if}}
-        </div>
+      <div class="ten wide column">
+        {{#if videoId}}
+          {{ui-embed data-source="youtube" data-id=videoId}}
+        {{/if}}
       </div>
     {{/if}}
   {{/unless}}
