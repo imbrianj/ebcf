@@ -1,29 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  headTags: [{
-    type: 'meta',
-    tagId: 'wods-description-tag',
-    attrs: {
-      name: 'description',
-      content: 'Browse Elliott Bay CrossFit\'s Workouts of the Day.'
-      }
-    }, {
-      type: 'meta',
-      tagId: 'wods-title-tag',
-      attrs: {
-        name: 'title',
-        content: 'WODs'
-      }
-    }, {
-      type: 'meta',
-      tagId: 'prerender-status-code',
-      attrs: {
-        name: 'prerender-status-code',
-        content: '200'
-      },
-    }
-  ],
+  activate: function() {
+    document.title = "Workout of the Day";
+    Ember.$("meta[name=description]").attr("content", "EBCF Workout of the Day");
+    Ember.$("meta[name=prerender-status-code]").attr("content", "200");
+  },
   queryParams: {
     tag: {
       replace: true

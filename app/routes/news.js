@@ -1,29 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  headTags: [{
-    type: 'meta',
-    tagId: 'news-description-tag',
-    attrs: {
-      name: 'description',
-      content: 'Stay up to date on EBCF news and events and find tips on nutrition, health, and training.'
-      }
-    }, {
-      type: 'meta',
-      tagId: 'news-title-tag',
-      attrs: {
-        name: 'title',
-        content: 'News'
-      }
-    }, {
-      type: 'meta',
-      tagId: 'prerender-status-code',
-      attrs: {
-        name: 'prerender-status-code',
-        content: '200'
-      },
-    }
-  ],
+  activate: function() {
+    document.title = "EBCF News";
+    Ember.$("meta[name=description]").attr("content", "Stay up to date on EBCF news and events and find tips on nutrition, health, and training");
+    Ember.$("meta[name=prerender-status-code]").attr("content", "200");
+  },
 
   model() {
     return Ember.RSVP.hash({
