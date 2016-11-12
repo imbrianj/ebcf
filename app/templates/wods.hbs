@@ -1,6 +1,5 @@
-{{title-banner img-src="wods" page-title="WOD ARCHIVE"}}
-
 <br>
+
 <div class="ui container">
   <div class="ui stackable two column grid page-grid">
 
@@ -27,11 +26,6 @@
     </div>
 
     <div class="twelve wide column wod-list">
-      {{#if loading}}
-          <div class="ui active inverted dimmer">
-            <div class="ui large text loader wod-loader">Loading</div>
-          </div>
-      {{/if}}
       {{#each sortedWods as |wod|}}
 
         {{wod-item
@@ -50,14 +44,23 @@
       {{/each}}
 
       <br>
+      {{#if loading}}
+        <div class="ui active inverted dimmer">
+          <div class="ui large text loader wod-loader">Loading</div>
+        </div>
+      {{/if}}
 
-      {{#unless searching}}
-        <button class="ui primary button older hidden"{{action "getOlder"}}>Older</button>
-      {{/unless}}
+      {{#if loadingMore}}
+        <div class="ui active centered inline loader"></div>
+      {{/if}}
     </div>
 
     <div class="four wide computer only tablet only column">
       {{wod-search tags=tags tag=tag date=date}}
     </div>
   </div>
+
+  <button id="back-to-top" class="circular ui icon button" {{action 'backToTop'}}>
+    <i class="icon chevron up"></i>
+  </button>
 </div>

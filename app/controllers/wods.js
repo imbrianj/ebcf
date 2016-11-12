@@ -1,18 +1,24 @@
 import Ember from 'ember';
+import InfiniteScrollMixin from 'ebcf/mixins/infinite-scroll';
 
 const {
+  get,
+  isPresent,
+  set,
   Controller
 } = Ember;
 
-export default Controller.extend({
+export default Controller.extend(InfiniteScrollMixin, {
   queryParams: ['tag', 'date'],
   tag: null,
   date: null,
   sortProps: ['date:desc'],
   sortedWods: Ember.computed.sort('wods', 'sortProps'),
-  dateDepth: 1,
+  dateDepth: 2,
   searching: false,
   loading: false,
+  loadingMore: false,
+
   filterByTag: Ember.observer('tag', function() {
     this.set('loading', true);
     var tagValue = this.get('tag');
@@ -21,14 +27,17 @@ export default Controller.extend({
     }
     this.send('tagParamChanged', tagValue);
   }),
+
   filterByDate: Ember.observer('date', function() {
     this.set('loading', true);
     var date = this.get('date');
     this.send('dateParamChanged', date);
   }),
+
   wodsFound: Ember.computed('wods.length', function() {
-    var numberOfWods = this.get('wods').get('length');
+    var numberOfWods = get(this, 'wods').length;
     var res = "";
+
     if (numberOfWods === 1) {
       res =  numberOfWods + " Wod Found for ";
     } else {
@@ -45,6 +54,7 @@ export default Controller.extend({
     }
     return res;
   }),
+
   _getTag(tagValue) {
     return this.store.query('tag', {
       filter: {
@@ -54,6 +64,7 @@ export default Controller.extend({
       }
     });
   },
+
   _getWodsOlderThan(weeksAgo) {
     return this.store.query('wod', {
       filter: {
@@ -67,32 +78,52 @@ export default Controller.extend({
       }
     });
   },
+
+  _getOlder() {
+    if (get(this, 'searching')) {
+      return;
+    }
+
+    set(this, 'loadingMore', true);
+
+    var _this = this;
+    var dateDepth = get(this, 'dateDepth') + 2;
+    var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
+
+    this._getWodsOlderThan(weeksAgo).then(function(wods) {
+      set(_this, 'wods', wods);
+      set(_this, 'dateDepth', dateDepth);
+      set(_this, 'loadingMore', false);
+    });
+  },
+
   actions: {
     tagParamChanged(tagValue) {
       var _this = this;
 
       if (tagValue) {
         this._getTag(tagValue).then(function(tags){
-          var tag = tags.get('firstObject');
-          tag.get('wods').then(function(wods){
+          var tag = get(tags, 'firstObject');
+          get(tag, 'wods').then(function(wods){
             var enabledWods = wods.filterBy('enabled', true);
-            _this.set('wods', enabledWods);
-            _this.set('searching', tagValue);
-            _this.set('loading', false);
+            set(_this, 'wods', enabledWods);
+            set(_this, 'searching', tagValue);
+            set(_this, 'loading', false);
           });
         });
       } else {
         var dateDepth = this.get('dateDepth');
         var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
         this._getWodsOlderThan(weeksAgo).then(function(wods){
-          _this.set('wods', wods);
-          _this.set('searching', tagValue);
-          _this.set('loading', false);
+          set(_this, 'wods', wods);
+          set(_this, 'searching', tagValue);
+          set(_this, 'loading', false);
         });
       }
     },
     dateParamChanged(date) {
       var _this = this;
+
       if (date) {
         var day = window.moment(date).utc().startOf('day').toISOString();
         this.store.query('wod', {
@@ -103,35 +134,20 @@ export default Controller.extend({
             }
           }
         }).then(function(wods){
-          _this.set('wods', wods);
-          _this.set('searching', date);
-          _this.set('loading', false);
+          set(_this, 'wods', wods);
+          set(_this, 'searching', date);
+          set(_this, 'loading', false);
         });
 
       } else {
-        var dateDepth = this.get('dateDepth');
+        var dateDepth = get(this, 'dateDepth');
         var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
         this._getWodsOlderThan(weeksAgo).then(function(wods){
-          _this.set('wods', wods);
-          _this.set('searching', date);
-          _this.set('loading', false);
+          set(_this, 'wods', wods);
+          set(_this, 'searching', date);
+          set(_this, 'loading', false);
         });
-
       }
-    },
-    getOlder() {
-      var _this = this;
-      var dateDepth = this.get('dateDepth') + 1;
-      var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
-
-      Ember.$('.older').addClass('loading');
-
-      this._getWodsOlderThan(weeksAgo).then(function(wods){
-        Ember.$('.older').removeClass('loading');
-
-        _this.set('wods', wods);
-        _this.set('dateDepth', dateDepth);
-      });
     }
   }
 });

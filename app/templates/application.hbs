@@ -20,6 +20,10 @@
 
   </div>
 
+  {{#if showBanner}}
+    {{title-banner imageSource=titleImage pageTitle=titleHeader}}
+  {{/if}}
+
 	{{outlet}}
 
   {{footer-menu}}

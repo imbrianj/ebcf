@@ -1,10 +1,14 @@
 import Ember from 'ember';
 
+const { $ } = Ember;
+
 export default Ember.Route.extend({
   activate: function() {
     document.title = "Workout of the Day";
     Ember.$("meta[name=description]").attr("content", "EBCF Workout of the Day");
     Ember.$("meta[name=prerender-status-code]").attr("content", "200");
+
+    $('#footer-menu').hide();
   },
   queryParams: {
     tag: {
@@ -37,7 +41,7 @@ export default Ember.Route.extend({
         }
       });
     } else { // else grab the last week of workouts
-      var weekAgo = window.moment().subtract(7, 'days').startOf('day').toDate();
+      var weekAgo = window.moment().subtract(14, 'days').startOf('day').toDate();
       wods = this.store.query('wod', {
         filter: {
           simple: {
@@ -57,8 +61,14 @@ export default Ember.Route.extend({
     });
   },
 
+  beforeModel() {
+    this.controllerFor('application').set('titleImage', 'wods');
+    this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
+  },
+
   setupController(controller, model) {
     controller.set('wods', model.wods);
     controller.set('tags', model.tags);
+
   }
 });

@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  beforeModel() {
+    this.controllerFor('application').set('titleImage', 'pricing');
+    this.controllerFor('application').set('titleHeader', 'PRICING');
+  },
+
   activate: function() {
     document.title = "Pricing";
     Ember.$("meta[name=description]").attr("content", "We charge month to month, with no long-term commitments required.");
