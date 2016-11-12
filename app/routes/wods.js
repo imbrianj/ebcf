@@ -10,6 +10,9 @@ export default Ember.Route.extend({
 
     $('#footer-menu').hide();
   },
+  deactivate: function() {
+    $('#footer-menu').show();
+  },
   queryParams: {
     tag: {
       replace: true
