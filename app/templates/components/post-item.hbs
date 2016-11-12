@@ -15,14 +15,11 @@
 
 <div class="post-content">
   <div class="content">
+    {{#if post.contentImage}}
+      <img class="ui large right floated image post-image" src={{post.contentImage}}>
+    {{/if}}
+
     <p class="pre large">{{{post.content}}}</p>
   </div>
 
-  {{#if post.contentImage}}
-    <div class="content-image">
-      <a href={{post.contentImage}} target="_blank">
-        <img class="post-image" src={{post.contentImage}}>
-      </a>
-    </div>
-  {{/if}}
 </div>

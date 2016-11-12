@@ -62,26 +62,25 @@
       {{/link-to}}
     </div>
   {{/if}}
-
-  {{#unless isWodsRoute}}
-    {{#if description}}
-      <div class="row">
-        <div class="twelve wide column">
-          <div class="ui horizontal divider">
-            <i class="anchor icon"></i>
-          </div>
-
-          <div class="ui large header orange">ABOUT THIS WORKOUT</div>
-          <div class="pre">{{{description}}}</div>
-
-        </div>
-
-        <div class="eight wide column">
-          {{#if videoId}}
-            {{ui-embed data-source="youtube" data-id=videoId}}
-          {{/if}}
-        </div>
-      </div>
-    {{/if}}
-  {{/unless}}
 </div>
+
+{{#unless isWodsRoute}}
+  {{#if description}}
+
+    <hr>
+
+    <div class="ui one column stackable centered grid bottom-padding">
+
+      <div class="column">
+        <div class="ui large header orange">ABOUT THIS WORKOUT</div>
+        <div class="pre">{{{description}}}</div>
+      </div>
+
+      {{#if videoId}}
+        <div class="ten wide column">
+          {{ui-embed data-source="youtube" data-id=videoId}}
+        </div>
+      {{/if}}
+    </div>
+  {{/if}}
+{{/unless}}
