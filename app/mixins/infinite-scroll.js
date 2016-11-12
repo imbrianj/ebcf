@@ -11,15 +11,27 @@ export default Mixin.create({
     this.bindScrollHandler();
   },
 
-  dateDepth: 1,
-
   bindScrollHandler() {
     $(window).on('touchmove scroll', this._handleScroll.bind(this));
   },
 
   _handleScroll() {
-   if ( $(window).scrollTop() > ($(document).height() - $(window).height() - 600) ) {
+    if ( $(window).scrollTop() > ($(document).height() - $(window).height() - 800) ) {
      this._getOlder();
-   }
+    }
+
+    if ( $(window).scrollTop() > 100) {
+     $('#back-to-top').finish().fadeIn('slow');
+    } else {
+     $('#back-to-top').finish().fadeOut('slow');
+    }
   },
+
+  actions: {
+    backToTop() {
+      $('body,html').animate({
+        scrollTop : 0
+      }, 500);
+    }
+  }
 });

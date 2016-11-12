@@ -1,10 +1,14 @@
 import Ember from 'ember';
 
+const { $ } = Ember;
+
 export default Ember.Route.extend({
   activate: function() {
     document.title = "Workout of the Day";
     Ember.$("meta[name=description]").attr("content", "EBCF Workout of the Day");
     Ember.$("meta[name=prerender-status-code]").attr("content", "200");
+
+    $('#footer-menu').hide();
   },
   queryParams: {
     tag: {
