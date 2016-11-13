@@ -35,7 +35,7 @@ export default Controller.extend(InfiniteScrollMixin, {
   }),
 
   wodsFound: Ember.computed('wods.length', function() {
-    var numberOfWods = get(this, 'wods').length;
+    var numberOfWods = get(this, 'wods.length');
     var res = "";
 
     if (numberOfWods === 1) {
