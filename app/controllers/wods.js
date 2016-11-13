@@ -2,10 +2,11 @@ import Ember from 'ember';
 import InfiniteScrollMixin from 'ebcf/mixins/infinite-scroll';
 
 const {
+  computed,
   get,
-  isPresent,
+  observer,
   set,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend(InfiniteScrollMixin, {
@@ -13,28 +14,28 @@ export default Controller.extend(InfiniteScrollMixin, {
   tag: null,
   date: null,
   sortProps: ['date:desc'],
-  sortedWods: Ember.computed.sort('wods', 'sortProps'),
+  sortedWods: computed.sort('wods', 'sortProps'),
   dateDepth: 2,
   searching: false,
   loading: false,
   loadingMore: false,
 
   filterByTag: Ember.observer('tag', function() {
-    this.set('loading', true);
-    var tagValue = this.get('tag');
+    set(this, 'loading', true);
+    var tagValue = get(this, 'tag');
     if (tagValue){
       tagValue = tagValue.replace("&amp;", "&");
     }
     this.send('tagParamChanged', tagValue);
   }),
 
-  filterByDate: Ember.observer('date', function() {
-    this.set('loading', true);
-    var date = this.get('date');
+  filterByDate: observer('date', function() {
+    set(this, 'loading', true);
+    var date = get(this, 'date');
     this.send('dateParamChanged', date);
   }),
 
-  wodsFound: Ember.computed('wods.length', function() {
+  wodsFound: computed('wods.length', function() {
     var numberOfWods = get(this, 'wods.length');
     var res = "";
 
@@ -44,8 +45,8 @@ export default Controller.extend(InfiniteScrollMixin, {
       res = numberOfWods + " Wods Found for ";
     }
 
-    var tag = this.get('tag');
-    var date = this.get('date');
+    var tag = get(this, 'tag');
+    var date = get(this, 'date');
 
     if (date) {
       res = res + window.moment(date).format('ddd MM.DD.YYYY').toUpperCase();
@@ -112,7 +113,7 @@ export default Controller.extend(InfiniteScrollMixin, {
           });
         });
       } else {
-        var dateDepth = this.get('dateDepth');
+        var dateDepth = get(this, 'dateDepth');
         var weeksAgo = window.moment().day(-7 * dateDepth).toDate();
         this._getWodsOlderThan(weeksAgo).then(function(wods){
           set(_this, 'wods', wods);

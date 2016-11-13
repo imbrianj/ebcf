@@ -1,21 +1,27 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const {
+  get,
+  set,
+  Controller,
+} = Ember;
+
+export default Controller.extend({
   actions: {
     updateCallout(){
       var _this = this;
-      var callout = this.get('callout');
+      var callout = get(this, 'callout');
 
-      var startDay = callout.get('startDay');
-      var startTime = callout.get('startTime');
+      var startDay = get(callout, 'startDay');
+      var startTime = get(callout, 'startTime');
       var startDate = window.moment(startDay + " " + startTime).toDate();
 
-      var endDay = callout.get('endDay');
-      var endTime = callout.get('endTime');
+      var endDay = get(callout, 'endDay');
+      var endTime = get(callout, 'endTime');
       var endDate = window.moment(endDay + " " + endTime).toDate();
 
-      callout.set('startDate', startDate);
-      callout.set('endDate', endDate);
+      set(callout, 'startDate', startDate);
+      set(callout, 'endDate', endDate);
 
       callout.save().then(function() {
         _this.transitionToRoute('admin.callouts');

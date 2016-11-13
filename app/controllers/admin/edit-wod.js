@@ -13,7 +13,7 @@ export default Controller.extend({
 
   actions: {
     updateWod() {
-      var wod = this.get('wod');
+      var wod = get(this, 'wod');
       var _this = this;
 
       // Add new tags
@@ -28,14 +28,14 @@ export default Controller.extend({
         var tag = _this.store.peekRecord('tag', tagId);
 
         if(tag) {
-          tag.get("wods").pushObject(wod);
+          get(tag, "wods").pushObject(wod);
           tag.save();
         } else {
           var newTag = _this.store.createRecord('tag', {
             value: tagId
           });
           newTag.save().then(function() {
-            newTag.get("wods").pushObject(wod);
+            get(newTag, "wods").pushObject(wod);
             newTag.save();
             wod.save();
           });
@@ -67,8 +67,8 @@ export default Controller.extend({
       set(wod, 'image', null);
     },
     removeTag(tag) {
-      var wod = this.get('wod');
-      wod.get('tags').removeObject(tag);
+      var wod = get(this, 'wod');
+      get(wod, 'tags').removeObject(tag);
       tag.save();
       wod.save();
     }

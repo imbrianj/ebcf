@@ -3,8 +3,9 @@ import Ember from 'ember';
 const {
   computed,
   get,
+  set,
   $,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend({
@@ -28,7 +29,7 @@ export default Controller.extend({
           }
         }
       }).then(function(wods){
-        _this.set('wods', wods);
+        set(_this, 'wods', wods);
         $('.filter').removeClass('loading');
       });
     }

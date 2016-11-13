@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const {
+  computed,
+  Controller,
+} = Ember;
+
+export default Controller.extend({
   sortProps: ['startDate:desc'],
-  sortedCallouts: Ember.computed.sort('callouts', 'sortProps')
+  sortedCallouts: computed.sort('callouts', 'sortProps')
 });

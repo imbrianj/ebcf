@@ -1,21 +1,25 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  initializeComponent: Ember.on('didInsertElement', function() {
+const {
+  on,
+  $,
+  Component,
+} = Ember;
 
+export default Component.extend({
+  initializeComponent: on('didInsertElement', function() {
     var lastScrollTop = $(window).scrollTop();
 
-    Ember.$(window).scroll( function(event) {
+    $(window).scroll( function() {
+      var scrollTop = $(this).scrollTop();
 
-       var st = Ember.$(this).scrollTop();
+      if (scrollTop > lastScrollTop) { // down
+       $('.main-menu').finish().fadeOut('slow');
+      } else { // up
+       $('.main-menu').finish().fadeIn('slow');
+      }
 
-       if (st > lastScrollTop) { //down
-         $('.main-menu').finish().fadeOut('slow');
-       } else { // up
-         $('.main-menu').finish().fadeIn('slow');
-       }
-       lastScrollTop = st;
-
+      lastScrollTop = scrollTop;
     });
   })
 });

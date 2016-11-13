@@ -1,22 +1,28 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const {
+  get,
+  set,
+  Controller,
+} = Ember;
+
+export default Controller.extend({
   actions: {
     createCallout(){
       var _this = this;
 
-      var startDay = this.get('newStartDay');
-      var startTime = this.get('newStartTime');
+      var startDay = get(this, 'newStartDay');
+      var startTime = get(this, 'newStartTime');
       var startDate = window.moment(startDay + " " + startTime).toDate();
 
-      var endDay = this.get('newEndDay');
-      var endTime = this.get('newEndTime');
+      var endDay = get(this, 'newEndDay');
+      var endTime = get(this, 'newEndTime');
       var endDate = window.moment(endDay + " " + endTime).toDate();
 
-      var value = this.get('newValue');
+      var value = get(this, 'newValue');
 
-      this.set('startDate', startDate);
-      this.set('endDate', endDate);
+      set(this, 'startDate', startDate);
+      set(this, 'endDate', endDate);
 
 
       var callout = this.store.createRecord('callout', {

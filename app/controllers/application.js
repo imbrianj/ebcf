@@ -2,9 +2,11 @@ import Ember from 'ember';
 
 const {
   computed,
+  Controller,
+  $,
 } = Ember;
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   tagName: '',
   titleImage: '',
   titleHeader: '',
@@ -16,7 +18,7 @@ export default Ember.Controller.extend({
 
   actions: {
     toggle: function() {
-      Ember.$('.ui.sidebar').sidebar('toggle');
+      $('.ui.sidebar').sidebar('toggle');
     }
   }
 });

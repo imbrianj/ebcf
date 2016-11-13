@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
-  actions: {
-  }
+const { Controller } = Ember;
+
+export default Controller.extend({
 });
