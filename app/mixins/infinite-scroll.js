@@ -20,10 +20,16 @@ export default Mixin.create({
      this._getOlder();
     }
 
-    if ( $(window).scrollTop() > 100) {
+    if( $(window).scrollTop() > 100) {
      $('#back-to-top').finish().fadeIn('slow');
     } else {
      $('#back-to-top').finish().fadeOut('slow');
+    }
+
+    if( $(window).scrollTop() > 445) {
+      $('.search').addClass('sticky');
+    } else {
+      $('.search').removeClass('sticky');
     }
   },
 
