@@ -35,7 +35,4 @@ export default DS.Model.extend({
   active: computed('publishDate', 'enabled', function() {
     return (window.moment(this.get('publishDate')) < window.moment()) && this.get('enabled');
   }),
-  description: computed('conditioning', function() {
-    return `${get(this, 'conditioning').substring(0,15)}`;
-  }),
 });
