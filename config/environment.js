@@ -27,6 +27,9 @@ module.exports = function(environment) {
     },
     moment: {
       includeTimezone: 'all'
+    },
+    pageTitle: {
+      replace: true
     }
   };
 
