@@ -1,16 +1,15 @@
 import Ember from 'ember';
 
+const {
+  set,
+} = Ember;
+
 export default Ember.Route.extend({
   beforeModel() {
     this.controllerFor('application').set('titleImage', '');
     this.controllerFor('application').set('titleHeader', '');
   },
 
-  activate: function() {
-    document.title = "Elliott Bay CrossFit";
-    Ember.$("meta[name=description]").attr("content", "Our mission is to help you reach your fitness and health goals. Stop in for a free class today.");
-    Ember.$("meta[name=prerender-status-code]").attr("content", "200");
-  },
   model() {
     return Ember.RSVP.hash({
       wods: this.store.query('wod', {
@@ -47,5 +46,38 @@ export default Ember.Route.extend({
     });
 
     controller.set('callout', callouts.get('lastObject'));
-  }
+  },
+
+  afterModel(model) {
+    this.setHeadTags(model);
+  },
+
+  setHeadTags(model) {
+    var headTags = [
+      {
+        type: 'meta',
+        tagId: 'meta-description-tag-home',
+        attrs: {
+          name: 'title',
+          content: 'Elliott Bay CrossFit',
+        }
+      }, {
+        type: 'meta',
+        tagId: 'meta-title-tag-home',
+        attrs: {
+          name: 'description',
+          content: 'Our mission is to help you reach your fitness and health goals. Stop in for a free class today.',
+        }
+      }, {
+        type: 'meta',
+        tagId: 'prerender-status-code-home',
+        attrs: {
+          name: 'prerender-status-code',
+          content: '200',
+        }
+      }
+    ];
+
+    set(this, 'headTags', headTags);
+  },
 });

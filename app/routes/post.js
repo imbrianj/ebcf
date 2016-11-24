@@ -1,18 +1,49 @@
 import Ember from 'ember';
 
+const {
+  set,
+} = Ember;
+
 export default Ember.Route.extend({
   beforeModel() {
     this.controllerFor('application').set('titleImage', 'wods');
     this.controllerFor('application').set('titleHeader', 'NEWS');
   },
 
-  activate: function() {
-    document.title = "Post";
-    Ember.$("meta[name=description]").attr("content", "Stay up to date on EBCF news and events and find tips on nutrition, health, and training");
-    Ember.$("meta[name=prerender-status-code]").attr("content", "200");
-  },
-
   model: function(params) {
     return this.store.find('post', params.post_id);
-  }
+  },
+
+  afterModel(model) {
+    this.setHeadTags(model);
+  },
+
+  setHeadTags(model) {
+    var headTags = [
+      {
+        type: 'meta',
+        tagId: 'meta-description-tag-post',
+        attrs: {
+          name: 'title',
+          content: `EBCF Post for ${get(model, 'prettyDate')}`,
+        }
+      }, {
+        type: 'meta',
+        tagId: 'meta-title-tag-post',
+        attrs: {
+          name: 'description',
+          content: get(model, 'title'),
+        }
+      }, {
+        type: 'meta',
+        tagId: 'prerender-status-code-post',
+        attrs: {
+          name: 'prerender-status-code',
+          content: '200',
+        }
+      }
+    ];
+
+    set(this, 'headTags', headTags);
+  },
 });

@@ -1,14 +1,45 @@
 import Ember from 'ember';
 
+const {
+  set,
+} = Ember;
+
 export default Ember.Route.extend({
   beforeModel() {
     this.controllerFor('application').set('titleImage', 'pricing');
     this.controllerFor('application').set('titleHeader', 'PRICING');
   },
 
-  activate: function() {
-    document.title = "Pricing";
-    Ember.$("meta[name=description]").attr("content", "We charge month to month, with no long-term commitments required.");
-    Ember.$("meta[name=prerender-status-code]").attr("content", "200");
-  }
+  afterModel(model) {
+    this.setHeadTags(model);
+  },
+
+  setHeadTags(model) {
+    var headTags = [
+      {
+        type: 'meta',
+        tagId: 'meta-description-tag-pricing',
+        attrs: {
+          name: 'title',
+          content: 'Pricing',
+        }
+      }, {
+        type: 'meta',
+        tagId: 'meta-title-tag-pricing',
+        attrs: {
+          name: 'description',
+          content: 'We charge month to month, with no long-term commitments required.',
+        }
+      }, {
+        type: 'meta',
+        tagId: 'prerender-status-code-pricing',
+        attrs: {
+          name: 'prerender-status-code',
+          content: '200',
+        }
+      }
+    ];
+
+    set(this, 'headTags', headTags);
+  },
 });
