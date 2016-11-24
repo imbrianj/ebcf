@@ -25,7 +25,7 @@ export default Ember.Route.extend({
         tagId: 'meta-description-tag-post',
         attrs: {
           name: 'title',
-          content: `EBCF Post for ${get(model, 'prettyDate')}`,
+          content: `News for ${get(model, 'prettyDate')}`,
         }
       }, {
         type: 'meta',

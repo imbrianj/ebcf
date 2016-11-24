@@ -28,7 +28,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-schedule',
         attrs: {
           name: 'description',
-          content: 'Regular classes: Monday - Friday 6am, 7am, 8am, 12pm, 4pm, 5pm, 6pm, 7pm.',
+          content: 'Regular CrossFit classes: Monday - Friday 6am, 7am, 12pm, 4pm, 5pm, 6pm, 7pm.',
         }
       }, {
         type: 'meta',

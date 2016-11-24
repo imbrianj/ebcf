@@ -94,7 +94,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-wods',
         attrs: {
           name: 'description',
-          content: 'Elliott Bay CrossFit Workouts of the Day Archive',
+          content: 'Elliott Bay CrossFit Workout Archive',
         }
       }, {
         type: 'meta',

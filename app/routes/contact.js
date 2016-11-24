@@ -28,7 +28,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-contact',
         attrs: {
           name: 'description',
-          content: 'You can find us in-between 2nd and 3rd on Bell Street.',
+          content: 'You can find us in-between 2nd and 3rd on Bell Street: 209 Bell St * Seattle * WA 98121.',
         }
       }, {
         type: 'meta',
