@@ -5,9 +5,8 @@ export default Ember.Component.extend({
   setSelectionOptions: function(){
     Ember.$('.ui.dropdown')
       .dropdown({
-      allowAdditions: true
+      allowAdditions: true,
+      fullTextSearch: true,
     });
   }.on('didInsertElement'),
-  actions: {
-   }
 });
