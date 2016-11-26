@@ -31,7 +31,7 @@
   <div class="column">
     <div class="row">
       <div class="ui medium header">Enabled?</div>
-      {{ui-checkbox checked=enabled}}
+      {{ui-checkbox checked=enabled onChange=(action (mut enabled))}}
     </div>
 
     <br>

@@ -5,15 +5,19 @@
     </div>
   </div>
 
-  <button class="ui button hidden clearDate"{{action "clearDate"}} disabled={{disableDatePicker}}>Clear Date</button>
+  <button class="ui button hidden clearDate"{{action clearSearch}} disabled={{disableDatePicker}}>Clear Date</button>
 
   <div class="ui horizontal divider">
     Or
   </div>
 
-  {{search-tags tags=tags tag=tag disabled=disableTagPicker}}
+  {{search-tags
+    tags=tags
+    selectedTag=selectedTag
+    disabled=disableTagPicker
+    onChange=(action tagEntered)}}
 
   <div class="row">
-    <button class="ui button hidden clearTags" {{action "clearTags"}} disabled={{disableTagPicker}}>Clear Tags</button>
+    <button class="ui button hidden clearTags" {{action clearSearch}} disabled={{disableTagPicker}}>Clear Tags</button>
   </div>
 </div>

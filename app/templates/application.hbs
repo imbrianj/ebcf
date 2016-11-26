@@ -23,7 +23,9 @@
   </div>
 
   {{#if showBanner}}
-    {{title-banner imageSource=titleImage pageTitle=titleHeader}}
+    {{title-banner
+      titleHeader=titleHeader
+      titleImage=titleImage}}
   {{/if}}
 
   <div class="page-content">

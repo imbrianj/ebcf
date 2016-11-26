@@ -33,7 +33,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-wod',
         attrs: {
           name: 'description',
-          content: `Workout: ${get(model, 'conditioning').substring(0,140)}...`,
+          content: get(model, 'shortDescription'),
         }
       }, {
         type: 'meta',

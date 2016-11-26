@@ -4,6 +4,7 @@ import Ember from 'ember';
 const {
   computed,
   get,
+  isPresent,
 } = Ember;
 
 export default DS.Model.extend({
@@ -34,5 +35,16 @@ export default DS.Model.extend({
   }),
   active: computed('publishDate', 'enabled', function() {
     return (window.moment(this.get('publishDate')) < window.moment()) && this.get('enabled');
+  }),
+  shortDescription: computed('strength', 'conditioning', function() {
+    const strength = get(this, 'strength');
+    const conditioning = get(this, 'conditioning');
+    if (isPresent(conditioning)) {
+      return `Workout: ${conditioning.substring(0,140)}...`;
+    } else if (isPresent(strength)) {
+      return `Workout: ${strength.substring(0,140)}...`;
+    }
+
+    return "";
   }),
 });
