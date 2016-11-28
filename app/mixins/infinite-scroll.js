@@ -16,7 +16,7 @@ export default Mixin.create({
   },
 
   _handleScroll() {
-    if ( $(window).scrollTop() > ($(document).height() - $(window).height() - 800) ) {
+    if ($(window).scrollTop() > ($(document).height() - $(window).height() - 800)) {
       this.send('getOlder');
     }
 

@@ -6,11 +6,11 @@ const {
 } = Ember;
 
 export default Ember.Route.extend({
-  activate: function() {
+  activate() {
     $('#footer-menu').hide();
   },
 
-  deactivate: function() {
+  deactivate() {
     $('#footer-menu').show();
   },
 
@@ -26,26 +26,13 @@ export default Ember.Route.extend({
   },
 
   model(params) {
-    let weekAgo = window.moment().subtract(14, 'days').startOf('day').toDate();
-    let wods = this.store.query('wod', {
-      filter: {
-        simple: {
-          publishDate: {
-            $gt: weekAgo,
-            $lt: window.moment().toDate()
-          },
-          enabled: true
-        }
-      }
-    });
-
     return Ember.RSVP.hash({
       tags: this.store.findAll('tag'),
-      wods,
     });
   },
 
   beforeModel() {
+    window.scrollTo(0, 0);
     this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
     this.controllerFor('application').set('titleImage', 'wods');
   },
@@ -53,9 +40,12 @@ export default Ember.Route.extend({
   setupController(controller, model) {
     controller.set('wods', model.wods);
     controller.set('tags', model.tags);
+
+    this.controllerFor('wods').get('_wodsTask').perform();
   },
 
   afterModel(model) {
+    $('#footer-menu').hide();
     this.setHeadTags(model);
   },
 

@@ -24,7 +24,7 @@
 
     <div class="row">
       <h4 class="ui header wods-found">
-        {{#if searching}}
+        {{#if (and searching dataIsFulfilled)}}
           {{wodsFound}}
         {{else}}
           <br>
@@ -34,7 +34,6 @@
 
     <div class="twelve wide column wod-list">
       {{#each sortedWods as |wod|}}
-
         {{wod-item
           isWodsRoute=true
           wod=wod
@@ -45,17 +44,16 @@
           conditioning=wod.conditioning
           description=wod.description
           videoId=wod.videoId}}
-
         <hr>
-
       {{/each}}
 
-      <br>
-      {{#if loading}}
+      {{#if (and dataIsPending (not loadingMore))}}
         <div class="ui active inverted dimmer">
           <div class="ui large text loader wod-loader">Loading</div>
         </div>
       {{/if}}
+
+      <br>
 
       {{#if loadingMore}}
         <div class="ui active centered inline loader"></div>

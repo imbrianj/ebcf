@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import InfiniteScrollMixin from 'ebcf/mixins/infinite-scroll';
+import { task, timeout } from 'ember-concurrency';
 
 const {
   computed,
@@ -8,18 +9,19 @@ const {
   observer,
   set,
   Controller,
+  RSVP,
 } = Ember;
 
 export default Controller.extend(InfiniteScrollMixin, {
   queryParams: ['tag', 'date'],
   tag: null,
   date: null,
+  dateDepth: 0,
+  loadingMore: false,
+
   sortProps: ['date:desc'],
   sortedWods: computed.sort('enabledWods', 'sortProps'),
-  enabledWods: computed.filterBy('filteredWods', 'active', true),
-  dateDepth: 2,
-  loading: false,
-  loadingMore: false,
+  enabledWods: computed.filterBy('_wodsTask.lastSuccessful.value', 'active', true),
 
   searching: computed.or('tag', 'date'),
 
@@ -30,17 +32,24 @@ export default Controller.extend(InfiniteScrollMixin, {
     return get(tags.filterBy('value', tagValue), 'firstObject');
   }),
 
-  filteredWods: computed('tag', 'date', 'dateDepth', 'wods', function() {
+  dataIsPending: computed.readOnly('_wodsTask.last.isRunning'),
+  dataIsFulfilled: computed.readOnly('_wodsTask.last.isFinished'),
+  dataIsRejected: computed.notEmpty('_wodsTask.last.error'),
+
+  _wodsTask: task(function * () {
     let tag = get(this, 'tag');
     let date = get(this, 'date');
 
     if (isPresent(tag)) {
-      set(this, 'loadingMore', false);
       const selectedTag = get(this, 'selectedTag');
-      return get(selectedTag, 'wods');
+      set(this, 'dateDepth', 0);
+      set(this, 'loadingMore', false);
+      return yield get(selectedTag, 'wods');
     } else if (isPresent(date)) {
       var day = window.moment(date).utc().startOf('day').toISOString();
-      return this.store.query('wod', {
+      set(this, 'dateDepth', 0);
+      set(this, 'loadingMore', false);
+      return yield this.store.query('wod', {
         filter: {
           simple: {
             date: day,
@@ -49,9 +58,23 @@ export default Controller.extend(InfiniteScrollMixin, {
         }
       });
     } else {
-      return get(this, 'wods');
+      const dateDepth = get(this, 'dateDepth') + 2;
+      const weeksAgo = window.moment().day(-7 * dateDepth).toDate();
+      set(this, 'dateDepth', dateDepth);
+
+      return yield this.store.query('wod', {
+        filter: {
+          simple: {
+            publishDate: {
+              $gt: weeksAgo,
+              $lt: window.moment().toDate()
+            },
+            enabled: true
+          }
+        }
+      });
     }
-  }),
+  }).drop(),
 
   wodsFound: computed('sortedWods.length', function() {
     var numberOfWods = get(this, 'sortedWods.length');
@@ -93,17 +116,8 @@ export default Controller.extend(InfiniteScrollMixin, {
       if (get(this, 'searching')) {
         return;
       }
-
       set(this, 'loadingMore', true);
-      let dateDepth = get(this, 'dateDepth');
-      let weeksAgo = window.moment().day(-7 * dateDepth).toDate();
-      let _this = this;
-
-      this._getWodsOlderThan(weeksAgo).then(function(wods) {
-        set(_this, 'wods', wods);
-        set(_this, 'dateDepth', dateDepth + 2);
-        set(_this, 'loadingMore', false);
-      });
+      get(this, '_wodsTask').perform();
     },
 
     tagEntered(selectedTag) {
