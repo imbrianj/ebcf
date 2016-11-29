@@ -2,10 +2,12 @@
 
   <div class="column">
     <div class="image-container {{if isWodsRoute "small"}}">
-      {{async-image
-        class="wod-image"
-        src=(if image image placeHolderImage)
-      }}
+      <a href={{if image image}}>
+        {{async-image
+          class="wod-image"
+          src=(if image image placeHolderImage)
+        }}
+      </a>
     </div>
 
     {{#unless isWodsRoute}}
