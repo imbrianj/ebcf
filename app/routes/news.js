@@ -16,7 +16,7 @@ export default Ember.Route.extend({
             enabled: true,
           }
         }
-      });
+      })
     });
   },
 
