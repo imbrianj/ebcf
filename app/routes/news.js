@@ -7,7 +7,16 @@ const {
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      posts: this.store.findAll('post'),
+      posts: this.store.query('post', {
+        filter: {
+          simple: {
+            publishDate: {
+              $lt: window.moment().toDate(),
+            },
+            enabled: true,
+          }
+        }
+      });
     });
   },
 
