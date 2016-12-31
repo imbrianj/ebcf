@@ -34,8 +34,6 @@ export default Ember.Route.extend({
   beforeModel() {
     window.scrollTo(0, 0);
 
-    $('.video-column').hide(); // Necessary because video column was sticking
-
     this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
     this.controllerFor('application').set('titleImage', 'wods');
   },

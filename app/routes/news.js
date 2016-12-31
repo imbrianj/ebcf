@@ -21,8 +21,6 @@ export default Ember.Route.extend({
   },
 
   beforeModel() {
-    $('.video-column').hide(); // Necessary because video column was sticking
-
     this.controllerFor('application').set('titleImage', 'wods');
     this.controllerFor('application').set('titleHeader', 'NEWS');
   },
