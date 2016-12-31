@@ -1,5 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ["post-item"]
+  classNames: ["post-item"],
+  tagName: 'article',
 });
