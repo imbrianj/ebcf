@@ -28,7 +28,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-getting-started',
         attrs: {
           name: 'description',
-          content: 'Find information about the sport of CrossFit, classes we offer, and how to sign up.',
+          content: 'Not sure where to start? Find information about the sport of CrossFit, classes we offer, and how to sign up.',
         }
       }, {
         type: 'meta',

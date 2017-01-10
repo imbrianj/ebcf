@@ -28,7 +28,7 @@ export default Ember.Route.extend({
         tagId: 'meta-title-tag-pricing',
         attrs: {
           name: 'description',
-          content: 'We charge month to month, with no long-term commitment required. Our standard membership includes unlimited CrossFit, Olympic Lifting, and Yoga classes.',
+          content: 'We charge month to month, with no long-term commitment required. Our standard membership pricing includes unlimited CrossFit, Olympic Lifting, and Yoga classes.',
         }
       }, {
         type: 'meta',
