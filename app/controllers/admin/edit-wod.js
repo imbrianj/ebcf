@@ -4,7 +4,7 @@ const {
   get,
   set,
   $,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend({
@@ -13,44 +13,44 @@ export default Controller.extend({
 
   actions: {
     updateWod() {
-      var wod = get(this, 'wod');
-      var _this = this;
+      let wod = get(this, 'wod');
+      let _this = this;
 
       // Add new tags
-      var dropdownValues = $('.ui.dropdown').dropdown('get value');
-      var tagIds = [];
+      let dropdownValues = $('.ui.dropdown').dropdown('get value');
+      let tagIds = [];
 
       if (typeof dropdownValues === 'string') {
-        tagIds = dropdownValues.split(",");
+        tagIds = dropdownValues.split(',');
       }
 
-      tagIds.forEach(function(tagId){
-        var tag = _this.store.peekRecord('tag', tagId);
+      tagIds.forEach(function(tagId) {
+        let tag = _this.store.peekRecord('tag', tagId);
 
-        if(tag) {
-          get(tag, "wods").pushObject(wod);
+        if (tag) {
+          get(tag, 'wods').pushObject(wod);
           tag.save();
         } else {
-          var newTag = _this.store.createRecord('tag', {
-            value: tagId
+          let newTag = _this.store.createRecord('tag', {
+            value: tagId,
           });
           newTag.save().then(function() {
-            get(newTag, "wods").pushObject(wod);
+            get(newTag, 'wods').pushObject(wod);
             newTag.save();
             wod.save();
           });
         }
       });
 
-      var date = window.moment(get(wod, 'datePickerDate')).utc().startOf('day').toDate();
+      let date = window.moment(get(wod, 'datePickerDate')).utc().startOf('day').toDate();
 
-      var publishDay = get(wod, 'publishDay');
-      var publishTime = get(wod, 'publishTime');
-      var publishDate = window.moment(publishDay + " " + publishTime).toDate();
+      let publishDay = get(wod, 'publishDay');
+      let publishTime = get(wod, 'publishTime');
+      let publishDate = window.moment(`${publishDay} ${publishTime}`).toDate();
 
       wod.setProperties({
-        date: date,
-        publishDate: publishDate,
+        date,
+        publishDate,
       });
 
       // Save and redirect
@@ -67,10 +67,10 @@ export default Controller.extend({
       set(wod, 'image', null);
     },
     removeTag(tag) {
-      var wod = get(this, 'wod');
+      let wod = get(this, 'wod');
       get(wod, 'tags').removeObject(tag);
       tag.save();
       wod.save();
-    }
-  }
+    },
+  },
 });

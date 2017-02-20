@@ -5,7 +5,7 @@ const {
   inject,
   set,
   $,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend({
@@ -20,7 +20,7 @@ export default Controller.extend({
 
       let publishDay = get(this, 'publishDay');
       let publishTime = get(this, 'publishTime');
-      let publishDate = window.moment(publishDay + " " + publishTime).toDate();
+      let publishDate = window.moment(`${publishDay} ${publishTime}`).toDate();
 
       let strength = get(this, 'strength');
       let conditioning = get(this, 'conditioning');
@@ -31,14 +31,14 @@ export default Controller.extend({
       let description = get(this, 'description');
 
       let wod = this.store.createRecord('wod', {
-        enabled: enabled,
-        date: date,
-        publishDate: publishDate,
-        strength: strength,
-        conditioning: conditioning,
-        image: image,
-        videoId: videoId,
-        description: description
+        enabled,
+        date,
+        publishDate,
+        strength,
+        conditioning,
+        image,
+        videoId,
+        description,
       });
 
       wod.save().then((wod) => {
@@ -48,11 +48,11 @@ export default Controller.extend({
     imageUploadComplete(url) {
       set(this, 'image', url);
     },
-    imageUploadFailed(){
+    imageUploadFailed() {
       set(this, 'image', null);
     },
     openModal() {
-      Ember.$('#tag-modal').modal('show');
+      $('#tag-modal').modal('show');
     },
     close(tagValue) {
       if (tagValue) {
@@ -64,10 +64,10 @@ export default Controller.extend({
     },
     createATag(tagValue) {
       let tag = this.store.createRecord('tag', {
-         value: tagValue
-       });
-       tag.save();
-    }
+        value: tagValue,
+      });
+      tag.save();
+    },
   },
 
   _createWodTags(wod) {
@@ -75,7 +75,7 @@ export default Controller.extend({
     let tagIds = [];
 
     if (typeof dropdownValues === 'string') {
-      tagIds = dropdownValues.split(",");
+      tagIds = dropdownValues.split(',');
     }
 
     let _this = this;
@@ -85,16 +85,16 @@ export default Controller.extend({
       let tag = store.peekRecord('tag', tagId);
 
       if (tag) {
-        tag.get("wods").pushObject(wod);
+        tag.get('wods').pushObject(wod);
         tag.save();
         wod.save();
       } else {
         let newTag = store.createRecord('tag', {
-          value: tagId
+          value: tagId,
         });
 
         newTag.save().then(function() {
-          newTag.get("wods").pushObject(wod);
+          newTag.get('wods').pushObject(wod);
           newTag.save();
           wod.save();
         });
@@ -102,6 +102,5 @@ export default Controller.extend({
     });
 
     this.transitionToRoute('admin.all-wods');
-  }
-
+  },
 });
