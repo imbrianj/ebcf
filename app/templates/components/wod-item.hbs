@@ -5,14 +5,14 @@
       <a href={{if image image}}>
         {{async-image
           class="wod-image"
-          src=(if image image placeHolderImage)
+          src=(if wod.image wod.image placeHolderImage)
           alt=alt
         }}
       </a>
     </div>
 
     {{#unless isWodsRoute}}
-      {{#each tags as |tag|}}
+      {{#each wod.tags as |tag|}}
         {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
           <div class="visible content">
             {{tag.value}}
@@ -41,16 +41,16 @@
         Back
       {{/link-to}}
     {{/unless}}
-    <div class="ui huge header">{{prettyDate}}</div>
+    <div class="ui huge header">{{wod.prettyDate}}</div>
 
-    {{#if strength}}
+    {{#if wod.strength}}
       <div class="ui large header orange">STRENGTH/SKILL</div>
-      <div class="pre">{{{strength}}}</div>
+      <div class="pre">{{{wod.strength}}}</div>
     {{/if}}
 
-    {{#if conditioning}}
+    {{#if wod.conditioning}}
       <div class="ui large header orange">CONDITIONING</div>
-      <div class="pre">{{{conditioning}}}</div>
+      <div class="pre">{{{wod.conditioning}}}</div>
     {{/if}}
   </div>
 
@@ -65,7 +65,7 @@
 </article>
 
 {{#unless isWodsRoute}}
-  {{#if description}}
+  {{#if wod.description}}
 
     <hr>
 
@@ -73,12 +73,12 @@
 
       <div class="column">
         <div class="ui large header orange">ABOUT THIS WORKOUT</div>
-        <div class="pre">{{{description}}}</div>
+        <div class="pre">{{{wod.description}}}</div>
       </div>
 
-      {{#if videoId}}
+      {{#if wod.videoId}}
         <div class="ten wide column">
-          {{ui-embed data-source="youtube" data-id=videoId}}
+          {{ui-embed data-source="youtube" data-id=wod.videoId}}
         </div>
       {{/if}}
     </div>
