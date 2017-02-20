@@ -5,17 +5,17 @@
     <div class="row">
       <div class="image-container">
         {{image-uploader
-          imageUrl=image
+          imageUrl=wod.image
           imageUploadComplete=(action imageUploadComplete)
           imageUploadFailed=(action imageUploadFailed)}}
       </div>
     </div>
 
     <div class="row">
-      {{select-tags tags=allTags selectedTags=selectedTags}}
-      {{#if tags}}
-        {{#each tags as |tag|}}
-          <div class="ui animated button tag-button" {{action removeTag tag}}>
+      <div class="ui medium header">Tags</div>
+      <div class="manage-tags">
+        {{#each wod.tags as |tag|}}
+          <div class="ui animated button tag-button" {{action 'removeTagFromWod' tag}}>
             <div class="visible content">
               {{tag.value}}
             </div>
@@ -24,14 +24,45 @@
             </div>
           </div>
         {{/each}}
-      {{/if}}
+
+        {{#unless showTagDropdown}}
+          <div class="ui icon button tag-button" {{action 'triggerTagDropdown'}}>
+            <i class="plus icon"></i>
+          </div>
+        {{else}}
+          {{#ui-dropdown
+            onChange=(action 'selectTag')
+            class="search selection tag-dropdown"
+            selected=addTagSelection
+            hideAdditions=false
+            forceSelection=false
+            allowAdditions=true as |execute mapper|}}
+            <div class="default text">Add Tag</div>
+            <div class="menu">
+              <div class="scrolling menu">
+                {{#each allTags as |tag|}}
+                  <div class="item" data-value="{{map-value mapper tag}}">
+                    {{tag.value}}
+                  </div>
+                {{/each}}
+              </div>
+            </div>
+          {{/ui-dropdown}}
+        {{/unless}}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="ui primary button bulk-tag {{if bulkTagging "loading"}}" {{action "bulkTagWod"}}>
+        Bulk Tag WODs
+      </div>
     </div>
   </div>
 
   <div class="column">
     <div class="row">
       <div class="ui medium header">Enabled?</div>
-      {{ui-checkbox checked=enabled onChange=(action (mut enabled))}}
+      {{ui-checkbox checked=wod.enabled onChange=(action (mut wod.enabled))}}
     </div>
 
     <br>
@@ -39,7 +70,7 @@
     <div class="row">
       <div class="ui medium header">WOD Date</div>
       <div class="ui input">
-        {{input type="date" value=date}}
+        {{input type="date" value=wod.datePickerDate}}
       </div>
     </div>
 
@@ -48,34 +79,34 @@
     <div class="bottom aligned row">
       <div class="ui medium header">Publish Date</div>
       <div class="ui input">
-        {{input type="date" value=publishDay}}
+        {{input type="date" value=wod.publishDay}}
       </div>
       <i class="large at icon"></i>
       <div class="ui input">
-        {{input type="time" value=publishTime}}
+        {{input type="time" value=wod.publishTime}}
       </div>
     </div>
 
     <div class="ui medium header">Strength/Skill</div>
-    {{textarea rows="10" value=strength placeholder=strength}}
+    {{textarea rows="10" value=wod.strength placeholder=wod.strength}}
 
     <div class="ui medium header">Conditioning</div>
-    {{textarea rows="10" value=conditioning placeholder=conditioning}}
+    {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
 
   </div>
 
   <div class="sixteen wide column">
     <div class="ui medium header">About This WOD</div>
-    {{textarea rows="7" value=description placeholder=description}}
+    {{textarea rows="7" value=wod.description placeholder=wod.description}}
 
     <div class="row">
       <div class="ui medium header">Video ID</div>
       <div class="ui input">
-        {{input type="text" value=videoId placeholder=videoId}}
+        {{input type="text" value=wod.videoId placeholder=wod.videoId}}
       </div>
     </div>
 
-    <button class="ui primary large button update-button"{{action submitForm}}>Save WOD</button>
+    <button class="ui primary large button update-button"{{action "saveWod"}}>Save WOD</button>
   </div>
 
 </div>

@@ -14,7 +14,7 @@
 
 <div class="controlls">
   <div class="">
-    <label class="ui button upload" for={{if imageType imageType "image"}}>Upload Image</label>
+    <label class="ui primary button upload" for={{if imageType imageType "image"}}>Upload Image</label>
     {{s3-upload id=(if imageType imageType "image") onComplete=(action "imageUploadComplete") onError=(action "imageUploadFailed")}}
   </div>
 

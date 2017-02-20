@@ -53,6 +53,7 @@
     "ember-uploader": "1.0.0",
     "eslint-plugin-ember-suave": "^1.0.0",
     "loader.js": "^4.0.1",
+    "lodash": "4.17.4",
     "moment": "2.11.1",
     "semantic-ui-ember": "2.0.0-beta.0"
   },

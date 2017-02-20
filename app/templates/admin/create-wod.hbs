@@ -1,16 +1,8 @@
 <div class="ui container">
   {{wod-form
-    enabled=enabled
-    image=image
-    date=datePickerDate
-    allTags=tags
-    publishDay=publishDay
-    publishTime=publishTime
-    strength=strength
-    conditioning=conditioning
-    videoId=videoId
-    description=description
-    submitForm=(action "createWod")
+    wod=wod
+    allTags=allTags
+    submitForm="createWod"
     imageUploadComplete=(action "imageUploadComplete")
     imageUploadFailed=(action "imageUploadFailed")}}
 </div>

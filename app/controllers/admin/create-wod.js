@@ -13,43 +13,13 @@ export default Controller.extend({
   enabled: true,
 
   actions: {
-    createWod() {
-      let enabled = get(this, 'enabled');
-
-      let date = window.moment(get(this, 'datePickerDate')).utc().startOf('day').toDate();
-
-      let publishDay = get(this, 'publishDay');
-      let publishTime = get(this, 'publishTime');
-      let publishDate = window.moment(`${publishDay} ${publishTime}`).toDate();
-
-      let strength = get(this, 'strength');
-      let conditioning = get(this, 'conditioning');
-
-      let image = get(this, 'image');
-
-      let videoId = get(this, 'videoId');
-      let description = get(this, 'description');
-
-      let wod = this.store.createRecord('wod', {
-        enabled,
-        date,
-        publishDate,
-        strength,
-        conditioning,
-        image,
-        videoId,
-        description,
-      });
-
-      wod.save().then((wod) => {
-        this._createWodTags(wod);
-      });
-    },
     imageUploadComplete(url) {
-      set(this, 'image', url);
+      let wod = get(this, 'wod');
+      set(wod, 'image', url);
     },
     imageUploadFailed() {
-      set(this, 'image', null);
+      let wod = get(this, 'wod');
+      set(wod, 'image', null);
     },
     openModal() {
       $('#tag-modal').modal('show');
