@@ -1,13 +1,18 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  Route,
+  RSVP,
+} = Ember;
+
+export default Route.extend({
   model() {
-    return Ember.RSVP.hash({
+    return RSVP.hash({
       posts: this.store.findAll('post'),
     });
   },
 
   setupController(controller, model) {
     controller.set('posts', model.posts);
-  }
+  },
 });
