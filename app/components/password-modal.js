@@ -1,28 +1,35 @@
 import Ember from 'ember';
-import CryptoJS from 'npm:crypto-js';
 
-export default Ember.Component.extend({
+const {
+  inject: {
+    service,
+  },
+  set,
+  Component,
+  $,
+} = Ember;
+
+export default Component.extend({
   loginError: false,
-  ajax: Ember.inject.service(),
-  authManager: Ember.inject.service(),
+  ajax: service(),
+  authManager: service(),
   showPasswordModal: function() {
-    var token = this.get('cookie').getCookie('authentication');
+    let token = this.get('cookie').getCookie('authentication');
     if (!token) {
-      Ember.$('#password-modal').modal('setting', 'closable', false).modal('show');
+      $('#password-modal').modal('setting', 'closable', false).modal('show');
     }
   }.on('didInsertElement'),
   actions: {
-    enterPassword(){
-      var _this = this;
-      var password = this.get('password');
+    enterPassword() {
+      let password = this.get('password');
 
-      this.get('authManager').authenticate(password).then(function(response){
+      this.get('authManager').authenticate(password).then((response) => {
         if (response) {
-          Ember.$("#password-modal").modal("hide");
+          $('#password-modal').modal('hide');
         }	else {
-          _this.set('loginError', true);
+          set(this, 'loginError', true);
         }
       });
-    }
-  }
+    },
+  },
 });
