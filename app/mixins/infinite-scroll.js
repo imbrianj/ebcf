@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 const {
   $,
-  Mixin
+  Mixin,
 } = Ember;
 
 export default Mixin.create({
@@ -20,13 +20,13 @@ export default Mixin.create({
       this.send('getOlder');
     }
 
-    if( $(window).scrollTop() > 100) {
-     $('#back-to-top').finish().fadeIn('slow');
+    if ($(window).scrollTop() > 100) {
+      $('#back-to-top').finish().fadeIn('slow');
     } else {
-     $('#back-to-top').finish().fadeOut('slow');
+      $('#back-to-top').finish().fadeOut('slow');
     }
 
-    if( $(window).scrollTop() > 445) {
+    if ($(window).scrollTop() > 445) {
       $('.search').addClass('sticky');
     } else {
       $('.search').removeClass('sticky');
@@ -36,8 +36,8 @@ export default Mixin.create({
   actions: {
     backToTop() {
       $('body,html').animate({
-        scrollTop : 0
+        scrollTop: 0,
       }, 500);
-    }
-  }
+    },
+  },
 });
