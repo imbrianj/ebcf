@@ -77,7 +77,7 @@ export default Component.extend({
       set(wod, 'tags', newTags);
     },
 
-    bulkTagWod() {
+    autoTagWods() {
       set(this, 'bulkTagging', true);
       let wod = get(this, 'wod');
 
