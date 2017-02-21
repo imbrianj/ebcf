@@ -1,12 +1,11 @@
 import Ember from 'ember';
 
 const {
-  get,
-  Route
+  Route,
 } = Ember;
 
-export default Ember.Route.extend({
-  redirect: function() {
+export default Route.extend({
+  redirect() {
     this.transitionTo('admin.all-wods');
-  }
+  },
 });
