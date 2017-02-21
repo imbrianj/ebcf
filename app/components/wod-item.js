@@ -10,6 +10,7 @@ export default Component.extend({
   classNames: ['wod-item'],
   placeHolderImage: '/assets/place-holder-image.png',
   alt: computed('prettyDate', function() {
-    return `Workout of the Day for ${get(this, 'prettyDate')}`;
+    let wod = get(this, 'wod');
+    return `Workout of the Day for ${get(wod, 'prettyDate')}`;
   }),
 });
