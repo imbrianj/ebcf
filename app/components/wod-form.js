@@ -87,6 +87,7 @@ export default Component.extend({
       let tagWods = get(tag, 'wods');
       let newWods = _.without(tagWods.toArray(), wod);
       set(tag, 'wods', newWods);
+      tag.save();
     },
 
     autoTagWods() {
