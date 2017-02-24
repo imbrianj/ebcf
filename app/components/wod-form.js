@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 const {
+  inject: {
+    service,
+  },
   isEqual,
   get,
   set,
@@ -14,6 +17,7 @@ const {
 export default Component.extend({
   showTagDropdown: false,
   bulkTagging: false,
+  store: service(),
 
   _addTagToWod(tag) {
     let wod = get(this, 'wod');
@@ -75,6 +79,10 @@ export default Component.extend({
       let wodTags = wod.get('tags');
       let newTags = _.without(wodTags.toArray(), tag);
       set(wod, 'tags', newTags);
+
+      let tagWods = get(tag, 'wods');
+      let newWods = _.without(tagWods.toArray(), wod);
+      set(tag, 'wods', newWods);
     },
 
     autoTagWods() {
