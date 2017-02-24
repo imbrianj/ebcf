@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 const {
+  computed,
   inject: {
     service,
   },
@@ -18,13 +19,16 @@ export default Component.extend({
   showTagDropdown: false,
   bulkTagging: false,
   store: service(),
-
   _addTagToWod(tag) {
     let wod = get(this, 'wod');
     let wodTags = get(wod, 'tags');
     let newTags = _.union(wodTags.toArray(), [tag]);
     set(wod, 'tags', newTags);
   },
+
+  tagsByLength: computed('allTags.[]', function() {
+    return get(this, 'allTags').sortBy('value.length').reverse();
+  }),
 
   actions: {
 
@@ -89,12 +93,17 @@ export default Component.extend({
       set(this, 'bulkTagging', true);
       let wod = get(this, 'wod');
 
-      const strength = (get(wod, 'strength') || '').toLowerCase().dasherize();
-      const conditioning = (get(wod, 'conditioning') || '').toLowerCase().dasherize();
+      let strength = (get(wod, 'strength') || '').toLowerCase().dasherize();
+      let conditioning = (get(wod, 'conditioning') || '').toLowerCase().dasherize();
 
-      let possibleTags = get(this, 'allTags').filter((tag) => {
+      let possibleTags = get(this, 'tagsByLength').filter((tag) => {
         let tagValue = get(tag, 'value').toLowerCase().dasherize();
-        return strength.includes(tagValue) || conditioning.includes(tagValue);
+
+        if (strength.includes(tagValue) || conditioning.includes(tagValue)) {
+          strength = strength.replace(tagValue, '');
+          conditioning = conditioning.replace(tagValue, '');
+          return true;
+        }
       });
 
       possibleTags.forEach((tag) => {
