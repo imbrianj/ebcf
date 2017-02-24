@@ -100,8 +100,9 @@ export default Component.extend({
         let tagValue = get(tag, 'value').toLowerCase().dasherize();
 
         if (strength.includes(tagValue) || conditioning.includes(tagValue)) {
-          strength = strength.replace(tagValue, '');
-          conditioning = conditioning.replace(tagValue, '');
+          let regExp = new RegExp(tagValue, 'g');
+          strength = strength.replace(regExp, '');
+          conditioning = conditioning.replace(regExp, '');
           return true;
         }
       });
