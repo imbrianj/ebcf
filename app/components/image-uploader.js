@@ -4,8 +4,9 @@ const {
   computed,
   get,
   set,
-  Component
+  Component,
 } = Ember;
+
 export default Component.extend({
   classNames: ['image-uploader'],
 
@@ -23,11 +24,11 @@ export default Component.extend({
       get(this, 'imageUploadComplete')(url);
     },
 
-    imageUploadFailed(error, errorText){
+    imageUploadFailed(error, errorText) {
       set(this, 'error', error);
       set(this, 'errorText', errorText);
 
       get(this, 'imageUploadFailed')();
     },
-  }
+  },
 });

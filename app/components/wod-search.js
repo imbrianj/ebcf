@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
-  disableDatePicker: Ember.computed.notEmpty('selectedTag'),
-  disableTagPicker: Ember.computed.notEmpty('date'),
+const { computed, Component } = Ember;
+
+export default Component.extend({
+  disableDatePicker: computed.notEmpty('selectedTag'),
+  disableTagPicker: computed.notEmpty('date'),
 });

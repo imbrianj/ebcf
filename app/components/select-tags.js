@@ -1,12 +1,14 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component, $ } = Ember;
+
+export default Component.extend({
   selectedTags: [],
-  setSelectionOptions: function(){
-    Ember.$('.ui.dropdown')
+  setSelectionOptions: function() {
+    $('.ui.dropdown')
       .dropdown({
-      allowAdditions: true,
-      fullTextSearch: true,
-    });
+        allowAdditions: true,
+        fullTextSearch: true,
+      });
   }.on('didInsertElement'),
 });
