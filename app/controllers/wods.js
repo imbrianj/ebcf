@@ -1,15 +1,13 @@
 import Ember from 'ember';
 import InfiniteScrollMixin from 'ebcf/mixins/infinite-scroll';
-import { task, timeout } from 'ember-concurrency';
+import { task } from 'ember-concurrency';
 
 const {
   computed,
   get,
   isPresent,
-  observer,
   set,
   Controller,
-  RSVP,
 } = Ember;
 
 export default Controller.extend(InfiniteScrollMixin, {
@@ -36,7 +34,7 @@ export default Controller.extend(InfiniteScrollMixin, {
   dataIsFulfilled: computed.readOnly('_wodsTask.last.isFinished'),
   dataIsRejected: computed.notEmpty('_wodsTask.last.error'),
 
-  _wodsTask: task(function * () {
+  _wodsTask: task(function* () {
     let tag = get(this, 'tag');
     let date = get(this, 'date');
 
@@ -46,16 +44,16 @@ export default Controller.extend(InfiniteScrollMixin, {
       set(this, 'loadingMore', false);
       return yield get(selectedTag, 'wods');
     } else if (isPresent(date)) {
-      var day = window.moment(date).utc().startOf('day').toISOString();
+      let day = window.moment(date).utc().startOf('day').toISOString();
       set(this, 'dateDepth', 0);
       set(this, 'loadingMore', false);
       return yield this.store.query('wod', {
         filter: {
           simple: {
             date: day,
-            enabled: true
-          }
-        }
+            enabled: true,
+          },
+        },
       });
     } else {
       const dateDepth = get(this, 'dateDepth') + 2;
@@ -67,27 +65,27 @@ export default Controller.extend(InfiniteScrollMixin, {
           simple: {
             publishDate: {
               $gt: weeksAgo,
-              $lt: window.moment().toDate()
+              $lt: window.moment().toDate(),
             },
-            enabled: true
-          }
-        }
+            enabled: true,
+          },
+        },
       });
     }
   }).drop(),
 
   wodsFound: computed('sortedWods.length', function() {
-    var numberOfWods = get(this, 'sortedWods.length');
-    var res = "";
+    let numberOfWods = get(this, 'sortedWods.length');
+    let res = '';
 
     if (numberOfWods === 1) {
-      res =  numberOfWods + " Wod Found for ";
+      res =  `${numberOfWods} Wod Found for`;
     } else {
-      res = numberOfWods + " Wods Found for ";
+      res = `${numberOfWods} Wods Found for`;
     }
 
-    var tag = get(this, 'tag');
-    var date = get(this, 'date');
+    let tag = get(this, 'tag');
+    let date = get(this, 'date');
 
     if (date) {
       res = res + window.moment(date).format('ddd MM.DD.YYYY').toUpperCase();
@@ -103,11 +101,11 @@ export default Controller.extend(InfiniteScrollMixin, {
         simple: {
           publishDate: {
             $gt: weeksAgo,
-            $lt: window.moment().toDate()
+            $lt: window.moment().toDate(),
           },
-          enabled: true
-        }
-      }
+          enabled: true,
+        },
+      },
     });
   },
 
@@ -128,5 +126,5 @@ export default Controller.extend(InfiniteScrollMixin, {
       set(this, 'tag', null);
       set(this, 'date', null);
     },
-  }
+  },
 });

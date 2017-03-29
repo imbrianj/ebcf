@@ -1,21 +1,27 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  set,
+  Route,
+  RSVP,
+} = Ember;
+
+export default Route.extend({
   model() {
-    var weekAgo = window.moment().subtract(7, 'days').startOf('day').toDate();
-    return Ember.RSVP.hash({
+    let weekAgo = window.moment().subtract(7, 'days').startOf('day').toDate();
+    return RSVP.hash({
       wods: this.store.query('wod', {
         filter: {
           simple: {
             date: {
-              $gt: weekAgo
-            }
-          }
-        }
-      })
+              $gt: weekAgo,
+            },
+          },
+        },
+      }),
     });
   },
   setupController(controller, model) {
-    controller.set('wods', model.wods);
-  }
+    set(controller, 'wods', model.wods);
+  },
 });

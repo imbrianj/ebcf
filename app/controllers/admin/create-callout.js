@@ -8,33 +8,32 @@ const {
 
 export default Controller.extend({
   actions: {
-    createCallout(){
-      var _this = this;
+    createCallout() {
+      let _this = this;
 
-      var startDay = get(this, 'newStartDay');
-      var startTime = get(this, 'newStartTime');
-      var startDate = window.moment(startDay + " " + startTime).toDate();
+      let startDay = get(this, 'newStartDay');
+      let startTime = get(this, 'newStartTime');
+      let startDate = window.moment(`${startDay} ${startTime}`).toDate();
 
-      var endDay = get(this, 'newEndDay');
-      var endTime = get(this, 'newEndTime');
-      var endDate = window.moment(endDay + " " + endTime).toDate();
+      let endDay = get(this, 'newEndDay');
+      let endTime = get(this, 'newEndTime');
+      let endDate = window.moment(`${endDay} ${endTime}`).toDate();
 
-      var value = get(this, 'newValue');
+      let value = get(this, 'newValue');
 
       set(this, 'startDate', startDate);
       set(this, 'endDate', endDate);
 
-
-      var callout = this.store.createRecord('callout', {
-         enabled: true,
-         startDate: startDate,
-         endDate: endDate,
-         value: value,
-       });
+      let callout = this.store.createRecord('callout', {
+        enabled: true,
+        startDate,
+        endDate,
+        value,
+      });
 
       callout.save().then(function() {
         _this.transitionToRoute('admin.callouts');
       });
-    }
-  }
+    },
+  },
 });

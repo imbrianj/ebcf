@@ -1,12 +1,18 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  Route,
+  RSVP,
+  $,
+} = Ember;
+
+export default Route.extend({
   model() {
-    return Ember.RSVP.hash({
+    return RSVP.hash({
       tags: this.store.findAll('tag'),
       wods: this.store.findAll('wod'),
       // missing: Ember.$.getJSON("missed_tags.json")
-      wodJson: Ember.$.getJSON("wod_numbers.json")
+      wodJson: $.getJSON('wod_numbers.json'),
     });
   },
 
@@ -15,5 +21,5 @@ export default Ember.Route.extend({
     controller.set('tags', model.tags);
     controller.set('wodJson', model.wodJson);
     // controller.set('missing', model.missing);
-  }
+  },
 });

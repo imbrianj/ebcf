@@ -3,19 +3,24 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const {
-  computed
+  computed,
 } = Ember;
 
-export default DS.Model.extend({
-  value: DS.attr('string'),
-  enabled: DS.attr('boolean'),
-  startDate: DS.attr('date'),
-  endDate: DS.attr('date'),
-  prettyStartDate: computed('startDate', function(){
-    return window.moment(this.get('startDate')).tz("America/Los_Angeles").format('ddd MM.DD.YYYY h:mm a').toUpperCase();
+const {
+  attr,
+  Model,
+} = DS;
+
+export default Model.extend({
+  value: attr('string'),
+  enabled: attr('boolean'),
+  startDate: attr('date'),
+  endDate: attr('date'),
+  prettyStartDate: computed('startDate', function() {
+    return window.moment(this.get('startDate')).tz('America/Los_Angeles').format('ddd MM.DD.YYYY h:mm a').toUpperCase();
   }),
-  prettyEndDate: computed('endDate', function(){
-    return window.moment(this.get('endDate')).tz("America/Los_Angeles").format('ddd MM.DD.YYYY h:mm a').toUpperCase();
+  prettyEndDate: computed('endDate', function() {
+    return window.moment(this.get('endDate')).tz('America/Los_Angeles').format('ddd MM.DD.YYYY h:mm a').toUpperCase();
   }),
   startDay: computed('startDate', function() {
     return window.moment(this.get('startDate')).startOf('day').format('YYYY-MM-DD');
@@ -30,10 +35,10 @@ export default DS.Model.extend({
     return window.moment(this.get('endDate')).format('HH:mm');
   }),
   active: computed('startDate', 'endDate', 'enabled', function() {
-    var start = this.get('startDate');
-    var end = this.get('endDate');
-    var enabled = this.get('enabled');
+    let start = this.get('startDate');
+    let end = this.get('endDate');
+    let enabled = this.get('enabled');
 
     return (window.moment(start) < window.moment()) && (window.moment(end) > window.moment() && enabled);
-  })
+  }),
 });

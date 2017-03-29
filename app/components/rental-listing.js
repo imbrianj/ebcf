@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { Component } = Ember;
+
+export default Component.extend({
   isImageShowing: false,
   actions: {
     imageShow() {
@@ -8,6 +10,6 @@ export default Ember.Component.extend({
     },
     imageHide() {
       this.set('isImageShowing', false);
-    }
-  }
+    },
+  },
 });

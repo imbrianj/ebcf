@@ -2,11 +2,13 @@ import Ember from 'ember';
 
 const {
   set,
+  Route,
+  RSVP,
 } = Ember;
 
-export default Ember.Route.extend({
+export default Route.extend({
   model() {
-    return Ember.RSVP.hash({
+    return RSVP.hash({
       posts: this.store.query('post', {
         filter: {
           simple: {
@@ -14,9 +16,9 @@ export default Ember.Route.extend({
               $lt: window.moment().toDate(),
             },
             enabled: true,
-          }
-        }
-      })
+          },
+        },
+      }),
     });
   },
 
@@ -33,30 +35,30 @@ export default Ember.Route.extend({
     this.setHeadTags(model);
   },
 
-  setHeadTags(model) {
-    var headTags = [
+  setHeadTags() {
+    let headTags = [
       {
         type: 'meta',
         tagId: 'meta-description-tag-news',
         attrs: {
           name: 'title',
           content: 'News',
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'meta-title-tag-news',
         attrs: {
           name: 'description',
           content: 'Stay up to date on Elliott Bay CrossFit news and events and find tips on nutrition, health, and training.',
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'prerender-status-code-news',
         attrs: {
           name: 'prerender-status-code',
           content: '200',
-        }
-      }
+        },
+      },
     ];
 
     set(this, 'headTags', headTags);

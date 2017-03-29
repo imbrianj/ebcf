@@ -1,16 +1,18 @@
 import Ember from 'ember';
 
 const {
+  get,
   set,
+  Route,
 } = Ember;
 
-export default Ember.Route.extend({
+export default Route.extend({
   beforeModel() {
     this.controllerFor('application').set('titleImage', 'wods');
     this.controllerFor('application').set('titleHeader', 'NEWS');
   },
 
-  model: function(params) {
+  model(params) {
     return this.store.find('post', params.post_id);
   },
 
@@ -19,29 +21,29 @@ export default Ember.Route.extend({
   },
 
   setHeadTags(model) {
-    var headTags = [
+    let headTags = [
       {
         type: 'meta',
         tagId: 'meta-description-tag-post',
         attrs: {
           name: 'title',
           content: `News for ${get(model, 'prettyDate')}`,
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'meta-title-tag-post',
         attrs: {
           name: 'description',
           content: get(model, 'title'),
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'prerender-status-code-post',
         attrs: {
           name: 'prerender-status-code',
           content: '200',
-        }
-      }
+        },
+      },
     ];
 
     set(this, 'headTags', headTags);

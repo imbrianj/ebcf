@@ -6,5 +6,5 @@ export function initialize(application) {
 export default {
   name: 'ember-cookie',
   after: ['cookie'],
-  initialize
+  initialize,
 };

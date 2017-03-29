@@ -13,9 +13,9 @@ export default Controller.extend({
   sortedWods: computed.sort('wods', 'sortProps'),
   actions: {
     filterDate() {
-      var fromDate = get(this, 'fromDate');
-      var toDate = get(this, 'toDate');
-      var _this = this;
+      let fromDate = get(this, 'fromDate');
+      let toDate = get(this, 'toDate');
+      let _this = this;
 
       $('.filter').addClass('loading');
 
@@ -24,14 +24,14 @@ export default Controller.extend({
           simple: {
             publishDate: {
               $gt: fromDate,
-              $lt: toDate
-            }
-          }
-        }
-      }).then(function(wods){
+              $lt: toDate,
+            },
+          },
+        },
+      }).then(function(wods) {
         set(_this, 'wods', wods);
         $('.filter').removeClass('loading');
       });
-    }
-  }
+    },
+  },
 });

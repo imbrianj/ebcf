@@ -2,12 +2,18 @@ import DS from 'ember-data';
 import Ember from 'ember';
 
 const {
-  computed
+  computed,
 } = Ember;
 
-export default DS.Model.extend({
-  value: DS.attr('string'),
-  wods: DS.hasMany('wod', {async: true}),
+const {
+  attr,
+  hasMany,
+  Model,
+} = DS;
+
+export default Model.extend({
+  value: attr('string'),
+  wods: hasMany('wod', { async: true }),
   text: computed.alias('value'),
-  enabledWods: computed.filterBy('wods', 'enabled', true)
+  enabledWods: computed.filterBy('wods', 'enabled', true),
 });

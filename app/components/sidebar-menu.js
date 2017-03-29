@@ -1,12 +1,14 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+const { on, run, $, Component } = Ember;
+
+export default Component.extend({
   tagName: '',
-  initializeComponent: Ember.on('didInsertElement', function() {
-    Ember.run.scheduleOnce('afterRender', () => {
-      Ember.$('.ui.sidebar .item').on('click', () => {
-        Ember.$('.ui.sidebar').sidebar('hide');
+  initializeComponent: on('didInsertElement', function() {
+    run.scheduleOnce('afterRender', () => {
+      $('.ui.sidebar .item').on('click', () => {
+        $('.ui.sidebar').sidebar('hide');
       });
     });
-  })
+  }),
 });

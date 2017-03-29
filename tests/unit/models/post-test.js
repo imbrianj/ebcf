@@ -1,9 +1,6 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('post', 'Unit | Model | post', {
-  // Specify the other units that are required for this test.
-  needs: []
-});
+moduleForModel('post', 'Unit | Model | post');
 
 test('it exists', function(assert) {
   let model = this.subject();

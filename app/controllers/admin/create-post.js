@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {
   get,
   set,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend({
@@ -11,33 +11,33 @@ export default Controller.extend({
 
   actions: {
     createPost() {
-      var enabled = get(this, 'enabled');
-      var title = get(this, 'title');
-      var date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
+      let enabled = get(this, 'enabled');
+      let title = get(this, 'title');
+      let date = window.moment(get(this, 'date')).utc().startOf('day').toDate();
 
-      var publishDay = get(this, 'publishDay');
-      var publishTime = get(this, 'publishTime');
-      var publishDate = window.moment(publishDay + " " + publishTime).toDate();
+      let publishDay = get(this, 'publishDay');
+      let publishTime = get(this, 'publishTime');
+      let publishDate = window.moment(`${publishDay} ${publishTime}`).toDate();
 
-      var bannerImage = get(this, 'bannerImage');
-      var contentImage = get(this, 'contentImage');
+      let bannerImage = get(this, 'bannerImage');
+      let contentImage = get(this, 'contentImage');
 
-      var content = get(this, 'content');
+      let content = get(this, 'content');
 
-      var post = this.store.createRecord('post', {
-         enabled: enabled,
-         title: title,
-         date: date,
-         publishDate: publishDate,
-         contentImage: contentImage,
-         bannerImage: bannerImage,
-         content: content
-       });
+      let post = this.store.createRecord('post', {
+        enabled,
+        title,
+        date,
+        publishDate,
+        contentImage,
+        bannerImage,
+        content,
+      });
 
-       var _this = this;
-       post.save().then(() => {
-         _this.transitionToRoute('admin.all-posts');
-       });
+      let _this = this;
+      post.save().then(() => {
+        _this.transitionToRoute('admin.all-posts');
+      });
     },
 
     bannerImageUploadComplete(url) {
@@ -56,6 +56,6 @@ export default Controller.extend({
 
     logIn() {
       set(this, 'notLoggedIn', false);
-    }
-  }
+    },
+  },
 });

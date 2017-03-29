@@ -3,6 +3,7 @@ import Ember from 'ember';
 const {
   computed,
   Controller,
+  observer,
   $,
 } = Ember;
 
@@ -12,13 +13,13 @@ export default Controller.extend({
   titleHeader: '',
   showBanner: computed.and('titleImage', 'titleHeader'),
 
-  currentPathChanged: function () {
+  currentPathChanged: observer('currentPath', function() {
     window.scrollTo(0, 0);
-  }.observes('currentPath'),
+  }),
 
   actions: {
-    toggle: function() {
+    toggle() {
       $('.ui.sidebar').sidebar('toggle');
-    }
-  }
+    },
+  },
 });
