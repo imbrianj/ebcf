@@ -3,7 +3,7 @@ import Ember from 'ember';
 const {
   get,
   set,
-  Controller
+  Controller,
 } = Ember;
 
 export default Controller.extend({
@@ -12,22 +12,22 @@ export default Controller.extend({
   notLoggedIn: true,
   actions: {
     updatePost() {
-      var post = get(this, 'post');
+      let post = get(this, 'post');
 
-      var date = window.moment(get(post, 'datePickerDate')).utc().startOf('day').toDate();
+      let date = window.moment(get(post, 'datePickerDate')).utc().startOf('day').toDate();
 
-      var publishDay = get(post, 'publishDay');
-      var publishTime = get(post, 'publishTime');
-      var publishDate = window.moment(publishDay + " " + publishTime).toDate();
+      let publishDay = get(post, 'publishDay');
+      let publishTime = get(post, 'publishTime');
+      let publishDate = window.moment(`${publishDay} ${publishTime}`).toDate();
 
       post.setProperties({
-        date: date,
-        publishDate: publishDate
+        date,
+        publishDate,
       });
 
-      var _this = this;
+      let _this = this;
       post.save().then(() => {
-       _this.transitionToRoute('admin.all-posts');
+        _this.transitionToRoute('admin.all-posts');
       });
     },
 
@@ -51,6 +51,6 @@ export default Controller.extend({
 
     logIn() {
       set(this, 'notLoggedIn', false);
-    }
-  }
+    },
+  },
 });

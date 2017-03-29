@@ -7,5 +7,5 @@ const {
 
 export default Controller.extend({
   sortProps: ['startDate:desc'],
-  sortedCallouts: computed.sort('callouts', 'sortProps')
+  sortedCallouts: computed.sort('callouts', 'sortProps'),
 });

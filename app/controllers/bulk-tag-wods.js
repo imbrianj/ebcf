@@ -1,19 +1,24 @@
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+const {
+  Controller,
+  $,
+} = Ember;
+
+export default Controller.extend({
   actions: {
-    bulkUpdateTags(){
-      Ember.$('.button').addClass('loading');
+    bulkUpdateTags() {
+      $('.button').addClass('loading');
       let jsonWods = this.get('wodJson');
-      let count = 0;
+
       jsonWods.forEach((item) => {
-        let date = moment(item.date).utc().startOf('day').toDate();
+        let date = window.moment(item.date).utc().startOf('day').toDate();
         let value = item.value.toLowerCase();
         let wods = this.get('wods');
         let tags = this.get('tags');
 
         let filteredWods = wods.filter((wod) => {
-          return moment(date).isSame(wod.get('date'));
+          return window.moment(date).isSame(wod.get('date'));
         });
 
         let filteredTags = tags.filter((tag) => {
@@ -25,15 +30,13 @@ export default Ember.Controller.extend({
 
           if (filteredTags.length > 0) {
             let tag = filteredTags[0];
-            tag.get("wods").pushObject(wod);
+            tag.get('wods').pushObject(wod);
             tag.save();
             wod.save();
           } else {
-            let newTag = this.store.createRecord('tag', {
-               value: value
-            });
+            let newTag = this.store.createRecord('tag', { value });
             newTag.save().then(() => {
-              newTag.get("wods").pushObject(wod);
+              newTag.get('wods').pushObject(wod);
               newTag.save();
               wod.save();
             });
@@ -41,9 +44,9 @@ export default Ember.Controller.extend({
         }
       });
 
-      Ember.$('.button').removeClass('loading');
-    }
-  }
+      $('.button').removeClass('loading');
+    },
+  },
 });
       // For Adding tags that were missing
       // var _this = this;
@@ -69,8 +72,6 @@ export default Ember.Controller.extend({
       //     }
       //   });
 
-
-
         // this.store.queryRecord('wod', {
         //   filter: {
         //     simple: {
@@ -82,8 +83,6 @@ export default Ember.Controller.extend({
         //     var wod = wods[0];
         //   }
         // });
-
-
       // var startDate = moment(this.get('startDate')).utc().startOf('day');
       // var endDate = moment(this.get('endDate')).utc().startOf("day");
       //
