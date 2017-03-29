@@ -2,15 +2,17 @@ import Ember from 'ember';
 import EmberCookieInitializer from 'ebcf/initializers/ember-cookie';
 import { module, test } from 'qunit';
 
+const { run, Application } = Ember;
+
 let application;
 
 module('Unit | Initializer | ember cookie', {
   beforeEach() {
-    Ember.run(function() {
-      application = Ember.Application.create();
+    run(function() {
+      application = Application.create();
       application.deferReadiness();
     });
-  }
+  },
 });
 
 // Replace this with your real tests.
