@@ -1,11 +1,13 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
-  location: config.locationType
+const { Router } = Ember;
+
+const AppRouter = Router.extend({
+  location: config.locationType,
 });
 
-Router.map(function() {
+AppRouter.map(function() {
   this.route('about');
   this.route('coaches');
   this.route('contact');
@@ -17,9 +19,9 @@ Router.map(function() {
   this.route('wod', { path: '/wod/:wod_id' });
 
   this.route('news');
-  this.route('post', { path: '/post/:post_id'});
+  this.route('post', { path: '/post/:post_id' });
 
-  this.route('admin', function () {
+  this.route('admin', function() {
     this.route('all-wods');
     this.route('create-wod');
     this.route('edit-wod', { path: '/wod/:wod_id/edit' });
@@ -37,5 +39,4 @@ Router.map(function() {
   this.route('error', { path: '*path' });
 });
 
-
-export default Router;
+export default AppRouter;

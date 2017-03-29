@@ -3,10 +3,11 @@ import Ember from 'ember';
 const {
   get,
   set,
+  Route,
 } = Ember;
 
-export default Ember.Route.extend({
-  model: function(params) {
+export default Route.extend({
+  model(params) {
     return this.store.find('wod', params.wod_id);
   },
 
@@ -20,29 +21,29 @@ export default Ember.Route.extend({
   },
 
   setHeadTags(model) {
-    var headTags = [
+    let headTags = [
       {
         type: 'meta',
         tagId: 'meta-description-tag-wod',
         attrs: {
           name: 'title',
           content: `Workout of the Day for ${get(model, 'prettyDate')}`,
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'meta-title-tag-wod',
         attrs: {
           name: 'description',
           content: get(model, 'shortDescription'),
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'prerender-status-code-wod',
         attrs: {
           name: 'prerender-status-code',
           content: '200',
-        }
-      }
+        },
+      },
     ];
 
     set(this, 'headTags', headTags);

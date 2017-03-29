@@ -3,9 +3,11 @@ import Ember from 'ember';
 const {
   set,
   $,
+  Route,
+  RSVP,
 } = Ember;
 
-export default Ember.Route.extend({
+export default Route.extend({
   activate() {
     $('#footer-menu').hide();
   },
@@ -22,11 +24,11 @@ export default Ember.Route.extend({
     date: {
       replace: true,
       refreshModel: true,
-    }
+    },
   },
 
-  model(params) {
-    return Ember.RSVP.hash({
+  model() {
+    return RSVP.hash({
       tags: this.store.findAll('tag'),
     });
   },
@@ -50,30 +52,30 @@ export default Ember.Route.extend({
     this.setHeadTags(model);
   },
 
-  setHeadTags(model) {
-    var headTags = [
+  setHeadTags() {
+    let headTags = [
       {
         type: 'meta',
         tagId: 'meta-description-tag-wods',
         attrs: {
           name: 'title',
           content: 'Workouts of the Day',
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'meta-title-tag-wods',
         attrs: {
           name: 'description',
           content: 'Elliott Bay CrossFit Workout Archive',
-        }
+        },
       }, {
         type: 'meta',
         tagId: 'prerender-status-code-wods',
         attrs: {
           name: 'prerender-status-code',
           content: '200',
-        }
-      }
+        },
+      },
     ];
 
     set(this, 'headTags', headTags);

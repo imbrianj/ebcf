@@ -1,12 +1,17 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
+const {
+  RSVP,
+  Route,
+} = Ember;
+
+export default Route.extend({
   model() {
-    return Ember.RSVP.hash({
-      callouts: this.store.findAll('callout')
+    return RSVP.hash({
+      callouts: this.store.findAll('callout'),
     });
   },
   setupController(controller, model) {
     controller.set('callouts', model.callouts);
-  }
+  },
 });
