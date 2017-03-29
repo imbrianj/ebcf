@@ -19,6 +19,11 @@ export default Component.extend({
   showTagDropdown: false,
   bulkTagging: false,
   store: service(),
+
+  tagsByLength: computed('allTags.[]', function() {
+    return get(this, 'allTags').sortBy('value.length').reverse();
+  }),
+
   _addTagToWod(tag) {
     let wod = get(this, 'wod');
     let wodTags = get(wod, 'tags');
@@ -26,12 +31,44 @@ export default Component.extend({
     set(wod, 'tags', newTags);
   },
 
-  tagsByLength: computed('allTags.[]', function() {
-    return get(this, 'allTags').sortBy('value.length').reverse();
-  }),
+  _createNewTag(value) {
+    let store = get(this, 'store');
+
+    let newTag = store.createRecord('tag', {
+      value,
+    });
+
+    return newTag.save()
+      .then((tag) => {
+        return tag;
+      });
+  },
+
+  _addNumberTag(wod) {
+    let tags = get(this, 'allTags');
+    let regExp = /[0-9]+/;
+
+    let wodTags = tags.filter((tag) => {
+      return get(tag, 'value').toLowerCase().includes('wod-');
+    });
+
+    let tagNumber = wodTags.map((tag) => {
+      return parseInt(regExp.exec(get(tag, 'value'))[0]);
+    });
+
+    tagNumber.sort((a, b) => {
+      return a - b;
+    });
+
+    let largestNumber = tagNumber[tagNumber.length - 1];
+
+    this._createNewTag(`wod-${largestNumber + 1}`)
+      .then((tag) => {
+        tag.get('wods').pushObject(wod);
+      });
+  },
 
   actions: {
-
     saveWod() {
       this.sendAction('submitForm');
     },
@@ -54,17 +91,9 @@ export default Component.extend({
         let tag = tags.find((tag) => get(tag, 'value').toLowerCase() === addedValue.toLowerCase());
 
         if (!tag) {
-          let store = get(this, 'store');
-
-          let newTag = store.createRecord('tag', {
-            value: addedValue,
+          promise = promise.then(() => {
+            return this._createNewTag(addedValue);
           });
-
-          promise = promise
-            .then(() => newTag.save())
-            .then((tag) => {
-              return tag;
-            });
         } else {
           promise = RSVP.resolve(tag);
         }
@@ -107,6 +136,8 @@ export default Component.extend({
           return true;
         }
       });
+
+      this._addNumberTag(wod);
 
       possibleTags.forEach((tag) => {
         tag.get('wods').pushObject(wod);
