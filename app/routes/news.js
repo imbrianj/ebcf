@@ -9,12 +9,9 @@ const {
 export default Route.extend({
   model() {
     return RSVP.hash({
-      posts: this.store.query('post', {
-        filter: {
+      callouts: this.store.query('callout', {
+        fiter: {
           simple: {
-            publishDate: {
-              $lt: window.moment().toDate(),
-            },
             enabled: true,
           },
         },
@@ -28,7 +25,12 @@ export default Route.extend({
   },
 
   setupController(controller, model) {
-    controller.set('posts', model.posts);
+    // controller.set('posts', model.posts);
+    let callouts = model.callouts.filter(function(callout) {
+      return callout.get('active') === true;
+    });
+    controller.set('callout', callouts.get('lastObject'));
+    this.controllerFor('news').get('_postTask').perform();
   },
 
   afterModel(model) {

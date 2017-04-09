@@ -3,6 +3,53 @@
 <br>
 
 <div class="ui container">
-  {{post-item post=model}}
-  <br>
+  <div class="ui stackable two column grid page-grid">
+
+    <div class="twelve wide column">
+      {{post-item post=post}}
+    </div>
+
+    <div class="sidebar three wide computer only column">
+      <div class="content">
+        <!-- For some reason this extra div gives the input the correct styles  -->
+          <div id="" class="ui input">
+            {{input
+              value=searchQuery
+              key-up="filterPosts"
+              placeholder="Search Posts"}}
+          </div>
+
+          {{#if callout}}
+            <div class="recent-posts">
+              <h2>Announcements</h2>
+              <div class="recent-post uppercase title">
+                {{callout.value}}
+              </div>
+            </div>
+          {{/if}}
+
+          <div class="recent-posts">
+            <h2>Recent Posts</h2>
+            {{#each recentPosts as |post|}}
+              <div class="recent-post">
+                {{#link-to 'post' post class="uppercase title"}}
+                  {{post.title}}
+                {{/link-to}}
+              </div>
+            {{/each}}
+          </div>
+
+          <div class="recent-posts">
+            <h2>Follow Us</h2>
+            <a href="https://www.facebook.com/elliottbaycf" target="_blank">
+              <i class="huge facebook square link icon"></i>
+            </a>
+            <a href="https://www.instagram.com/elliottbaycrossfit/" target="_blank">
+              <i class="huge instagram link icon"></i>
+            </a>
+          </div>
+
+      </div>
+    </div>
+  </div>
 </div>

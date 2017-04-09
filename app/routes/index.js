@@ -28,12 +28,6 @@ export default Route.extend({
       callouts: this.store.query('callout', {
         fiter: {
           simple: {
-            startDate: {
-              $lt: window.moment().toDate(),
-            },
-            endDate: {
-              $gt: window.moment().toDate(),
-            },
             enabled: true,
           },
         },

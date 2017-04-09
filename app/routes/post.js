@@ -4,6 +4,7 @@ const {
   get,
   set,
   Route,
+  RSVP,
 } = Ember;
 
 export default Route.extend({
@@ -13,11 +14,29 @@ export default Route.extend({
   },
 
   model(params) {
-    return this.store.find('post', params.post_id);
+    return RSVP.hash({
+      post: this.store.find('post', params.post_id),
+      callouts: this.store.query('callout', {
+        fiter: {
+          simple: {
+            enabled: true,
+          },
+        },
+      }),
+    });
   },
 
   afterModel(model) {
     this.setHeadTags(model);
+  },
+
+  setupController(controller, model) {
+    controller.set('post', model.post);
+
+    let callouts = model.callouts.filter(function(callout) {
+      return callout.get('active') === true;
+    });
+    controller.set('callout', callouts.get('lastObject'));
   },
 
   setHeadTags(model) {

@@ -1,12 +1,8 @@
 {{#if post.bannerImage}}
   <div class="banner-image">
-    <a href={{post.bannerImage}} target="_blank">
-      <img  class="post-image" src={{post.bannerImage}}>
-    </a>
+    <img  class="post-image" src={{post.bannerImage}}>
   </div>
 {{/if}}
-
-<br>
 
 <div class="post-headers">
   <div class="ui header large uppercase post-title">{{{post.title}}}</div>
@@ -14,12 +10,11 @@
 </div>
 
 <div class="post-content">
-  <div class="content">
-    {{#if post.contentImage}}
+  {{#if post.contentImage}}
+    <div class="image">
       <img class="ui large right floated image post-image" src={{post.contentImage}}>
-    {{/if}}
+    </div>
+  {{/if}}
 
-    <p class="pre large">{{{post.content}}}</p>
-  </div>
-
+  <p class="pre large">{{{post.content}}}</p>
 </div>

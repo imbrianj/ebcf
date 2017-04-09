@@ -18,7 +18,10 @@ AppRouter.map(function() {
   this.route('wods');
   this.route('wod', { path: '/wod/:wod_id' });
 
-  this.route('news');
+  this.route('news', function() {
+    this.route('post', { path: '/post/:post_id' });
+  });
+
   this.route('post', { path: '/post/:post_id' });
 
   this.route('admin', function() {
