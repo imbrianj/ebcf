@@ -87,8 +87,10 @@
       </div>
     </div>
 
-    <div class="ui medium header">Strength/Skill</div>
-    {{textarea rows="10" value=wod.strength placeholder=wod.strength}}
+    {{#unless isForBootcamp}}
+      <div class="ui medium header">Strength/Skill</div>
+      {{textarea rows="10" value=wod.strength placeholder=wod.strength}}
+    {{/unless}}
 
     <div class="ui medium header">Conditioning</div>
     {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
@@ -96,15 +98,17 @@
   </div>
 
   <div class="sixteen wide column">
-    <div class="ui medium header">About This WOD</div>
-    {{textarea rows="7" value=wod.description placeholder=wod.description}}
+    {{#unless isForBootcamp}}
+      <div class="ui medium header">About This WOD</div>
+      {{textarea rows="7" value=wod.description placeholder=wod.description}}
 
-    <div class="row">
-      <div class="ui medium header">Video ID</div>
-      <div class="ui input">
-        {{input type="text" value=wod.videoId placeholder=wod.videoId}}
+      <div class="row">
+        <div class="ui medium header">Video ID</div>
+        <div class="ui input">
+          {{input type="text" value=wod.videoId placeholder=wod.videoId}}
+        </div>
       </div>
-    </div>
+    {{/unless}}
 
     <button class="ui primary large button update-button"{{action "saveWod"}}>Save WOD</button>
   </div>

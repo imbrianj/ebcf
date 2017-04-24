@@ -22,10 +22,6 @@ AppRouter.map(function() {
   this.route('post', { path: '/post/:post_id' });
 
   this.route('admin', function() {
-    this.route('all-wods');
-    this.route('create-wod');
-    this.route('edit-wod', { path: '/wod/:wod_id/edit' });
-
     this.route('callouts');
     this.route('create-callout');
     this.route('edit-callout', { path: '/callout/:callout_id/edit' });
@@ -34,6 +30,11 @@ AppRouter.map(function() {
     this.route('create-post');
     this.route('edit-post', { path: '/post/:post_id/edit' });
     // this.route('bulk-tag-wods');
+
+    this.route('wods', function() {
+      this.route('new');
+      this.route('edit', { path: '/:wod_id/edit' });
+    });
   });
 
   this.route('error', { path: '*path' });
