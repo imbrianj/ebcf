@@ -1,0 +1,9 @@
+<div class="ui container">
+  {{wod-form
+    isForBootcamp=true
+    wod=bootcamp
+    allTags=allTags
+    submitForm="createBootcamp"
+    imageUploadComplete=(action "imageUploadComplete")
+    imageUploadFailed=(action "imageUploadFailed")}}
+</div>

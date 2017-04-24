@@ -29,11 +29,14 @@ AppRouter.map(function() {
     this.route('all-posts');
     this.route('create-post');
     this.route('edit-post', { path: '/post/:post_id/edit' });
-    // this.route('bulk-tag-wods');
 
     this.route('wods', function() {
       this.route('new');
       this.route('edit', { path: '/:wod_id/edit' });
+    });
+    this.route('bootcamp', function() {
+      this.route('new');
+      this.route('edit', { path: '/:bootcamp_id/edit' });
     });
   });
 
