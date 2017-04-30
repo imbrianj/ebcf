@@ -1,12 +1,13 @@
 /* jshint node: true */
-'use strict';
+'use strict'
 
 module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'ebcf',
     environment,
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
+
     contentSecurityPolicy: {
       'style-src': "'self' 'unsafe-inline' https://*.googleapis.com",
       'script-src': "'self' 'unsafe-eval' https://*.googleapis.com https://*.gstatic.com",
@@ -15,11 +16,16 @@ module.exports = function(environment) {
       'font-src': "'self' data: https://fonts.gstatic.com/s/ https://*.gstatic.com",
       'media-src': "'self' https://s3-us-west-2.amazonaws.com/ebcftest/assets/ https://s3-us-west-2.amazonaws.com/ebcf/assets/",
     },
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
       },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false
+      }
     },
 
     APP: {
@@ -47,7 +53,6 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
     ENV.locationType = 'none';
 
     // keep test console output quieter
@@ -55,6 +60,10 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+  }
+
+  if (environment === 'production') {
+
   }
 
   return ENV;
