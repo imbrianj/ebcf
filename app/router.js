@@ -15,11 +15,18 @@ AppRouter.map(function() {
   this.route('schedule');
   this.route('pricing');
 
-  this.route('wods');
+  this.route('wods', function() {
+    this.route('wod', { path: '/:wod_id' });
+  });
+
   this.route('wod', { path: '/wod/:wod_id' });
 
   this.route('news');
   this.route('post', { path: '/post/:post_id' });
+
+  this.route('bootcamp', function() {
+    this.route('wod', { path: '/:bootcamp_id' });
+  });
 
   this.route('admin', function() {
     this.route('callouts');
@@ -33,6 +40,7 @@ AppRouter.map(function() {
     this.route('wods', function() {
       this.route('new');
       this.route('edit', { path: '/:wod_id/edit' });
+      this.route('wod');
     });
     this.route('bootcamp', function() {
       this.route('new');

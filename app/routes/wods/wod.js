@@ -7,9 +7,6 @@ const {
 } = Ember;
 
 export default Route.extend({
-  redirect() {
-    this.replaceWith('wods.wod');
-  },
   model(params) {
     return this.store.find('wod', params.wod_id);
   },
