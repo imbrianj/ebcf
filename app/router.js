@@ -1,13 +1,12 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-const { Router } = Ember;
-
-const AppRouter = Router.extend({
+const Router = Ember.Router.extend({
   location: config.locationType,
+  rootURL: config.rootURL
 });
 
-AppRouter.map(function() {
+Router.map(function() {
   this.route('about');
   this.route('coaches');
   this.route('contact');
@@ -39,4 +38,4 @@ AppRouter.map(function() {
   this.route('error', { path: '*path' });
 });
 
-export default AppRouter;
+export default Router;
