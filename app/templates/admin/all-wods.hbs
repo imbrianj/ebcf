@@ -6,7 +6,7 @@
       </div>
 
       <div>to</div>
-      
+
       <div class="ui input">
         {{input type="date" value=toDate}}
       </div>
@@ -71,7 +71,9 @@
           </td>
 
           <td>
-            <a href="admin/wod/{{wod.id}}/edit">Edit</a>
+            {{#link-to 'admin.edit-wod' wod class="read-more"}}
+              Edit
+            {{/link-to}}
           </td>
         </tr>
       {{/each}}

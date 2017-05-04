@@ -46,7 +46,9 @@
             </td>
 
             <td>
-              <a href="admin/post/{{post.id}}/edit">Edit</a>
+              {{#link-to 'admin.edit-post' post class="read-more"}}
+                Edit
+              {{/link-to}}
             </td>
           </tr>
       {{/each}}
