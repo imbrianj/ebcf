@@ -4,7 +4,6 @@ const {
   set,
   $,
   Route,
-  RSVP,
 } = Ember;
 
 export default Route.extend({
@@ -16,35 +15,11 @@ export default Route.extend({
     $('#footer-menu').show();
   },
 
-  queryParams: {
-    tag: {
-      replace: true,
-      refreshModel: true,
-    },
-    date: {
-      replace: true,
-      refreshModel: true,
-    },
-  },
-
-  model() {
-    return RSVP.hash({
-      tags: this.store.findAll('tag'),
-    });
-  },
-
   beforeModel() {
     window.scrollTo(0, 0);
 
     this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
     this.controllerFor('application').set('titleImage', 'wods');
-  },
-
-  setupController(controller, model) {
-    controller.set('wods', model.wods);
-    controller.set('tags', model.tags);
-
-    this.controllerFor('wods').get('_wodsTask').perform();
   },
 
   afterModel(model) {
