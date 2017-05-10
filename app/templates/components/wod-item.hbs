@@ -1,7 +1,7 @@
 <article class="ui two column mobile reversed stackable grid page-grid">
 
   <div class="column">
-    <div class="image-container {{if isWodsRoute "small"}}">
+    <div class="image-container {{if route "small"}}">
       <a href={{if wod.image wod.image}}>
         {{async-image
           class="wod-image"
@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    {{#unless isWodsRoute}}
+    {{#unless route}}
       {{#each wod.tags as |tag|}}
         {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
           <div class="visible content">
@@ -26,8 +26,8 @@
   </div>
 
   <div class="sixteen wide mobile only right aligned column">
-    {{#if isWodsRoute}}
-      {{#link-to 'wods.wod' wod.id class="read-more"}}
+    {{#if route}}
+      {{#link-to (concat route '.wod') wod.id class="read-more"}}
         Read More
         <i class="chevron right icon"></i>
       {{/link-to}}
@@ -35,8 +35,8 @@
   </div>
 
   <div class="column">
-    {{#unless isWodsRoute}}
-      {{#link-to 'wods' class="read-more"}}
+    {{#unless route}}
+      {{#link-to route class="read-more"}}
         <i class="chevron left icon"></i>
         Back
       {{/link-to}}
@@ -54,9 +54,9 @@
     {{/if}}
   </div>
 
-  {{#if isWodsRoute}}
+  {{#if route}}
     <div class="sixteen wide computer only tablet only right aligned column">
-      {{#link-to 'wods.wod' wod.id class="read-more"}}
+      {{#link-to (concat route '.wod') wod.id class="read-more"}}
         Read More
         <i class="chevron right icon"></i>
       {{/link-to}}
@@ -64,7 +64,7 @@
   {{/if}}
 </article>
 
-{{#unless isWodsRoute}}
+{{#unless route}}
   {{#if wod.description}}
 
     <hr>

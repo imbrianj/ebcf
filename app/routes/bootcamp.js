@@ -16,23 +16,6 @@ export default Route.extend({
     $('#footer-menu').show();
   },
 
-  queryParams: {
-    tag: {
-      replace: true,
-      refreshModel: true,
-    },
-    date: {
-      replace: true,
-      refreshModel: true,
-    },
-  },
-
-  model() {
-    return RSVP.hash({
-      tags: this.store.findAll('tag'),
-    });
-  },
-
   beforeModel() {
     window.scrollTo(0, 0);
 
@@ -40,15 +23,7 @@ export default Route.extend({
     this.controllerFor('application').set('titleImage', 'wods');
   },
 
-  setupController(controller, model) {
-    // controller.set('wods', model.wods);
-    controller.set('tags', model.tags);
-
-    this.controllerFor('bootcamp').get('_wodsTask').perform();
-  },
-
   afterModel(model) {
-    // $('#footer-menu').hide();
     this.setHeadTags(model);
   },
 

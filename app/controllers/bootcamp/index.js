@@ -42,7 +42,7 @@ export default Controller.extend(InfiniteScrollMixin, {
       const selectedTag = get(this, 'selectedTag');
       set(this, 'dateDepth', 0);
       set(this, 'loadingMore', false);
-      return yield get(selectedTag, 'bootcamps');
+      return yield get(selectedTag, 'wods');
     } else if (isPresent(date)) {
       let day = window.moment(date).utc().startOf('day').toISOString();
       set(this, 'dateDepth', 0);
