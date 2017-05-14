@@ -28,9 +28,9 @@
         <th class="ui center aligned header">Enabled</th>
         <th class="ui center aligned header">Date</th>
         <th class="ui center aligned header">Publish Date (PACIFIC)</th>
-        {{#unless isForBootcamp}}
+        {{#if (eq type 'wod')}}
           <th class="ui center aligned header">Strength/Skill</th>
-        {{/unless}}
+        {{/if}}
         <th class="ui center aligned header">Conditioning</th>
         <th class="ui center aligned header">Edit</th>
       </tr>
@@ -64,11 +64,11 @@
             {{wod.prettyPublishDate}}
           </td>
 
-          {{#unless isForBootcamp}}
+          {{#if (eq type 'wod')}}
             <td>
               {{wod.strength}}
             </td>
-          {{/unless}}
+          {{/if}}
 
           <td>
             {{wod.conditioning}}

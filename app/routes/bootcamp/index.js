@@ -23,7 +23,7 @@ export default Route.extend({
 
   model() {
     return RSVP.hash({
-      tags: this.store.findAll('tag'),
+      tags: this.store.findAll('bootcamp-tag'),
     });
   },
 

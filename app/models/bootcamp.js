@@ -21,7 +21,7 @@ export default Model.extend({
   image: attr('string'),
   conditioning: attr('string'),
 
-  // tags: hasMany('tag', { async: true }),
+  tags: hasMany('bootcamp-tag', { async: true }),
 
   prettyDate: computed('date', function() {
     return window.moment(this.get('date')).utc().format('ddd MM.DD.YYYY').toUpperCase();

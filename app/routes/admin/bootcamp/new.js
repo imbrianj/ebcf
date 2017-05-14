@@ -13,7 +13,7 @@ export default Route.extend({
 
     return RSVP.hash({
       bootcamp,
-      allTags: this.store.findAll('tag'),
+      allTags: this.store.findAll('bootcamp-tag'),
     });
   },
 
@@ -35,10 +35,10 @@ export default Route.extend({
       set(bootcamp, 'publishDate', publishDate);
 
       bootcamp.save().then((bootcamp) => {
-        // let tags = get(bootcamp, 'tags');
-        // tags.forEach((tag) => {
-        //   tag.save();
-        // });
+        let tags = get(bootcamp, 'tags');
+        tags.forEach((tag) => {
+          tag.save();
+        });
         this.transitionTo('admin.bootcamp');
       });
     },

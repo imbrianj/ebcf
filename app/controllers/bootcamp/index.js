@@ -79,9 +79,9 @@ export default Controller.extend(InfiniteScrollMixin, {
     let res = '';
 
     if (numberOfWods === 1) {
-      res =  `${numberOfWods} Wod Found for`;
+      res =  `${numberOfWods} Wod Found for `;
     } else {
-      res = `${numberOfWods} Wods Found for`;
+      res = `${numberOfWods} Wods Found for `;
     }
 
     let tag = get(this, 'tag');

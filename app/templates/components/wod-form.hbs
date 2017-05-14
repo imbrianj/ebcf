@@ -87,10 +87,10 @@
       </div>
     </div>
 
-    {{#unless isForBootcamp}}
+    {{#if (eq type 'wod')}}
       <div class="ui medium header">Strength/Skill</div>
       {{textarea rows="10" value=wod.strength placeholder=wod.strength}}
-    {{/unless}}
+    {{/if}}
 
     <div class="ui medium header">Conditioning</div>
     {{textarea rows="10" value=wod.conditioning placeholder=wod.conditioning}}
@@ -98,7 +98,7 @@
   </div>
 
   <div class="sixteen wide column">
-    {{#unless isForBootcamp}}
+    {{#if (eq type 'wod')}}
       <div class="ui medium header">About This WOD</div>
       {{textarea rows="7" value=wod.description placeholder=wod.description}}
 
@@ -108,7 +108,7 @@
           {{input type="text" value=wod.videoId placeholder=wod.videoId}}
         </div>
       </div>
-    {{/unless}}
+    {{/if}}
 
     <button class="ui primary large button update-button"{{action "saveWod"}}>Save WOD</button>
   </div>
