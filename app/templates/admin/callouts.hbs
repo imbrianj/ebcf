@@ -33,7 +33,9 @@
             {{callout.prettyEndDate}}
           </td>
           <td>
-            <a href="admin/callout/{{callout.id}}/edit">Edit</a>
+            {{#link-to 'admin.edit-callout' callout.id class="read-more"}}
+              Edit
+            {{/link-to}}
           </td>
         </tr>
       {{/each}}
