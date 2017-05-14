@@ -1,0 +1,12 @@
+{{title "Workout of the Day for " model.prettyDate}}
+
+<div class="ui container">
+  {{wod-item
+    isOnWodRoute=true
+    route="bootcamp"
+    wod=model}}
+</div>
+
+{{#unless model.active}}
+  {{password-modal}}
+{{/unless}}

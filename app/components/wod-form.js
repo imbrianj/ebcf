@@ -34,9 +34,17 @@ export default Component.extend({
   _createNewTag(value) {
     let store = get(this, 'store');
 
-    let newTag = store.createRecord('tag', {
-      value,
-    });
+    let newTag = {};
+
+    if (get(this, 'type') === 'wod') {
+      newTag = store.createRecord('tag', {
+        value,
+      });
+    } else {
+      newTag = store.createRecord('bootcamp-tag', {
+        value,
+      });
+    }
 
     return newTag.save()
       .then((tag) => {

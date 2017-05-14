@@ -1,10 +1,18 @@
-<div class="ui six item menu admin-menu">
-  {{#link-to "admin.all-wods" class="item"}}
-    <a href={{view.href}}>All WODs</a>
+<div class="ui eight item menu admin-menu">
+  {{#link-to "admin.wods" class="item"}}
+    <a href={{view.href}}>WODs</a>
   {{/link-to}}
 
-  {{#link-to "admin.create-wod" class="item"}}
+  {{#link-to "admin.wods.new" class="item"}}
     <a href={{view.href}}>Create WOD</a>
+  {{/link-to}}
+
+  {{#link-to "admin.bootcamp" class="item"}}
+    <a href={{view.href}}>All Boot Camp WODs</a>
+  {{/link-to}}
+
+  {{#link-to "admin.bootcamp.new" class="item"}}
+    <a href={{view.href}}>Create Boot Camp WOD</a>
   {{/link-to}}
 
   {{#link-to "admin.callouts" class="item"}}

@@ -1,51 +1,44 @@
 import Ember from 'ember';
 
 const {
+  get,
   set,
-  $,
   Route,
 } = Ember;
 
 export default Route.extend({
-  activate() {
-    $('#footer-menu').hide();
-  },
-
-  deactivate() {
-    $('#footer-menu').show();
+  model(params) {
+    return this.store.find('bootcamp', params.bootcamp_id);
   },
 
   beforeModel() {
-    window.scrollTo(0, 0);
-
-    this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
     this.controllerFor('application').set('titleImage', 'wods');
+    this.controllerFor('application').set('titleHeader', 'BOOTCAMP');
   },
 
   afterModel(model) {
-    $('#footer-menu').hide();
     this.setHeadTags(model);
   },
 
-  setHeadTags() {
+  setHeadTags(model) {
     let headTags = [
       {
         type: 'meta',
-        tagId: 'meta-description-tag-wods',
+        tagId: 'meta-description-tag-bootcamp',
         attrs: {
           name: 'title',
-          content: 'Workouts of the Day',
+          content: `Bootcamp workout for ${get(model, 'prettyDate')}`,
         },
       }, {
         type: 'meta',
-        tagId: 'meta-title-tag-wods',
+        tagId: 'meta-title-tag-bootcamp',
         attrs: {
           name: 'description',
-          content: 'Elliott Bay CrossFit Workout Archive',
+          content: get(model, 'shortDescription'),
         },
       }, {
         type: 'meta',
-        tagId: 'prerender-status-code-wods',
+        tagId: 'prerender-status-code-bootcamp',
         attrs: {
           name: 'prerender-status-code',
           content: '200',

@@ -1,0 +1,69 @@
+<div class="ui container">
+  <div class="ui stackable two column grid page-grid">
+
+    <div class="three wide right aligned mobile only column">
+      {{#ui-accordion}}
+        <div class="title">
+          <i class="big search icon"></i>
+        </div>
+        <div class="content">
+          {{wod-search
+            tags=tags
+            tag=tag
+            date=date
+            tagEntered=(action "tagEntered")
+            clearSearch=(action "clearSearch")}}
+        </div>
+      {{/ui-accordion}}
+    </div>
+
+
+    <div class="row">
+      <h4 class="ui header wods-found">
+        {{#if (and searching dataIsFulfilled)}}
+          {{wodsFound}}
+        {{else}}
+          <br>
+        {{/if}}
+      </h4>
+    </div>
+
+    <div class="twelve wide column wod-list">
+      {{#each sortedWods as |wod|}}
+        {{wod-item
+          isOnWodRoute=false
+          route="bootcamp"
+          wod=wod}}
+        <hr>
+      {{/each}}
+
+      {{#if (and dataIsPending (not loadingMore))}}
+        <div class="ui active inverted dimmer">
+          <div class="ui large text loader wod-loader">Loading</div>
+        </div>
+      {{/if}}
+
+      <br>
+
+      {{#if (eq count sortedWods.count)}}
+        {{#if loadingMore}}
+          <div class="ui active centered inline loader"></div>
+        {{/if}}
+      {{/if}}
+    </div>
+
+    <div id="search" class="search four wide computer only column">
+      {{wod-search
+        tags=tags
+        selectedTag=selectedTag
+        date=date
+        tagEntered=(action "tagEntered")
+        clearSearch=(action "clearSearch")}}
+    </div>
+
+  </div>
+
+  <button id="back-to-top" class="circular ui icon button" {{action 'backToTop'}}>
+    <i class="icon chevron up"></i>
+  </button>
+</div>

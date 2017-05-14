@@ -1,7 +1,7 @@
 <article class="ui two column mobile reversed stackable grid page-grid">
 
   <div class="column">
-    <div class="image-container {{if isWodsRoute "small"}}">
+    <div class="image-container {{if route "small"}}">
       <a href={{if wod.image wod.image}}>
         {{async-image
           class="wod-image"
@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    {{#unless isWodsRoute}}
+    {{#if isOnWodRoute}}
       {{#each wod.tags as |tag|}}
         {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
           <div class="visible content">
@@ -22,25 +22,25 @@
           </div>
         {{/link-to}}
       {{/each}}
-    {{/unless}}
-  </div>
-
-  <div class="sixteen wide mobile only right aligned column">
-    {{#if isWodsRoute}}
-      {{#link-to 'wod' wod class="read-more"}}
-        Read More
-        <i class="chevron right icon"></i>
-      {{/link-to}}
     {{/if}}
   </div>
 
+  <div class="sixteen wide mobile only right aligned column">
+    {{#unless isOnWodRoute}}
+      {{#link-to (concat route '.wod') wod.id class="read-more"}}
+        Read More
+        <i class="chevron right icon"></i>
+      {{/link-to}}
+    {{/unless}}
+  </div>
+
   <div class="column">
-    {{#unless isWodsRoute}}
-      {{#link-to 'wods' class="read-more"}}
+    {{#if isOnWodRoute}}
+      {{#link-to route class="read-more"}}
         <i class="chevron left icon"></i>
         Back
       {{/link-to}}
-    {{/unless}}
+    {{/if}}
     <div class="ui huge header">{{wod.prettyDate}}</div>
 
     {{#if wod.strength}}
@@ -54,17 +54,17 @@
     {{/if}}
   </div>
 
-  {{#if isWodsRoute}}
+  {{#unless isOnWodRoute}}
     <div class="sixteen wide computer only tablet only right aligned column">
-      {{#link-to 'wod' wod class="read-more"}}
+      {{#link-to (concat route '.wod') wod.id class="read-more"}}
         Read More
         <i class="chevron right icon"></i>
       {{/link-to}}
     </div>
-  {{/if}}
+  {{/unless}}
 </article>
 
-{{#unless isWodsRoute}}
+{{#if isOnWodRoute}}
   {{#if wod.description}}
 
     <hr>
@@ -83,4 +83,4 @@
       {{/if}}
     </div>
   {{/if}}
-{{/unless}}
+{{/if}}

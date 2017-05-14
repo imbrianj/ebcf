@@ -13,7 +13,6 @@ export default Route.extend({
       wod: this.store.find('wod', params.wod_id),
       allTags: this.store.findAll('tag'),
     });
-
   },
 
   setupController(controller, model) {
@@ -38,7 +37,7 @@ export default Route.extend({
         tags.forEach((tag) => {
           tag.save();
         });
-        this.transitionTo('admin.all-wods');
+        this.transitionTo('admin.wods');
       });
     },
   },

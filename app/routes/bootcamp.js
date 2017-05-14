@@ -4,6 +4,7 @@ const {
   set,
   $,
   Route,
+  RSVP,
 } = Ember;
 
 export default Route.extend({
@@ -18,12 +19,11 @@ export default Route.extend({
   beforeModel() {
     window.scrollTo(0, 0);
 
-    this.controllerFor('application').set('titleHeader', 'WOD ARCHIVE');
+    this.controllerFor('application').set('titleHeader', 'BOOT CAMP');
     this.controllerFor('application').set('titleImage', 'wods');
   },
 
   afterModel(model) {
-    $('#footer-menu').hide();
     this.setHeadTags(model);
   },
 
@@ -31,17 +31,17 @@ export default Route.extend({
     let headTags = [
       {
         type: 'meta',
-        tagId: 'meta-description-tag-wods',
+        tagId: 'meta-description-tag-bootcamp',
         attrs: {
           name: 'title',
-          content: 'Workouts of the Day',
+          content: 'Boot Camp',
         },
       }, {
         type: 'meta',
-        tagId: 'meta-title-tag-wods',
+        tagId: 'meta-title-tag-bootcamp',
         attrs: {
           name: 'description',
-          content: 'Elliott Bay CrossFit Workout Archive',
+          content: 'Elliott Bay CrossFit Boot Camp',
         },
       }, {
         type: 'meta',

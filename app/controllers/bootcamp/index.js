@@ -47,7 +47,7 @@ export default Controller.extend(InfiniteScrollMixin, {
       let day = window.moment(date).utc().startOf('day').toISOString();
       set(this, 'dateDepth', 0);
       set(this, 'loadingMore', false);
-      return yield this.store.query('wod', {
+      return yield this.store.query('bootcamp', {
         filter: {
           simple: {
             date: day,
@@ -60,7 +60,7 @@ export default Controller.extend(InfiniteScrollMixin, {
       const weeksAgo = window.moment().day(-7 * dateDepth).toDate();
       set(this, 'dateDepth', dateDepth);
 
-      return yield this.store.query('wod', {
+      return yield this.store.query('bootcamp', {
         filter: {
           simple: {
             publishDate: {
@@ -79,9 +79,9 @@ export default Controller.extend(InfiniteScrollMixin, {
     let res = '';
 
     if (numberOfWods === 1) {
-      res =  `${numberOfWods} Wod Found for`;
+      res =  `${numberOfWods} Wod Found for `;
     } else {
-      res = `${numberOfWods} Wods Found for`;
+      res = `${numberOfWods} Wods Found for `;
     }
 
     let tag = get(this, 'tag');
@@ -96,7 +96,7 @@ export default Controller.extend(InfiniteScrollMixin, {
   }),
 
   _getWodsOlderThan(weeksAgo) {
-    return this.store.query('wod', {
+    return this.store.query('bootcamp', {
       filter: {
         simple: {
           publishDate: {
