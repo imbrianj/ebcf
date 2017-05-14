@@ -11,7 +11,7 @@
       </a>
     </div>
 
-    {{#unless route}}
+    {{#if isOnWodRoute}}
       {{#each wod.tags as |tag|}}
         {{#link-to 'wods' (query-params tag=tag.value date=null) class="ui animated button tag-button"}}
           <div class="visible content">
@@ -22,25 +22,25 @@
           </div>
         {{/link-to}}
       {{/each}}
-    {{/unless}}
+    {{/if}}
   </div>
 
   <div class="sixteen wide mobile only right aligned column">
-    {{#if route}}
+    {{#unless isOnWodRoute}}
       {{#link-to (concat route '.wod') wod.id class="read-more"}}
         Read More
         <i class="chevron right icon"></i>
       {{/link-to}}
-    {{/if}}
+    {{/unless}}
   </div>
 
   <div class="column">
-    {{#unless route}}
+    {{#if isOnWodRoute}}
       {{#link-to route class="read-more"}}
         <i class="chevron left icon"></i>
         Back
       {{/link-to}}
-    {{/unless}}
+    {{/if}}
     <div class="ui huge header">{{wod.prettyDate}}</div>
 
     {{#if wod.strength}}
@@ -54,17 +54,17 @@
     {{/if}}
   </div>
 
-  {{#if route}}
+  {{#unless isOnWodRoute}}
     <div class="sixteen wide computer only tablet only right aligned column">
       {{#link-to (concat route '.wod') wod.id class="read-more"}}
         Read More
         <i class="chevron right icon"></i>
       {{/link-to}}
     </div>
-  {{/if}}
+  {{/unless}}
 </article>
 
-{{#unless route}}
+{{#if isOnWodRoute}}
   {{#if wod.description}}
 
     <hr>
@@ -83,4 +83,4 @@
       {{/if}}
     </div>
   {{/if}}
-{{/unless}}
+{{/if}}

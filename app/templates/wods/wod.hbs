@@ -1,9 +1,12 @@
 {{title "Workout of the Day for " model.prettyDate}}
 
 <div class="ui container">
-  {{wod-item wod=model}}
+  {{wod-item
+    isOnWodRoute=true
+    route="wods"
+    wod=model}}
 </div>
 
-{{#unless model.enabled}}
+{{#unless model.active}}
   {{password-modal}}
 {{/unless}}
