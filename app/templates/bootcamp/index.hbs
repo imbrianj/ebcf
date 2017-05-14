@@ -44,8 +44,10 @@
 
       <br>
 
-      {{#if loadingMore}}
-        <div class="ui active centered inline loader"></div>
+      {{#if (eq count sortedWods.count)}}
+        {{#if loadingMore}}
+          <div class="ui active centered inline loader"></div>
+        {{/if}}
       {{/if}}
     </div>
 
