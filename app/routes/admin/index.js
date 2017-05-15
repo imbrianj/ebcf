@@ -6,6 +6,6 @@ const {
 
 export default Route.extend({
   redirect() {
-    this.transitionTo('admin.all-wods');
+    this.transitionTo('admin.wods');
   },
 });

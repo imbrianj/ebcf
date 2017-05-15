@@ -39,7 +39,7 @@ export default Route.extend({
         tags.forEach((tag) => {
           tag.save();
         });
-        this.transitionTo('admin.all-wods');
+        this.transitionTo('admin.wods');
       });
     },
   },

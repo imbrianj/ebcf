@@ -6,12 +6,12 @@
       </div>
 
       <div>to</div>
-      
+
       <div class="ui input">
         {{input type="date" value=toDate}}
       </div>
 
-      <div class="ui large primary icon button filter" {{action "filterDate"}}>
+      <div class="ui large primary icon button filter" {{action filterDate}}>
         Filter
       </div>
     </div>
@@ -28,16 +28,18 @@
         <th class="ui center aligned header">Enabled</th>
         <th class="ui center aligned header">Date</th>
         <th class="ui center aligned header">Publish Date (PACIFIC)</th>
-        <th class="ui center aligned header">Strength/Skill</th>
+        {{#if (eq type 'wod')}}
+          <th class="ui center aligned header">Strength/Skill</th>
+        {{/if}}
         <th class="ui center aligned header">Conditioning</th>
         <th class="ui center aligned header">Edit</th>
       </tr>
     </thead>
     <tbody>
-      {{#each sortedWods as |wod|}}
+      {{#each wods as |wod|}}
         <tr class="{{if wod.active "positive"}}">
           <td class="center aligned">
-              <i class="icon {{if wod.active "checkmark" "close"}}"></i>
+            <i class="icon {{if wod.active "checkmark" "close"}}"></i>
           </td>
 
           <td>
@@ -45,7 +47,7 @@
           </td>
 
           <td>
-            {{#link-to 'wod' wod class="read-more"}}
+            {{#link-to (concat modelType '.wod') wod.id class="read-more"}}
               {{wod.id}}
             {{/link-to}}
           </td>
@@ -62,16 +64,20 @@
             {{wod.prettyPublishDate}}
           </td>
 
-          <td>
-            {{wod.strength}}
-          </td>
+          {{#if (eq type 'wod')}}
+            <td>
+              {{wod.strength}}
+            </td>
+          {{/if}}
 
           <td>
             {{wod.conditioning}}
           </td>
 
           <td>
-            <a href="admin/wod/{{wod.id}}/edit">Edit</a>
+            {{#link-to (concat 'admin.' modelType '.edit') wod.id class="read-more"}}
+              Edit
+            {{/link-to}}
           </td>
         </tr>
       {{/each}}
