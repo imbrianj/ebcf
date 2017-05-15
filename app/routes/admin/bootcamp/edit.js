@@ -11,7 +11,7 @@ export default Route.extend({
   model(params) {
     return RSVP.hash({
       bootcamp: this.store.find('bootcamp', params.bootcamp_id),
-      allTags: this.store.findAll('tag'),
+      allTags: this.store.findAll('bootcamp-tag'),
     });
   },
 
