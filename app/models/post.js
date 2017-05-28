@@ -35,6 +35,6 @@ export default Model.extend({
     return (window.moment(this.get('publishDate')) < window.moment()) && this.get('enabled');
   }),
   trunckatedContent: computed('content',  function() {
-    return `${this.get('content').substring(0, 400)}...`;
+    return `${this.get('content').substring(0, 800)}...`;
   }),
 });

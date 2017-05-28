@@ -2,6 +2,7 @@
   display: flex
 
   .sidebar
+    margin-top: 24px
 
     .content
       border-left: 1px solid #e0e1e2
@@ -17,11 +18,12 @@
 
         h2
           color: #F94725
-          font-family: 'Open Sans', sans-serif
+          font-family: 'Montserrat', sans-serif
           font-weight: 300
 
         .recent-post
           padding-bottom: 24px
+          font-family: 'Montserrat', sans-serif
 
           a
             font-size: 15px
@@ -32,21 +34,40 @@
           color: #333 !important
 
 .post
+  margin-bottom: 48px
+  margin-top: 24px
 
-  .image
-    height: 480px
-    overflow: hidden
-    margin-bottom: 24px
+  @media screen and (max-width: 600px)
+    .image
+      overflow: hidden
+      margin-bottom: 24px
+      width: auto
+      height: 250px
 
-    img
-      // border-top-left-radius: 5px
-      // border-top-right-radius: 5px
-      width: 100%
-      position: relative
-      left: 50%
-      top: 50%
-      transform: translateY(-50%) translateX(-50%)
-      -webkit-transform: translateY(-50%) translateX(-50%)
+      img
+        width: 100%
+        height: auto
+        position: relative
+        left: 50%
+        top: 50%
+        transform: translateY(-50%) translateX(-50%)
+        -webkit-transform: translateY(-50%) translateX(-50%)
+
+  @media screen and (min-width: 600px)
+    .image
+      overflow: hidden
+      margin-bottom: 24px
+      width: auto
+      height: 480px
+
+      img
+        width: 100%
+        height: auto
+        position: relative
+        left: 50%
+        top: 50%
+        transform: translateY(-50%) translateX(-50%)
+        -webkit-transform: translateY(-50%) translateX(-50%)
 
   .post-title
     a
@@ -93,18 +114,34 @@
 
   .post-content
 
-    .image
-      // height: 480px
-      overflow: hidden
-      margin-bottom: 24px
-      width: auto
-      height: 480px
+    @media screen and (max-width: 600px)
+      .image
+        overflow: hidden
+        margin-bottom: 24px
+        width: auto
+        height: 250px
 
-      img
-        width: 100%
-        height: auto
-        position: relative
-        left: 50%
-        top: 50%
-        transform: translateY(-50%) translateX(-50%)
-        -webkit-transform: translateY(-50%) translateX(-50%)
+        img
+          width: 100%
+          height: auto
+          position: relative
+          left: 50%
+          top: 50%
+          transform: translateY(-50%) translateX(-50%)
+          -webkit-transform: translateY(-50%) translateX(-50%)
+
+    @media screen and (min-width: 600px)
+      .image
+        overflow: hidden
+        margin-bottom: 24px
+        width: auto
+        height: 480px
+
+        img
+          width: 100%
+          height: auto
+          position: relative
+          left: 50%
+          top: 50%
+          transform: translateY(-50%) translateX(-50%)
+          -webkit-transform: translateY(-50%) translateX(-50%)
