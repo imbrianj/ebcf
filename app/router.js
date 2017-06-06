@@ -4,12 +4,16 @@ import config from './config/environment';
 const {
   get,
   run,
+  inject: {
+    service,
+  },
   Router,
 } = Ember;
 
 const AppRouter = Router.extend({
   location: config.locationType,
   rootURL: config.rootURL,
+  metrics: service(),
 
   didTransition() {
     this._super(...arguments);
