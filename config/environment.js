@@ -35,6 +35,16 @@ module.exports = function(environment) {
     moment: {
       includeTimezone: 'all',
     },
+
+    metricsAdapters: [
+      {
+        name: 'FacebookPixel',
+        environments: ['production'],
+        config: {
+          id: '254527551618257',
+        },
+      },
+    ],
   };
 
   ENV['g-map'] = {
