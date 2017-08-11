@@ -1,6 +1,6 @@
 {{#if post.bannerImage}}
   <div class="banner-image">
-    <img  class="post-image" src={{post.bannerImage}}>
+    <img  class="centered post-image" src={{post.bannerImage}}>
   </div>
 {{/if}}
 
@@ -10,11 +10,11 @@
 </div>
 
 <div class="post-content">
+  <p class="pre large">{{{post.content}}}</p>
+
   {{#if post.contentImage}}
-    <div class="image">
-      <img class="ui large right floated image post-image" src={{post.contentImage}}>
+    <div class="">
+      <img class="ui large centered image" src={{post.contentImage}}>
     </div>
   {{/if}}
-
-  <p class="pre large">{{{post.content}}}</p>
 </div>
