@@ -26,7 +26,7 @@ export default {
 
     'single-drop-in': {
       price: '$20 + tax',
-      description: 'If you’re visiting from another CrossFit gym, your first class is $20 or you can buy an EBCF shirt of your choosing. Each subsequent class is an additional $20. Please bring a credit card for payment if possible.',
+      description: 'If you’re visiting from another CrossFit gym, we charge $20 per class. Please bring a credit card for payment if possible.',
     },
 
     'week-long-drop-in': {
