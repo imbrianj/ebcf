@@ -3,11 +3,7 @@
 <div class="ui center aligned four column stackable very relaxed grid container pricing page-grid">
   <div class="fourteen wide column">
     <p class="large">
-      We try to keep our memberships simple. We charge month to month, with no long-term commitments required.
-      You can cancel at anytime directly through Front Desk or by contacting us at info@elliottbaycrossfit.com.
-      If you find yourself traveling frequently or otherwise occupied, and you need to suspend your membership for a time, just let us know and we’d be happy to take care of it for you.
-      You may also want to consider our Punch Card option.
-      Finally, we provide a 10% discount to members of the same family and to LEO/Mil/Fire personnel.
+      {{t 'pricing.intro'}}
     </p>
   </div>
 
@@ -21,11 +17,10 @@
           <h1 class="ui primary header">ON-RAMP</h1>
         </div>
         <div class="row">
-          <h2>$125 + tax</h2>
+          <h2>{{t 'pricing.on-ramp.price'}}</h2>
         </div>
         <p>
-          On-Ramp is our introductory series of 6 classes over 2 weeks where we get you ready for our regular CrossFit classes.
-          After your two weeks are completed, we encourage you to attend classes for a third week at no additional cost.
+          {{t 'pricing.on-ramp.description'}}
         </p>
       </div>
     </div>
@@ -36,11 +31,10 @@
           <h1 class="ui primary header">UNLIMITED</h1>
         </div>
         <div class="row">
-          <h2>$205 + tax</h2>
+          <h2>{{t 'pricing.unlimited.price'}}</h2>
         </div>
         <p>
-          This is our standard class package.
-          With it you can attend an unlimited amount of regular scheduled classes as well as yoga & olympic lifting.
+          {{t 'pricing.unlimited.description'}}
         </p>
       </div>
     </div>
@@ -51,12 +45,10 @@
           <h1 class="ui primary header">PUNCH CARD</h1>
         </div>
         <div class="row">
-          <h2>$230 + tax</h2>
+          <h2>{{t 'pricing.punch-card.price'}}</h2>
         </div>
         <p>
-          Our Punch Card option is good for 10 classes.
-          Come in any time that fits your schedule.
-          You can also renew when your option runs out.
+          {{t 'pricing.punch-card.description'}}
         </p>
       </div>
     </div>
@@ -68,15 +60,28 @@
     <div class="seven wide tablet four wide computer computer only tablet only column">
       <div class="ui raised segment">
         <div class="row">
+          <h1 class="ui primary header">BOOT CAMP</h1>
+        </div>
+        <div class="row">
+          <h2>{{t 'pricing.boot-camp.price'}}</h2>
+        </div>
+        <p>
+          {{t 'pricing.boot-camp.description'}}
+        </p>
+      </div>
+    </div>
+
+    <div class="seven wide tablet four wide computer computer only tablet only column">
+      <div class="ui raised segment">
+        <div class="row">
           <h1 class="ui primary header">SINGLE DROP-IN</h1>
         </div>
         <div class="row">
-          <h2>$20 + tax</h2>
+          <h2>{{t 'pricing.single-drop-in.price'}}</h2>
         </div>
         <p>
-          If you’re visiting from another CrossFit gym, your first class is $20 or you can buy an EBCF shirt of your choosing.
-          Each subsequent class is an additional $20.
-          Please bring a credit card for payment if possible.
+          {{t 'pricing.single-drop-in.description'}}
+
         </p>
       </div>
     </div>
@@ -87,13 +92,10 @@
           <h1 class="ui primary header">WEEK LONG DROP-IN</h1>
         </div>
         <div class="row">
-          <h2>$85 + tax</h2>
+          <h2>{{t 'pricing.week-long-drop-in.price'}}</h2>
         </div>
         <p>
-          If you would like to drop-in multiple days, we offer two separate week long packages:
-          $85 for 1 week or $105 for 1 week plus a t-shirt.
-          Both packages expire after 1 week.
-          Please bring a credit card for payment if possible.
+          {{t 'pricing.week-long-drop-in.description'}}
         </p>
       </div>
     </div>
@@ -109,11 +111,10 @@
           <h1 class="ui primary header">ON-RAMP</h1>
         </div>
         <div class="row">
-          <h2>$125 + tax</h2>
+          <h2>{{t 'pricing.on-ramp.price'}}</h2>
         </div>
         <p>
-          On-Ramp is our introductory series of 6 classes over 2 weeks where we get you ready for our regular CrossFit classes.
-          After your two weeks are completed, we encourage you to attend classes for a third week at no additional cost.
+          {{t 'pricing.on-ramp.description'}}
         </p>
       </div>
     </div>
@@ -124,11 +125,10 @@
           <h1 class="ui primary header">UNLIMITED</h1>
         </div>
         <div class="row">
-          <h2>$205 + tax</h2>
+          <h2>{{t 'pricing.unlimited.price'}}</h2>
         </div>
         <p>
-          This is our standard class package.
-          With it you can attend an unlimited amount of regular scheduled classes as well as yoga & olympic lifting.
+          {{t 'pricing.unlimited.description'}}
         </p>
       </div>
     </div>
@@ -139,12 +139,24 @@
           <h1 class="ui primary header">PUNCH CARD</h1>
         </div>
         <div class="row">
-          <h2>$230 + tax</h2>
+          <h2>{{t 'pricing.punch-card.price'}}</h2>
         </div>
         <p>
-          Our Punch Card option is good for 10 classes.
-          Come in any time that fits your schedule.
-          You can also renew when your option runs out.
+          {{t 'pricing.punch-card.description'}}
+        </p>
+      </div>
+    </div>
+
+    <div class="mobile only column mobile-pricing">
+      <div class="ui raised segment">
+        <div class="row">
+          <h1 class="ui primary header">BOOT CAMP</h1>
+        </div>
+        <div class="row">
+          <h2>{{t 'pricing.boot-camp.price'}}</h2>
+        </div>
+        <p>
+          {{t 'pricing.boot-camp.description'}}
         </p>
       </div>
     </div>
@@ -155,12 +167,10 @@
           <h1 class="ui primary header">SINGLE DROP-IN</h1>
         </div>
         <div class="row">
-          <h2>$20 + tax</h2>
+          <h2>{{t 'pricing.single-drop-in.price'}}</h2>
         </div>
         <p>
-          If you’re visiting from another CrossFit gym, your first class is $20 or you can buy an EBCF shirt of your choosing.
-          Each subsequent class is an additional $20.
-          Please bring a credit card for payment if possible.
+          {{t 'pricing.single-drop-in.description'}}
         </p>
       </div>
     </div>
@@ -171,13 +181,10 @@
           <h1 class="ui primary header">WEEK LONG DROP-IN</h1>
         </div>
         <div class="row">
-          <h2>$85 + tax</h2>
+          <h2>{{t 'pricing.week-long-drop-in.price'}}</h2>
         </div>
         <p>
-          If you would like to drop-in multiple days, we offer two separate week long packages:
-          $85 for 1 week or $105 for 1 week plus a t-shirt.
-          Both packages expire after 1 week.
-          Please bring a credit card for payment if possible.
+          {{t 'pricing.week-long-drop-in.description'}}
         </p>
       </div>
     </div>
@@ -189,9 +196,7 @@
   <div class="row">
     <div class="fourteen wide column">
       <p class="large">
-        If you are ready to sign up for regular classes you will need to create a new account with our partner, Front Desk.
-        Click the "Get Started" button and click the "New Purchase" under Plans and Passes.
-        From there select a plan or pass and click "add to cart" and then choose "Secure Checkout" and follow the steps.
+        {{t 'pricing.sign-up'}}
       </p>
       <div class="ui header">Sign up with Front Desk</div>
       <a class="ui huge primary button" href="https://elliottbaycrossfit.frontdeskhq.com/people/3047546-rohan-joseph/shop" target="_blank">SIGN UP</a>

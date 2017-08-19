@@ -1,12 +1,32 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-const Router = Ember.Router.extend({
+const {
+  get,
+  run,
+  inject: {
+    service,
+  },
+  Router,
+} = Ember;
+
+const AppRouter = Router.extend({
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+  metrics: service(),
+
+  didTransition() {
+    this._super(...arguments);
+    run.scheduleOnce('afterRender', this, '_trackPage');
+  },
+
+  _trackPage() {
+    const page = get(this, 'url');
+    get(this, 'metrics').trackPage({ page });
+  },
 });
 
-Router.map(function() {
+AppRouter.map(function() {
   this.route('about');
   this.route('coaches');
   this.route('contact');
@@ -53,4 +73,4 @@ Router.map(function() {
   this.route('error', { path: '*path' });
 });
 
-export default Router;
+export default AppRouter;

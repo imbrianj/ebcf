@@ -24,8 +24,8 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
@@ -35,12 +35,26 @@ module.exports = function(environment) {
     moment: {
       includeTimezone: 'all',
     },
+
+    metricsAdapters: [
+      {
+        name: 'FacebookPixel',
+        environments: ['production'],
+        config: {
+          id: '254527551618257',
+        },
+      },
+    ],
   };
 
   ENV['g-map'] = {
     key: 'AIzaSyA5rpm0k1V1fHLU4izXgOs9H7wa2ZS7E7U',
     protocol: 'https',
     draggable: false,
+  };
+
+  ENV.i18n = {
+    defaultLocale: 'en',
   };
 
   if (environment === 'development') {
