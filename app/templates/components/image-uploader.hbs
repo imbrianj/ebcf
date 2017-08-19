@@ -1,21 +1,25 @@
-<div class="image-container {{if imageType "banner"}}">
-  {{#if imageUrl}}
-    <img class="image" src={{imageUrl}}>
-  {{else}}
-    <img class="image" src="/assets/place-holder-image.png">
-  {{/if}}
+<div class="image-container">
+  <div class="{{imageType}}">
+    <div class="image">
+      {{#if imageUrl}}
+      <img class="" src={{imageUrl}}>
+      {{else}}
+      <img class="" src="/assets/place-holder-image.png">
+      {{/if}}
+    </div>
 
-  {{#if uploadError}}
+    {{#if uploadError}}
     <div class="ui negative small message">
       {{error}}
     </div>
-  {{/if}}
+    {{/if}}
+  </div>
 </div>
 
 <div class="controlls">
   <div class="">
-    <label class="ui primary button upload" for={{if imageType imageType "image"}}>Upload Image</label>
-    {{s3-upload id=(if imageType imageType "image") onComplete=(action "imageUploadComplete") onError=(action "imageUploadFailed")}}
+    <label class="ui primary button upload" for={{imageType}}>Upload Image</label>
+    {{s3-upload id=imageType onComplete=(action "imageUploadComplete") onError=(action "imageUploadFailed")}}
   </div>
 
   <div class="ui header uppercase or-divider">
