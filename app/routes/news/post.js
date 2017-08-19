@@ -5,4 +5,7 @@ const {
 } = Ember;
 
 export default Route.extend({
+  model(params) {
+    return this.store.find('post', params.post_id);
+  },
 });

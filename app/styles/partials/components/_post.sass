@@ -1,38 +1,148 @@
+.posts
+  display: flex
+
+  .sidebar
+    margin-top: 24px
+
+    .content
+      border-left: 1px solid #e0e1e2
+      width: 250px
+      padding-left: 24px
+
+      .input
+        width: 100%
+        padding-bottom: 30px
+
+      .recent-posts
+        width: 100%
+
+        h2
+          color: #F94725
+          font-family: 'Montserrat', sans-serif
+          font-weight: 300
+
+        .recent-post
+          padding-bottom: 24px
+          font-family: 'Montserrat', sans-serif
+
+          a
+            font-size: 15px
+            color: #333 !important
+
+        i.facebook, i.instagram
+          font-size: 45px
+          color: #333 !important
+
+.post
+  margin-bottom: 48px
+  margin-top: 24px
+
+  @media screen and (max-width: 600px)
+    .image
+      overflow: hidden
+      margin-bottom: 24px
+      width: auto
+      height: 250px
+
+      img
+        width: 100%
+        height: auto
+        position: relative
+        left: 50%
+        top: 50%
+        transform: translateY(-50%) translateX(-50%)
+        -webkit-transform: translateY(-50%) translateX(-50%)
+
+  @media screen and (min-width: 600px)
+    .image
+      overflow: hidden
+      margin-bottom: 24px
+      width: auto
+      height: 480px
+
+      img
+        width: 100%
+        height: auto
+        position: relative
+        left: 50%
+        top: 50%
+        transform: translateY(-50%) translateX(-50%)
+        -webkit-transform: translateY(-50%) translateX(-50%)
+
+  .post-title
+    a
+      color: #333333
+      font-weight: bold
+      font-size: 30px
+      font-family: 'Montserrat', sans-serif
+      line-height: 33px
+
+  .post-date
+    padding: 10px 0px
+    font-weight: bold
+    color: #F94725
+    font-size: 24px
+
+  .post-description
+    font-family: 'Open Sans',sans-serif
+    font-weight: 300
+    line-height: 30px
+    // max-height: 170px
+    font-size: 18px
+    margin-bottom: 24px
+
+  .read
+    z-index: 1
+    color: #333333
+    font-family: 'Montserrat', sans-serif
+
 .post-item
   width: 100%
 
+  .banner-image
+    @media screen and (max-width: 600px)
+      .image
+        overflow: hidden
+        margin-bottom: 24px
+        width: auto
+        height: 250px
+
+        img
+          width: 100%
+          height: auto
+          position: relative
+          left: 50%
+          top: 50%
+          transform: translateY(-50%) translateX(-50%)
+          -webkit-transform: translateY(-50%) translateX(-50%)
+
+    @media screen and (min-width: 600px)
+      .image
+        overflow: hidden
+        margin-bottom: 24px
+        width: auto
+        height: 480px
+
+        img
+          width: 100%
+          height: auto
+          position: relative
+          left: 50%
+          top: 50%
+          transform: translateY(-50%) translateX(-50%)
+          -webkit-transform: translateY(-50%) translateX(-50%)
   .post-headers
 
     .post-date, .post-title
       margin: 3px !important
 
+    .post-title
+      font-size: 48px
+
+    .post-date
+      padding: 10px 0px
+      color: #F94725
+      font-size: 24px
+
   .post-content
-    display: flex
-    justify-content: space-between
-    padding-top: 20px
-    flex-wrap: wrap
-
-    .content
-      flex: 1 1 600px
-
-  @media screen and (max-width: 600px)
-    .banner-image
-      height: 200px
-      width: auto
-      overflow: hidden
-      position: relative
-
-      .post-image
-        width: 100%
-
-  @media screen and (min-width: 600px)
-    .banner-image
-      width: auto
-      height: 325px
-      overflow: hidden
-      position: relative
-
-      .post-image
-        width: 100%
-        position: absolute
-        top: -50%
+  

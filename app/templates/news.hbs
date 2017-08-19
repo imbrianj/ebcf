@@ -3,19 +3,7 @@
 <br>
 
 <div class="ui container">
-  <div class="ui stackable grid page-grid">
-    {{#if loading}}
-        <div class="ui active inverted dimmer">
-          <div class="ui large text loader wod-loader">Loading</div>
-        </div>
-    {{/if}}
-    {{#each sortedPosts as |post|}}
-      <div class="row">
-        {{post-item post=post}}
-        <br>
-        <hr>
-        <br>
-      </div>
-    {{/each}}
+  <div class="ui stackable two column grid page-grid posts">
+    {{outlet}}
   </div>
 </div>

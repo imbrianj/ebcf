@@ -3,9 +3,12 @@ import Ember from 'ember';
 const {
   $,
   Mixin,
+  K,
 } = Ember;
 
 export default Mixin.create({
+  getOlder: K,
+
   init() {
     this._super(...arguments);
     this.bindScrollHandler();
@@ -16,20 +19,21 @@ export default Mixin.create({
   },
 
   _handleScroll() {
-    if ($(window).scrollTop() > ($(document).height() - $(window).height() - 800)) {
+    let scrollTop = $(window).scrollTop();
+    if (scrollTop > ($(document).height() - $(window).height() - 800)) {
       this.send('getOlder');
     }
 
-    if ($(window).scrollTop() > 100) {
+    if (scrollTop > 100) {
       $('#back-to-top').finish().fadeIn('slow');
     } else {
       $('#back-to-top').finish().fadeOut('slow');
     }
 
-    if ($(window).scrollTop() > 445) {
-      $('.search').addClass('sticky');
+    if (scrollTop > 445) {
+      $('#search').addClass('sticky');
     } else {
-      $('.search').removeClass('sticky');
+      $('#search').removeClass('sticky');
     }
   },
 

@@ -55,6 +55,7 @@
     <div class="ui medium header">Content Image</div>
     {{image-uploader
       imageUrl=contentImage
+      imageType="content"
       imageUploadComplete=(action contentImageUploadComplete)
       imageUploadFailed=(action contentImageUploadFailed)}}
   </div>

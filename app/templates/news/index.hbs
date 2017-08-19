@@ -1,0 +1,102 @@
+<div class="twelve wide column">
+  {{#if loading}}
+    <div class="ui active inverted dimmer">
+      <div class="ui large text loader wod-loader">Loading</div>
+    </div>
+  {{/if}}
+
+  <div class="row">
+    <h4 class="ui header">
+      {{#if searchQuery}}
+        {{postsFound}}
+      {{else}}
+        <br>
+      {{/if}}
+    </h4>
+  </div>
+
+  {{#each sortedPosts as |post|}}
+    <article class="ui one column stackable grid">
+      <div class="post">
+        {{#if post.bannerImage}}
+          <div class="row image">
+            <img src={{post.bannerImage}}>
+          </div>
+        {{else if post.contentImage}}
+          <div class="row image">
+            <img src={{post.contentImage}}>
+          </div>
+        {{/if}}
+
+        <div class="post-title uppercase">
+          {{#link-to 'news.post' post}}
+            {{post.title}}
+          {{/link-to}}
+        </div>
+
+        <div class="row post-date">
+          {{post.prettyDate}}
+        </div>
+
+        <div class="row post-description">
+          {{post.trunckatedContent}}
+        </div>
+
+        <div class="center aligned row">
+          {{#link-to 'news.post' post class="read"}}
+          Read More
+          <i class="chevron right icon"></i>
+          {{/link-to}}
+        </div>
+      </div>
+
+      <hr>
+
+    </article>
+  {{/each}}
+</div>
+
+<div class="sidebar three wide computer only column">
+
+  <div class="content">
+    <!-- For some reason this extra div gives the input the correct styles  -->
+    <div class="ui input">
+      {{input
+        value=searchQuery
+        key-up="filterPosts"
+        placeholder="Search Posts"}}
+    </div>
+
+    {{#if callout}}
+      <div class="recent-posts">
+        <h2>Announcements</h2>
+        <div class="recent-post uppercase title">
+          {{callout.value}}
+        </div>
+      </div>
+    {{/if}}
+
+    <div class="recent-posts">
+      <h2>Recent Posts</h2>
+      {{#each recentPosts as |post|}}
+        <div class="recent-post">
+          {{#link-to 'news.post' post class="uppercase title"}}
+            {{post.title}}
+          {{/link-to}}
+        </div>
+      {{/each}}
+    </div>
+
+    <div class="recent-posts">
+      <h2>Follow Us</h2>
+      <a href="https://www.facebook.com/elliottbaycf" target="_blank">
+        <i class="huge facebook square link icon"></i>
+      </a>
+      <a href="https://www.instagram.com/elliottbaycrossfit/" target="_blank">
+        <i class="huge instagram link icon"></i>
+      </a>
+    </div>
+
+  </div>
+
+</div>

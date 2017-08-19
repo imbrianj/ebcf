@@ -2,23 +2,45 @@
   width: 100%
 
   .image-container
-    height: 350px
-    width: 350px
-    overflow: hidden
+    .content
+      img
+        width: 100%
 
-    .image
+    .banner
       width: 100%
+      height: auto
 
-  .banner
-    height: 350px
-    overflow: hidden
-    width: auto
-    position: relative
+      @media screen and (max-width: 600px)
+        .image
+          overflow: hidden
+          margin-bottom: 24px
+          width: auto
+          height: 250px
 
-    .image
-      width: 100%
-      position: absolute
-      top: -50%
+          img
+            width: 100%
+            height: auto
+            position: relative
+            left: 50%
+            top: 50%
+            transform: translateY(-50%) translateX(-50%)
+            -webkit-transform: translateY(-50%) translateX(-50%)
+
+      @media screen and (min-width: 600px)
+        .image
+          overflow: hidden
+          margin-bottom: 24px
+          width: auto
+          height: 480px
+
+          img
+            width: 100%
+            height: auto
+            position: relative
+            left: 50%
+            top: 50%
+            transform: translateY(-50%) translateX(-50%)
+            -webkit-transform: translateY(-50%) translateX(-50%)
 
   .controlls
     display: flex
