@@ -1,10 +1,19 @@
-
 <div class="twelve wide column">
   {{#if loading}}
     <div class="ui active inverted dimmer">
       <div class="ui large text loader wod-loader">Loading</div>
     </div>
   {{/if}}
+
+  <div class="row">
+    <h4 class="ui header">
+      {{#if searchQuery}}
+        {{postsFound}}
+      {{else}}
+        <br>
+      {{/if}}
+    </h4>
+  </div>
 
   {{#each sortedPosts as |post|}}
     <article class="ui one column stackable grid">

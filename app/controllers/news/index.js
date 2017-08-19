@@ -14,6 +14,16 @@ export default Controller.extend({
   sortedPosts: computed.sort('enabledPosts', 'sortProps'),
   enabledPosts: computed.filterBy('_postTask.lastSuccessful.value', 'enabled', true),
 
+  postsFound: computed('sortedPosts.length', function() {
+    let numberOfPosts = get(this, 'sortedPosts.length');
+    let searchQuery = get(this, 'searchQuery');
+
+    if (numberOfPosts === 1) {
+      return `${numberOfPosts} Post Found for ${searchQuery}`;
+    } else {
+      return `${numberOfPosts} Posts Found for ${searchQuery}`;
+    }
+  }),
   _postTask: task(function* () {
     let searchQuery = get(this, 'searchQuery');
     if (isPresent(searchQuery)) {
