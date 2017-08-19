@@ -14,7 +14,6 @@ export default Component.extend({
   errorText: '',
 
   uploadError: computed.notEmpty('error'),
-  isPlaceholderImage: computed.equal('imageUrl', '/assets/place-holder-image.png'),
 
   actions: {
     imageUploadComplete(url) {
