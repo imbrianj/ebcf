@@ -5,7 +5,7 @@ export default {
     'sign-up': 'If you are ready to sign up for regular classes you will need to create a new account with our partner, Front Desk. Click the "Get Started" button and click the "New Purchase" under Plans and Passes. From there select a plan or pass and click "add to cart" and then choose "Secure Checkout" and follow the steps.',
 
     'on-ramp': {
-      price: '$125 + tax',
+      price: '$150 + tax',
       description: 'On-Ramp is our introductory series of 6 classes over 2 weeks where we get you ready for our regular CrossFit classes. After your two weeks are completed, we encourage you to attend classes for a third week at no additional cost.',
     },
 
