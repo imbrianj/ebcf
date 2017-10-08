@@ -2,8 +2,10 @@
 
 <div class="ui center aligned four column stackable very relaxed grid container pricing page-grid">
   <div class="fourteen wide column">
-    <p class="large">
-      {{t 'pricing.intro'}}
+    <p class="huge">
+      We try to keep our memberships simple.
+      <br>
+      We charge month to month, with no long-term commitments required.
     </p>
   </div>
 
@@ -52,24 +54,9 @@
         </p>
       </div>
     </div>
-
   </div>
 
   <div class="row">
-
-    <div class="seven wide tablet four wide computer computer only tablet only column">
-      <div class="ui raised segment">
-        <div class="row">
-          <h1 class="ui primary header">BOOT CAMP</h1>
-        </div>
-        <div class="row">
-          <h2>{{t 'pricing.boot-camp.price'}}</h2>
-        </div>
-        <p>
-          {{t 'pricing.boot-camp.description'}}
-        </p>
-      </div>
-    </div>
 
     <div class="seven wide tablet four wide computer computer only tablet only column">
       <div class="ui raised segment">
@@ -81,7 +68,6 @@
         </div>
         <p>
           {{t 'pricing.single-drop-in.description'}}
-
         </p>
       </div>
     </div>
@@ -102,8 +88,6 @@
   </div>
 
   <div class="row">
-
-
 
     <div class="mobile only column mobile-pricing">
       <div class="ui raised segment">
@@ -150,20 +134,6 @@
     <div class="mobile only column mobile-pricing">
       <div class="ui raised segment">
         <div class="row">
-          <h1 class="ui primary header">BOOT CAMP</h1>
-        </div>
-        <div class="row">
-          <h2>{{t 'pricing.boot-camp.price'}}</h2>
-        </div>
-        <p>
-          {{t 'pricing.boot-camp.description'}}
-        </p>
-      </div>
-    </div>
-
-    <div class="mobile only column mobile-pricing">
-      <div class="ui raised segment">
-        <div class="row">
           <h1 class="ui primary header">SINGLE DROP-IN</h1>
         </div>
         <div class="row">
@@ -202,4 +172,22 @@
       <a class="ui huge primary button" href="https://elliottbaycrossfit.frontdeskhq.com/people/3047546-rohan-joseph/shop" target="_blank">SIGN UP</a>
     </div>
   </div>
+
+  <hr>
+
+  <div class="fourteen wide column">
+    <div class="ui large header primary">
+      CANCELLATION, REFUND & PRIVACY POLICY
+    </div>
+    <p class="large">
+      You can cancel at anytime directly through Front Desk or by contacting us at info@elliottbaycrossfit.com.
+      <br>
+      If you find yourself traveling frequently or otherwise occupied, and you need to suspend your membership for a time, just let us know and we’d be happy to take care of it for you.
+      <br>
+      Additionaly, all purchases can be refunded within one week of purchase or on a case by case basis.
+      <br>
+      Finally, View our Privacy Policy {{#link-to 'pricing.privacy'}}here{{/link-to}}.
+    </p>
+  </div>
 </div>
+{{outlet}}

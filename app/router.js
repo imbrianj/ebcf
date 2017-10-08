@@ -32,7 +32,9 @@ AppRouter.map(function() {
   this.route('contact');
   this.route('getting-started');
   this.route('schedule');
-  this.route('pricing');
+  this.route('pricing', function() {
+    this.route('privacy');
+  });
 
   this.route('wods', function() {
     this.route('wod', { path: '/:wod_id' });

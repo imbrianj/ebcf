@@ -6,12 +6,12 @@ export default {
 
     'on-ramp': {
       price: '$150 + tax',
-      description: 'On-Ramp is our introductory series of 6 classes over 2 weeks where we get you ready for our regular CrossFit classes. After your two weeks are completed, we encourage you to attend classes for a third week at no additional cost.',
+      description: 'On-Ramp is our introductory series of 4 one-on-one classes for those with new experience and looking to join. To sign up email info@elliottbaycrossfit.com',
     },
 
     unlimited: {
       price: '$205 + tax',
-      description: 'This is our standard and most popular class package. With it you can attend an unlimited amount of regular scheduled classes as well as yoga & olympic lifting.',
+      description: 'This is our standard and most popular class package. With it you can attend an unlimited amount of regular scheduled classes as well as yoga & olympic lifting. We provide a 10% discount to members of the same family and to LEO/Mil/Fire personnel.',
     },
 
     'punch-card': {
@@ -33,6 +33,17 @@ export default {
       price: '$85 + tax',
       description: 'If you would like to drop-in multiple days, we offer two separate week long packages: $85 for 1 week or $105 for 1 week plus a t-shirt. Both packages expire after 1 week. Please bring a credit card for payment if possible.',
     },
+  },
 
+  contact: {
+    email: 'info@elliottbaycrossfit.com',
+    phone: '(206) 290-7619',
+    address: {
+      street: '2211 3rd Ave',
+      unit: 'Unit 3',
+      city: 'Seattle',
+      state: 'WA',
+      zip: '98121',
+    },
   },
 };

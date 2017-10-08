@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 const {
   computed,
+  get,
   Controller,
   observer,
   $,
@@ -14,7 +15,9 @@ export default Controller.extend({
   showBanner: computed.and('titleImage', 'titleHeader'),
 
   currentPathChanged: observer('currentPath', function() {
-    window.scrollTo(0, 0);
+    if (get(this, 'currentPath') !== 'pricing.privacy') {
+      window.scrollTo(0, 0);
+    }
   }),
 
   actions: {
