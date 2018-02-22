@@ -10,7 +10,7 @@ export default {
     },
 
     unlimited: {
-      price: '$205 + tax',
+      price: '$215 + tax',
       description: 'This is our standard and most popular class package. With it you can attend an unlimited amount of regular scheduled classes as well as yoga & olympic lifting. We provide a 10% discount to members of the same family and to LEO/Mil/Fire personnel.',
     },
 
@@ -26,7 +26,7 @@ export default {
 
     'single-drop-in': {
       price: '$20 + tax',
-      description: 'If you’re visiting from another CrossFit gym, we charge $20 per class. Please bring a credit card for payment if possible.',
+      description: 'If you’re visiting from another CrossFit gym, we charge $20 per class when you pre-register and $25 for walk-ins. Please bring a credit card for payment if possible.',
     },
 
     'week-long-drop-in': {
